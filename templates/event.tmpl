@@ -1,25 +1,49 @@
 {{template "base" .}}
 
-{{define "title"}}Event {{.Date}}}}{{end}}
+{{define "title"}}{{.Name}}}}{{end}}
 {{define "content"}}
 <div>
-    <h3>Event - {{.Date}}</h3>
-    <hr>
+    <h3>{{.Name}}</h3>
+    <hr class="hr hr-blurry" />
     <h3>Results</h3>
-    <ol>
-        {{range .Players}}
-        <li>{{.Name}} - {{.Result}}</li>
-        {{end}}
-    </ol>
-    <hr>
-    <h3>Matches</h3>
     <table class="table">
+        <thead>
+            <tr>
+                <th>Player</th>
+                <th>Result</th>
+                <th>Deck</th>
+            </tr>
+        </thead>
+        <tbody>
+        {{range .Results}}
+        <tr>
+            <td>{{.Name}}</td>
+            <td>{{.Result}}</td>
+            {{if .Deck}}
+                <td>
+                    {{.Deck}}
+                    {{if .Decklist}}
+                     - <a href="/decklists/{{.Decklist}}" class="link-success" target="_blank" rel="noopener noreferrer">
+                    (decklist)
+                    </a>
+                    {{end}}
+                </td>
+            {{else}}
+                <td class="text-muted fst-italic">No deck submitted</td>
+            {{end}}
+        </tr>
+        {{end}}
+        </tbody>
+    </table>
+    <hr class="hr hr-blurry" />
+    <h3>Matches</h3>
+    <table class="table table-striped">
         <tbody>
             {{range .Matches}}
             <tr>
                 <td>{{.Player1}}</td>
                 <td>{{.Player2}}</td>
-                <td>{{.Score}}</td>
+                <td>{{.Result}}</td>
             </tr>
             {{end}}
         </tbody>

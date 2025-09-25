@@ -6,7 +6,7 @@ func AggregateStats() error {
 		return err
 	}
 
-	err = UpdateEvents()
+	err = generateEventsList()
 	if err != nil {
 		return err
 	}

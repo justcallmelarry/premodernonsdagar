@@ -24,13 +24,8 @@ func aggregatePlayerStats() error {
 	// Initialize the ELO calculator
 	eloCalc := elogo.NewElo()
 
-	// Map to store all players
 	players := make(map[string]*PlayerStats)
-
-	// Map to store current ELO ratings
 	eloRatings := make(map[string]int)
-
-	// Map to store current Glicko-2 ratings
 	glickoRatings := make(map[string]struct {
 		Rating float64
 		RD     float64
@@ -40,6 +35,11 @@ func aggregatePlayerStats() error {
 	err := os.MkdirAll("files/players", 0755)
 	if err != nil {
 		return fmt.Errorf("failed to create players directory: %w", err)
+	}
+
+	err = os.MkdirAll("files/events", 0755)
+	if err != nil {
+		return fmt.Errorf("failed to create events directory: %w", err)
 	}
 
 	// Create lists directory if it doesn't exist
@@ -155,7 +155,7 @@ func aggregatePlayerStats() error {
 			eventPlayers[match.Player1] = true
 			eventPlayers[match.Player2] = true
 
-			result := parseMatchResult(match)
+			result := ParseMatchResult(match)
 
 			// Update match statistics
 			if result.Draw {
@@ -210,7 +210,9 @@ func aggregatePlayerStats() error {
 		// After processing all matches in the event, update undefeated status
 		for name := range eventPlayers {
 			// If a player participated but had no losses, they were undefeated
-			if players[name].TotalMatchesPlayed > 0 &&
+			if players[name].TotalMatchesPlayed < eventData.Rounds {
+				players[name].UnfinishedEvents++
+			} else if players[name].TotalMatchesPlayed > 0 &&
 				players[name].MatchesLost == 0 &&
 				players[name].MatchesDrawn == 0 {
 				players[name].UndefeatedEvents++
@@ -221,7 +223,7 @@ func aggregatePlayerStats() error {
 		playerMatchesInEvent := make(map[string][]GlickoOpponent)
 
 		for _, match := range eventData.Matches {
-			result := parseMatchResult(match)
+			result := ParseMatchResult(match)
 
 			// Score for player 1
 			scoreP1 := 0.5 // Draw by default
@@ -323,12 +325,13 @@ func aggregatePlayerStats() error {
 				Phi:   math.Round(glickoRatings[name].RD*100) / 100,
 				Sigma: math.Round(glickoRatings[name].Sigma*100) / 100,
 			},
-			DrawCounter:   stats.MatchesDrawn,
-			GameWinRate:   math.Round(gameWinRate*100) / 100,
-			MatchWinRate:  math.Round(matchWinRate*100) / 100,
-			WonAgainst:    stats.WonAgainst,
-			LostAgainst:   stats.LostAgainst,
-			UndefeatedNum: stats.UndefeatedEvents,
+			DrawCounter:      stats.MatchesDrawn,
+			GameWinRate:      math.Round(gameWinRate*100) / 100,
+			MatchWinRate:     math.Round(matchWinRate*100) / 100,
+			WonAgainst:       stats.WonAgainst,
+			LostAgainst:      stats.LostAgainst,
+			UndefeatedEvents: stats.UndefeatedEvents,
+			UnfinishedEvents: stats.UnfinishedEvents,
 		}
 
 		// Write player to JSON file
@@ -385,8 +388,8 @@ func readEventFile(path string) (*EventData, error) {
 	return &eventData, nil
 }
 
-// parseMatchResult processes a match result string
-func parseMatchResult(match Match) MatchResult {
+// ParseMatchResult processes a match result string
+func ParseMatchResult(match Match) MatchResult {
 	parts := strings.Split(match.Result, "-")
 	if len(parts) != 2 {
 		return MatchResult{Draw: true, Score: match.Result}

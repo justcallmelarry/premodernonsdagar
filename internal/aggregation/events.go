@@ -8,8 +8,13 @@ import (
 	"sort"
 )
 
-func GenerateEventsList() error {
+func generateEventsList() error {
 	err := os.MkdirAll("files/lists", 0755)
+	if err != nil {
+		return fmt.Errorf("failed to create lists directory: %w", err)
+	}
+
+	err = os.MkdirAll("files/events", 0755)
 	if err != nil {
 		return fmt.Errorf("failed to create lists directory: %w", err)
 	}
@@ -19,7 +24,12 @@ func GenerateEventsList() error {
 		return fmt.Errorf("failed to read event files: %w", err)
 	}
 
-	events := []EventListItem{}
+	eventsOutputData := EventListStats{
+		Count:  len(eventFiles),
+		Events: []EventListItem{},
+	}
+
+	attendances := []int{}
 
 	for _, eventFile := range eventFiles {
 		// Read event file
@@ -34,23 +44,48 @@ func GenerateEventsList() error {
 			return fmt.Errorf("failed to parse event file %s: %w", eventFile, err)
 		}
 
+		uniquePlayers := make(map[string]struct{})
+		for match := range eventData.Matches {
+			uniquePlayers[eventData.Matches[match].Player1] = struct{}{}
+			uniquePlayers[eventData.Matches[match].Player2] = struct{}{}
+		}
+		attendance := len(uniquePlayers)
+
+		if attendance > eventsOutputData.MaxAttendance {
+			eventsOutputData.MaxAttendance = attendance
+		}
+		if eventsOutputData.MinAttendance == 0 || attendance < eventsOutputData.MinAttendance {
+			eventsOutputData.MinAttendance = attendance
+		}
+
+		attendances = append(attendances, attendance)
+
 		// Create an event list item with name and date (same value for both)
 		event := EventListItem{
 			Name: eventData.Name,
 			Date: eventData.Date,
-			URL:  "/events/" + eventData.Name,
+			URL:  "/events/" + eventData.Date,
 		}
 
-		events = append(events, event)
+		eventsOutputData.Events = append(eventsOutputData.Events, event)
 	}
 
 	// Sort events in reverse alphabetical order
-	sort.Slice(events, func(i, j int) bool {
-		return events[i].Name > events[j].Name
+	sort.Slice(eventsOutputData.Events, func(i, j int) bool {
+		return eventsOutputData.Events[i].Name > eventsOutputData.Events[j].Name
 	})
 
+	// Calculate average attendance
+	totalAttendance := 0
+	for _, att := range attendances {
+		totalAttendance += att
+	}
+	if len(attendances) > 0 {
+		eventsOutputData.AverageAttendance = float64(totalAttendance) / float64(len(attendances))
+	}
+
 	// Write the sorted events list to events.json
-	eventsJSON, err := json.MarshalIndent(events, "", "  ")
+	eventsJSON, err := json.MarshalIndent(eventsOutputData, "", "  ")
 	if err != nil {
 		return fmt.Errorf("failed to marshal events list: %w", err)
 	}
@@ -60,10 +95,4 @@ func GenerateEventsList() error {
 	}
 
 	return nil
-}
-
-// UpdateEvents generates the events list and should be called
-// after any changes to event files
-func UpdateEvents() error {
-	return GenerateEventsList()
 }

@@ -1,100 +1,110 @@
 {{ template "base.html" . }}
 
-{{define "title"}}{{ .Player.name }}{{end}}
+{{define "title"}}{{ .Player.Name }}{{end}}
 {{ define "content" }}
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">
-                        <h1 class="text-center display-4">{{ .Player.name }}</h1>
-                    </div>
+<div class="card">
+    <div class="card-header">
+        <h1 class="text-center display-4">{{ .Player.Name }}</h1>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mb-2">
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="card mb-2">
-                                    <div class="card-body">
-                                        <table class="table table-sm table-borderless">
-                                            <tbody>
-                                                <tr>
-                                                    <td class="text-muted text-right">Elo Rating:</td>
-                                                    <td class="text-muted">{{ printf "%.2f" .Player.elo_rating }}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-muted text-right">Glicko Rating:</td>
-                                                    <td class="text-muted">{{ printf "%.2f" .Player.glicko_rating.mu }}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-muted text-right">Glicko Distribution:</td>
-                                                    <td class="text-muted">{{ printf "%.2f" .Player.glicko_rating.phi }}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-muted text-right">Glicko Volatility:</td>
-                                                    <td class="text-muted">{{ printf "%.2f" .Player.glicko_rating.sigma }}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-muted text-right">Amount of Draws:</td>
-                                                    <td class="text-muted">{{ .Player.draw_counter }}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-muted text-right">Game Win Rate:</td>
-                                                    <td class="text-muted">{{ printf "%.2f" .Player.game_win_rate }}%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-muted text-right">Match Win Rate:</td>
-                                                    <td class="text-muted">{{ printf "%.2f" .Player.match_win_rate }}%</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="card mb-2">
-                                    <div class="card-body">
-                                        <h4 class="card-title text-center">Matches Won Against</h4>
-                                        {{ if eq (len .Player.matches_won_against) 0 }}
-                                            <p class="text-center text-muted">No matches won against any opponent yet.</p>
-                                        {{ else }}
-                                        <table class="table table-sm table-borderless" style="width: 50%; margin: 0 auto;">
-                                            <tbody>
-                                            {{ range $opponent, $count := .Player.matches_won_against }}
-                                            <tr>
-                                                <td class="text-muted">{{ $opponent }}</td>
-                                                <td class="text-muted">{{ $count }}</td>
-                                            </tr>
-                                            {{ end }}
-                                        </table>
-                                        {{ end }}
-                                  </div>
-                                </div>
-                                <div class="card mb-2">
-                                <h4 class="card-title text-center">Matches Lost Against</h4>
-                                {{ if eq (len .Player.matches_lost_against) 0 }}
-                                    <p class="text-center text-muted">Undefeated!</p>
-                                {{ else }}
-                                <table class="table table-sm table-borderless" style="width: 50%; margin: 0 auto;">
-                                    <tbody>
-                                    {{ range $opponent, $count := .Player.matches_lost_against }}
-                                    <tr>
-                                        <td>{{ $opponent }}</td>
-                                        <td>{{ $count }}</td>
-                                    </tr>
-                                    {{ end }}
-                                </table>
-                                {{ end }}
-                                </div>
-                                <div class="card mb-2">
-                                    <div class="card-body">
-                                        <h4 class="card-title text-center">Undefeated Records</h4>
-                                        <h4 class="text-center text-muted">{{ .Player.undefeated_records }}</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <table class="table table-sm table-borderless">
+                            <tbody>
+                                <tr>
+                                    <td class="text-muted text-right">Elo Rating:</td>
+                                    <td class="text-muted">{{ printf "%.2f" .Player.EloRating }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-muted text-right">Glicko Rating:</td>
+                                    <td class="text-muted">{{ printf "%.2f" .Player.GlickoRating.Mu }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-muted text-right">Glicko Distribution:</td>
+                                    <td class="text-muted">{{ printf "%.2f" .Player.GlickoRating.Phi }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-muted text-right">Glicko Volatility:</td>
+                                    <td class="text-muted">{{ printf "%.2f" .Player.GlickoRating.Sigma }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-muted text-right">Amount of Draws:</td>
+                                    <td class="text-muted">{{ .Player.DrawCounter }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-muted text-right">Game Win Rate:</td>
+                                    <td class="text-muted">{{ printf "%.2f" .Player.GameWinRate }}%</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-muted text-right">Match Win Rate:</td>
+                                    <td class="text-muted">{{ printf "%.2f" .Player.MatchWinRate }}%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card mb-2">
+                    <div class="card-body">
+                        <h4 class="card-title">Matches Won Against</h4>
+                        {{ if eq (len .Player.WonAgainst) 0 }}
+                            <p class="text-muted">No matches won against any opponent yet.</p>
+                        {{ else }}
+                        <table class="table table-sm table-borderless">
+                            <tbody>
+                            {{ range $opponent, $count := .Player.WonAgainst }}
+                            <tr>
+                                <td class="text-muted">{{ $opponent }}</td>
+                                <td class="text-muted text-end">{{ $count }}</td>
+                            </tr>
+                            {{ end }}
+                        </table>
+                        {{ end }}
+                    </div>
+                </div>
+                <div class="card mb-2">
+                <div class="card-body">
+                <h4 class="card-title">Matches Lost Against</h4>
+                {{ if eq (len .Player.LostAgainst) 0 }}
+                    <p class="text-muted">Undefeated! 💪</p>
+                {{ else }}
+                <table class="table table-sm table-borderless">
+                    <tbody>
+                    {{ range $opponent, $count := .Player.LostAgainst }}
+                    <tr>
+                        <td class="text-muted">{{ $opponent }}</td>
+                        <td class="text-muted text-end">{{ $count }}</td>
+                    </tr>
+                    {{ end }}
+                </table>
+                {{ end }}
+                </div>
+                </div>
+                <div class="card mb-2">
+                    <div class="card-body">
+                        <h4 class="card-title">Events Undefeated</h4>
+                        {{ if eq .Player.UndefeatedEvents 0 }}
+                        <h4 class="text-muted">{{ .Player.UndefeatedEvents }}</h4>
+                        {{ else }}
+                        <h4 class="text-success">{{ .Player.UndefeatedEvents }}</h4>
+                        {{ end }}
+                    </div>
+                </div>
+                <div class="card mb-2">
+                    <div class="card-body">
+                        <h4 class="card-title">Events Unfinished</h4>
+                        {{ if eq .Player.UnfinishedEvents 0 }}
+                        <h4 class="text-muted">{{ .Player.UnfinishedEvents }}</h4>
+                        {{ else }}
+                        <h4 class="text-danger">{{ .Player.UnfinishedEvents }}</h4>
+                        {{ end }}
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 {{ end }}

@@ -3,8 +3,30 @@
 {{define "title"}}Events{{end}}
 {{define "content"}}
 <div>
+<div class="d-flex gap-2 flex-wrap">
+{{ range $key, $value := .Stats }}
+    <div class="d-flex align-content-center">
+      <div class="card" style="width: 12rem">
+        <div class="card-body">
+          <h5 class="card-title">{{ $key }}</h5>
+          <div class="d-flex gap-4">
+            <div class="d-flex">
+              <span class="material-symbols-outlined">
+                {{ $value.Icon }}
+              </span>
+            </div>
+            <div class="d-flex">
+              <p class="card-text">{{ $value.Value }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+{{ end }}
+</div>
+<hr class="hr hr-blurry" />
 {{ $events := .Events }}
-<h2>Events</h2>
+<h3>Events</h3>
 <table class="table">
     <thead>
         <tr>
@@ -15,10 +37,10 @@
     </thead>
     <tbody>
         {{ range $event := $events }}
-            <tr class="clickable align-middle" onclick="window.location='{{ $event.url }}'">
-                <td>{{ $event.date }}</td>
-                <td>{{ $event.name }}</td>
-                <td><a href="{{ $event.url }}">Details</a></td>
+            <tr class="clickable align-middle" onclick="window.location='{{ $event.URL }}'">
+                <td>{{ $event.Date }}</td>
+                <td>{{ $event.Name }}</td>
+                <td><a href="{{ $event.URL }}">Details</a></td>
             </tr>
         {{ end }}
     </tbody>

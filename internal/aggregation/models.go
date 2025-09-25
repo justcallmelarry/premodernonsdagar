@@ -3,8 +3,10 @@ package aggregation
 type EventData struct {
 	Name       string                     `json:"name"`
 	Date       string                     `json:"date"`
+	Rounds     int                        `json:"rounds"`
 	PlayerInfo map[string]PlayerEventInfo `json:"player_info"`
 	Matches    []Match                    `json:"matches"`
+	Results    map[string]string          `json:"results"`
 }
 
 type PlayerEventInfo struct {
@@ -27,7 +29,6 @@ type MatchResult struct {
 	Score  string
 }
 
-// PlayerStats holds temporary statistics for a player during aggregation
 type PlayerStats struct {
 	Name               string
 	GamesWon           int
@@ -40,6 +41,7 @@ type PlayerStats struct {
 	TotalGamesPlayed   int
 	TotalMatchesPlayed int
 	UndefeatedEvents   int
+	UnfinishedEvents   int
 }
 
 // GlickoOpponent implements the glicko2.Opponent interface
@@ -50,6 +52,14 @@ type GlickoOpponent struct {
 	score  float64
 }
 
+type EventListStats struct {
+	Count             int             `json:"count"`
+	AverageAttendance float64         `json:"average_attendance"`
+	MaxAttendance     int             `json:"max_attendance"`
+	MinAttendance     int             `json:"min_attendance"`
+	Events            []EventListItem `json:"events"`
+}
+
 type EventListItem struct {
 	Name string `json:"name"`
 	Date string `json:"date"`
@@ -58,15 +68,16 @@ type EventListItem struct {
 
 // Player represents a player in the system
 type Player struct {
-	Name          string         `json:"name"`
-	EloRating     float64        `json:"elo_rating"`
-	GlickoRating  GlickoRating   `json:"glicko_rating"`
-	DrawCounter   int            `json:"draw_counter"`
-	GameWinRate   float64        `json:"game_win_rate"`
-	MatchWinRate  float64        `json:"match_win_rate"`
-	WonAgainst    map[string]int `json:"matches_won_against"`
-	LostAgainst   map[string]int `json:"matches_lost_against"`
-	UndefeatedNum int            `json:"undefeated_records"`
+	Name             string         `json:"name"`
+	EloRating        float64        `json:"elo_rating"`
+	GlickoRating     GlickoRating   `json:"glicko_rating"`
+	DrawCounter      int            `json:"draw_counter"`
+	GameWinRate      float64        `json:"game_win_rate"`
+	MatchWinRate     float64        `json:"match_win_rate"`
+	WonAgainst       map[string]int `json:"won_against"`
+	LostAgainst      map[string]int `json:"lost_against"`
+	UndefeatedEvents int            `json:"undefeated_events"`
+	UnfinishedEvents int            `json:"unfinished_events"`
 }
 
 // GlickoRating represents the Glicko-2 rating for a player
