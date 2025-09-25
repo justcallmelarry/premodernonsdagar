@@ -1,0 +1,423 @@
+package aggregation
+
+import (
+	"encoding/json"
+	"fmt"
+	"io/fs"
+	"math"
+	"os"
+	"path/filepath"
+	"sort"
+	"strings"
+
+	"premodernonsdagar/internal/utils"
+	elogo "premodernonsdagar/pkg/elo"
+	"premodernonsdagar/pkg/glicko2"
+)
+
+func (o *GlickoOpponent) R() float64     { return o.rating }
+func (o *GlickoOpponent) RD() float64    { return o.rd }
+func (o *GlickoOpponent) Sigma() float64 { return o.sigma }
+func (o *GlickoOpponent) SJ() float64    { return o.score }
+
+func aggregatePlayerStats() error {
+	// Initialize the ELO calculator
+	eloCalc := elogo.NewElo()
+
+	// Map to store all players
+	players := make(map[string]*PlayerStats)
+
+	// Map to store current ELO ratings
+	eloRatings := make(map[string]int)
+
+	// Map to store current Glicko-2 ratings
+	glickoRatings := make(map[string]struct {
+		Rating float64
+		RD     float64
+		Sigma  float64
+	})
+
+	err := os.MkdirAll("files/players", 0755)
+	if err != nil {
+		return fmt.Errorf("failed to create players directory: %w", err)
+	}
+
+	// Create lists directory if it doesn't exist
+	err = os.MkdirAll("files/lists", 0755)
+	if err != nil {
+		return fmt.Errorf("failed to create lists directory: %w", err)
+	}
+
+	// First pass: Collect all player names and initialize their stats
+	err = filepath.WalkDir("files/events", func(path string, d fs.DirEntry, err error) error {
+		if err != nil {
+			return err
+		}
+
+		if d.IsDir() || !strings.HasSuffix(strings.ToLower(path), ".json") {
+			return nil
+		}
+
+		eventData, err := readEventFile(path)
+		if err != nil {
+			return err
+		}
+
+		// Initialize players from player_info
+		for name := range eventData.PlayerInfo {
+			if _, exists := players[name]; !exists {
+				players[name] = &PlayerStats{
+					Name:        name,
+					WonAgainst:  make(map[string]int),
+					LostAgainst: make(map[string]int),
+				}
+				eloRatings[name] = 1500 // Starting ELO
+				glickoRatings[name] = struct {
+					Rating float64
+					RD     float64
+					Sigma  float64
+				}{
+					Rating: 1500, // Starting Glicko-2 rating
+					RD:     350,  // Starting Glicko-2 rating deviation
+					Sigma:  0.06, // Starting Glicko-2 volatility
+				}
+			}
+		}
+
+		// Add any players from matches that might not be in player_info
+		for _, match := range eventData.Matches {
+			for _, name := range []string{match.Player1, match.Player2} {
+				if _, exists := players[name]; !exists {
+					players[name] = &PlayerStats{
+						Name:        name,
+						WonAgainst:  make(map[string]int),
+						LostAgainst: make(map[string]int),
+					}
+					eloRatings[name] = 1500 // Starting ELO
+					glickoRatings[name] = struct {
+						Rating float64
+						RD     float64
+						Sigma  float64
+					}{
+						Rating: 1500, // Starting Glicko-2 rating
+						RD:     350,  // Starting Glicko-2 rating deviation
+						Sigma:  0.06, // Starting Glicko-2 volatility
+					}
+				}
+			}
+		}
+
+		return nil
+	})
+
+	if err != nil {
+		return fmt.Errorf("error in first pass: %w", err)
+	}
+
+	// Second pass: Process all events in chronological order
+	eventFiles := []string{}
+	err = filepath.WalkDir("files/events", func(path string, d fs.DirEntry, err error) error {
+		if err != nil {
+			return err
+		}
+
+		if d.IsDir() || !strings.HasSuffix(strings.ToLower(path), ".json") {
+			return nil
+		}
+
+		eventFiles = append(eventFiles, path)
+		return nil
+	})
+
+	if err != nil {
+		return fmt.Errorf("error collecting event files: %w", err)
+	}
+
+	// Sort events by date (using filename as proxy)
+	// This assumes filenames are in format YYYY-MM-DD.json
+	sort.Strings(eventFiles)
+
+	// Process each event
+	for _, eventPath := range eventFiles {
+		eventData, err := readEventFile(eventPath)
+		if err != nil {
+			return err
+		}
+
+		// Track players in this event
+		eventPlayers := make(map[string]bool)
+		for name := range eventData.PlayerInfo {
+			eventPlayers[name] = true
+		}
+
+		// Process matches for this event
+		for _, match := range eventData.Matches {
+			eventPlayers[match.Player1] = true
+			eventPlayers[match.Player2] = true
+
+			result := parseMatchResult(match)
+
+			// Update match statistics
+			if result.Draw {
+				players[match.Player1].MatchesDrawn++
+				players[match.Player2].MatchesDrawn++
+			} else {
+				players[result.Winner].MatchesWon++
+				players[result.Loser].MatchesLost++
+
+				players[result.Winner].WonAgainst[result.Loser]++
+				players[result.Loser].LostAgainst[result.Winner]++
+			}
+
+			// Parse games (e.g., "2-1" means 2 games won by player1, 1 game won by player2)
+			parts := strings.Split(result.Score, "-")
+			if len(parts) == 2 {
+				p1Games, p2Games := 0, 0
+				fmt.Sscanf(result.Score, "%d-%d", &p1Games, &p2Games)
+
+				players[match.Player1].GamesWon += p1Games
+				players[match.Player1].GamesLost += p2Games
+				players[match.Player2].GamesWon += p2Games
+				players[match.Player2].GamesLost += p1Games
+
+				players[match.Player1].TotalGamesPlayed += p1Games + p2Games
+				players[match.Player2].TotalGamesPlayed += p1Games + p2Games
+			}
+
+			// Update total matches played
+			players[match.Player1].TotalMatchesPlayed++
+			players[match.Player2].TotalMatchesPlayed++
+
+			// Update ELO ratings based on match result
+			eloScore := 0.5 // Draw by default
+			if !result.Draw {
+				if result.Winner == match.Player1 {
+					eloScore = 1.0 // Player1 won
+				} else {
+					eloScore = 0.0 // Player2 won
+				}
+			}
+
+			p1OutcomeElo, p2OutcomeElo := eloCalc.Outcome(eloRatings[match.Player1], eloRatings[match.Player2], eloScore)
+			eloRatings[match.Player1] = p1OutcomeElo.Rating
+			eloRatings[match.Player2] = p2OutcomeElo.Rating
+
+			// Update Glicko-2 ratings
+			// For Glicko-2, we need to collect all matches for a player in an event first
+			// This will be done after processing all matches
+		}
+
+		// After processing all matches in the event, update undefeated status
+		for name := range eventPlayers {
+			// If a player participated but had no losses, they were undefeated
+			if players[name].TotalMatchesPlayed > 0 &&
+				players[name].MatchesLost == 0 &&
+				players[name].MatchesDrawn == 0 {
+				players[name].UndefeatedEvents++
+			}
+		}
+
+		// Collect all matches for Glicko-2 updates
+		playerMatchesInEvent := make(map[string][]GlickoOpponent)
+
+		for _, match := range eventData.Matches {
+			result := parseMatchResult(match)
+
+			// Score for player 1
+			scoreP1 := 0.5 // Draw by default
+			if !result.Draw {
+				if result.Winner == match.Player1 {
+					scoreP1 = 1.0
+				} else {
+					scoreP1 = 0.0
+				}
+			}
+
+			// Add opponent for player 1
+			playerMatchesInEvent[match.Player1] = append(playerMatchesInEvent[match.Player1], GlickoOpponent{
+				rating: glickoRatings[match.Player2].Rating,
+				rd:     glickoRatings[match.Player2].RD,
+				sigma:  glickoRatings[match.Player2].Sigma,
+				score:  scoreP1,
+			})
+
+			// Add opponent for player 2
+			playerMatchesInEvent[match.Player2] = append(playerMatchesInEvent[match.Player2], GlickoOpponent{
+				rating: glickoRatings[match.Player1].Rating,
+				rd:     glickoRatings[match.Player1].RD,
+				sigma:  glickoRatings[match.Player1].Sigma,
+				score:  1.0 - scoreP1, // Reverse score for player 2
+			})
+		}
+
+		// Update Glicko-2 ratings for each player
+		for player, opponents := range playerMatchesInEvent {
+			if len(opponents) > 0 {
+				// Convert our GlickoOpponent to the glicko2.Opponent interface
+				glickoOpponents := make([]glicko2.Opponent, len(opponents))
+				for i, opp := range opponents {
+					oppCopy := opp // Create a copy to avoid issues with pointer reuse
+					glickoOpponents[i] = &oppCopy
+				}
+
+				// Update rating
+				nr, nrd, nsigma := glicko2.Rank(
+					glickoRatings[player].Rating,
+					glickoRatings[player].RD,
+					glickoRatings[player].Sigma,
+					glickoOpponents,
+					0.6, // Tau value (recommended between 0.3 and 1.2)
+				)
+
+				glickoRatings[player] = struct {
+					Rating float64
+					RD     float64
+					Sigma  float64
+				}{
+					Rating: nr,
+					RD:     nrd,
+					Sigma:  nsigma,
+				}
+			} else {
+				// If player skipped this tournament, update RD
+				newRD := glicko2.Skip(
+					glickoRatings[player].Rating,
+					glickoRatings[player].RD,
+					glickoRatings[player].Sigma,
+				)
+				glickoRatings[player] = struct {
+					Rating float64
+					RD     float64
+					Sigma  float64
+				}{
+					Rating: glickoRatings[player].Rating,
+					RD:     newRD,
+					Sigma:  glickoRatings[player].Sigma,
+				}
+			}
+		}
+	}
+
+	playersList := []PlayerListEntry{}
+
+	for name, stats := range players {
+		if stats.TotalMatchesPlayed == 0 {
+			continue
+		}
+
+		gameWinRate := 0.0
+		if stats.GamesWon+stats.GamesLost > 0 {
+			gameWinRate = float64(stats.GamesWon) / float64(stats.GamesWon+stats.GamesLost) * 100.0
+		}
+
+		matchWinRate := 0.0
+		if stats.MatchesWon+stats.MatchesLost+stats.MatchesDrawn > 0 {
+			matchWinRate = float64(stats.MatchesWon) / float64(stats.MatchesWon+stats.MatchesLost+stats.MatchesDrawn) * 100.0
+		}
+
+		player := &Player{
+			Name:      name,
+			EloRating: math.Round(float64(eloRatings[name])*100) / 100,
+			GlickoRating: GlickoRating{
+				Mu:    math.Round(glickoRatings[name].Rating*100) / 100,
+				Phi:   math.Round(glickoRatings[name].RD*100) / 100,
+				Sigma: math.Round(glickoRatings[name].Sigma*100) / 100,
+			},
+			DrawCounter:   stats.MatchesDrawn,
+			GameWinRate:   math.Round(gameWinRate*100) / 100,
+			MatchWinRate:  math.Round(matchWinRate*100) / 100,
+			WonAgainst:    stats.WonAgainst,
+			LostAgainst:   stats.LostAgainst,
+			UndefeatedNum: stats.UndefeatedEvents,
+		}
+
+		// Write player to JSON file
+		playerJSON, err := json.MarshalIndent(player, "", "  ")
+		if err != nil {
+			return fmt.Errorf("failed to marshal player %s: %w", name, err)
+		}
+
+		slug := utils.Slugify(name)
+		err = os.WriteFile(fmt.Sprintf("files/players/%s.json", slug), playerJSON, 0644)
+		if err != nil {
+			return fmt.Errorf("failed to write player file for %s: %w", name, err)
+		}
+
+		// Add to the players list
+		playersList = append(playersList, PlayerListEntry{
+			Name: name,
+			Slug: slug,
+			URL:  "/players/" + slug,
+		})
+	}
+
+	// Sort the players list alphabetically by slug
+	sort.Slice(playersList, func(i, j int) bool {
+		return playersList[i].Slug < playersList[j].Slug
+	})
+
+	// Write the players list to a JSON file
+	playersListJSON, err := json.MarshalIndent(playersList, "", "  ")
+	if err != nil {
+		return fmt.Errorf("failed to marshal players list: %w", err)
+	}
+
+	err = os.WriteFile("files/lists/players.json", playersListJSON, 0644)
+	if err != nil {
+		return fmt.Errorf("failed to write players list file: %w", err)
+	}
+
+	return nil
+}
+
+// readEventFile reads and parses an event JSON file
+func readEventFile(path string) (*EventData, error) {
+	data, err := os.ReadFile(path)
+	if err != nil {
+		return nil, fmt.Errorf("failed to read event file %s: %w", path, err)
+	}
+
+	var eventData EventData
+	if err := json.Unmarshal(data, &eventData); err != nil {
+		return nil, fmt.Errorf("failed to parse event file %s: %w", path, err)
+	}
+
+	return &eventData, nil
+}
+
+// parseMatchResult processes a match result string
+func parseMatchResult(match Match) MatchResult {
+	parts := strings.Split(match.Result, "-")
+	if len(parts) != 2 {
+		return MatchResult{Draw: true, Score: match.Result}
+	}
+
+	var p1Score, p2Score int
+	_, err := fmt.Sscanf(match.Result, "%d-%d", &p1Score, &p2Score)
+	if err != nil {
+		return MatchResult{Draw: true, Score: match.Result}
+	}
+
+	if p1Score == p2Score {
+		return MatchResult{
+			Draw:  true,
+			Score: match.Result,
+		}
+	}
+
+	if p1Score > p2Score {
+		return MatchResult{
+			Winner: match.Player1,
+			Loser:  match.Player2,
+			Draw:   false,
+			Score:  match.Result,
+		}
+	} else {
+		return MatchResult{
+			Winner: match.Player2,
+			Loser:  match.Player1,
+			Draw:   false,
+			Score:  match.Result,
+		}
+	}
+}

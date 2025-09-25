@@ -1,0 +1,29 @@
+{{template "base" .}}
+
+{{define "title"}}Event {{.Date}}}}{{end}}
+{{define "content"}}
+<div>
+    <h3>Event - {{.Date}}</h3>
+    <hr>
+    <h3>Results</h3>
+    <ol>
+        {{range .Players}}
+        <li>{{.Name}} - {{.Result}}</li>
+        {{end}}
+    </ol>
+    <hr>
+    <h3>Matches</h3>
+    <table class="table">
+        <tbody>
+            {{range .Matches}}
+            <tr>
+                <td>{{.Player1}}</td>
+                <td>{{.Player2}}</td>
+                <td>{{.Score}}</td>
+            </tr>
+            {{end}}
+        </tbody>
+    </table>
+</div>
+{{end}}
+

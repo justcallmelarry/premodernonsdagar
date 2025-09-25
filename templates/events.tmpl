@@ -1,0 +1,27 @@
+{{template "base" .}}
+
+{{define "title"}}Events{{end}}
+{{define "content"}}
+<div>
+{{ $events := .Events }}
+<h2>Events</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Name</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{ range $event := $events }}
+            <tr class="clickable align-middle" onclick="window.location='{{ $event.url }}'">
+                <td>{{ $event.date }}</td>
+                <td>{{ $event.name }}</td>
+                <td><a href="{{ $event.url }}">Details</a></td>
+            </tr>
+        {{ end }}
+    </tbody>
+</table>
+</div>
+{{end}}

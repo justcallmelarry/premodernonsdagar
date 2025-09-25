@@ -1,0 +1,22 @@
+{{template "base" .}}
+
+{{define "title"}}Players{{end}}
+{{define "content"}}
+<div>
+{{ $players := .Players }}
+<h2>Players</h2>
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    {{ range $player := $players }}
+        <div class="col mb-4">
+            <a href="{{ $player.url }}" class="text-decoration-none">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $player.name }}</h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+    {{ end }}
+</div>
+</div>
+{{end}}
