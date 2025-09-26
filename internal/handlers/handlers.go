@@ -232,3 +232,29 @@ func LeaderboardsHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	templates.RenderTemplate(w, "leaderboards.tmpl", templateData)
 }
+
+func DecklistHandler(w http.ResponseWriter, r *http.Request) {
+	// Extract decklist ID from URL path
+	decklistID := r.URL.Path[len("/decklists/"):]
+
+	filePath := "files/decklists/" + decklistID + ".txt"
+	fileContent, err := os.ReadFile(filePath)
+	if err != nil {
+		http.Error(w, "Decklist not found", http.StatusNotFound)
+		return
+	}
+
+	templateData := map[string]interface{}{
+		"ActivePage": "",
+		"Decklist":   string(fileContent),
+	}
+	player := r.URL.Query().Get("player")
+	event := r.URL.Query().Get("event")
+
+	if player != "" || event != "" {
+		templateData["Player"] = player
+		templateData["Event"] = event
+	}
+
+	templates.RenderTemplate(w, "decklist.tmpl", templateData)
+}
