@@ -1,4 +1,4 @@
-FROM golang:alpine AS build
+FROM golang:25-alpine AS build
 
 WORKDIR /app
 
