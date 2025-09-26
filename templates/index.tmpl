@@ -2,16 +2,32 @@
 
 {{define "title"}}Premodern-onsdagar{{end}}
 {{define "content"}}
-<div class="container">
-  <div class="row">
-    <div class="col-12 col-md-6">
-        <h3>Welcome to premodern in Stockholm!</h3>
-        <p>We meet every on even weeks (week number 2, 4, 6, etc) and play some premodern at Bishops Arms in Gamla Stan in Stockholm.</p>
-        <p>We are running simple, very casual, tournaments in order to encourage people to play more against different people, and to track stats.</p>
-    </div>
-    <div class="col-12 col-md-6 text-center">
-      <img src="/static/images/pmseb.jpg" class="img-fluid rounded" alt="Photo of Seb Celia by: Martin Berlin" style="max-height: 600px; object-fit: cover;"/>
-      <p class="text-muted"><small>Photo of Seb Celia by: Martin Berlin</small></p>
+
+<div class="flex min-h-[calc(100vh-96px)] flex-col md:flex-row">
+  <div
+    class="w-full bg-cover bg-center md:w-1/2 rounded-lg"
+    style="background-image: url('/static/images/pmseb.jpg');"
+  ></div>
+
+  <div class="flex w-full flex-col justify-center p-8 md:w-1/2">
+    <div>
+      <h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+        Welcome to premodern in Stockholm!
+      </h1>
+
+      <p class="pb-4 leading-7 [&:not(:first-child)]:mt-6">
+        We meet every on even weeks (week number 2, 4, 6, etc) and play some premodern at Bishops Arms in Gamla Stan in Stockholm.
+      </p>
+      <p class="pb-4 leading-7 [&:not(:first-child)]:mt-6">
+        We are running simple, very casual, tournaments in order to encourage people to play more against different people, and to track stats.
+      </p>
+
+      <!-- Mobile image -->
+      <div class="md:hidden mb-4">
+        <img src="/static/images/pmseb.jpg" class="w-full rounded-lg shadow-lg" alt="Photo of Seb Celia by: Martin Berlin" style="max-height: 300px; object-fit: cover;"/>
+      </div>
+
+      <p class="text-gray-500 dark:text-gray-400 text-sm mt-2">Photo of Seb Celia by: Martin Berlin</p>
     </div>
   </div>
 </div>
