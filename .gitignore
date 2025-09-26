@@ -32,5 +32,7 @@ go.work.sum
 .vscode/
 
 # temp data
-*.json
-*.txt
+files/**/*.json
+files/**/*.txt
+node_modules/
+.DS_Store
