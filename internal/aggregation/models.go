@@ -90,6 +90,8 @@ type GlickoRating struct {
 type LeaderboardContainer struct {
 	Title   string             `json:"title"`
 	Entries []LeaderboardEntry `json:"entries"`
+	Type    string             `json:"type,omitempty"` // "int" or "float", optional
+	Suffix  string             `json:"suffix,omitempty"`
 }
 
 type LeaderboardEntry struct {

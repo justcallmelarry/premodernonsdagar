@@ -42,30 +42,39 @@ func generateLeaderboards() error {
 		{
 			Title:   "Elo Rating",
 			Entries: topN(players, func(p Player) float64 { return p.EloRating }, 8),
+			Type:    "float",
 		},
 		{
 			Title:   "Glicko Rating",
 			Entries: topN(players, func(p Player) float64 { return p.GlickoRating.Mu }, 8),
+			Type:    "float",
 		},
 		{
 			Title:   "Match Win Percentage",
 			Entries: topN(players, func(p Player) float64 { return p.MatchWinRate }, 8),
+			Type:    "float",
+			Suffix:  "%",
 		},
 		{
 			Title:   "Game Win Percentage",
 			Entries: topN(players, func(p Player) float64 { return p.GameWinRate }, 8),
+			Type:    "float",
+			Suffix:  "%",
 		},
 		{
 			Title:   "Played Events",
 			Entries: topN(players, func(p Player) float64 { return float64(p.EventsAttended) }, 8),
+			Type:    "int",
 		},
 		{
 			Title:   "Undefeated Events",
 			Entries: topN(players, func(p Player) float64 { return float64(p.UndefeatedEvents) }, 8),
+			Type:    "int",
 		},
 		{
 			Title:   "Unfinished Events",
 			Entries: topN(players, func(p Player) float64 { return float64(p.UnfinishedEvents) }, 8),
+			Type:    "int",
 		},
 	}
 
