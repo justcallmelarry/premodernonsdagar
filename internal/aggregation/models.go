@@ -89,21 +89,18 @@ type GlickoRating struct {
 
 // LeaderboardEntry represents a player's entry in a leaderboard
 type LeaderboardEntry struct {
-	PlayerName string
-	Score      interface{} // Can be float64 or int depending on the leaderboard
+	PlayerName string      `json:"name"`
+	Score      interface{} `json:"score"` // Can be float64 or int depending on the leaderboard
 }
 
 // LeaderboardData contains all the leaderboard types
 type LeaderboardData struct {
-	Elo                  []LeaderboardEntry
-	Glicko               []LeaderboardEntry
-	MatchWinPercentage   []LeaderboardEntry
-	GameWinPercentage    []LeaderboardEntry
-	Draw                 []LeaderboardEntry
-	Bye                  []LeaderboardEntry
-	MostPlayedEvents     []LeaderboardEntry
-	Undefeated           []LeaderboardEntry
-	ModernLiganStandings []LeaderboardEntry
+	Elo                []LeaderboardEntry `json:"elo"`
+	Glicko             []LeaderboardEntry `json:"glicko"`
+	MatchWinPercentage []LeaderboardEntry `json:"match_win_percentage"`
+	GameWinPercentage  []LeaderboardEntry `json:"game_win_percentage"`
+	MostPlayedEvents   []LeaderboardEntry `json:"most_played_events"`
+	Undefeated         []LeaderboardEntry `json:"undefeated"`
 }
 
 type PlayerListEntry struct {

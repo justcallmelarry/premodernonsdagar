@@ -11,5 +11,10 @@ func AggregateStats() error {
 		return err
 	}
 
+	err = generateLeaderboards()
+	if err != nil {
+		return err
+	}
+
 	return nil
 }
