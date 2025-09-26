@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o /app/main
+RUN GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o /app/main /cmd/main/main.go
 
 
 FROM scratch
