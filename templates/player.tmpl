@@ -14,35 +14,35 @@
                         <table class="min-w-full">
                             <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
                                 <tr>
-                                    <td class="py-2 text-right text-gray-500 dark:text-gray-400">Elo Rating:</td>
+                                    <td class="py-2 text-gray-500 dark:text-gray-400">Elo Rating:</td>
                                     <td class="py-2 text-gray-500 dark:text-gray-400">{{ printf "%.2f" .Player.EloRating }}</td>
                                 </tr>
                                 <tr>
-                                    <td class="py-2 text-right text-gray-500 dark:text-gray-400">Glicko Rating:</td>
+                                    <td class="py-2 text-gray-500 dark:text-gray-400">Glicko Rating:</td>
                                     <td class="py-2 text-gray-500 dark:text-gray-400">{{ printf "%.2f" .Player.GlickoRating.Mu }}</td>
                                 </tr>
                                 <tr>
-                                    <td class="py-2 text-right text-gray-500 dark:text-gray-400">Glicko Distribution:</td>
+                                    <td class="py-2 text-gray-500 dark:text-gray-400">Glicko Distribution:</td>
                                     <td class="py-2 text-gray-500 dark:text-gray-400">{{ printf "%.2f" .Player.GlickoRating.Phi }}</td>
                                 </tr>
                                 <tr>
-                                    <td class="py-2 text-right text-gray-500 dark:text-gray-400">Glicko Volatility:</td>
+                                    <td class="py-2 text-gray-500 dark:text-gray-400">Glicko Volatility:</td>
                                     <td class="py-2 text-gray-500 dark:text-gray-400">{{ printf "%.2f" .Player.GlickoRating.Sigma }}</td>
                                 </tr>
                                 <tr>
-                                    <td class="py-2 text-right text-gray-500 dark:text-gray-400">Amount of Draws:</td>
+                                    <td class="py-2 text-gray-500 dark:text-gray-400">Amount of Draws:</td>
                                     <td class="py-2 text-gray-500 dark:text-gray-400">{{ .Player.DrawCounter }}</td>
                                 </tr>
                                 <tr>
-                                    <td class="py-2 text-right text-gray-500 dark:text-gray-400">Game Win Rate:</td>
+                                    <td class="py-2 text-gray-500 dark:text-gray-400">Game Win Rate:</td>
                                     <td class="py-2 text-gray-500 dark:text-gray-400">{{ printf "%.2f" .Player.GameWinRate }}%</td>
                                 </tr>
                                 <tr>
-                                    <td class="py-2 text-right text-gray-500 dark:text-gray-400">Match Win Rate:</td>
+                                    <td class="py-2 text-gray-500 dark:text-gray-400">Match Win Rate:</td>
                                     <td class="py-2 text-gray-500 dark:text-gray-400">{{ printf "%.2f" .Player.MatchWinRate }}%</td>
                                 </tr>
                                 <tr>
-                                    <td class="py-2 text-right text-gray-500 dark:text-gray-400">Events Attended:</td>
+                                    <td class="py-2 text-gray-500 dark:text-gray-400">Events Attended:</td>
                                     <td class="py-2 text-gray-500 dark:text-gray-400">{{ .Player.EventsAttended }}</td>
                                 </tr>
                             </tbody>
