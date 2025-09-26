@@ -17,4 +17,5 @@ COPY --from=build /app/templates/ /app/templates/
 
 EXPOSE 8080
 
-CMD ["/app/main"]
+WORKDIR /app
+CMD ["./main"]
