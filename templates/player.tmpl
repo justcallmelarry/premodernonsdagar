@@ -58,11 +58,11 @@
                             <p class="text-gray-500 dark:text-gray-400">No matches won against any opponent yet.</p>
                         {{ else }}
                         <table class="min-w-full">
-                            <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                            <tbody>
                             {{ range $opponent, $count := .Player.WonAgainst }}
                             <tr>
-                                <td class="py-2 text-gray-500 dark:text-gray-400">{{ $opponent }}</td>
-                                <td class="py-2 text-gray-500 dark:text-gray-400 text-right">{{ $count }}</td>
+                                <td class="text-gray-500 dark:text-gray-400">{{ $opponent }}</td>
+                                <td class="text-gray-500 dark:text-gray-400 text-right">{{ $count }}</td>
                             </tr>
                             {{ end }}
                         </table>
@@ -76,11 +76,11 @@
                     <p class="text-gray-500 dark:text-gray-400">Undefeated! 💪</p>
                 {{ else }}
                 <table class="min-w-full">
-                    <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                    <tbody>
                     {{ range $opponent, $count := .Player.LostAgainst }}
                     <tr>
-                        <td class="py-2 text-gray-500 dark:text-gray-400">{{ $opponent }}</td>
-                        <td class="py-2 text-gray-500 dark:text-gray-400 text-right">{{ $count }}</td>
+                        <td class="text-gray-500 dark:text-gray-400">{{ $opponent }}</td>
+                        <td class="text-gray-500 dark:text-gray-400 text-right">{{ $count }}</td>
                     </tr>
                     {{ end }}
                 </table>
