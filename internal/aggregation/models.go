@@ -31,6 +31,7 @@ type MatchResult struct {
 
 type PlayerStats struct {
 	Name               string
+	EventsAttended     int
 	GamesWon           int
 	GamesLost          int
 	MatchesWon         int
@@ -66,9 +67,9 @@ type EventListItem struct {
 	URL  string `json:"url"`
 }
 
-// Player represents a player in the system
 type Player struct {
 	Name             string         `json:"name"`
+	EventsAttended   int            `json:"events_attended"`
 	EloRating        float64        `json:"elo_rating"`
 	GlickoRating     GlickoRating   `json:"glicko_rating"`
 	DrawCounter      int            `json:"draw_counter"`
@@ -80,7 +81,6 @@ type Player struct {
 	UnfinishedEvents int            `json:"unfinished_events"`
 }
 
-// GlickoRating represents the Glicko-2 rating for a player
 type GlickoRating struct {
 	Mu    float64 `json:"mu"`    // Rating
 	Phi   float64 `json:"phi"`   // Rating Deviation

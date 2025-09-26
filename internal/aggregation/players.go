@@ -21,7 +21,6 @@ func (o *GlickoOpponent) Sigma() float64 { return o.sigma }
 func (o *GlickoOpponent) SJ() float64    { return o.score }
 
 func aggregatePlayerStats() error {
-	// Initialize the ELO calculator
 	eloCalc := elogo.NewElo()
 
 	players := make(map[string]*PlayerStats)
@@ -42,13 +41,12 @@ func aggregatePlayerStats() error {
 		return fmt.Errorf("failed to create events directory: %w", err)
 	}
 
-	// Create lists directory if it doesn't exist
 	err = os.MkdirAll("files/lists", 0755)
 	if err != nil {
 		return fmt.Errorf("failed to create lists directory: %w", err)
 	}
 
-	// First pass: Collect all player names and initialize their stats
+	// First pass: Identify all players
 	err = filepath.WalkDir("files/events", func(path string, d fs.DirEntry, err error) error {
 		if err != nil {
 			return err
@@ -63,28 +61,6 @@ func aggregatePlayerStats() error {
 			return err
 		}
 
-		// Initialize players from player_info
-		for name := range eventData.PlayerInfo {
-			if _, exists := players[name]; !exists {
-				players[name] = &PlayerStats{
-					Name:        name,
-					WonAgainst:  make(map[string]int),
-					LostAgainst: make(map[string]int),
-				}
-				eloRatings[name] = 1500 // Starting ELO
-				glickoRatings[name] = struct {
-					Rating float64
-					RD     float64
-					Sigma  float64
-				}{
-					Rating: 1500, // Starting Glicko-2 rating
-					RD:     350,  // Starting Glicko-2 rating deviation
-					Sigma:  0.06, // Starting Glicko-2 volatility
-				}
-			}
-		}
-
-		// Add any players from matches that might not be in player_info
 		for _, match := range eventData.Matches {
 			for _, name := range []string{match.Player1, match.Player2} {
 				if _, exists := players[name]; !exists {
@@ -133,8 +109,6 @@ func aggregatePlayerStats() error {
 		return fmt.Errorf("error collecting event files: %w", err)
 	}
 
-	// Sort events by date (using filename as proxy)
-	// This assumes filenames are in format YYYY-MM-DD.json
 	sort.Strings(eventFiles)
 
 	// Process each event
@@ -144,20 +118,17 @@ func aggregatePlayerStats() error {
 			return err
 		}
 
-		// Track players in this event
 		eventPlayers := make(map[string]bool)
 		for name := range eventData.PlayerInfo {
 			eventPlayers[name] = true
 		}
 
-		// Process matches for this event
 		for _, match := range eventData.Matches {
 			eventPlayers[match.Player1] = true
 			eventPlayers[match.Player2] = true
 
 			result := ParseMatchResult(match)
 
-			// Update match statistics
 			if result.Draw {
 				players[match.Player1].MatchesDrawn++
 				players[match.Player2].MatchesDrawn++
@@ -169,7 +140,6 @@ func aggregatePlayerStats() error {
 				players[result.Loser].LostAgainst[result.Winner]++
 			}
 
-			// Parse games (e.g., "2-1" means 2 games won by player1, 1 game won by player2)
 			parts := strings.Split(result.Score, "-")
 			if len(parts) == 2 {
 				p1Games, p2Games := 0, 0
@@ -184,17 +154,16 @@ func aggregatePlayerStats() error {
 				players[match.Player2].TotalGamesPlayed += p1Games + p2Games
 			}
 
-			// Update total matches played
 			players[match.Player1].TotalMatchesPlayed++
 			players[match.Player2].TotalMatchesPlayed++
 
-			// Update ELO ratings based on match result
+			// Update ELO ratings
 			eloScore := 0.5 // Draw by default
 			if !result.Draw {
 				if result.Winner == match.Player1 {
-					eloScore = 1.0 // Player1 won
+					eloScore = 1.0
 				} else {
-					eloScore = 0.0 // Player2 won
+					eloScore = 0.0
 				}
 			}
 
@@ -202,16 +171,16 @@ func aggregatePlayerStats() error {
 			eloRatings[match.Player1] = p1OutcomeElo.Rating
 			eloRatings[match.Player2] = p2OutcomeElo.Rating
 
-			// Update Glicko-2 ratings
-			// For Glicko-2, we need to collect all matches for a player in an event first
-			// This will be done after processing all matches
+			// Glicko-2: needs to be done after processing all matches
 		}
 
-		// After processing all matches in the event, update undefeated status
 		for name := range eventPlayers {
-			// If a player participated but had no losses, they were undefeated
+			fmt.Printf("Event %s: Player %s participated\n", eventData.Name, name)
+			players[name].EventsAttended++
+
 			if players[name].TotalMatchesPlayed < eventData.Rounds {
 				players[name].UnfinishedEvents++
+
 			} else if players[name].TotalMatchesPlayed > 0 &&
 				players[name].MatchesLost == 0 &&
 				players[name].MatchesDrawn == 0 {
@@ -219,7 +188,6 @@ func aggregatePlayerStats() error {
 			}
 		}
 
-		// Collect all matches for Glicko-2 updates
 		playerMatchesInEvent := make(map[string][]GlickoOpponent)
 
 		for _, match := range eventData.Matches {
@@ -235,7 +203,6 @@ func aggregatePlayerStats() error {
 				}
 			}
 
-			// Add opponent for player 1
 			playerMatchesInEvent[match.Player1] = append(playerMatchesInEvent[match.Player1], GlickoOpponent{
 				rating: glickoRatings[match.Player2].Rating,
 				rd:     glickoRatings[match.Player2].RD,
@@ -243,7 +210,6 @@ func aggregatePlayerStats() error {
 				score:  scoreP1,
 			})
 
-			// Add opponent for player 2
 			playerMatchesInEvent[match.Player2] = append(playerMatchesInEvent[match.Player2], GlickoOpponent{
 				rating: glickoRatings[match.Player1].Rating,
 				rd:     glickoRatings[match.Player1].RD,
@@ -318,8 +284,9 @@ func aggregatePlayerStats() error {
 		}
 
 		player := &Player{
-			Name:      name,
-			EloRating: math.Round(float64(eloRatings[name])*100) / 100,
+			Name:           name,
+			EventsAttended: stats.EventsAttended,
+			EloRating:      math.Round(float64(eloRatings[name])*100) / 100,
 			GlickoRating: GlickoRating{
 				Mu:    math.Round(glickoRatings[name].Rating*100) / 100,
 				Phi:   math.Round(glickoRatings[name].RD*100) / 100,
