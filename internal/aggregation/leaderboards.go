@@ -38,13 +38,35 @@ func generateLeaderboards() error {
 	}
 
 	// Generate leaderboards
-	leaderboards := LeaderboardData{
-		Elo:                topN(players, func(p Player) float64 { return p.EloRating }, 8),
-		Glicko:             topN(players, func(p Player) float64 { return p.GlickoRating.Mu }, 8),
-		MatchWinPercentage: topN(players, func(p Player) float64 { return p.MatchWinRate }, 8),
-		GameWinPercentage:  topN(players, func(p Player) float64 { return p.GameWinRate }, 8),
-		MostPlayedEvents:   topN(players, func(p Player) float64 { return float64(p.EventsAttended) }, 8),
-		Undefeated:         topN(players, func(p Player) float64 { return float64(p.UndefeatedEvents) }, 8),
+	leaderboards := []LeaderboardContainer{
+		{
+			Title:   "Elo Rating",
+			Entries: topN(players, func(p Player) float64 { return p.EloRating }, 8),
+		},
+		{
+			Title:   "Glicko Rating",
+			Entries: topN(players, func(p Player) float64 { return p.GlickoRating.Mu }, 8),
+		},
+		{
+			Title:   "Match Win Percentage",
+			Entries: topN(players, func(p Player) float64 { return p.MatchWinRate }, 8),
+		},
+		{
+			Title:   "Game Win Percentage",
+			Entries: topN(players, func(p Player) float64 { return p.GameWinRate }, 8),
+		},
+		{
+			Title:   "Played Events",
+			Entries: topN(players, func(p Player) float64 { return float64(p.EventsAttended) }, 8),
+		},
+		{
+			Title:   "Undefeated Events",
+			Entries: topN(players, func(p Player) float64 { return float64(p.UndefeatedEvents) }, 8),
+		},
+		{
+			Title:   "Unfinished Events",
+			Entries: topN(players, func(p Player) float64 { return float64(p.UnfinishedEvents) }, 8),
+		},
 	}
 
 	// Write leaderboards to file
@@ -70,11 +92,14 @@ func topN(players []Player, scoreFunc func(Player) float64, n int) []Leaderboard
 	})
 
 	var topPlayers []LeaderboardEntry
-	for i := 0; i < len(players) && i < n; i++ {
-		topPlayers = append(topPlayers, LeaderboardEntry{
-			PlayerName: players[i].Name,
-			Score:      scoreFunc(players[i]),
-		})
+	for i := 0; i < len(players) && len(topPlayers) < n; i++ {
+		score := scoreFunc(players[i])
+		if score > 0 {
+			topPlayers = append(topPlayers, LeaderboardEntry{
+				Name:  players[i].Name,
+				Score: score,
+			})
+		}
 	}
 
 	return topPlayers

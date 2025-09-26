@@ -29,6 +29,7 @@ func SetupRoutes() *http.ServeMux {
 	mux.HandleFunc("GET /events/{id}", EventDetailHandler)
 	mux.HandleFunc("GET /players", PlayersHandler)
 	mux.HandleFunc("GET /players/{id}", PlayerDetailHandler)
+	mux.HandleFunc("GET /leaderboards", LeaderboardsHandler)
 
 	return mux
 }

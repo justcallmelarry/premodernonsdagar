@@ -91,9 +91,9 @@
                     <div class="p-6">
                         <h4 class="text-lg font-semibold mb-4 text-gray-900 dark:text-white">Events Undefeated</h4>
                         {{ if eq .Player.UndefeatedEvents 0 }}
-                        <h4 class="text-gray-500 dark:text-gray-400 text-2xl font-bold">{{ .Player.UndefeatedEvents }}</h4>
+                        <span class="text-gray-500 dark:text-gray-400 text-2xl font-bold">{{ .Player.UndefeatedEvents }}</span>
                         {{ else }}
-                        <h4 class="text-green-600 dark:text-green-400 text-2xl font-bold">{{ .Player.UndefeatedEvents }}</h4>
+                        <span class="text-green-600 dark:text-green-400 text-2xl font-bold">{{ .Player.UndefeatedEvents }}</span>
                         {{ end }}
                     </div>
                 </div>
@@ -101,9 +101,9 @@
                     <div class="p-6">
                         <h4 class="text-lg font-semibold mb-4 text-gray-900 dark:text-white">Events Unfinished</h4>
                         {{ if eq .Player.UnfinishedEvents 0 }}
-                        <h4 class="text-gray-500 dark:text-gray-400 text-2xl font-bold">{{ .Player.UnfinishedEvents }}</h4>
+                        <span class="text-gray-500 dark:text-gray-400 text-2xl font-bold">{{ .Player.UnfinishedEvents }}</span>
                         {{ else }}
-                        <h4 class="text-red-600 dark:text-red-400 text-2xl font-bold">{{ .Player.UnfinishedEvents }}</h4>
+                        <span class="text-red-600 dark:text-red-400 text-2xl font-bold">{{ .Player.UnfinishedEvents }}</span>
                         {{ end }}
                     </div>
                 </div>

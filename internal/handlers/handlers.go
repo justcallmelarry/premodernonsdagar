@@ -211,3 +211,24 @@ func PlayerDetailHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	templates.RenderTemplate(w, "player.tmpl", templateData)
 }
+
+func LeaderboardsHandler(w http.ResponseWriter, r *http.Request) {
+	fileContent, err := os.ReadFile("files/lists/leaderboards.json")
+	if err != nil {
+		http.Error(w, "Error reading leaderboards file", http.StatusInternalServerError)
+		return
+	}
+
+	var leaderboardsData []aggregation.LeaderboardContainer
+	err = json.Unmarshal(fileContent, &leaderboardsData)
+	if err != nil {
+		http.Error(w, "Error loading leaderboards data", http.StatusInternalServerError)
+		return
+	}
+
+	templateData := map[string]interface{}{
+		"ActivePage":   "leaderboards",
+		"Leaderboards": leaderboardsData,
+	}
+	templates.RenderTemplate(w, "leaderboards.tmpl", templateData)
+}
