@@ -175,7 +175,6 @@ func aggregatePlayerStats() error {
 		}
 
 		for name := range eventPlayers {
-			fmt.Printf("Event %s: Player %s participated\n", eventData.Name, name)
 			players[name].EventsAttended++
 
 			if players[name].TotalMatchesPlayed < eventData.Rounds {
