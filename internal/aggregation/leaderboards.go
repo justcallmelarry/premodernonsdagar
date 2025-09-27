@@ -45,7 +45,7 @@ func generateLeaderboards() error {
 			Type:    "float",
 		},
 		{
-			Title:   "Glicko Rating",
+			Title:   "Glicko2 Rating",
 			Entries: topN(players, func(p Player) float64 { return p.GlickoRating.Mu }, 8),
 			Type:    "float",
 		},
