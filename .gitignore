@@ -36,3 +36,4 @@ files/**/*.json
 files/**/*.txt
 node_modules/
 .DS_Store
+copy-data.sh
