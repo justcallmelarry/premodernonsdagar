@@ -1,138 +1,143 @@
-{{define "base"}}
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{{block "title" .}}{{end}}</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=article_shortcut,calendar_check,home,person,running_with_errors,tonality" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
+{{ define "base" }}
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>{{ block "title" . }}{{ end }}</title>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=article_shortcut,calendar_check,home,person,running_with_errors,sentiment_very_dissatisfied,tonality,trophy"
+      />
+      <script src="https://cdn.tailwindcss.com"></script>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script>
         tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {}
-            }
-        }
-    </script>
-    <script>
+          darkMode: 'class',
+          theme: {
+            extend: {},
+          },
+        };
+      </script>
+      <script>
         // Initialize dark mode immediately to prevent flash
-        (function() {
-            const currentTheme = localStorage.getItem("theme") || "dark";
-            if (currentTheme === "dark") {
-                document.documentElement.classList.add("dark");
-            } else {
-                document.documentElement.classList.remove("dark");
-            }
+        (function () {
+          const currentTheme = localStorage.getItem('theme') || 'dark';
+          if (currentTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
         })();
 
-        document.addEventListener("DOMContentLoaded", (event) => {
-            const htmlElement = document.documentElement;
-            const switchElement = document.getElementById("darkModeSwitch");
+        document.addEventListener('DOMContentLoaded', (event) => {
+          const htmlElement = document.documentElement;
+          const switchElement = document.getElementById('darkModeSwitch');
 
-            // Set the switch state based on current theme
-            const currentTheme = localStorage.getItem("theme") || "dark";
-            switchElement.checked = currentTheme === "dark";
+          // Set the switch state based on current theme
+          const currentTheme = localStorage.getItem('theme') || 'dark';
+          switchElement.checked = currentTheme === 'dark';
 
-            switchElement.addEventListener("change", function () {
-                if (this.checked) {
-                    htmlElement.classList.add("dark");
-                    localStorage.setItem("theme", "dark");
-                } else {
-                    htmlElement.classList.remove("dark");
-                    localStorage.setItem("theme", "light");
-                }
-            });
-
-            // Mobile menu toggle
-            const mobileMenuButton = document.getElementById("mobile-menu-button");
-            const mobileMenu = document.getElementById("mobile-menu");
-
-            if (mobileMenuButton && mobileMenu) {
-                mobileMenuButton.addEventListener("click", function () {
-                    mobileMenu.classList.toggle("hidden");
-                });
+          switchElement.addEventListener('change', function () {
+            if (this.checked) {
+              htmlElement.classList.add('dark');
+              localStorage.setItem('theme', 'dark');
+            } else {
+              htmlElement.classList.remove('dark');
+              localStorage.setItem('theme', 'light');
             }
+          });
+
+          // Mobile menu toggle
+          const mobileMenuButton = document.getElementById('mobile-menu-button');
+          const mobileMenu = document.getElementById('mobile-menu');
+
+          if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', function () {
+              mobileMenu.classList.toggle('hidden');
+            });
+          }
         });
-    </script>
-    {{block "head" .}}{{end}}
-</head>
+      </script>
+      {{ block "head" . }}{{ end }}
+    </head>
 
-<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
-    <nav class="bg-blue-600 text-white mb-3">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center">
-                    <a class="text-white hover:text-gray-200 font-semibold mr-8" href="/">
-                        <span class="material-symbols-outlined">
-                            home
-                        </span>
-                    </a>
-                    <button class="md:hidden text-white" type="button" id="mobile-menu-button" aria-label="Toggle navigation">
-                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
-                    </button>
-                    <div class="hidden md:block">
-                        <ul class="flex space-x-4">
-                    {{$activePage := .ActivePage}}
-                    {{if not $activePage}}{{$activePage = "records"}}{{end}}
+    <body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+      <nav class="mb-3 bg-blue-600 text-white">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="flex h-16 items-center justify-between">
+            <div class="flex items-center">
+              <a class="mr-8 font-semibold text-white hover:text-gray-200" href="/">
+                <span class="material-symbols-outlined"> home </span>
+              </a>
+              <button class="text-white md:hidden" type="button" id="mobile-menu-button" aria-label="Toggle navigation">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+              </button>
+              <div class="hidden md:block">
+                <ul class="flex space-x-4">
+                  {{ $activePage := .ActivePage }}
+                  {{ if not $activePage }}{{ $activePage = "records" }}{{ end }}
 
-                    {{$navItems := slice
-                      (slice "/" "index" "Landing")
-                      (slice "/events" "events" "Events")
-                      (slice "/leaderboards" "leaderboards" "Leaderboards")
-                      (slice "/players" "players" "Players")
-                      (slice "/about" "about" "About")
-                    }}
+                  {{ $navItems := slice
+                    (slice "/" "index" "Landing")
+                    (slice "/events" "events" "Events")
+                    (slice "/leaderboards" "leaderboards" "Leaderboards")
+                    (slice "/players" "players" "Players")
+                    (slice "/about" "about" "About")
+                  }}
 
-                    {{range $navItems}}
-                        {{$href := index . 0}}
-                        {{$id := index . 1}}
-                        {{$caption := index . 2}}
-                        <li>
-                            {{if eq $id $activePage}}
-                                <a class="text-white bg-blue-700 px-3 py-2 rounded-md text-sm font-medium" href="{{$href}}">{{$caption}}</a>
-                            {{else}}
-                                <a class="text-white hover:text-gray-200 px-3 py-2 rounded-md text-sm font-medium transition-colors" href="{{$href}}">{{$caption}}</a>
-                            {{end}}
-                        </li>
-                    {{end}}
-                        </ul>
-                    </div>
-                </div>
-                <div class="flex items-center h-full">
-                    <label class="relative inline-flex items-center cursor-pointer">
-                        <input type="checkbox" id="darkModeSwitch" class="sr-only peer" checked />
-                        <div class="block relative bg-blue-900 w-11 h-6 p-1 rounded-full before:absolute before:bg-blue-600 before:w-4 before:h-4 before:p-1 before:rounded-full before:transition-all before:duration-500 before:left-1 peer-checked:before:left-6 peer-checked:before:bg-white"></div>
-                        <span class="ml-3 text-white flex items-center">
-                            <span class="material-symbols-outlined text-xl">
-                                tonality
-                            </span>
-                        </span>
-                    </label>
-                </div>
+                  {{ range $navItems }}
+                    {{ $href := index . 0 }}
+                    {{ $id := index . 1 }}
+                    {{ $caption := index . 2 }}
+                    <li>
+                      {{ if eq $id $activePage }}
+                        <a class="rounded-md bg-blue-700 px-3 py-2 text-sm font-medium text-white" href="{{ $href }}">{{ $caption }}</a>
+                      {{ else }}
+                        <a class="rounded-md px-3 py-2 text-sm font-medium text-white transition-colors hover:text-gray-200" href="{{ $href }}"
+                          >{{ $caption }}</a
+                        >
+                      {{ end }}
+                    </li>
+                  {{ end }}
+                </ul>
+              </div>
             </div>
-            <!-- Mobile menu -->
-            <div class="md:hidden hidden" id="mobile-menu">
-                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                    {{range $navItems}}
-                        {{$href := index . 0}}
-                        {{$id := index . 1}}
-                        {{$caption := index . 2}}
-                        {{if eq $id $activePage}}
-                            <a class="text-white bg-blue-700 block px-3 py-2 rounded-md text-base font-medium" href="{{$href}}">{{$caption}}</a>
-                        {{else}}
-                            <a class="text-white hover:text-gray-200 block px-3 py-2 rounded-md text-base font-medium transition-colors" href="{{$href}}">{{$caption}}</a>
-                        {{end}}
-                    {{end}}
-                </div>
+            <div class="flex h-full items-center">
+              <label class="relative inline-flex cursor-pointer items-center">
+                <input type="checkbox" id="darkModeSwitch" class="peer sr-only" checked />
+                <div
+                  class="relative block h-6 w-11 rounded-full bg-blue-900 p-1 before:absolute before:left-1 before:h-4 before:w-4 before:rounded-full before:bg-blue-600 before:p-1 before:transition-all before:duration-500 peer-checked:before:left-6 peer-checked:before:bg-white"
+                ></div>
+                <span class="ml-3 flex items-center text-white">
+                  <span class="material-symbols-outlined text-xl"> tonality </span>
+                </span>
+              </label>
             </div>
+          </div>
+          <!-- Mobile menu -->
+          <div class="hidden md:hidden" id="mobile-menu">
+            <div class="space-y-1 px-2 pb-3 pt-2 sm:px-3">
+              {{ range $navItems }}
+                {{ $href := index . 0 }}
+                {{ $id := index . 1 }}
+                {{ $caption := index . 2 }}
+                {{ if eq $id $activePage }}
+                  <a class="block rounded-md bg-blue-700 px-3 py-2 text-base font-medium text-white" href="{{ $href }}">{{ $caption }}</a>
+                {{ else }}
+                  <a class="block rounded-md px-3 py-2 text-base font-medium text-white transition-colors hover:text-gray-200" href="{{ $href }}"
+                    >{{ $caption }}</a
+                  >
+                {{ end }}
+              {{ end }}
+            </div>
+          </div>
         </div>
-    </nav>
-    <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {{block "content" .}}{{end}}
-    </div>
-</body>
-</html>
-{{end}}
+      </nav>
+      <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {{ block "content" . }}{{ end }}
+      </div>
+    </body>
+  </html>
+{{ end }}

@@ -1,36 +1,53 @@
-{{template "base" .}}
+{{ template "base" . }}
 
-{{define "title"}}Leaderboards{{end}}
-{{define "content"}}
-<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+{{ define "title" }}Leaderboards{{ end }}
+{{ define "content" }}
+  <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
     {{ range .Leaderboards }}
-    <div class="bg-white dark:bg-gray-800 rounded-lg shadow border border-gray-200 dark:border-gray-700 pb-4">
-        <div class="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
-            <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">{{ .Title }}</h3>
+      <div class="rounded-lg border border-gray-200 bg-white pb-4 shadow dark:border-gray-700 dark:bg-gray-800">
+        <div class="border-b border-gray-200 px-6 py-4 dark:border-gray-700">
+          <h3 class="mb-4 text-2xl font-bold text-gray-900 dark:text-white">
+            {{ .Title }}
+          </h3>
         </div>
         <div class="overflow-x-auto">
-            <table class="min-w-full bg-white dark:bg-gray-800">
-                <thead>
-                    <tr>
-                        <th class="px-6 py-3 border-b border-gray-200 dark:border-gray-700 text-left text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Name</th>
-                        <th class="px-6 py-3 border-b border-gray-200 dark:border-gray-700 text-left text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Score</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {{ $suffix := .Suffix }}
-                    {{ $type := .Type }}
-                    {{ range $index, $entry := .Entries }}
-                    <tr>
-                        <td class="px-6 py-2 whitespace-nowrap text-sm text-gray-900 dark:text-white">{{ add $index 1 }}. {{ $entry.Name }}</td>
-                        <td class="px-6 py-2 whitespace-nowrap text-sm text-gray-900 dark:text-white">
-                            {{ if eq $type "float" }}{{ printf "%.2f" $entry.Score }}{{ else }}{{ $entry.Score }}{{ end }}{{ if $suffix }}{{ $suffix }}{{ end }}
-                        </td>
-                    </tr>
-                    {{ end }}
-                </tbody>
-            </table>
+          <table class="min-w-full bg-white dark:bg-gray-800">
+            <thead>
+              <tr>
+                <th
+                  class="border-b border-gray-200 px-6 py-3 text-left text-sm font-medium uppercase tracking-wider text-gray-500 dark:border-gray-700 dark:text-gray-400"
+                >
+                  Name
+                </th>
+                <th
+                  class="border-b border-gray-200 px-6 py-3 text-left text-sm font-medium uppercase tracking-wider text-gray-500 dark:border-gray-700 dark:text-gray-400"
+                >
+                  Score
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {{ $suffix := .Suffix }}
+              {{ $type := .Type }}
+              {{ range $index, $entry := .Entries }}
+                <tr>
+                  <td class="whitespace-nowrap px-6 py-2 text-sm text-gray-900 dark:text-white">
+                    {{ add $index 1 }}.
+                    {{ $entry.Name }}
+                  </td>
+                  <td class="whitespace-nowrap px-6 py-2 text-sm text-gray-900 dark:text-white">
+                    {{ if eq $type "float" }}
+                      {{ printf "%.2f" $entry.Score }}
+                    {{ else }}
+                      {{ $entry.Score }}
+                    {{ end }}{{ if $suffix }}{{ $suffix }}{{ end }}
+                  </td>
+                </tr>
+              {{ end }}
+            </tbody>
+          </table>
         </div>
-    </div>
-    {{end}}
-</div>
-{{end}}
+      </div>
+    {{ end }}
+  </div>
+{{ end }}

@@ -1,10 +1,18 @@
-{{template "base" .}}
+{{ template "base" . }}
 
-{{define "title"}}Decklist{{end}}
-{{define "content"}}
-<div>
-    {{if .Event}}<h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">{{.Event}}</h3>{{end}}
-    {{if .Player}}<h4 class="text-xl font-bold mb-6 text-gray-900 dark:text-white">{{.Player}}</h4>{{end}}
-    <pre>{{.Decklist}}</pre>
-</div>
-{{end}}
+{{ define "title" }}Decklist{{ end }}
+{{ define "content" }}
+  <div>
+    {{ if .Event }}
+      <h3 class="mb-4 text-2xl font-bold text-gray-900 dark:text-white">
+        {{ .Event }}
+      </h3>
+    {{ end }}
+    {{ if .Player }}
+      <h4 class="mb-6 text-xl font-bold text-gray-900 dark:text-white">
+        {{ .Player }}
+      </h4>
+    {{ end }}
+    <pre>{{ .Decklist }}</pre>
+  </div>
+{{ end }}

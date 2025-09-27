@@ -1,27 +1,72 @@
-{{template "base" .}}
+{{ template "base" . }}
 
-{{define "title"}}About{{end}}
-{{define "content"}}
-<div>
-    <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Rules</h3>
-    <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 mb-8">
-        <li>We play on even weeks (week number 2, 4, 6, etc)</li>
-        <li>We play best of 3 matches against four <strong>different</strong> opponents</li>
-        <li>Use the same deck (including sideboard) for all matches</li>
-        <li>Untimed rounds, but no "slow play", please</li>
-        <li>We play Premodern (cards from Fourth Edition up to and including Scourge, except for the <a class="text-blue-600 dark:text-blue-400 hover:underline" href="https://premodernmagic.com/banned-watched#ban-list" target="_blank">Premodern banned list</a>)</li>
-        <li>All proxies and gold border cards are allowed</li>
-        <li>Optional, but encouraged, to send a decklist to the organizers</li>
+{{ define "title" }}About{{ end }}
+{{ define "content" }}
+  <div>
+    <h3 class="mb-4 text-2xl font-bold text-gray-900 dark:text-white">Rules</h3>
+    <ul class="mb-8 list-inside list-disc space-y-2 text-gray-700 dark:text-gray-300">
+      <li>We play on even weeks (week number 2, 4, 6, etc)</li>
+      <li>
+        We play best of 3 matches against four
+        <strong>different</strong> opponents
+      </li>
+      <li>Use the same deck (including sideboard) for all matches</li>
+      <li>Untimed rounds, but no "slow play", please</li>
+      <li>
+        We play Premodern (cards from Fourth Edition up to and including Scourge, except for the
+        <a class="text-blue-600 hover:underline dark:text-blue-400" href="https://premodernmagic.com/banned-watched#ban-list" target="_blank">
+          Premodern banned list </a
+        >)
+      </li>
+      <li>All proxies and gold border cards are allowed</li>
+      <li>Optional, but encouraged, to send a decklist to the organizers</li>
     </ul>
-    <hr class="border-gray-200 dark:border-gray-700 mb-8" />
-    <h3 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Elo and Glicko Ratings</h3>
-    <h5 class="text-xl font-semibold mb-3 text-gray-900 dark:text-white">Elo Rating</h5>
-    <p class="mb-4 text-gray-700 dark:text-gray-300">The Elo rating system, devised by Arpad Elo, is one of the most widely used methods for calculating the relative skill levels of players in two-player games. Originally developed for chess, it has since been adapted for various other competitive activities, including eSports, sports, and board games. The Elo system operates on the principle that the outcome of a match can be predicted based on the difference in ratings between two players. After each match, the ratings of the players involved are adjusted based on the actual outcome compared to the expected outcome.</p>
-    <p class="mb-6 text-gray-700 dark:text-gray-300">If you want to know more about Elo, you can read about it on <a href="https://en.wikipedia.org/wiki/Elo_rating_system" class="text-blue-600 dark:text-blue-400 hover:underline" target="_blank" rel="noopener noreferrer">wikipedia.org</a> or on <a href="https://www.chess.com/terms/elo-rating-chess" class="text-blue-600 dark:text-blue-400 hover:underline" target="_blank" rel="noopener noreferrer">chess.com</a></p>
-    <h5 class="text-xl font-semibold mb-3 text-gray-900 dark:text-white">Glicko2</h5>
+    <hr class="mb-8 border-gray-200 dark:border-gray-700" />
+    <h3 class="mb-6 text-2xl font-bold text-gray-900 dark:text-white">Elo and Glicko Ratings</h3>
+    <h5 class="mb-3 text-xl font-semibold text-gray-900 dark:text-white">Elo Rating</h5>
+    <p class="mb-4 text-gray-700 dark:text-gray-300">
+      The Elo rating system, devised by Arpad Elo, is one of the most widely used methods for calculating the relative skill levels of players in two-player
+      games. Originally developed for chess, it has since been adapted for various other competitive activities, including eSports, sports, and board games. The
+      Elo system operates on the principle that the outcome of a match can be predicted based on the difference in ratings between two players. After each
+      match, the ratings of the players involved are adjusted based on the actual outcome compared to the expected outcome.
+    </p>
+    <p class="mb-6 text-gray-700 dark:text-gray-300">
+      If you want to know more about Elo, you can read about it on
+      <a
+        href="https://en.wikipedia.org/wiki/Elo_rating_system"
+        class="text-blue-600 hover:underline dark:text-blue-400"
+        target="_blank"
+        rel="noopener noreferrer"
+        >wikipedia.org</a
+      >
+      or on
+      <a href="https://www.chess.com/terms/elo-rating-chess" class="text-blue-600 hover:underline dark:text-blue-400" target="_blank" rel="noopener noreferrer">
+        chess.com
+      </a>
+    </p>
+    <h5 class="mb-3 text-xl font-semibold text-gray-900 dark:text-white">Glicko2</h5>
 
-    <p class="mb-4 text-gray-700 dark:text-gray-300">Glicko2 is an enhancement of the original Glicko rating system developed by Mark Glickman. It addresses some of the limitations of the Elo system by introducing concepts such as rating deviation and rating volatility. These additions provide a more nuanced understanding of player skill, particularly in scenarios where players may not compete frequently or where there are significant variations in player performance over time. The Glicko2 system is designed to be more dynamic and responsive, allowing for more accurate ratings even in situations with sparse data.</p>
+    <p class="mb-4 text-gray-700 dark:text-gray-300">
+      Glicko2 is an enhancement of the original Glicko rating system developed by Mark Glickman. It addresses some of the limitations of the Elo system by
+      introducing concepts such as rating deviation and rating volatility. These additions provide a more nuanced understanding of player skill, particularly in
+      scenarios where players may not compete frequently or where there are significant variations in player performance over time. The Glicko2 system is
+      designed to be more dynamic and responsive, allowing for more accurate ratings even in situations with sparse data.
+    </p>
 
-    <p class="text-gray-700 dark:text-gray-300">You can find more information about Glicko on <a href="https://en.wikipedia.org/wiki/Glicko_rating_system" class="text-blue-600 dark:text-blue-400 hover:underline" target="_blank" rel="noopener noreferrer">wikipedia.org</a> or on <a href="https://glicko.net/glicko.html" class="text-blue-600 dark:text-blue-400 hover:underline" target="_blank" rel="noopener noreferrer">glicko.net</a></p>
-</div>
-{{end}}
+    <p class="text-gray-700 dark:text-gray-300">
+      You can find more information about Glicko on
+      <a
+        href="https://en.wikipedia.org/wiki/Glicko_rating_system"
+        class="text-blue-600 hover:underline dark:text-blue-400"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        wikipedia.org
+      </a>
+      or on
+      <a href="https://glicko.net/glicko.html" class="text-blue-600 hover:underline dark:text-blue-400" target="_blank" rel="noopener noreferrer">
+        glicko.net
+      </a>
+    </p>
+  </div>
+{{ end }}
