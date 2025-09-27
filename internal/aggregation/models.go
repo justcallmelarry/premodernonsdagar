@@ -31,7 +31,6 @@ type MatchResult struct {
 
 type PlayerStats struct {
 	Name               string
-	EventsAttended     int
 	GamesWon           int
 	GamesLost          int
 	MatchesWon         int
@@ -41,6 +40,7 @@ type PlayerStats struct {
 	LostAgainst        map[string]int
 	TotalGamesPlayed   int
 	TotalMatchesPlayed int
+	AttendedEvents     int
 	UndefeatedEvents   int
 	UnfinishedEvents   int
 }
@@ -69,7 +69,6 @@ type EventListItem struct {
 
 type Player struct {
 	Name             string         `json:"name"`
-	EventsAttended   int            `json:"events_attended"`
 	EloRating        float64        `json:"elo_rating"`
 	GlickoRating     GlickoRating   `json:"glicko_rating"`
 	DrawCounter      int            `json:"draw_counter"`
@@ -79,6 +78,7 @@ type Player struct {
 	LostAgainst      map[string]int `json:"lost_against"`
 	UndefeatedEvents int            `json:"undefeated_events"`
 	UnfinishedEvents int            `json:"unfinished_events"`
+	AttendedEvents   int            `json:"attended_events"`
 }
 
 type GlickoRating struct {

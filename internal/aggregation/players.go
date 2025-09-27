@@ -175,7 +175,7 @@ func aggregatePlayerStats() error {
 		}
 
 		for name := range eventPlayers {
-			players[name].EventsAttended++
+			players[name].AttendedEvents++
 
 			if players[name].TotalMatchesPlayed < eventData.Rounds {
 				players[name].UnfinishedEvents++
@@ -284,7 +284,7 @@ func aggregatePlayerStats() error {
 
 		player := &Player{
 			Name:           name,
-			EventsAttended: stats.EventsAttended,
+			AttendedEvents: stats.AttendedEvents,
 			EloRating:      math.Round(float64(eloRatings[name])*100) / 100,
 			GlickoRating: GlickoRating{
 				Mu:    math.Round(glickoRatings[name].Rating*100) / 100,

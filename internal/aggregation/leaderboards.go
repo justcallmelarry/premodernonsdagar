@@ -63,7 +63,7 @@ func generateLeaderboards() error {
 		},
 		{
 			Title:   "Played Events",
-			Entries: topN(players, func(p Player) float64 { return float64(p.EventsAttended) }, 8),
+			Entries: topN(players, func(p Player) float64 { return float64(p.AttendedEvents) }, 8),
 			Type:    "int",
 		},
 		{
