@@ -1,0 +1,13 @@
+details {
+  user-select: none;
+}
+
+details[open] {
+  & summary span {
+    transform: rotate(180deg);
+  }
+}
+
+.inline-material {
+  vertical-align: -3px;
+}

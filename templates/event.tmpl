@@ -51,26 +51,34 @@
       </table>
     </div>
     <hr class="mb-6 border-gray-200 dark:border-gray-700" />
-    <h3 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">Matches</h3>
-    <div class="overflow-x-auto rounded">
-      <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-        <tbody class="divide-y divide-gray-200 bg-white dark:divide-gray-700 dark:bg-gray-800">
-          {{ range .Matches }}
-            <tr class="{{ $.Scheme.TableRowHover }}">
-              <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-900 dark:text-gray-100">
-                {{ .Player1 }}
-              </td>
-              <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-900 dark:text-gray-100">
-                {{ .Player2 }}
-              </td>
-              <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-900 dark:text-gray-100">
-                {{ .Result }}
-              </td>
-            </tr>
-          {{ end }}
-        </tbody>
-      </table>
-    </div>
+    <details>
+      <summary class="flex cursor-pointer gap-4">
+        <h3 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">Matches</h3>
+        <div>
+          <span class="{{ $.Scheme.SymbolPrimary }} inline-material text-2xl"> arrow_drop_down </span>
+        </div>
+      </summary>
+
+      <div class="overflow-x-auto rounded">
+        <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+          <tbody class="divide-y divide-gray-200 bg-white dark:divide-gray-700 dark:bg-gray-800">
+            {{ range .Matches }}
+              <tr class="{{ $.Scheme.TableRowHover }}">
+                <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-900 dark:text-gray-100">
+                  {{ .Player1 }}
+                </td>
+                <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-900 dark:text-gray-100">
+                  {{ .Player2 }}
+                </td>
+                <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-900 dark:text-gray-100">
+                  {{ .Result }}
+                </td>
+              </tr>
+            {{ end }}
+          </tbody>
+        </table>
+      </div>
+    </details>
   </div>
   <div class="mt-8 flex justify-center">
     <button class="{{ .Scheme.ButtonBack }}" onclick="history.back()">Go Back</button>

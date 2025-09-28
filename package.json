@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "format": "prettier --write ./templates"
+    "format": "prettier --write ./templates ./static/styles.css"
   },
   "devDependencies": {
     "prettier": "^3.6.2",
