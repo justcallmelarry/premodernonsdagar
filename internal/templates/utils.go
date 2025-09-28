@@ -1,6 +1,13 @@
 package templates
 
-import "fmt"
+import (
+	"fmt"
+	"html/template"
+	"io/fs"
+	"os"
+	"path/filepath"
+	"premodernonsdagar/internal/aggregation"
+)
 
 var TemplateFuncs = map[string]interface{}{
 	"slice": Slice,
@@ -32,4 +39,65 @@ func ColorScheme() TailwindClasses {
 		LinkInternal:  "text-gray-900 hover:underline dark:text-white",
 		TableHeader:   "px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-300",
 	}
+}
+
+func RenderAllTemplates() error {
+	// Define mock data to prevent templates from crashing
+	mockData := map[string]interface{}{
+		"ActivePage":          "home",
+		"NextEventDate":       "today",
+		"NextEventWeekNumber": 42,
+		"Scheme":              ColorScheme(),
+		"Player":              aggregation.Player{},
+	}
+
+	htmlOutputDir := "pages/html"
+	if err := os.MkdirAll(htmlOutputDir, 0755); err != nil {
+		fmt.Printf("Failed to create output directory: %v\n", err)
+		return err
+	}
+
+	templateDir := "templates"
+	templateFiles := []string{}
+	fs.WalkDir(os.DirFS(templateDir), ".", func(path string, d fs.DirEntry, err error) error {
+		if err != nil {
+			return err
+		}
+		if !d.IsDir() && filepath.Ext(path) == ".tmpl" {
+			templateFiles = append(templateFiles, path)
+		}
+		return nil
+	})
+
+	for _, tmpl := range templateFiles {
+		outputFile := fmt.Sprintf("%s/%s.html", htmlOutputDir, tmpl[:len(tmpl)-5])
+
+		if err := renderTemplateToFile(tmpl, mockData, outputFile); err != nil {
+			fmt.Printf("Failed to render template %s: %v\n", tmpl, err)
+		}
+	}
+	return nil
+}
+
+func renderTemplateToFile(tmpl string, data interface{}, outputPath string) error {
+	funcMap := template.FuncMap(TemplateFuncs)
+	t, err := template.New("base.tmpl").Funcs(funcMap).ParseFiles(
+		filepath.Join("templates", "base.tmpl"),
+		filepath.Join("templates", tmpl),
+	)
+	if err != nil {
+		return fmt.Errorf("error parsing templates: %w", err)
+	}
+
+	file, err := os.Create(outputPath)
+	if err != nil {
+		return fmt.Errorf("error creating file: %w", err)
+	}
+	defer file.Close()
+
+	if err := t.ExecuteTemplate(file, "base", data); err != nil {
+		return fmt.Errorf("template execution error: %w", err)
+	}
+
+	return nil
 }

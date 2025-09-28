@@ -5,7 +5,9 @@ import (
 	"net/http"
 
 	"premodernonsdagar/internal/aggregation"
+	"premodernonsdagar/internal/config"
 	"premodernonsdagar/internal/handlers"
+	"premodernonsdagar/internal/templates"
 )
 
 func main() {
@@ -13,6 +15,15 @@ func main() {
 		log.Fatalf("Error aggregating player stats: %v", err)
 	}
 	log.Println("Stats aggregated successfully.")
+
+	config := config.GetConfig()
+	if config.DevelopmentEnvironment {
+		err := templates.RenderAllTemplates()
+		if err != nil {
+			log.Fatalf("Error rendering templates: %v", err)
+		}
+		log.Println("All templates rendered successfully.")
+	}
 
 	// Start the web server
 	mux := handlers.SetupRoutes()

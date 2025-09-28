@@ -56,6 +56,12 @@ To run the service in production:
    ```
 3. The service will be available at `http://localhost:8080`.
 
+### Keeping Tailwind up to date
+* Run `npm run tailwind` in a separate terminal while working with the frontend stuff (will be running continously).
+* Run the service with `DEVENV=1 go run cmd/main/main.go` rather than without the env var.
+* Templates are generated in `pages/html/`, but you can ignore those, they are just there to provide the css classes that are only specified in the Go part of the code.
+* `static/tw.css` is being continously updated by tailwind, ensuring that everything looks as expected.
+
 ### Formatting Templates
 
 To format the templates, use the following npm command:

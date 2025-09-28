@@ -1,3 +1,6 @@
+@import 'tailwindcss';
+@source "../pages/html";
+
 details {
   user-select: none;
 }
