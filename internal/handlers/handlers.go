@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"os"
 	"sort"
+	"time"
 
 	"premodernonsdagar/internal/aggregation"
 	"premodernonsdagar/internal/templates"
@@ -14,9 +15,19 @@ import (
 )
 
 func IndexHandler(w http.ResponseWriter, r *http.Request) {
+	nextEvent := utils.NextEvent(time.Now())
+	weekNumber := utils.SwedishWeekNumber(nextEvent)
+
+	eventString := nextEvent.Format("2006-01-02")
+	if nextEvent.Format("2006-01-02") == time.Now().Format("2006-01-02") {
+		eventString = "Today!"
+	}
+
 	templateData := map[string]interface{}{
-		"ActivePage": "index",
-		"Scheme":     templates.ColorScheme(),
+		"ActivePage":          "index",
+		"NextEventDate":       eventString,
+		"NextEventWeekNumber": weekNumber,
+		"Scheme":              templates.ColorScheme(),
 	}
 	templates.RenderTemplate(w, "index.tmpl", templateData)
 }

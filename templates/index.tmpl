@@ -4,7 +4,7 @@
 {{ define "content" }}
   <div class="flex min-h-[calc(100vh-96px)] flex-col md:flex-row">
     <div class="w-full rounded-lg bg-cover bg-center md:w-1/2" style="background-image: url('/static/images/pmseb.jpg');"></div>
-    <div class="flex w-full flex-col justify-center p-8 md:w-1/2">
+    <div class="flex w-full flex-col justify-center p-2 md:w-1/2">
       <div>
         <h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">Welcome to Premodern in Stockholm!</h1>
         <p class="pb-4 leading-7 [&:not(:first-child)]:mt-6">
@@ -13,6 +13,19 @@
         <p class="pb-4 leading-7 [&:not(:first-child)]:mt-6">
           We are running simple, very casual, tournaments in order to encourage people to play more against different people, and to track stats.
         </p>
+        <div class="rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
+          <div class="p-6">
+            <h5 class="mb-3 truncate text-lg font-semibold text-gray-900 dark:text-white" title="Next Event">Next Event (Week {{ .NextEventWeekNumber }})</h5>
+            <div class="flex items-center gap-4">
+              <div class="flex">
+                <span class="{{ .Scheme.SymbolPrimary }}"> calendar_clock </span>
+              </div>
+              <div class="flex">
+                <p class="text-xl font-bold text-gray-900 dark:text-white">{{ .NextEventDate }} <span class="text-sm text-gray-400">from 17:00</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
         <p class="pb-4 leading-7 [&:not(:first-child)]:mt-6">
           Join out Discord for more information or just to hang out!
           <a
