@@ -2,6 +2,7 @@ FROM golang:1.25-alpine AS build
 
 WORKDIR /app
 
+COPY go.mod ./
 COPY files /app/files/
 COPY cmd /app/cmd
 COPY internal /app/internal
