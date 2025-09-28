@@ -20,7 +20,7 @@
         </thead>
         <tbody class="divide-y divide-gray-200 bg-white dark:divide-gray-700 dark:bg-gray-800">
           {{ range .Results }}
-            <tr class="hover:bg-gray-50 dark:hover:bg-gray-700">
+            <tr class="{{ $.Scheme.TableRowHover }}">
               <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-900 dark:text-gray-100" onclick="window.location='{{ .URL }}'">
                 {{ .Name }}
               </td>
@@ -31,7 +31,12 @@
                 <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-900 dark:text-gray-100">
                   {{ .Deck }}
                   {{ if .Decklist }}
-                    <a href="/decklists/{{ .Decklist }}?player={{ .Name }}&event={{ $eventName }}" class="text-blue-600 hover:underline dark:text-blue-400">
+                    <a
+                      href="/decklists/{{ .Decklist }}?player={{ .Name }}&event={{ $eventName }}"
+                      class="{{ $.Scheme.Link }}"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       decklist
                       <span class="material-symbols-outlined text-sm">article_shortcut</span>
                     </a>
@@ -51,7 +56,7 @@
       <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
         <tbody class="divide-y divide-gray-200 bg-white dark:divide-gray-700 dark:bg-gray-800">
           {{ range .Matches }}
-            <tr class="hover:bg-gray-50 dark:hover:bg-gray-700">
+            <tr class="{{ $.Scheme.TableRowHover }}">
               <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-900 dark:text-gray-100">
                 {{ .Player1 }}
               </td>
@@ -68,11 +73,6 @@
     </div>
   </div>
   <div class="mt-8 flex justify-center">
-    <button
-      class="rounded border border-blue-600 bg-transparent px-4 py-2 font-semibold text-blue-600 hover:border-transparent hover:bg-blue-500 hover:text-white dark:border-blue-400 dark:text-blue-400"
-      onclick="history.back()"
-    >
-      Go Back
-    </button>
+    <button class="{{ .Scheme.ButtonBack }}" onclick="history.back()">Go Back</button>
   </div>
 {{ end }}

@@ -8,9 +8,7 @@
     <div class="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4">
       {{ range $player := $players }}
         <div>
-          <a class="block rounded bg-blue-600 px-4 py-3 text-center font-medium text-white transition-colors hover:bg-blue-700" href="{{ $player.url }}"
-            >{{ $player.name }}</a
-          >
+          <a class="{{ $.Scheme.ButtonPrimary }}" href="{{ $player.url }}">{{ $player.name }}</a>
         </div>
       {{ end }}
     </div>

@@ -26,7 +26,7 @@
             </h5>
             <div class="flex items-center gap-4">
               <div class="flex">
-                <span class="material-symbols-outlined text-blue-600 dark:text-blue-400">
+                <span class="{{ $.Scheme.SymbolPrimary }}">
                   {{ $icon }}
                 </span>
               </div>
@@ -147,11 +147,6 @@
     </div>
   </div>
   <div class="mt-8 flex justify-center">
-    <button
-      class="rounded border border-blue-600 bg-transparent px-4 py-2 font-semibold text-blue-600 hover:border-transparent hover:bg-blue-500 hover:text-white dark:border-blue-400 dark:text-blue-400"
-      onclick="history.back()"
-    >
-      Go Back
-    </button>
+    <button class="{{ .Scheme.ButtonBack }}" onclick="history.back()">Go Back</button>
   </div>
 {{ end }}

@@ -16,6 +16,7 @@ import (
 func IndexHandler(w http.ResponseWriter, r *http.Request) {
 	templateData := map[string]interface{}{
 		"ActivePage": "index",
+		"Scheme":     templates.ColorScheme(),
 	}
 	templates.RenderTemplate(w, "index.tmpl", templateData)
 }
@@ -24,6 +25,7 @@ func NotFoundHandler(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusNotFound)
 	templateData := map[string]interface{}{
 		"ActivePage": "404",
+		"Scheme":     templates.ColorScheme(),
 	}
 	templates.RenderTemplate(w, "404.tmpl", templateData)
 }
@@ -31,6 +33,7 @@ func NotFoundHandler(w http.ResponseWriter, r *http.Request) {
 func AboutHandler(w http.ResponseWriter, r *http.Request) {
 	templateData := map[string]interface{}{
 		"ActivePage":       "about",
+		"Scheme":           templates.ColorScheme(),
 		"maintainer_email": "test@example.com",
 	}
 	templates.RenderTemplate(w, "about.tmpl", templateData)
@@ -71,6 +74,7 @@ func EventsHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	templateData := map[string]interface{}{
 		"ActivePage": "events",
+		"Scheme":     templates.ColorScheme(),
 		"Stats":      stats,
 		"Events":     eventsData.Events,
 	}
@@ -162,6 +166,7 @@ func EventDetailHandler(w http.ResponseWriter, r *http.Request) {
 
 	templateData := map[string]interface{}{
 		"ActivePage": "events",
+		"Scheme":     templates.ColorScheme(),
 		"Name":       eventsData.Name,
 		"Date":       eventID,
 		"Results":    results,
@@ -185,6 +190,7 @@ func PlayersHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	templateData := map[string]interface{}{
 		"ActivePage": "players",
+		"Scheme":     templates.ColorScheme(),
 		"Players":    playersData,
 	}
 	templates.RenderTemplate(w, "players.tmpl", templateData)
@@ -210,6 +216,7 @@ func PlayerDetailHandler(w http.ResponseWriter, r *http.Request) {
 
 	templateData := map[string]interface{}{
 		"ActivePage": "players",
+		"Scheme":     templates.ColorScheme(),
 		"Player":     playerData,
 	}
 	templates.RenderTemplate(w, "player.tmpl", templateData)
@@ -231,6 +238,7 @@ func LeaderboardsHandler(w http.ResponseWriter, r *http.Request) {
 
 	templateData := map[string]interface{}{
 		"ActivePage":   "leaderboards",
+		"Scheme":       templates.ColorScheme(),
 		"Leaderboards": leaderboardsData,
 	}
 	templates.RenderTemplate(w, "leaderboards.tmpl", templateData)
@@ -249,6 +257,7 @@ func DecklistHandler(w http.ResponseWriter, r *http.Request) {
 
 	templateData := map[string]interface{}{
 		"ActivePage": "",
+		"Scheme":     templates.ColorScheme(),
 		"Decklist":   string(fileContent),
 	}
 	player := r.URL.Query().Get("player")
