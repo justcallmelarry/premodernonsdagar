@@ -100,20 +100,22 @@
           {{ if eq (len .Player.WonAgainst) 0 }}
             <p class="text-gray-500 dark:text-gray-400">No matches won against any opponent yet.</p>
           {{ else }}
-            <table class="min-w-full">
-              <tbody>
-                {{ range $opponent, $count := .Player.WonAgainst }}
-                  <tr>
-                    <td class="text-gray-500 dark:text-gray-400">
-                      {{ $opponent }}
-                    </td>
-                    <td class="text-right text-gray-500 dark:text-gray-400">
-                      {{ $count }}
-                    </td>
-                  </tr>
-                {{ end }}
-              </tbody>
-            </table>
+            <div class="max-h-50 overflow-y-auto">
+              <table class="min-w-full">
+                <tbody>
+                  {{ range $opponent, $count := .Player.WonAgainst }}
+                    <tr>
+                      <td class="text-gray-500 dark:text-gray-400">
+                        {{ $opponent }}
+                      </td>
+                      <td class="text-right text-gray-500 dark:text-gray-400">
+                        {{ $count }}
+                      </td>
+                    </tr>
+                  {{ end }}
+                </tbody>
+              </table>
+            </div>
           {{ end }}
         </div>
       </div>
@@ -123,20 +125,22 @@
           {{ if eq (len .Player.LostAgainst) 0 }}
             <p class="text-gray-500 dark:text-gray-400">Undefeated! 💪</p>
           {{ else }}
-            <table class="min-w-full">
-              <tbody>
-                {{ range $opponent, $count := .Player.LostAgainst }}
-                  <tr>
-                    <td class="text-gray-500 dark:text-gray-400">
-                      {{ $opponent }}
-                    </td>
-                    <td class="text-right text-gray-500 dark:text-gray-400">
-                      {{ $count }}
-                    </td>
-                  </tr>
-                {{ end }}
-              </tbody>
-            </table>
+            <div class="max-h-50 overflow-y-auto">
+              <table class="min-w-full">
+                <tbody>
+                  {{ range $opponent, $count := .Player.LostAgainst }}
+                    <tr>
+                      <td class="text-gray-500 dark:text-gray-400">
+                        {{ $opponent }}
+                      </td>
+                      <td class="text-right text-gray-500 dark:text-gray-400">
+                        {{ $count }}
+                      </td>
+                    </tr>
+                  {{ end }}
+                </tbody>
+              </table>
+            </div>
           {{ end }}
         </div>
       </div>
