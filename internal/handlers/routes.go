@@ -1,11 +1,24 @@
 package handlers
 
 import (
+	"log"
 	"net/http"
+	"os"
 )
+
+func createStaticDirectories() {
+	directories := []string{"static", "static/images", "static/source"}
+	for _, dir := range directories {
+		if err := os.MkdirAll(dir, os.ModePerm); err != nil {
+			log.Fatalf("Failed to create directory %s: %v", dir, err)
+		}
+	}
+}
 
 func SetupRoutes() *http.ServeMux {
 	mux := http.NewServeMux()
+
+	createStaticDirectories()
 
 	mux.Handle("GET /static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
 	mux.Handle("HEAD /static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
