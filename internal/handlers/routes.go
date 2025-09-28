@@ -9,7 +9,7 @@ import (
 func createStaticDirectories() {
 	directories := []string{"static", "static/images", "static/source"}
 	for _, dir := range directories {
-		if err := os.MkdirAll(dir, os.ModePerm); err != nil {
+		if err := os.MkdirAll(dir, 0755); err != nil {
 			log.Fatalf("Failed to create directory %s: %v", dir, err)
 		}
 	}
