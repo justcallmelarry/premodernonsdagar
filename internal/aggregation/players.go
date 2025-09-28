@@ -46,6 +46,21 @@ func aggregatePlayerStats() error {
 		return fmt.Errorf("failed to create lists directory: %w", err)
 	}
 
+	// Collect existing player JSON files
+	existingFiles := make(map[string]bool)
+	err = filepath.WalkDir("files/players", func(path string, d fs.DirEntry, err error) error {
+		if err != nil {
+			return err
+		}
+		if !d.IsDir() && strings.HasSuffix(strings.ToLower(path), ".json") {
+			existingFiles[path] = true
+		}
+		return nil
+	})
+	if err != nil {
+		return fmt.Errorf("failed to collect existing player files: %w", err)
+	}
+
 	// First pass: Identify all players
 	err = filepath.WalkDir("files/events", func(path string, d fs.DirEntry, err error) error {
 		if err != nil {
@@ -126,6 +141,27 @@ func aggregatePlayerStats() error {
 		for _, match := range eventData.Matches {
 			eventPlayers[match.Player1] = true
 			eventPlayers[match.Player2] = true
+
+			// Ensure players are initialized
+			for _, player := range []string{match.Player1, match.Player2} {
+				if _, exists := players[player]; !exists {
+					players[player] = &PlayerStats{
+						Name:        player,
+						WonAgainst:  make(map[string]int),
+						LostAgainst: make(map[string]int),
+					}
+					eloRatings[player] = 1500 // Starting ELO
+					glickoRatings[player] = struct {
+						Rating float64
+						RD     float64
+						Sigma  float64
+					}{
+						Rating: 1500, // Starting Glicko-2 rating
+						RD:     350,  // Starting Glicko-2 rating deviation
+						Sigma:  0.06, // Starting Glicko-2 volatility
+					}
+				}
+			}
 
 			result := ParseMatchResult(match)
 
@@ -307,10 +343,14 @@ func aggregatePlayerStats() error {
 		}
 
 		slug := utils.Slugify(name)
-		err = os.WriteFile(fmt.Sprintf("files/players/%s.json", slug), playerJSON, 0644)
+		filePath := fmt.Sprintf("files/players/%s.json", slug)
+		err = os.WriteFile(filePath, playerJSON, 0644)
 		if err != nil {
 			return fmt.Errorf("failed to write player file for %s: %w", name, err)
 		}
+
+		// Mark this file as generated
+		delete(existingFiles, filePath)
 
 		// Add to the players list
 		playersList = append(playersList, PlayerListEntry{
@@ -318,6 +358,14 @@ func aggregatePlayerStats() error {
 			Slug: slug,
 			URL:  "/players/" + slug,
 		})
+	}
+
+	// Remove any leftover files that were not regenerated
+	for filePath := range existingFiles {
+		err := os.Remove(filePath)
+		if err != nil {
+			return fmt.Errorf("failed to remove old player file %s: %w", filePath, err)
+		}
 	}
 
 	// Sort the players list alphabetically by slug
