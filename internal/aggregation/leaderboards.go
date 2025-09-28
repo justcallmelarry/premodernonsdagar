@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"os"
 	"path/filepath"
+	"premodernonsdagar/internal/utils"
 	"sort"
 )
 
@@ -107,6 +108,7 @@ func topN(players []Player, scoreFunc func(Player) float64, n int) []Leaderboard
 			topPlayers = append(topPlayers, LeaderboardEntry{
 				Name:  players[i].Name,
 				Score: score,
+				URL:   "/players/" + utils.Slugify(players[i].Name),
 			})
 		}
 	}

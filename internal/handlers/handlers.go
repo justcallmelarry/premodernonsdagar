@@ -10,6 +10,7 @@ import (
 
 	"premodernonsdagar/internal/aggregation"
 	"premodernonsdagar/internal/templates"
+	"premodernonsdagar/internal/utils"
 )
 
 func IndexHandler(w http.ResponseWriter, r *http.Request) {
@@ -126,6 +127,7 @@ func EventDetailHandler(w http.ResponseWriter, r *http.Request) {
 		Result   string
 		Deck     string
 		Decklist string
+		URL      string
 	}
 	results := []PlayerResult{}
 
@@ -154,6 +156,7 @@ func EventDetailHandler(w http.ResponseWriter, r *http.Request) {
 			Result:   result,
 			Deck:     eventsData.PlayerInfo[key].Deck,
 			Decklist: eventsData.PlayerInfo[key].Decklist,
+			URL:      "/players/" + utils.Slugify(key),
 		})
 	}
 
@@ -194,7 +197,7 @@ func PlayerDetailHandler(w http.ResponseWriter, r *http.Request) {
 	filePath := "files/players/" + playerID + ".json"
 	fileContent, err := os.ReadFile(filePath)
 	if err != nil {
-		http.Error(w, "Player not found", http.StatusNotFound)
+		NotFoundHandler(w, r)
 		return
 	}
 
@@ -240,7 +243,7 @@ func DecklistHandler(w http.ResponseWriter, r *http.Request) {
 	filePath := "files/decklists/" + decklistID + ".txt"
 	fileContent, err := os.ReadFile(filePath)
 	if err != nil {
-		http.Error(w, "Decklist not found", http.StatusNotFound)
+		NotFoundHandler(w, r)
 		return
 	}
 

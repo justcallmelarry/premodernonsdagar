@@ -97,6 +97,7 @@ type LeaderboardContainer struct {
 type LeaderboardEntry struct {
 	Name  string      `json:"name"`
 	Score interface{} `json:"score"` // Can be float64 or int depending on the leaderboard
+	URL   string      `json:"url"`
 }
 
 type PlayerListEntry struct {
