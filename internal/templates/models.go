@@ -14,4 +14,5 @@ type TailwindClasses struct {
 	PrimaryHover  string
 	PrimaryActive string
 	PrimaryDeep   string
+	TableHeader   string
 }

@@ -30,5 +30,6 @@ func ColorScheme() TailwindClasses {
 		PrimaryDeep:   primaryDeep,
 		TableRowHover: "hover:bg-gray-100 dark:hover:bg-gray-700",
 		LinkInternal:  "text-gray-900 hover:underline dark:text-white",
+		TableHeader:   "px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-300",
 	}
 }
