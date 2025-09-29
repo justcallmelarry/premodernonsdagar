@@ -9,5 +9,5 @@ details[open] {
 }
 
 .inline-material {
-  vertical-align: -3px;
+  font-size: revert-layer;
 }

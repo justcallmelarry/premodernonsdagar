@@ -33,7 +33,7 @@
                   {{ if .Decklist }}
                     <a href="/decklists/{{ .Decklist }}?player={{ .Name }}&event={{ $eventName }}" class="{{ $.Scheme.Link }}">
                       decklist
-                      <span class="material-symbols-outlined text-sm">article_shortcut</span>
+                      <span class="material-symbols-outlined inline-material">article_shortcut</span>
                     </a>
                   {{ end }}
                 </td>
@@ -50,7 +50,7 @@
       <summary class="flex cursor-pointer gap-4">
         <h3 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">Matches</h3>
         <div>
-          <span class="{{ $.Scheme.SymbolPrimary }} inline-material text-2xl"> arrow_drop_down </span>
+          <span class="{{ $.Scheme.SymbolPrimary }} inline-material text-3xl"> arrow_drop_down </span>
         </div>
       </summary>
 
