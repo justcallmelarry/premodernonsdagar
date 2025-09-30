@@ -42,8 +42,8 @@ func generateLeaderboards() error {
 	leaderboards := []LeaderboardContainer{
 		{
 			Title:   "Elo Rating",
-			Entries: topN(players, func(p Player) float64 { return p.EloRating }, 8),
-			Type:    "float",
+			Entries: topN(players, func(p Player) float64 { return float64(p.EloRating) }, 8),
+			Type:    "int",
 		},
 		{
 			Title:   "Glicko2 Rating",

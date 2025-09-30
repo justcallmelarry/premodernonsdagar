@@ -24,12 +24,6 @@ func aggregatePlayerStats() error {
 	eloCalc := elogo.NewElo()
 
 	players := make(map[string]*PlayerStats)
-	eloRatings := make(map[string]int)
-	glickoRatings := make(map[string]struct {
-		Rating float64
-		RD     float64
-		Sigma  float64
-	})
 
 	err := os.MkdirAll("files/players", 0755)
 	if err != nil {
@@ -83,16 +77,12 @@ func aggregatePlayerStats() error {
 						Name:        name,
 						WonAgainst:  make(map[string]int),
 						LostAgainst: make(map[string]int),
-					}
-					eloRatings[name] = 1500 // Starting ELO
-					glickoRatings[name] = struct {
-						Rating float64
-						RD     float64
-						Sigma  float64
-					}{
-						Rating: 1500, // Starting Glicko-2 rating
-						RD:     350,  // Starting Glicko-2 rating deviation
-						Sigma:  0.06, // Starting Glicko-2 volatility
+						EloRating:   1500, // Starting ELO
+						GlickoRating: GlickoStats{
+							Rating: 1500,
+							RD:     350,
+							Sigma:  0.06,
+						},
 					}
 				}
 			}
@@ -142,27 +132,6 @@ func aggregatePlayerStats() error {
 			eventPlayers[match.Player1] = true
 			eventPlayers[match.Player2] = true
 
-			// Ensure players are initialized
-			for _, player := range []string{match.Player1, match.Player2} {
-				if _, exists := players[player]; !exists {
-					players[player] = &PlayerStats{
-						Name:        player,
-						WonAgainst:  make(map[string]int),
-						LostAgainst: make(map[string]int),
-					}
-					eloRatings[player] = 1500 // Starting ELO
-					glickoRatings[player] = struct {
-						Rating float64
-						RD     float64
-						Sigma  float64
-					}{
-						Rating: 1500, // Starting Glicko-2 rating
-						RD:     350,  // Starting Glicko-2 rating deviation
-						Sigma:  0.06, // Starting Glicko-2 volatility
-					}
-				}
-			}
-
 			result := ParseMatchResult(match)
 
 			if result.Draw {
@@ -203,9 +172,9 @@ func aggregatePlayerStats() error {
 				}
 			}
 
-			p1OutcomeElo, p2OutcomeElo := eloCalc.Outcome(eloRatings[match.Player1], eloRatings[match.Player2], eloScore)
-			eloRatings[match.Player1] = p1OutcomeElo.Rating
-			eloRatings[match.Player2] = p2OutcomeElo.Rating
+			p1OutcomeElo, p2OutcomeElo := eloCalc.Outcome(players[match.Player1].EloRating, players[match.Player2].EloRating, eloScore)
+			players[match.Player1].EloRating = p1OutcomeElo.Rating
+			players[match.Player2].EloRating = p2OutcomeElo.Rating
 
 			// Glicko-2: needs to be done after processing all matches
 		}
@@ -239,16 +208,16 @@ func aggregatePlayerStats() error {
 			}
 
 			playerMatchesInEvent[match.Player1] = append(playerMatchesInEvent[match.Player1], GlickoOpponent{
-				rating: glickoRatings[match.Player2].Rating,
-				rd:     glickoRatings[match.Player2].RD,
-				sigma:  glickoRatings[match.Player2].Sigma,
+				rating: players[match.Player2].GlickoRating.Rating,
+				rd:     players[match.Player2].GlickoRating.RD,
+				sigma:  players[match.Player2].GlickoRating.Sigma,
 				score:  scoreP1,
 			})
 
 			playerMatchesInEvent[match.Player2] = append(playerMatchesInEvent[match.Player2], GlickoOpponent{
-				rating: glickoRatings[match.Player1].Rating,
-				rd:     glickoRatings[match.Player1].RD,
-				sigma:  glickoRatings[match.Player1].Sigma,
+				rating: players[match.Player1].GlickoRating.Rating,
+				rd:     players[match.Player1].GlickoRating.RD,
+				sigma:  players[match.Player1].GlickoRating.Sigma,
 				score:  1.0 - scoreP1, // Reverse score for player 2
 			})
 		}
@@ -265,37 +234,27 @@ func aggregatePlayerStats() error {
 
 				// Update rating
 				nr, nrd, nsigma := glicko2.Rank(
-					glickoRatings[player].Rating,
-					glickoRatings[player].RD,
-					glickoRatings[player].Sigma,
+					players[player].GlickoRating.Rating,
+					players[player].GlickoRating.RD,
+					players[player].GlickoRating.Sigma,
 					glickoOpponents,
 					0.6, // Tau value (recommended between 0.3 and 1.2)
 				)
 
-				glickoRatings[player] = struct {
-					Rating float64
-					RD     float64
-					Sigma  float64
-				}{
-					Rating: nr,
-					RD:     nrd,
-					Sigma:  nsigma,
-				}
+				players[player].GlickoRating.Rating = nr
+				players[player].GlickoRating.RD = nrd
+				players[player].GlickoRating.Sigma = nsigma
 			} else {
 				// If player skipped this tournament, update RD
 				newRD := glicko2.Skip(
-					glickoRatings[player].Rating,
-					glickoRatings[player].RD,
-					glickoRatings[player].Sigma,
+					players[player].GlickoRating.Rating,
+					players[player].GlickoRating.RD,
+					players[player].GlickoRating.Sigma,
 				)
-				glickoRatings[player] = struct {
-					Rating float64
-					RD     float64
-					Sigma  float64
-				}{
-					Rating: glickoRatings[player].Rating,
+				players[player].GlickoRating = GlickoStats{
+					Rating: players[player].GlickoRating.Rating,
 					RD:     newRD,
-					Sigma:  glickoRatings[player].Sigma,
+					Sigma:  players[player].GlickoRating.Sigma,
 				}
 			}
 		}
@@ -321,11 +280,11 @@ func aggregatePlayerStats() error {
 		player := &Player{
 			Name:           name,
 			AttendedEvents: stats.AttendedEvents,
-			EloRating:      math.Round(float64(eloRatings[name])*100) / 100,
+			EloRating:      players[name].EloRating,
 			GlickoRating: GlickoRating{
-				Mu:    math.Round(glickoRatings[name].Rating*100) / 100,
-				Phi:   math.Round(glickoRatings[name].RD*100) / 100,
-				Sigma: math.Round(glickoRatings[name].Sigma*100) / 100,
+				Mu:    math.Round(players[name].GlickoRating.Rating*100) / 100,
+				Phi:   math.Round(players[name].GlickoRating.RD*100) / 100,
+				Sigma: math.Round(players[name].GlickoRating.Sigma*100) / 100,
 			},
 			DrawCounter:      stats.MatchesDrawn,
 			GameWinRate:      math.Round(gameWinRate*100) / 100,

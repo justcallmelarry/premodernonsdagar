@@ -14,19 +14,23 @@ type PlayerEventInfo struct {
 	Decklist string `json:"decklist,omitempty"`
 }
 
-// Match represents a match between two players
 type Match struct {
 	Player1 string `json:"player_1"`
 	Player2 string `json:"player_2"`
 	Result  string `json:"result"`
 }
 
-// MatchResult holds the processed result of a match
 type MatchResult struct {
 	Winner string
 	Loser  string
 	Draw   bool
 	Score  string
+}
+
+type GlickoStats struct {
+	Rating float64
+	RD     float64
+	Sigma  float64
 }
 
 type PlayerStats struct {
@@ -43,9 +47,10 @@ type PlayerStats struct {
 	AttendedEvents     int
 	UndefeatedEvents   int
 	UnfinishedEvents   int
+	EloRating          int
+	GlickoRating       GlickoStats
 }
 
-// GlickoOpponent implements the glicko2.Opponent interface
 type GlickoOpponent struct {
 	rating float64
 	rd     float64
@@ -69,7 +74,7 @@ type EventListItem struct {
 
 type Player struct {
 	Name             string         `json:"name"`
-	EloRating        float64        `json:"elo_rating"`
+	EloRating        int            `json:"elo_rating"`
 	GlickoRating     GlickoRating   `json:"glicko_rating"`
 	DrawCounter      int            `json:"draw_counter"`
 	GameWinRate      float64        `json:"game_win_rate"`
