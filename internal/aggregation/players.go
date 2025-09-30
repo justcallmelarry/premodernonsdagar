@@ -393,13 +393,13 @@ func aggregatePlayerStats() error {
 }
 
 // readEventFile reads and parses an event JSON file
-func readEventFile(path string) (*EventData, error) {
+func readEventFile(path string) (*Event, error) {
 	data, err := os.ReadFile(path)
 	if err != nil {
 		return nil, fmt.Errorf("failed to read event file %s: %w", path, err)
 	}
 
-	var eventData EventData
+	var eventData Event
 	if err := json.Unmarshal(data, &eventData); err != nil {
 		return nil, fmt.Errorf("failed to parse event file %s: %w", path, err)
 	}

@@ -6,7 +6,6 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"sort"
 	"time"
 
 	"premodernonsdagar/internal/aggregation"
@@ -105,7 +104,7 @@ func EventDetailHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	var eventsData aggregation.EventData
+	var eventsData aggregation.Event
 	err = json.Unmarshal(fileContent, &eventsData)
 	if err != nil {
 		log.Printf("Error unmarshalling events data: %v", err)
@@ -113,75 +112,10 @@ func EventDetailHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	wins := make(map[string]int)
-	losses := make(map[string]int)
-	draws := make(map[string]int)
-	points := make(map[string]int)
-	matches := make(map[string]int)
-
-	for _, match := range eventsData.Matches {
-		result := aggregation.ParseMatchResult(match)
-
-		if result.Draw {
-			draws[match.Player1]++
-			draws[match.Player2]++
-			points[match.Player1] += 1
-			points[match.Player2] += 1
-		} else {
-			wins[result.Winner]++
-			losses[result.Loser]++
-			points[result.Winner] += 3
-			points[result.Loser] += 0
-		}
-		matches[match.Player1]++
-		matches[match.Player2]++
-	}
-
-	type PlayerResult struct {
-		Name     string
-		Result   string
-		Deck     string
-		Decklist string
-		URL      string
-	}
-	results := []PlayerResult{}
-
-	keys := make([]string, 0, len(points))
-	for key := range points {
-		keys = append(keys, key)
-	}
-	sort.Slice(keys, func(i, j int) bool {
-		pi, pj := points[keys[i]], points[keys[j]]
-		if pi != pj {
-			return pi > pj // primary: points desc
-		}
-		if matches[keys[i]] != matches[keys[j]] {
-			return matches[keys[i]] > matches[keys[j]] // secondary: matches desc
-		}
-		return keys[i] < keys[j] // thirdly: name asc
-	})
-
-	for _, key := range keys {
-		result := fmt.Sprintf("%d-%d", wins[key], losses[key])
-		if draws[key] > 0 {
-			result += fmt.Sprintf("-%d", draws[key])
-		}
-		results = append(results, PlayerResult{
-			Name:     key,
-			Result:   result,
-			Deck:     eventsData.PlayerInfo[key].Deck,
-			Decklist: eventsData.PlayerInfo[key].Decklist,
-			URL:      "/players/" + utils.Slugify(key),
-		})
-	}
-
 	templateData := map[string]interface{}{
 		"ActivePage": "events",
 		"Scheme":     templates.ColorScheme(),
-		"Name":       eventsData.Name,
-		"Date":       eventID,
-		"Results":    results,
-		"Matches":    eventsData.Matches,
+		"Event":      eventsData,
 	}
 	templates.RenderTemplate(w, "event.tmpl", templateData)
 }

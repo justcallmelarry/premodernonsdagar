@@ -33,7 +33,8 @@ go.work.sum
 
 # temp data
 files/**/*.json
-files/**/*.txt
+input/**/*.json
+input/**/*.txt
 node_modules/
 .DS_Store
 copy-data.sh

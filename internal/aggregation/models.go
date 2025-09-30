@@ -1,12 +1,28 @@
 package aggregation
 
-type EventData struct {
+type InputEvent struct {
 	Name       string                     `json:"name"`
 	Date       string                     `json:"date"`
 	Rounds     int                        `json:"rounds"`
-	PlayerInfo map[string]PlayerEventInfo `json:"player_info"`
+	PlayerInfo map[string]PlayerEventInfo `json:"player_info"` // player name -> deck
 	Matches    []Match                    `json:"matches"`
-	Results    map[string]string          `json:"results"`
+}
+
+type PlayerResult struct {
+	Name     string
+	Result   string
+	Deck     string
+	Decklist string
+	URL      string
+}
+
+type Event struct {
+	Name    string  `json:"name"`
+	Date    string  `json:"date"`
+	Rounds  int     `json:"rounds"`
+	Matches []Match `json:"matches"`
+	// Results       map[string]string `json:"results"`
+	Results []PlayerResult `json:"results"`
 }
 
 type PlayerEventInfo struct {
@@ -133,4 +149,15 @@ type PlayerListEntry struct {
 	Name string `json:"name"`
 	Slug string `json:"slug"`
 	URL  string `json:"url"`
+}
+
+type DecklistCard struct {
+	Count int    `json:"count"`
+	Name  string `json:"name"`
+	URL   string `json:"url,omitempty"`
+}
+
+type Decklist struct {
+	MainDeck  []DecklistCard `json:"main_deck"`
+	Sideboard []DecklistCard `json:"sideboard,omitempty"`
 }
