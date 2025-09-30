@@ -286,6 +286,16 @@ func aggregatePlayerStats() error {
 				}
 			}
 		}
+		for name := range eventPlayerData {
+			players[name].EloHistory = append(players[name].EloHistory, EloHistoryEntry{
+				Date:  eventData.Date,
+				Score: players[name].EloRating,
+			})
+			players[name].GlickoHistory = append(players[name].GlickoHistory, GlickoHistoryEntry{
+				Date:  eventData.Date,
+				Score: math.Round(players[name].GlickoRating.Rating*100) / 100,
+			})
+		}
 	}
 
 	playersList := []PlayerListEntry{}
@@ -321,6 +331,8 @@ func aggregatePlayerStats() error {
 			LostAgainst:      sortMatchupsByValue(stats.LostAgainst),
 			UndefeatedEvents: stats.UndefeatedEvents,
 			UnfinishedEvents: stats.UnfinishedEvents,
+			EloHistory:       stats.EloHistory,
+			GlickoHistory:    stats.GlickoHistory,
 		}
 
 		// Write player to JSON file

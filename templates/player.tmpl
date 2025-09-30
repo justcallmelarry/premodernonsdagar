@@ -49,25 +49,25 @@
           <table class="min-w-full">
             <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
               <tr>
-                <td class="py-2 text-gray-500 dark:text-gray-400">Elo Rating:</td>
+                <td class="py-2 text-gray-500 dark:text-gray-400">Elo Rating</td>
                 <td class="py-2 text-gray-500 dark:text-gray-400">
                   {{ .Player.EloRating }}
                 </td>
               </tr>
               <tr>
-                <td class="py-2 text-gray-500 dark:text-gray-400">Glicko2 Rating:</td>
+                <td class="py-2 text-gray-500 dark:text-gray-400">Glicko2 Rating</td>
                 <td class="py-2 text-gray-500 dark:text-gray-400">
                   {{ printf "%.2f" .Player.GlickoRating.Mu }}
                 </td>
               </tr>
               <tr>
-                <td class="py-2 text-gray-500 dark:text-gray-400">Glicko2 Distribution:</td>
+                <td class="py-2 text-gray-500 dark:text-gray-400">Glicko2 Distribution</td>
                 <td class="py-2 text-gray-500 dark:text-gray-400">
                   {{ printf "%.2f" .Player.GlickoRating.Phi }}
                 </td>
               </tr>
               <tr>
-                <td class="py-2 text-gray-500 dark:text-gray-400">Glicko2 Volatility:</td>
+                <td class="py-2 text-gray-500 dark:text-gray-400">Glicko2 Volatility</td>
                 <td class="py-2 text-gray-500 dark:text-gray-400">
                   {{ printf "%.2f"
                     .Player.GlickoRating.Sigma
@@ -75,17 +75,17 @@
                 </td>
               </tr>
               <tr>
-                <td class="py-2 text-gray-500 dark:text-gray-400">Amount of Draws:</td>
+                <td class="py-2 text-gray-500 dark:text-gray-400">Amount of Draws</td>
                 <td class="py-2 text-gray-500 dark:text-gray-400">
                   {{ .Player.DrawCounter }}
                 </td>
               </tr>
               <tr>
-                <td class="py-2 text-gray-500 dark:text-gray-400">Game Win Rate:</td>
+                <td class="py-2 text-gray-500 dark:text-gray-400">Game Win Rate</td>
                 <td class="py-2 text-gray-500 dark:text-gray-400">{{ printf "%.2f" .Player.GameWinRate }}%</td>
               </tr>
               <tr>
-                <td class="py-2 text-gray-500 dark:text-gray-400">Match Win Rate:</td>
+                <td class="py-2 text-gray-500 dark:text-gray-400">Match Win Rate</td>
                 <td class="py-2 text-gray-500 dark:text-gray-400">{{ printf "%.2f" .Player.MatchWinRate }}%</td>
               </tr>
             </tbody>
@@ -108,7 +108,7 @@
                       <td class="text-gray-500 dark:text-gray-400">
                         {{ .Opponent }}
                       </td>
-                      <td class="text-right text-gray-500 dark:text-gray-400 pr-4">
+                      <td class="pr-4 text-right text-gray-500 dark:text-gray-400">
                         {{ .Count }}
                       </td>
                     </tr>
@@ -133,7 +133,7 @@
                       <td class="text-gray-500 dark:text-gray-400">
                         {{ .Opponent }}
                       </td>
-                      <td class="text-right text-gray-500 dark:text-gray-400 pr-4">
+                      <td class="pr-4 text-right text-gray-500 dark:text-gray-400">
                         {{ .Count }}
                       </td>
                     </tr>
@@ -145,9 +145,9 @@
         </div>
       </div>
     </div>
-    <div>
-      <canvas id="myChart">Your browser does not support the canvas element.</canvas>
-    </div>
+  </div>
+  <div class="h-64 rounded border border-gray-200 p-6 shadow md:h-80 dark:border-gray-700">
+    <canvas id="ratingChart">Your browser does not support the canvas element.</canvas>
   </div>
   <div class="mt-8 flex justify-center">
     <button class="{{ .Scheme.ButtonBack }}" onclick="history.back()">Go Back</button>
@@ -156,7 +156,7 @@
 
 {{ define "post-script" }}
   <script>
-    const ctx = document.getElementById('myChart');
+    const ctx = document.getElementById('ratingChart');
 
     const cssVar = (name) => {
       return getComputedStyle(document.documentElement).getPropertyValue(name);
@@ -167,27 +167,40 @@
     if (darkMode) {
       backgroundColor = cssVar('--color-{{ .Scheme.PrimaryDark }}');
     }
+    let deepColor = cssVar('--color-{{ .Scheme.PrimaryDeep }}');
 
-    new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [
-          {
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            borderWidth: 0,
-            backgroundColor: backgroundColor,
-          },
-        ],
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true,
-          },
+    const data = {
+      labels: [{{ range $index, $element := .Player.EloHistory }}{{ if $index }},{{ end }}{{ $element.Date }}{{ end }}],
+      datasets: [
+        {
+          label: 'Elo',
+          data: [{{ range $index, $element := .Player.EloHistory }}{{ if $index }},{{ end }}{{ $element.Score }}{{ end }}],
+          borderColor: backgroundColor,
+          backgroundColor: backgroundColor,
         },
+        {
+          label: 'Glicko2',
+          data: [{{ range $index, $element := .Player.GlickoHistory }}{{ if $index }},{{ end }}{{ $element.Score }}{{ end }}],
+          borderColor: deepColor,
+          backgroundColor: deepColor,
+        }
+      ]
+    };
+
+    const config = {
+      type: 'line',
+      data: data,
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            position: 'bottom',
+          },
+        }
       },
-    });
+    };
+
+    new Chart(ctx, config);
   </script>
 {{ end }}
