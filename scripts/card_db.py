@@ -53,6 +53,10 @@ def main() -> None:
         legality = card.get("legalities", {}).get("premodern", "")
         border = card.get("border_color")
 
+        finishes = card.get("finishes", [])
+        if "nonfoil" not in finishes:
+            continue
+
         if name in unique_cards:
             continue
 

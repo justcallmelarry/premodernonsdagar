@@ -70,11 +70,6 @@
     "legality": "legal"
   },
   {
-    "name": "Goblin Gardener",
-    "image_url": "https://cards.scryfall.io/png/front/0/0/009c1788-a3ab-41cb-8f9a-d220c376953b.png?1675830353",
-    "legality": "legal"
-  },
-  {
     "name": "Mercadian Atlas",
     "image_url": "https://cards.scryfall.io/png/front/0/0/00ad3531-399c-4897-b0ee-ad2a26445a17.png?1562378940",
     "legality": "legal"
@@ -132,11 +127,6 @@
   {
     "name": "Chainer's Edict",
     "image_url": "https://cards.scryfall.io/png/front/0/1/014af391-3b4a-4aab-a3e9-f60e61016985.png?1562628422",
-    "legality": "legal"
-  },
-  {
-    "name": "Flying Carpet",
-    "image_url": "https://cards.scryfall.io/png/front/0/1/014b7a72-135e-4ed0-9b1c-0b836aaa260f.png?1675830498",
     "legality": "legal"
   },
   {
@@ -445,11 +435,6 @@
     "legality": "legal"
   },
   {
-    "name": "Trained Armodon",
-    "image_url": "https://cards.scryfall.io/png/front/0/5/05381dc1-50e1-4ac4-8f35-46d0b2d0b42d.png?1675830469",
-    "legality": "legal"
-  },
-  {
     "name": "Yavimaya Granger",
     "image_url": "https://cards.scryfall.io/png/front/0/5/05414a41-b50c-49b6-9c27-f3170017d9b0.png?1562862303",
     "legality": "legal"
@@ -462,11 +447,6 @@
   {
     "name": "Samite Alchemist",
     "image_url": "https://cards.scryfall.io/png/front/0/5/0545fc43-9c67-4ad4-b1d9-6b57b53321af.png?1562587034",
-    "legality": "legal"
-  },
-  {
-    "name": "Fire Diamond",
-    "image_url": "https://cards.scryfall.io/png/front/0/5/054ae635-1cc5-4367-9dd9-95acf8bfd937.png?1675830495",
     "legality": "legal"
   },
   {
@@ -585,11 +565,6 @@
     "legality": "legal"
   },
   {
-    "name": "Reflexes",
-    "image_url": "https://cards.scryfall.io/png/front/0/5/05f91d14-b409-44b6-bdfd-44427855373a.png?1675830387",
-    "legality": "legal"
-  },
-  {
     "name": "Chaotic Strike",
     "image_url": "https://cards.scryfall.io/png/front/0/6/061df8e4-6947-4bbb-9fe7-52ca4fd95d65.png?1562896191",
     "legality": "legal"
@@ -602,11 +577,6 @@
   {
     "name": "Disturbed Burial",
     "image_url": "https://cards.scryfall.io/png/front/0/6/06254b6c-eb22-4ec9-9420-74e9ee15e072.png?1562052328",
-    "legality": "legal"
-  },
-  {
-    "name": "Raise Dead",
-    "image_url": "https://cards.scryfall.io/png/front/0/6/062f3566-ff6a-4f2a-9896-9547e46e6bac.png?1675830310",
     "legality": "legal"
   },
   {
@@ -627,11 +597,6 @@
   {
     "name": "Crystalline Sliver",
     "image_url": "https://cards.scryfall.io/png/front/0/6/06551990-713c-4b8b-bebb-4e849babb5bb.png?1562595904",
-    "legality": "legal"
-  },
-  {
-    "name": "Serra's Embrace",
-    "image_url": "https://cards.scryfall.io/png/front/0/6/06573466-dd60-4cab-acdc-9287daf232cf.png?1675830146",
     "legality": "legal"
   },
   {
@@ -745,16 +710,6 @@
     "legality": "legal"
   },
   {
-    "name": "Ensnaring Bridge",
-    "image_url": "https://cards.scryfall.io/png/front/0/7/0752f333-002c-4c77-bb96-a7bd2dd4ff5e.png?1675830493",
-    "legality": "legal"
-  },
-  {
-    "name": "Hill Giant",
-    "image_url": "https://cards.scryfall.io/png/front/0/7/07724b6b-73e6-43b9-980f-149047c8e786.png?1675830362",
-    "legality": "legal"
-  },
-  {
     "name": "Venomspout Brackus",
     "image_url": "https://cards.scryfall.io/png/front/0/7/0774771c-5373-4636-9174-d06e7d635183.png?1562896736",
     "legality": "legal"
@@ -832,11 +787,6 @@
   {
     "name": "Game of Chaos",
     "image_url": "https://cards.scryfall.io/png/front/0/8/08265332-2c0e-4c42-8c51-83ac20462eed.png?1562896565",
-    "legality": "legal"
-  },
-  {
-    "name": "Duress",
-    "image_url": "https://cards.scryfall.io/png/front/0/8/08298bdd-38a4-43ef-a2b6-4d9b69b0d417.png?1675830275",
     "legality": "legal"
   },
   {
@@ -995,11 +945,6 @@
     "legality": "legal"
   },
   {
-    "name": "Iron Star",
-    "image_url": "https://cards.scryfall.io/png/front/0/9/09c1995f-a22e-4b3d-9d3e-f6ed6e75a3ea.png?1675830503",
-    "legality": "legal"
-  },
-  {
     "name": "Lava Runner",
     "image_url": "https://cards.scryfall.io/png/front/0/9/09d0fbe6-6ce1-4b95-afb7-a7386b5033cf.png?1562378961",
     "legality": "legal"
@@ -1037,11 +982,6 @@
   {
     "name": "Rhystic Deluge",
     "image_url": "https://cards.scryfall.io/png/front/0/a/0a3dd540-7f54-46fe-b1e8-7b07f57e71d0.png?1562896980",
-    "legality": "legal"
-  },
-  {
-    "name": "Pillage",
-    "image_url": "https://cards.scryfall.io/png/front/0/a/0a4fc2a6-02ff-406c-8a8e-c97ea54b3f8b.png?1675830377",
     "legality": "legal"
   },
   {
@@ -1270,11 +1210,6 @@
     "legality": "legal"
   },
   {
-    "name": "Earthquake",
-    "image_url": "https://cards.scryfall.io/png/front/0/c/0c39fb5f-9eb7-4a4c-9382-80b5a9459afc.png?1675830342",
-    "legality": "legal"
-  },
-  {
     "name": "Cemetery Gate",
     "image_url": "https://cards.scryfall.io/png/front/0/c/0c6f0614-06dc-4bd2-b8b9-d951ae27db21.png?1575874678",
     "legality": "legal"
@@ -1327,11 +1262,6 @@
   {
     "name": "Canopy Crawler",
     "image_url": "https://cards.scryfall.io/png/front/0/c/0ccdc9d7-71b5-4304-8d19-a63952e17a6b.png?1562897615",
-    "legality": "legal"
-  },
-  {
-    "name": "Razortooth Rats",
-    "image_url": "https://cards.scryfall.io/png/front/0/c/0cd2145f-298b-4c27-b8b2-18f6975087dd.png?1675830312",
     "legality": "legal"
   },
   {
@@ -1390,11 +1320,6 @@
     "legality": "legal"
   },
   {
-    "name": "Yawgmoth's Edict",
-    "image_url": "https://cards.scryfall.io/png/front/0/d/0d2b1255-d917-4884-aa9e-4b1f92e88f79.png?1675830330",
-    "legality": "legal"
-  },
-  {
     "name": "Cabal Patriarch",
     "image_url": "https://cards.scryfall.io/png/front/0/d/0d2f0da3-a13e-4a45-98dc-6227cf952a5e.png?1562897557",
     "legality": "legal"
@@ -1437,11 +1362,6 @@
   {
     "name": "Cover of Darkness",
     "image_url": "https://cards.scryfall.io/png/front/0/d/0d6d7d88-d82b-40f4-bf57-ec5d7c480689.png?1562898088",
-    "legality": "legal"
-  },
-  {
-    "name": "Monstrous Growth",
-    "image_url": "https://cards.scryfall.io/png/front/0/d/0d911589-f2e8-4d9a-b339-5a5597a783fd.png?1675830447",
     "legality": "legal"
   },
   {
@@ -1545,11 +1465,6 @@
     "legality": "legal"
   },
   {
-    "name": "Marble Diamond",
-    "image_url": "https://cards.scryfall.io/png/front/0/e/0e8dbea9-25ef-4048-999f-d62ec7e1a13f.png?1675830510",
-    "legality": "legal"
-  },
-  {
     "name": "Death Watch",
     "image_url": "https://cards.scryfall.io/png/front/0/e/0e939d8f-6989-4884-989b-9cba566c9963.png?1562276963",
     "legality": "legal"
@@ -1602,11 +1517,6 @@
   {
     "name": "Gamble",
     "image_url": "https://cards.scryfall.io/png/front/0/e/0ee0f160-7339-4d98-8a8c-f08889ee52f5.png?1562898053",
-    "legality": "legal"
-  },
-  {
-    "name": "Embermage Goblin",
-    "image_url": "https://cards.scryfall.io/png/front/0/e/0ee5aa80-32cc-486e-bbb2-5386eadaf4ca.png?1690825873",
     "legality": "legal"
   },
   {
@@ -1895,11 +1805,6 @@
     "legality": "legal"
   },
   {
-    "name": "Impatience",
-    "image_url": "https://cards.scryfall.io/png/front/1/1/11c59ed1-ecc2-4f0b-a49a-473e797059e7.png?1675830363",
-    "legality": "legal"
-  },
-  {
     "name": "Giant Crab",
     "image_url": "https://cards.scryfall.io/png/front/1/1/11c65a35-e219-4b60-ab95-ce7eff67d646.png?1562052780",
     "legality": "legal"
@@ -1917,11 +1822,6 @@
   {
     "name": "Ancestral Mask",
     "image_url": "https://cards.scryfall.io/png/front/1/2/1203f98a-fb6e-4f16-88e3-553eba177450.png?1562379417",
-    "legality": "legal"
-  },
-  {
-    "name": "Blanchwood Armor",
-    "image_url": "https://cards.scryfall.io/png/front/1/2/1205388c-dd0d-48c0-809f-420312e54cca.png?1675830411",
     "legality": "legal"
   },
   {
@@ -2080,11 +1980,6 @@
     "legality": "legal"
   },
   {
-    "name": "Serpent Warrior",
-    "image_url": "https://cards.scryfall.io/png/front/1/3/138658d9-368e-46c6-b957-8bdb0699457d.png?1675830317",
-    "legality": "legal"
-  },
-  {
     "name": "Flamewave Invoker",
     "image_url": "https://cards.scryfall.io/png/front/1/3/13a68534-2d9a-47e9-9d2a-cb6df4362aa9.png?1562898919",
     "legality": "legal"
@@ -2135,11 +2030,6 @@
     "legality": "legal"
   },
   {
-    "name": "Shatter",
-    "image_url": "https://cards.scryfall.io/png/front/1/4/142a7f05-df30-4bac-801d-06f125e7365f.png?1675830391",
-    "legality": "legal"
-  },
-  {
     "name": "School of the Unseen",
     "image_url": "https://cards.scryfall.io/png/front/1/4/1438606d-556d-4b96-9662-fcac051af045.png?1562768214",
     "legality": "legal"
@@ -2180,13 +2070,13 @@
     "legality": "legal"
   },
   {
-    "name": "Sleight of Hand",
-    "image_url": "https://cards.scryfall.io/png/front/1/4/14525e5c-3e50-4478-8149-7e9c012a85bf.png?1675830227",
+    "name": "Overtaker",
+    "image_url": "https://cards.scryfall.io/png/front/1/4/145903cb-9eaa-4f3c-a376-88dcd474ffda.png?1562379423",
     "legality": "legal"
   },
   {
-    "name": "Overtaker",
-    "image_url": "https://cards.scryfall.io/png/front/1/4/145903cb-9eaa-4f3c-a376-88dcd474ffda.png?1562379423",
+    "name": "Serra's Embrace",
+    "image_url": "https://cards.scryfall.io/png/front/1/4/145c3ebd-7a67-4606-8427-f3b91ab26b84.png?1562899307",
     "legality": "legal"
   },
   {
@@ -2237,11 +2127,6 @@
   {
     "name": "Order // Chaos",
     "image_url": "https://cards.scryfall.io/png/front/1/4/14e4f5a4-b1ea-4816-b2d7-cf148468a388.png?1670480463",
-    "legality": "legal"
-  },
-  {
-    "name": "Blood Pet",
-    "image_url": "https://cards.scryfall.io/png/front/1/4/14e67191-0195-4af7-9566-59df8a24cb82.png?1675830261",
     "legality": "legal"
   },
   {
@@ -2355,11 +2240,6 @@
     "legality": "legal"
   },
   {
-    "name": "Howl from Beyond",
-    "image_url": "https://cards.scryfall.io/png/front/1/5/15fd1202-ad8b-4526-ba6b-0460f56d91a6.png?1675830290",
-    "legality": "legal"
-  },
-  {
     "name": "Mogg Bombers",
     "image_url": "https://cards.scryfall.io/png/front/1/6/16064ad4-eec2-4c32-b66d-a2bdb1a6191f.png?1562595919",
     "legality": "legal"
@@ -2367,11 +2247,6 @@
   {
     "name": "Tranquility",
     "image_url": "https://cards.scryfall.io/png/front/1/6/160b8060-e755-4a96-9193-b76550d4a6ba.png?1562052786",
-    "legality": "legal"
-  },
-  {
-    "name": "Reclaim",
-    "image_url": "https://cards.scryfall.io/png/front/1/6/160e5d9e-b390-4a77-9435-f6cdc95ca728.png?1675830452",
     "legality": "legal"
   },
   {
@@ -2437,11 +2312,6 @@
   {
     "name": "Stalking Bloodsucker",
     "image_url": "https://cards.scryfall.io/png/front/1/6/16705695-1ba8-4169-974f-d8c683ab2652.png?1562899252",
-    "legality": "legal"
-  },
-  {
-    "name": "Pride of Lions",
-    "image_url": "https://cards.scryfall.io/png/front/1/6/1673b038-97b6-4139-8468-9cbbd01dd239.png?1675830451",
     "legality": "legal"
   },
   {
@@ -2570,11 +2440,6 @@
     "legality": "legal"
   },
   {
-    "name": "Southern Paladin",
-    "image_url": "https://cards.scryfall.io/png/front/1/7/17a98f74-1b59-47ce-b5ab-dda5aefd9f78.png?1675830152",
-    "legality": "legal"
-  },
-  {
     "name": "Brutal Suppression",
     "image_url": "https://cards.scryfall.io/png/front/1/7/17b3725b-924d-4137-9078-1a28f06c84fa.png?1562899495",
     "legality": "legal"
@@ -2615,18 +2480,8 @@
     "legality": "legal"
   },
   {
-    "name": "Looming Shade",
-    "image_url": "https://cards.scryfall.io/png/front/1/8/184befc7-be32-47b2-a634-a6d474daa553.png?1675830294",
-    "legality": "legal"
-  },
-  {
     "name": "Noetic Scales",
     "image_url": "https://cards.scryfall.io/png/front/1/8/18506777-cd69-42f6-99c9-cde9b0958868.png?1562900134",
-    "legality": "legal"
-  },
-  {
-    "name": "Reverse Damage",
-    "image_url": "https://cards.scryfall.io/png/front/1/8/1867777d-000d-48b9-99da-1c2194722dde.png?1675830135",
     "legality": "legal"
   },
   {
@@ -2717,11 +2572,6 @@
   {
     "name": "Skyshroud War Beast",
     "image_url": "https://cards.scryfall.io/png/front/1/9/19d809c1-e674-40b8-816d-c45d77c66722.png?1562087347",
-    "legality": "legal"
-  },
-  {
-    "name": "Elder Druid",
-    "image_url": "https://cards.scryfall.io/png/front/1/9/19f1540e-58c4-4bec-abc8-e3e2760fcb1f.png?1675830419",
     "legality": "legal"
   },
   {
@@ -3055,11 +2905,6 @@
     "legality": "legal"
   },
   {
-    "name": "Crypt Rats",
-    "image_url": "https://cards.scryfall.io/png/front/1/c/1ce46b67-e0a2-47d6-b3b8-6acedfd7b40f.png?1675830267",
-    "legality": "legal"
-  },
-  {
     "name": "Rain of Filth",
     "image_url": "https://cards.scryfall.io/png/front/1/c/1cf07d5a-6618-48e2-a9f0-669b75bb6e85.png?1701537455",
     "legality": "legal"
@@ -3087,11 +2932,6 @@
   {
     "name": "Tireless Tribe",
     "image_url": "https://cards.scryfall.io/png/front/1/d/1d23e47a-21d5-4d7e-8aa0-3b3064da5967.png?1562900445",
-    "legality": "legal"
-  },
-  {
-    "name": "Fear",
-    "image_url": "https://cards.scryfall.io/png/front/1/d/1d28b0f2-ea67-41ff-a187-356eef227bc0.png?1675830280",
     "legality": "legal"
   },
   {
@@ -3170,11 +3010,6 @@
     "legality": "legal"
   },
   {
-    "name": "Goblin Chariot",
-    "image_url": "https://cards.scryfall.io/png/front/1/d/1db520e2-9926-45d2-a140-37b119b88106.png?1675830348",
-    "legality": "legal"
-  },
-  {
     "name": "Insight",
     "image_url": "https://cards.scryfall.io/png/front/1/d/1dfd9cb9-51f6-4d09-b5c0-5b0ed9d16542.png?1562052796",
     "legality": "legal"
@@ -3182,11 +3017,6 @@
   {
     "name": "Rocky Tar Pit",
     "image_url": "https://cards.scryfall.io/png/front/1/e/1e21c347-7aaf-42ae-abf3-f1283c5b54e6.png?1562718309",
-    "legality": "legal"
-  },
-  {
-    "name": "Nature's Revolt",
-    "image_url": "https://cards.scryfall.io/png/front/1/e/1e3f2a56-ec54-4983-9f09-aea67becec68.png?1675830449",
     "legality": "legal"
   },
   {
@@ -3257,11 +3087,6 @@
   {
     "name": "Icy Manipulator",
     "image_url": "https://cards.scryfall.io/png/front/1/e/1eda936f-7691-4440-9b83-eb0c6035b109.png?1587912152",
-    "legality": "legal"
-  },
-  {
-    "name": "Serra Advocate",
-    "image_url": "https://cards.scryfall.io/png/front/1/f/1f05d654-f3d1-4965-9d89-9848d6fc2123.png?1675830145",
     "legality": "legal"
   },
   {
@@ -3470,6 +3295,11 @@
     "legality": "legal"
   },
   {
+    "name": "Elder Druid",
+    "image_url": "https://cards.scryfall.io/png/front/2/1/210f6fab-62f0-42ab-bd01-00d647bd25e7.png?1562901131",
+    "legality": "legal"
+  },
+  {
     "name": "Mortal Combat",
     "image_url": "https://cards.scryfall.io/png/front/2/1/21146226-ff05-40d5-bc4e-42f2263104b1.png?1562628881",
     "legality": "legal"
@@ -3665,11 +3495,6 @@
     "legality": "legal"
   },
   {
-    "name": "Goblin Matron",
-    "image_url": "https://cards.scryfall.io/png/front/2/2/22a80d36-349d-4b49-9a0c-7e0a400abb67.png?1675830355",
-    "legality": "legal"
-  },
-  {
     "name": "Thunderscape Master",
     "image_url": "https://cards.scryfall.io/png/front/2/2/22abdc2f-bdc8-46c4-8ce2-f06befedbc32.png?1562901918",
     "legality": "legal"
@@ -3770,6 +3595,11 @@
     "legality": "legal"
   },
   {
+    "name": "Trained Armodon",
+    "image_url": "https://cards.scryfall.io/png/front/2/3/2380ab8f-58d2-4e1c-a115-cd2615b5a871.png?1562052812",
+    "legality": "legal"
+  },
+  {
     "name": "Crater Hellion",
     "image_url": "https://cards.scryfall.io/png/front/2/3/2382e525-1750-484a-bf95-dbb42bbb30ae.png?1562902530",
     "legality": "legal"
@@ -3777,11 +3607,6 @@
   {
     "name": "Hatred",
     "image_url": "https://cards.scryfall.io/png/front/2/3/2383a8d9-96fd-4f9a-bcf9-eb81fdb15ead.png?1562087367",
-    "legality": "legal"
-  },
-  {
-    "name": "Persecute",
-    "image_url": "https://cards.scryfall.io/png/front/2/3/2385b6f1-e75c-41d3-9cab-39ae6c315b93.png?1675830306",
     "legality": "legal"
   },
   {
@@ -3830,11 +3655,6 @@
     "legality": "legal"
   },
   {
-    "name": "Relentless Assault",
-    "image_url": "https://cards.scryfall.io/png/front/2/4/242d25fe-e03a-4fa9-8049-d1bb0aef3d07.png?1675830388",
-    "legality": "legal"
-  },
-  {
     "name": "Planar Portal",
     "image_url": "https://cards.scryfall.io/png/front/2/4/24315eaa-ef55-4fd6-9145-e75b3de6f492.png?1562902264",
     "legality": "legal"
@@ -3872,11 +3692,6 @@
   {
     "name": "Dromar's Attendant",
     "image_url": "https://cards.scryfall.io/png/front/2/4/24936fa9-41a3-4da5-91cf-c28fa45f47c9.png?1562902350",
-    "legality": "legal"
-  },
-  {
-    "name": "Vizzerdrix",
-    "image_url": "https://cards.scryfall.io/png/front/2/4/249ecab6-e145-4dfd-9e9e-56492db30b4c.png?1675830246",
     "legality": "legal"
   },
   {
@@ -4050,11 +3865,6 @@
     "legality": "legal"
   },
   {
-    "name": "Elite Archers",
-    "image_url": "https://cards.scryfall.io/png/front/2/6/269193a9-2647-4b7a-a51b-6e2eae160020.png?1675830107",
-    "legality": "legal"
-  },
-  {
     "name": "Opal Champion",
     "image_url": "https://cards.scryfall.io/png/front/2/6/2699cf3b-df54-4c77-ba19-3bc7598ae3fa.png?1562862337",
     "legality": "legal"
@@ -4110,11 +3920,6 @@
     "legality": "legal"
   },
   {
-    "name": "Sanctimony",
-    "image_url": "https://cards.scryfall.io/png/front/2/7/273a8178-bae8-4668-9827-abcf9485554e.png?1675830143",
-    "legality": "legal"
-  },
-  {
     "name": "Urza's Engine",
     "image_url": "https://cards.scryfall.io/png/front/2/7/273b54c3-325b-4f2e-857b-fc1d59b6b3c5.png?1562768228",
     "legality": "legal"
@@ -4127,11 +3932,6 @@
   {
     "name": "Heightened Awareness",
     "image_url": "https://cards.scryfall.io/png/front/2/7/2765be4f-23bf-49c1-9546-11a7916156be.png?1562902287",
-    "legality": "legal"
-  },
-  {
-    "name": "Leshrac's Rite",
-    "image_url": "https://cards.scryfall.io/png/front/2/7/2793f9ea-6a3d-4c02-92d2-0eb62a4dedb2.png?1687904760",
     "legality": "legal"
   },
   {
@@ -4165,6 +3965,11 @@
     "legality": "legal"
   },
   {
+    "name": "Ensnaring Bridge",
+    "image_url": "https://cards.scryfall.io/png/front/2/7/27d838a1-2739-45f7-a856-6202334fa76a.png?1562596374",
+    "legality": "legal"
+  },
+  {
     "name": "Engineered Plague",
     "image_url": "https://cards.scryfall.io/png/front/2/7/27e158d5-efb2-4f90-8898-60ede98f7d29.png?1562862776",
     "legality": "legal"
@@ -4195,11 +4000,6 @@
     "legality": "legal"
   },
   {
-    "name": "Zombify",
-    "image_url": "https://cards.scryfall.io/png/front/2/8/284d5203-92db-4b1f-af73-fd372c8244cf.png?1719572462",
-    "legality": "legal"
-  },
-  {
     "name": "Monk Idealist",
     "image_url": "https://cards.scryfall.io/png/front/2/8/285a867b-f82e-49cb-a59c-31a25129baf9.png?1562903537",
     "legality": "legal"
@@ -4207,11 +4007,6 @@
   {
     "name": "Slow Motion",
     "image_url": "https://cards.scryfall.io/png/front/2/8/2860a20d-e1bf-4e46-8c07-a858f616d5a5.png?1562862778",
-    "legality": "legal"
-  },
-  {
-    "name": "Sustainer of the Realm",
-    "image_url": "https://cards.scryfall.io/png/front/2/8/286955b5-c866-44f4-a76b-54632192918d.png?1675830159",
     "legality": "legal"
   },
   {
@@ -4320,11 +4115,6 @@
     "legality": "legal"
   },
   {
-    "name": "Shock",
-    "image_url": "https://cards.scryfall.io/png/front/2/9/297d1cef-c181-481b-912c-385b81efd972.png?1675830394",
-    "legality": "legal"
-  },
-  {
     "name": "Bonethorn Valesk",
     "image_url": "https://cards.scryfall.io/png/front/2/9/297d7326-ad03-464d-97e2-443042d48f92.png?1562526649",
     "legality": "legal"
@@ -4425,6 +4215,11 @@
     "legality": "legal"
   },
   {
+    "name": "Southern Paladin",
+    "image_url": "https://cards.scryfall.io/png/front/2/a/2a3c94a1-8455-4521-a0d5-ee2982527b89.png?1562799992",
+    "legality": "legal"
+  },
+  {
     "name": "Tinder Wall",
     "image_url": "https://cards.scryfall.io/png/front/2/a/2a7c6489-21e9-4b86-a54a-b1e2f1fce318.png?1562902844",
     "legality": "legal"
@@ -4482,6 +4277,11 @@
   {
     "name": "Squee's Revenge",
     "image_url": "https://cards.scryfall.io/png/front/2/b/2b391ee3-c1cd-47bc-9540-977cbc32913e.png?1562905180",
+    "legality": "legal"
+  },
+  {
+    "name": "Reclaim",
+    "image_url": "https://cards.scryfall.io/png/front/2/b/2b47c082-57f6-4f69-87e8-a07cad9ef042.png?1562087371",
     "legality": "legal"
   },
   {
@@ -4587,11 +4387,6 @@
   {
     "name": "Phantasmal Fiend",
     "image_url": "https://cards.scryfall.io/png/front/2/c/2c2842a1-25b8-4c4b-b5f8-496929288ff3.png?1562768229",
-    "legality": "legal"
-  },
-  {
-    "name": "Worship",
-    "image_url": "https://cards.scryfall.io/png/front/2/c/2c3283f4-1228-4fb4-9b97-8a9a90929cb2.png?1675830165",
     "legality": "legal"
   },
   {
@@ -4890,11 +4685,6 @@
     "legality": "legal"
   },
   {
-    "name": "Dark Banishing",
-    "image_url": "https://cards.scryfall.io/png/front/2/f/2f1d76a2-4f74-4d96-841a-3246922df92e.png?1675830270",
-    "legality": "legal"
-  },
-  {
     "name": "Pestilence",
     "image_url": "https://cards.scryfall.io/png/front/2/f/2f1f5630-647f-4789-8506-e7fafcbdd671.png?1562904908",
     "legality": "legal"
@@ -4950,11 +4740,6 @@
     "legality": "legal"
   },
   {
-    "name": "Crystal Rod",
-    "image_url": "https://cards.scryfall.io/png/front/2/f/2fab1f2d-445e-4feb-93de-c59e2655fa1d.png?1675830489",
-    "legality": "legal"
-  },
-  {
     "name": "Extruder",
     "image_url": "https://cards.scryfall.io/png/front/2/f/2fc2f0d0-273d-428f-9a8a-c582f4d16394.png?1562443746",
     "legality": "legal"
@@ -4992,11 +4777,6 @@
   {
     "name": "Metallic Sliver",
     "image_url": "https://cards.scryfall.io/png/front/3/0/30143f4f-9846-448d-8797-8fe0bc0cc5df.png?1562053279",
-    "legality": "legal"
-  },
-  {
-    "name": "Soul Burn",
-    "image_url": "https://cards.scryfall.io/png/front/3/0/301c4e8e-0468-4e16-9be5-7feb7999226f.png?1738286473",
     "legality": "legal"
   },
   {
@@ -5130,11 +4910,6 @@
     "legality": "legal"
   },
   {
-    "name": "Mawcor",
-    "image_url": "https://cards.scryfall.io/png/front/3/1/31abc4a5-25b5-4f05-9278-a557fb268114.png?1675830212",
-    "legality": "legal"
-  },
-  {
     "name": "Sawtooth Loon",
     "image_url": "https://cards.scryfall.io/png/front/3/1/31b0a87f-e946-4ef1-b30d-fe32c19a0f52.png?1562905397",
     "legality": "legal"
@@ -5157,16 +4932,6 @@
   {
     "name": "Whip Vine",
     "image_url": "https://cards.scryfall.io/png/front/3/1/31ee1c89-d7df-4ee7-b403-24dfabae38a0.png?1562768238",
-    "legality": "legal"
-  },
-  {
-    "name": "Corrupt",
-    "image_url": "https://cards.scryfall.io/png/front/3/1/31fc008a-99cc-4f11-a47c-b7391249bdab.png?1675830266",
-    "legality": "legal"
-  },
-  {
-    "name": "Nausea",
-    "image_url": "https://cards.scryfall.io/png/front/3/2/32037f20-7443-464c-917f-b062f05f58c3.png?1675830297",
     "legality": "legal"
   },
   {
@@ -5232,6 +4997,11 @@
   {
     "name": "Ceta Sanctuary",
     "image_url": "https://cards.scryfall.io/png/front/3/2/32cec6f3-295a-45e3-8466-e35fb043a596.png?1562906910",
+    "legality": "legal"
+  },
+  {
+    "name": "Corrupt",
+    "image_url": "https://cards.scryfall.io/png/front/3/2/32e1c65c-ced6-484d-b3b4-db913c6bf84b.png?1562905666",
     "legality": "legal"
   },
   {
@@ -5402,11 +5172,6 @@
   {
     "name": "Pendrell Flux",
     "image_url": "https://cards.scryfall.io/png/front/3/4/34847e03-c529-415e-9d49-fd4647ca8892.png?1562906066",
-    "legality": "legal"
-  },
-  {
-    "name": "Ardent Militia",
-    "image_url": "https://cards.scryfall.io/png/front/3/4/34b57b5e-134e-45a7-92d6-670d762d68b4.png?1675830087",
     "legality": "legal"
   },
   {
@@ -5740,11 +5505,6 @@
     "legality": "legal"
   },
   {
-    "name": "Abyssal Horror",
-    "image_url": "https://cards.scryfall.io/png/front/3/7/37aa76c5-0391-496a-8f34-d966813fe4e5.png?1675830254",
-    "legality": "legal"
-  },
-  {
     "name": "Sacred Ground",
     "image_url": "https://cards.scryfall.io/png/front/3/7/37ae4b01-a9c1-4eec-9204-78cb2508e0df.png?1562596388",
     "legality": "legal"
@@ -5790,11 +5550,6 @@
     "legality": "legal"
   },
   {
-    "name": "Wood Elves",
-    "image_url": "https://cards.scryfall.io/png/front/3/8/38082344-f739-495d-947a-74e247b17433.png?1675830479",
-    "legality": "legal"
-  },
-  {
     "name": "Enlistment Officer",
     "image_url": "https://cards.scryfall.io/png/front/3/8/38138bb4-25ea-4aaf-8b1c-e9e60678fc6b.png?1562908171",
     "legality": "legal"
@@ -5837,6 +5592,11 @@
   {
     "name": "B\u00f6sium Strip",
     "image_url": "https://cards.scryfall.io/png/front/3/8/3884bede-df28-42e8-9ac9-ae03118b1985.png?1651492718",
+    "legality": "legal"
+  },
+  {
+    "name": "Pillage",
+    "image_url": "https://cards.scryfall.io/png/front/3/8/389ecb50-b007-4086-89fb-ec2daa5afdcf.png?1562768248",
     "legality": "legal"
   },
   {
@@ -6000,11 +5760,6 @@
     "legality": "legal"
   },
   {
-    "name": "Serra Angel",
-    "image_url": "https://cards.scryfall.io/png/front/3/a/3a398d30-2db9-4530-9f68-fb4dd6ebcbd2.png?1675830146",
-    "legality": "legal"
-  },
-  {
     "name": "Odylic Wraith",
     "image_url": "https://cards.scryfall.io/png/front/3/a/3a3b7cd1-051c-43a8-b5f0-72a9d704efbc.png?1562800276",
     "legality": "legal"
@@ -6150,11 +5905,6 @@
     "legality": "legal"
   },
   {
-    "name": "Ivory Cup",
-    "image_url": "https://cards.scryfall.io/png/front/3/b/3b89b134-f3b7-490a-ba79-d4cd5d82aadc.png?1675830505",
-    "legality": "legal"
-  },
-  {
     "name": "Pegasus Stampede",
     "image_url": "https://cards.scryfall.io/png/front/3/b/3b941576-8254-4d69-85ae-c748c7921ce5.png?1562087818",
     "legality": "legal"
@@ -6252,11 +6002,6 @@
   {
     "name": "Harrow",
     "image_url": "https://cards.scryfall.io/png/front/3/c/3c207142-4880-4935-9827-b91bc7d9d643.png?1562053754",
-    "legality": "legal"
-  },
-  {
-    "name": "Seeker of Skybreak",
-    "image_url": "https://cards.scryfall.io/png/front/3/c/3c2c491a-1f86-4e44-8dc3-b8ba65f4017c.png?1675830458",
     "legality": "legal"
   },
   {
@@ -6400,11 +6145,6 @@
     "legality": "legal"
   },
   {
-    "name": "Wall of Swords",
-    "image_url": "https://cards.scryfall.io/png/front/3/d/3df722ab-3302-4158-a9fb-f0f9608f0cec.png?1675830165",
-    "legality": "legal"
-  },
-  {
     "name": "Jolt",
     "image_url": "https://cards.scryfall.io/png/front/3/e/3e0c085a-e17d-4003-bb58-f97555365fcf.png?1562718789",
     "legality": "legal"
@@ -6455,8 +6195,8 @@
     "legality": "legal"
   },
   {
-    "name": "Reprocess",
-    "image_url": "https://cards.scryfall.io/png/front/3/e/3eaac30c-9ae6-4788-b065-ae4095ee3097.png?1675830314",
+    "name": "Looming Shade",
+    "image_url": "https://cards.scryfall.io/png/front/3/e/3e94ab55-4390-4b3d-8e7f-a95996e2c5b7.png?1738283448",
     "legality": "legal"
   },
   {
@@ -6502,6 +6242,11 @@
   {
     "name": "Centaur Rootcaster",
     "image_url": "https://cards.scryfall.io/png/front/3/f/3f10dfd9-9889-4d9e-872a-07623dee6b6b.png?1562629502",
+    "legality": "legal"
+  },
+  {
+    "name": "Yawgmoth's Edict",
+    "image_url": "https://cards.scryfall.io/png/front/3/f/3f16be4b-4540-476a-b3ac-7442507ed314.png?1562908087",
     "legality": "legal"
   },
   {
@@ -6715,16 +6460,6 @@
     "legality": "legal"
   },
   {
-    "name": "Starlight",
-    "image_url": "https://cards.scryfall.io/png/front/4/1/413c5a7e-e19d-4cbd-9279-88391b75c6c5.png?1687905646",
-    "legality": "legal"
-  },
-  {
-    "name": "Knight Errant",
-    "image_url": "https://cards.scryfall.io/png/front/4/1/413f10fe-0e53-46ca-bd64-0d66dee8882d.png?1675830120",
-    "legality": "legal"
-  },
-  {
     "name": "Raka Disciple",
     "image_url": "https://cards.scryfall.io/png/front/4/1/41462d43-4f9f-46ba-b79d-434597e74b6b.png?1562910379",
     "legality": "legal"
@@ -6800,11 +6535,6 @@
     "legality": "legal"
   },
   {
-    "name": "Unholy Strength",
-    "image_url": "https://cards.scryfall.io/png/front/4/2/42101792-83a7-492d-a5b0-34aab7db56d1.png?1675830326",
-    "legality": "legal"
-  },
-  {
     "name": "Ghost Town",
     "image_url": "https://cards.scryfall.io/png/front/4/2/4218cdda-3a62-43fb-aaf7-7ac836392796.png?1562053761",
     "legality": "legal"
@@ -6832,11 +6562,6 @@
   {
     "name": "Coiled Tinviper",
     "image_url": "https://cards.scryfall.io/png/front/4/2/426a28bd-033d-41af-b577-ece73cbd7b3a.png?1562053763",
-    "legality": "legal"
-  },
-  {
-    "name": "Eastern Paladin",
-    "image_url": "https://cards.scryfall.io/png/front/4/2/4283a695-57fd-442c-906b-f88b039de79d.png?1675830276",
     "legality": "legal"
   },
   {
@@ -6875,11 +6600,6 @@
     "legality": "legal"
   },
   {
-    "name": "Telepathy",
-    "image_url": "https://cards.scryfall.io/png/front/4/2/42eeef0a-599d-455b-b482-83426f5fdc67.png?1675830234",
-    "legality": "legal"
-  },
-  {
     "name": "Soul Kiss",
     "image_url": "https://cards.scryfall.io/png/front/4/2/42fbf6a5-86fe-41a3-891e-f72f11ad0aee.png?1562907253",
     "legality": "legal"
@@ -6912,11 +6632,6 @@
   {
     "name": "Fungus Elemental",
     "image_url": "https://cards.scryfall.io/png/front/4/3/4336bfd1-27a4-414d-b6fe-f186a0563dc0.png?1562800505",
-    "legality": "legal"
-  },
-  {
-    "name": "Throne of Bone",
-    "image_url": "https://cards.scryfall.io/png/front/4/3/4337eed4-c219-4844-9620-980d2430a9bf.png?1675830532",
     "legality": "legal"
   },
   {
@@ -7125,11 +6840,6 @@
     "legality": "legal"
   },
   {
-    "name": "Wind Drake",
-    "image_url": "https://cards.scryfall.io/png/front/4/5/45e2c8c5-b039-42ed-90f8-95c80d124564.png?1687905920",
-    "legality": "legal"
-  },
-  {
     "name": "Crosis's Attendant",
     "image_url": "https://cards.scryfall.io/png/front/4/5/45edc18c-2046-4d0e-92fe-a6cf4aaf1c6f.png?1562909185",
     "legality": "legal"
@@ -7172,11 +6882,6 @@
   {
     "name": "Clairvoyance",
     "image_url": "https://cards.scryfall.io/png/front/4/6/46740353-e2ba-4d80-a97d-1368bc67bf30.png?1587911640",
-    "legality": "legal"
-  },
-  {
-    "name": "Urborg Skeleton",
-    "image_url": "https://cards.scryfall.io/png/front/4/6/467e9486-1604-4fa2-ab1f-be0d7a036798.png?1738285566",
     "legality": "legal"
   },
   {
@@ -7235,8 +6940,18 @@
     "legality": "legal"
   },
   {
+    "name": "Wood Elves",
+    "image_url": "https://cards.scryfall.io/png/front/4/7/4716bb55-0821-4809-9bc0-04e299b09549.png?1562087825",
+    "legality": "legal"
+  },
+  {
     "name": "Hopping Automaton",
     "image_url": "https://cards.scryfall.io/png/front/4/7/4717b6c3-9fba-454f-9d02-e8c2869c4450.png?1562909742",
+    "legality": "legal"
+  },
+  {
+    "name": "Marble Diamond",
+    "image_url": "https://cards.scryfall.io/png/front/4/7/4731eb16-3088-4d4d-80a4-7e39d00c1a87.png?1562718808",
     "legality": "legal"
   },
   {
@@ -7475,11 +7190,6 @@
     "legality": "legal"
   },
   {
-    "name": "Fog",
-    "image_url": "https://cards.scryfall.io/png/front/4/9/492699b8-0d03-474b-9b0f-569440387fb6.png?1675830429",
-    "legality": "legal"
-  },
-  {
     "name": "Elkin Bottle",
     "image_url": "https://cards.scryfall.io/png/front/4/9/49301c19-55a0-4146-9474-0b86cd320e31.png?1562908366",
     "legality": "legal"
@@ -7507,11 +7217,6 @@
   {
     "name": "Wirewood Symbiote",
     "image_url": "https://cards.scryfall.io/png/front/4/9/49488b76-abaf-4dba-b01f-7b418e4ff295.png?1562528525",
-    "legality": "legal"
-  },
-  {
-    "name": "Inspiration",
-    "image_url": "https://cards.scryfall.io/png/front/4/9/494dd66f-44af-4a10-94bb-9447af645512.png?1675830203",
     "legality": "legal"
   },
   {
@@ -7620,18 +7325,8 @@
     "legality": "legal"
   },
   {
-    "name": "Inferno",
-    "image_url": "https://cards.scryfall.io/png/front/4/a/4a0d589d-d539-453b-b401-14a74e3da4ea.png?1675830367",
-    "legality": "legal"
-  },
-  {
     "name": "Frightshroud Courier",
     "image_url": "https://cards.scryfall.io/png/front/4/a/4a0fa75a-a82b-44cd-965f-07e0fe7a111a.png?1562912314",
-    "legality": "legal"
-  },
-  {
-    "name": "Daring Apprentice",
-    "image_url": "https://cards.scryfall.io/png/front/4/a/4a1b9eb1-fd88-48f9-bd06-d0b5578d7f82.png?1675830185",
     "legality": "legal"
   },
   {
@@ -7715,11 +7410,6 @@
     "legality": "legal"
   },
   {
-    "name": "Venerable Monk",
-    "image_url": "https://cards.scryfall.io/png/front/4/a/4ac3fb9a-f4c8-421b-994f-418bb340e84b.png?1675830161",
-    "legality": "legal"
-  },
-  {
     "name": "Rhystic Cave",
     "image_url": "https://cards.scryfall.io/png/front/4/a/4ae74463-4426-4ad4-b7a2-324694854245.png?1562908673",
     "legality": "legal"
@@ -7780,11 +7470,6 @@
     "legality": "legal"
   },
   {
-    "name": "Foul Imp",
-    "image_url": "https://cards.scryfall.io/png/front/4/b/4b3da66a-ac81-4300-80a1-f70cdb104a90.png?1675830283",
-    "legality": "legal"
-  },
-  {
     "name": "Anaba Shaman",
     "image_url": "https://cards.scryfall.io/png/front/4/b/4b456355-9f73-45c2-9554-6e6b20d949a1.png?1562587271",
     "legality": "legal"
@@ -7797,11 +7482,6 @@
   {
     "name": "Sunweb",
     "image_url": "https://cards.scryfall.io/png/front/4/b/4b4dc838-3022-42f1-bc92-8e8358c27ea4.png?1562719258",
-    "legality": "legal"
-  },
-  {
-    "name": "Greed",
-    "image_url": "https://cards.scryfall.io/png/front/4/b/4b51b23a-d67d-4ede-a1b2-1ba6dad9883e.png?1675830288",
     "legality": "legal"
   },
   {
@@ -7965,11 +7645,6 @@
     "legality": "legal"
   },
   {
-    "name": "Megrim",
-    "image_url": "https://cards.scryfall.io/png/front/4/d/4d12b851-9b48-45ab-93fb-4236a63d59c9.png?1675830297",
-    "legality": "legal"
-  },
-  {
     "name": "Aven Archer",
     "image_url": "https://cards.scryfall.io/png/front/4/d/4d174892-c192-4667-94fb-9f8dbcc6c5eb.png?1562909125",
     "legality": "legal"
@@ -8075,8 +7750,8 @@
     "legality": "legal"
   },
   {
-    "name": "Mahamoti Djinn",
-    "image_url": "https://cards.scryfall.io/png/front/4/e/4e138f24-73ca-4040-b9cc-7ebcf605372e.png?1675830207",
+    "name": "Leshrac's Rite",
+    "image_url": "https://cards.scryfall.io/png/front/4/e/4e0a6b4e-95b4-40f6-bb19-568dbd908a2b.png?1562909305",
     "legality": "legal"
   },
   {
@@ -8125,6 +7800,11 @@
     "legality": "legal"
   },
   {
+    "name": "Megrim",
+    "image_url": "https://cards.scryfall.io/png/front/4/e/4eacd05b-078a-468c-b137-a802346d348a.png?1562596406",
+    "legality": "legal"
+  },
+  {
     "name": "Jungle Barrier",
     "image_url": "https://cards.scryfall.io/png/front/4/e/4eb114a4-44e5-4375-92b8-00a0b0acbe94.png?1562913459",
     "legality": "legal"
@@ -8132,11 +7812,6 @@
   {
     "name": "Darkling Stalker",
     "image_url": "https://cards.scryfall.io/png/front/4/e/4eb883b7-da6a-45c3-9dde-61334a0ddcae.png?1562054216",
-    "legality": "legal"
-  },
-  {
-    "name": "Volcanic Hammer",
-    "image_url": "https://cards.scryfall.io/png/front/4/e/4ecf796a-8d10-4c37-8fe3-789f99eb526b.png?1675830404",
     "legality": "legal"
   },
   {
@@ -8185,11 +7860,6 @@
     "legality": "legal"
   },
   {
-    "name": "Skyshroud Falcon",
-    "image_url": "https://cards.scryfall.io/png/front/4/f/4f46ee43-9706-41cf-b413-3b5fec762194.png?1675830151",
-    "legality": "legal"
-  },
-  {
     "name": "Early Harvest",
     "image_url": "https://cards.scryfall.io/png/front/4/f/4f4e18b5-baef-4fe9-807e-097b972c879f.png?1562719262",
     "legality": "legal"
@@ -8212,6 +7882,11 @@
   {
     "name": "Steamclaw",
     "image_url": "https://cards.scryfall.io/png/front/4/f/4f84a9bf-ce64-4301-8f2c-20f1b4acd3ef.png?1562909600",
+    "legality": "legal"
+  },
+  {
+    "name": "Persecute",
+    "image_url": "https://cards.scryfall.io/png/front/4/f/4f8e2be6-124d-412e-be34-aa4495a83e02.png?1562911668",
     "legality": "legal"
   },
   {
@@ -8310,6 +7985,11 @@
     "legality": "legal"
   },
   {
+    "name": "Zombify",
+    "image_url": "https://cards.scryfall.io/png/front/5/1/513a2a6f-9ae6-42cb-b75f-6b45fc35f36e.png?1562909871",
+    "legality": "legal"
+  },
+  {
     "name": "Root Elemental",
     "image_url": "https://cards.scryfall.io/png/front/5/1/5161968e-b757-45b8-826f-98415291024d.png?1562529053",
     "legality": "legal"
@@ -8317,6 +7997,11 @@
   {
     "name": "Talruum Minotaur",
     "image_url": "https://cards.scryfall.io/png/front/5/1/51657034-2c30-40a2-a215-a00277f01642.png?1562719268",
+    "legality": "legal"
+  },
+  {
+    "name": "Telepathy",
+    "image_url": "https://cards.scryfall.io/png/front/5/1/51729f36-0a0c-47fb-a3bf-22afc78df7a4.png?1562912000",
     "legality": "legal"
   },
   {
@@ -8370,11 +8055,6 @@
     "legality": "legal"
   },
   {
-    "name": "Lord of Atlantis",
-    "image_url": "https://cards.scryfall.io/png/front/5/2/5200f395-4bb9-4d70-9473-a131b46b60ce.png?1675830206",
-    "legality": "legal"
-  },
-  {
     "name": "Ventifact Bottle",
     "image_url": "https://cards.scryfall.io/png/front/5/2/520f4a24-fb1a-4964-887c-2f08a752fae2.png?1562719271",
     "legality": "legal"
@@ -8405,6 +8085,11 @@
     "legality": "legal"
   },
   {
+    "name": "Inspiration",
+    "image_url": "https://cards.scryfall.io/png/front/5/2/5247d0b0-660e-4f27-8e76-62effbe12221.png?1562277660",
+    "legality": "legal"
+  },
+  {
     "name": "Death Pulse",
     "image_url": "https://cards.scryfall.io/png/front/5/2/524fd470-e535-47ea-98a0-6187e429dfe1.png?1562914293",
     "legality": "legal"
@@ -8422,11 +8107,6 @@
   {
     "name": "Maddening Wind",
     "image_url": "https://cards.scryfall.io/png/front/5/2/5277656c-70f5-4660-bd58-7d9261d53fb5.png?1587912036",
-    "legality": "legal"
-  },
-  {
-    "name": "Mana Short",
-    "image_url": "https://cards.scryfall.io/png/front/5/2/5279acd2-7d73-4f42-8696-654326d64bba.png?1675830211",
     "legality": "legal"
   },
   {
@@ -8525,11 +8205,6 @@
     "legality": "legal"
   },
   {
-    "name": "City of Brass",
-    "image_url": "https://cards.scryfall.io/png/front/5/3/537af4fa-001c-4943-be6f-780d15b0584f.png?1675830539",
-    "legality": "legal"
-  },
-  {
     "name": "Ritual of the Machine",
     "image_url": "https://cards.scryfall.io/png/front/5/3/537b4109-ae7c-451a-8576-97f817a70d75.png?1587856913",
     "legality": "legal"
@@ -8620,11 +8295,6 @@
     "legality": "legal"
   },
   {
-    "name": "Fire Elemental",
-    "image_url": "https://cards.scryfall.io/png/front/5/4/54b05f47-f86b-46e8-912f-b1273005d46d.png?1675830346",
-    "legality": "legal"
-  },
-  {
     "name": "Hobble",
     "image_url": "https://cards.scryfall.io/png/front/5/4/54c76a22-f9e3-408b-a5bd-403add57e31a.png?1562912681",
     "legality": "legal"
@@ -8692,11 +8362,6 @@
   {
     "name": "Order of Yawgmoth",
     "image_url": "https://cards.scryfall.io/png/front/5/5/555e858d-d8d2-4626-9343-070cf86949ab.png?1562912804",
-    "legality": "legal"
-  },
-  {
-    "name": "Phantom Warrior",
-    "image_url": "https://cards.scryfall.io/png/front/5/5/55672640-d58f-4e00-a0ac-00916c8375b1.png?1675830219",
     "legality": "legal"
   },
   {
@@ -8800,6 +8465,11 @@
     "legality": "legal"
   },
   {
+    "name": "Reprocess",
+    "image_url": "https://cards.scryfall.io/png/front/5/6/569408b3-43c8-4cb1-a70f-15ab2aeaf8ed.png?1562913093",
+    "legality": "legal"
+  },
+  {
     "name": "Agility",
     "image_url": "https://cards.scryfall.io/png/front/5/6/5694cb42-7489-40c5-b21a-aeb36636015f.png?1562719275",
     "legality": "legal"
@@ -8857,6 +8527,11 @@
   {
     "name": "Moor Fiend",
     "image_url": "https://cards.scryfall.io/png/front/5/7/57089dd4-e30d-498d-9341-43c104c6f3f9.png?1587911747",
+    "legality": "legal"
+  },
+  {
+    "name": "Fear",
+    "image_url": "https://cards.scryfall.io/png/front/5/7/5709398f-0744-4780-a1d2-eead96c8f348.png?1562911002",
     "legality": "legal"
   },
   {
@@ -8947,11 +8622,6 @@
   {
     "name": "Teeka's Dragon",
     "image_url": "https://cards.scryfall.io/png/front/5/7/57e8971d-baeb-4e4f-8c4d-0e8109e4505e.png?1562719278",
-    "legality": "legal"
-  },
-  {
-    "name": "Pygmy Pyrosaur",
-    "image_url": "https://cards.scryfall.io/png/front/5/7/57eab2ef-6c3c-4f0e-8566-113070604a1d.png?1675830382",
     "legality": "legal"
   },
   {
@@ -9080,18 +8750,8 @@
     "legality": "legal"
   },
   {
-    "name": "Stronghold Assassin",
-    "image_url": "https://cards.scryfall.io/png/front/5/8/58fba666-9648-44d8-9cbd-f98bca90fccb.png?1675830323",
-    "legality": "legal"
-  },
-  {
     "name": "Thran War Machine",
     "image_url": "https://cards.scryfall.io/png/front/5/9/5908714a-be91-4279-b87e-e2bc09dbaaba.png?1562863256",
-    "legality": "legal"
-  },
-  {
-    "name": "Gravedigger",
-    "image_url": "https://cards.scryfall.io/png/front/5/9/590a3850-c59e-4357-9f34-f7a57c4486e0.png?1675830284",
     "legality": "legal"
   },
   {
@@ -9235,11 +8895,6 @@
     "legality": "legal"
   },
   {
-    "name": "Northern Paladin",
-    "image_url": "https://cards.scryfall.io/png/front/5/a/5a5cce5e-3af9-4f51-8d65-35be576df236.png?1675830127",
-    "legality": "legal"
-  },
-  {
     "name": "Sustenance",
     "image_url": "https://cards.scryfall.io/png/front/5/a/5a61db44-80dc-4058-9c9d-65cd18e63fd4.png?1562380878",
     "legality": "legal"
@@ -9262,6 +8917,11 @@
   {
     "name": "Gang of Elk",
     "image_url": "https://cards.scryfall.io/png/front/5/a/5a84177f-43a3-4d14-9a4c-2ca931cfe092.png?1562863261",
+    "legality": "legal"
+  },
+  {
+    "name": "Blood Pet",
+    "image_url": "https://cards.scryfall.io/png/front/5/a/5a89ba1b-e68b-4d70-a25e-27be9bf48a3b.png?1562054233",
     "legality": "legal"
   },
   {
@@ -9302,11 +8962,6 @@
   {
     "name": "Hunting Grounds",
     "image_url": "https://cards.scryfall.io/png/front/5/b/5b14a736-5223-457b-9d4e-f4a2d6ed9a8d.png?1562630006",
-    "legality": "legal"
-  },
-  {
-    "name": "Dregs of Sorrow",
-    "image_url": "https://cards.scryfall.io/png/front/5/b/5b14c738-93cc-4c3a-8d59-6ef7fa22fb1c.png?1675830273",
     "legality": "legal"
   },
   {
@@ -9355,11 +9010,6 @@
     "legality": "legal"
   },
   {
-    "name": "Heavy Ballista",
-    "image_url": "https://cards.scryfall.io/png/front/5/b/5b6e66f3-8a2e-4b68-b483-7cb6923bd9f9.png?1675830112",
-    "legality": "legal"
-  },
-  {
     "name": "Reef Pirates",
     "image_url": "https://cards.scryfall.io/png/front/5/b/5b742d75-860d-4b90-89cb-4292f18aed39.png?1562587290",
     "legality": "legal"
@@ -9392,11 +9042,6 @@
   {
     "name": "Goblin Snowman",
     "image_url": "https://cards.scryfall.io/png/front/5/b/5bbb260a-6763-4d1c-a009-4e34cd572519.png?1562911952",
-    "legality": "legal"
-  },
-  {
-    "name": "Wrath of God",
-    "image_url": "https://cards.scryfall.io/png/front/5/b/5bcc5ed6-41ff-4f8a-b47a-fc9390c2aa81.png?1675830168",
     "legality": "legal"
   },
   {
@@ -9492,11 +9137,6 @@
   {
     "name": "Staff of the Ages",
     "image_url": "https://cards.scryfall.io/png/front/5/c/5c709836-55b6-4de9-b190-b5f66dc53c87.png?1587856773",
-    "legality": "legal"
-  },
-  {
-    "name": "Castle",
-    "image_url": "https://cards.scryfall.io/png/front/5/c/5c73efe3-e3ab-4161-88cc-82d3ac7d6a4a.png?1675830093",
     "legality": "legal"
   },
   {
@@ -9685,11 +9325,6 @@
     "legality": "legal"
   },
   {
-    "name": "Master Healer",
-    "image_url": "https://cards.scryfall.io/png/front/5/e/5e5be6df-f35e-4696-a08e-fd725ee9b13c.png?1675830124",
-    "legality": "legal"
-  },
-  {
     "name": "Kyren Archive",
     "image_url": "https://cards.scryfall.io/png/front/5/e/5e65a06a-e7af-422a-9481-446731009935.png?1562380890",
     "legality": "legal"
@@ -9710,11 +9345,6 @@
     "legality": "legal"
   },
   {
-    "name": "Goblin Glider",
-    "image_url": "https://cards.scryfall.io/png/front/5/e/5e8cf7c4-f217-42c8-a1ea-0866576b9524.png?1675830354",
-    "legality": "legal"
-  },
-  {
     "name": "Stroke of Genius",
     "image_url": "https://cards.scryfall.io/png/front/5/e/5e977755-8ea4-4a8b-90c4-dd175321e05d.png?1562914796",
     "legality": "legal"
@@ -9722,11 +9352,6 @@
   {
     "name": "Mental Discipline",
     "image_url": "https://cards.scryfall.io/png/front/5/e/5e9ffd83-b5c9-46b4-bc5a-172ca34ddc79.png?1562444213",
-    "legality": "legal"
-  },
-  {
-    "name": "Shield Wall",
-    "image_url": "https://cards.scryfall.io/png/front/5/e/5eb49655-ba5c-4a62-881d-669593a398c8.png?1675830151",
     "legality": "legal"
   },
   {
@@ -9812,6 +9437,16 @@
   {
     "name": "Guiding Spirit",
     "image_url": "https://cards.scryfall.io/png/front/5/f/5f96d184-0ef8-40f7-98bc-bd4c53c57072.png?1587913153",
+    "legality": "legal"
+  },
+  {
+    "name": "Dark Banishing",
+    "image_url": "https://cards.scryfall.io/png/front/5/f/5f983dcb-b077-465f-a70b-6bd0e425556c.png?1562719738",
+    "legality": "legal"
+  },
+  {
+    "name": "Shatter",
+    "image_url": "https://cards.scryfall.io/png/front/5/f/5fa05258-2ce3-4604-938c-e8c3fb8cf142.png?1562054242",
     "legality": "legal"
   },
   {
@@ -9930,11 +9565,6 @@
     "legality": "legal"
   },
   {
-    "name": "Glorious Anthem",
-    "image_url": "https://cards.scryfall.io/png/front/6/0/607ddd6d-db70-4db0-a3ac-caaa911c8fe4.png?1687904325",
-    "legality": "legal"
-  },
-  {
     "name": "Possessed Centaur",
     "image_url": "https://cards.scryfall.io/png/front/6/0/608e11b2-9636-48a0-8705-f5ce3bc98117.png?1562629992",
     "legality": "legal"
@@ -9977,6 +9607,11 @@
   {
     "name": "Gorilla War Cry",
     "image_url": "https://cards.scryfall.io/png/front/6/1/613762ea-6111-4f74-bea2-c13b76e0751c.png?1562768727",
+    "legality": "legal"
+  },
+  {
+    "name": "Reflexes",
+    "image_url": "https://cards.scryfall.io/png/front/6/1/614782c2-a38a-4b3e-9716-7f5c09c4ad43.png?1562915313",
     "legality": "legal"
   },
   {
@@ -10040,6 +9675,11 @@
     "legality": "legal"
   },
   {
+    "name": "Glorious Anthem",
+    "image_url": "https://cards.scryfall.io/png/front/6/1/61f867c5-0727-4408-b479-b81518daa0ec.png?1562915432",
+    "legality": "legal"
+  },
+  {
     "name": "Lava Storm",
     "image_url": "https://cards.scryfall.io/png/front/6/1/61fcd58e-e5e2-45f4-9edd-300a871ae5f5.png?1562801146",
     "legality": "legal"
@@ -10087,11 +9727,6 @@
   {
     "name": "Saprazzan Raider",
     "image_url": "https://cards.scryfall.io/png/front/6/2/62493f34-cea8-4d9f-8781-005947b69c9d.png?1562380891",
-    "legality": "legal"
-  },
-  {
-    "name": "Soul Feast",
-    "image_url": "https://cards.scryfall.io/png/front/6/2/625e0586-dce6-47b5-adad-22d369d4c021.png?1675830318",
     "legality": "legal"
   },
   {
@@ -10495,11 +10130,6 @@
     "legality": "legal"
   },
   {
-    "name": "Elvish Archers",
-    "image_url": "https://cards.scryfall.io/png/front/6/6/66166a6c-3127-4f17-99fb-f469c3da92fb.png?1675830421",
-    "legality": "legal"
-  },
-  {
     "name": "Sacred Mesa",
     "image_url": "https://cards.scryfall.io/png/front/6/6/6622f325-6bc3-49dc-ba8e-154e70772dd5.png?1562719758",
     "legality": "legal"
@@ -10572,11 +10202,6 @@
   {
     "name": "Righteous Aura",
     "image_url": "https://cards.scryfall.io/png/front/6/6/66d3bcb4-6cbd-4144-a95d-f61e68c10296.png?1562381339",
-    "legality": "legal"
-  },
-  {
-    "name": "Grizzly Bears",
-    "image_url": "https://cards.scryfall.io/png/front/6/6/66e3de06-572e-48c5-888b-2dac7fa9d0d0.png?1675830436",
     "legality": "legal"
   },
   {
@@ -10670,8 +10295,8 @@
     "legality": "legal"
   },
   {
-    "name": "Elvish Champion",
-    "image_url": "https://cards.scryfall.io/png/front/6/8/6812ca1e-10d0-43ae-a6fc-5ab801539ec9.png?1687904244",
+    "name": "Urborg Skeleton",
+    "image_url": "https://cards.scryfall.io/png/front/6/8/6819c2f5-29a2-46d2-af36-c22b64338807.png?1689813378",
     "legality": "legal"
   },
   {
@@ -10880,11 +10505,6 @@
     "legality": "legal"
   },
   {
-    "name": "Fighting Drake",
-    "image_url": "https://cards.scryfall.io/png/front/6/a/6a2b2206-1c9a-4a08-ae13-61e2b5a10727.png?1675830192",
-    "legality": "legal"
-  },
-  {
     "name": "Dralnu's Crusade",
     "image_url": "https://cards.scryfall.io/png/front/6/a/6a35d227-4489-4a0b-8f81-eb8e5949e1fc.png?1562917197",
     "legality": "legal"
@@ -10932,16 +10552,6 @@
   {
     "name": "Bog Witch",
     "image_url": "https://cards.scryfall.io/png/front/6/a/6a926f9e-ee63-4b6e-8e5b-0650b74344a5.png?1562381351",
-    "legality": "legal"
-  },
-  {
-    "name": "Seasoned Marshal",
-    "image_url": "https://cards.scryfall.io/png/front/6/a/6a96600d-9592-4bf7-aea2-5ebf0660b915.png?1675830145",
-    "legality": "legal"
-  },
-  {
-    "name": "Seismic Assault",
-    "image_url": "https://cards.scryfall.io/png/front/6/a/6a994998-11b1-46fd-a877-d0b67fa8f777.png?1675830389",
     "legality": "legal"
   },
   {
@@ -11095,11 +10705,6 @@
     "legality": "legal"
   },
   {
-    "name": "Scathe Zombies",
-    "image_url": "https://cards.scryfall.io/png/front/6/b/6be514ca-dd8a-4b84-9125-03a0bf8a047d.png?1738284003",
-    "legality": "legal"
-  },
-  {
     "name": "Chain of Smog",
     "image_url": "https://cards.scryfall.io/png/front/6/b/6bfe64f9-8b03-41f6-a47b-fade397ad9d1.png?1562920423",
     "legality": "legal"
@@ -11185,11 +10790,6 @@
     "legality": "legal"
   },
   {
-    "name": "Tahngarth, Talruum Hero",
-    "image_url": "https://cards.scryfall.io/png/front/6/c/6cdab0f9-7208-4555-b509-e61773ebc1f9.png?1741744645",
-    "legality": "legal"
-  },
-  {
     "name": "Songs of the Damned",
     "image_url": "https://cards.scryfall.io/png/front/6/c/6cff3547-8c72-439a-91fe-ebe729dab748.png?1562915238",
     "legality": "legal"
@@ -11245,13 +10845,18 @@
     "legality": "legal"
   },
   {
-    "name": "Dauthi Trapper",
-    "image_url": "https://cards.scryfall.io/png/front/6/d/6d83770e-16ff-49c6-b4e7-eb7fc566eef8.png?1562596858",
+    "name": "Elite Archers",
+    "image_url": "https://cards.scryfall.io/png/front/6/d/6d7ee95c-3ce8-4b8c-a1a7-1caa5b8a3cc9.png?1562917979",
     "legality": "legal"
   },
   {
-    "name": "Flight",
-    "image_url": "https://cards.scryfall.io/png/front/6/d/6d8b8d33-4b80-4ed6-95ce-b672d495be4e.png?1675830194",
+    "name": "Fog",
+    "image_url": "https://cards.scryfall.io/png/front/6/d/6d822598-2f0f-45fa-9643-0368e2c0e18b.png?1562719773",
+    "legality": "legal"
+  },
+  {
+    "name": "Dauthi Trapper",
+    "image_url": "https://cards.scryfall.io/png/front/6/d/6d83770e-16ff-49c6-b4e7-eb7fc566eef8.png?1562596858",
     "legality": "legal"
   },
   {
@@ -11355,6 +10960,11 @@
     "legality": "legal"
   },
   {
+    "name": "Soul Burn",
+    "image_url": "https://cards.scryfall.io/png/front/6/e/6eb3278a-1a23-4e0a-b541-0c37b2bc3f3c.png?1741744363",
+    "legality": "legal"
+  },
+  {
     "name": "Phyrexian Lens",
     "image_url": "https://cards.scryfall.io/png/front/6/e/6ec9a91d-7af0-44a8-839f-fb9960be0ddd.png?1562917154",
     "legality": "legal"
@@ -11455,11 +11065,6 @@
     "legality": "legal"
   },
   {
-    "name": "Seafloor Debris",
-    "image_url": "https://cards.scryfall.io/png/front/6/f/6fb5977c-5009-4d97-82c8-c150a0d41bc3.png?1585169528",
-    "legality": "legal"
-  },
-  {
     "name": "Dauthi Mindripper",
     "image_url": "https://cards.scryfall.io/png/front/6/f/6fb990ee-f027-4c74-a67e-98ada6aa21e4.png?1562054472",
     "legality": "legal"
@@ -11472,11 +11077,6 @@
   {
     "name": "Rathi Intimidator",
     "image_url": "https://cards.scryfall.io/png/front/6/f/6fc59fa5-144f-49e6-b6bd-2ba6d3f2eff2.png?1562630441",
-    "legality": "legal"
-  },
-  {
-    "name": "Llanowar Elves",
-    "image_url": "https://cards.scryfall.io/png/front/6/f/6fca5b76-2e0b-4557-91c6-283000d17849.png?1675830441",
     "legality": "legal"
   },
   {
@@ -11502,6 +11102,11 @@
   {
     "name": "Nefashu",
     "image_url": "https://cards.scryfall.io/png/front/7/0/7046acc2-e2fd-43e6-9d46-a729d48ba562.png?1562530235",
+    "legality": "legal"
+  },
+  {
+    "name": "Venerable Monk",
+    "image_url": "https://cards.scryfall.io/png/front/7/0/704b8be3-4ed8-4e94-aa66-c7187a299088.png?1562596861",
     "legality": "legal"
   },
   {
@@ -11585,16 +11190,6 @@
     "legality": "legal"
   },
   {
-    "name": "Wall of Wonder",
-    "image_url": "https://cards.scryfall.io/png/front/7/1/713698c2-fd5a-4763-b699-00fe73fa6641.png?1675830250",
-    "legality": "legal"
-  },
-  {
-    "name": "Gerrard's Wisdom",
-    "image_url": "https://cards.scryfall.io/png/front/7/1/71618fb4-22ab-4ef5-932d-69bf596a69d0.png?1675830108",
-    "legality": "legal"
-  },
-  {
     "name": "Lure of Prey",
     "image_url": "https://cards.scryfall.io/png/front/7/1/7165f1d8-7b31-4a81-aab4-c6cd4ff2e67d.png?1562720214",
     "legality": "legal"
@@ -11612,11 +11207,6 @@
   {
     "name": "Viashivan Dragon",
     "image_url": "https://cards.scryfall.io/png/front/7/1/7172ef0b-ca9e-47cf-8ec6-2d8cb18f2283.png?1562277686",
-    "legality": "legal"
-  },
-  {
-    "name": "Giant Spider",
-    "image_url": "https://cards.scryfall.io/png/front/7/1/717ad85b-162e-4dfb-99e5-97ef038cc69d.png?1675830435",
     "legality": "legal"
   },
   {
@@ -11682,16 +11272,6 @@
   {
     "name": "Hoar Shade",
     "image_url": "https://cards.scryfall.io/png/front/7/2/72242dff-15ca-4da0-b3ae-9984d037b31f.png?1587911702",
-    "legality": "legal"
-  },
-  {
-    "name": "Spitting Earth",
-    "image_url": "https://cards.scryfall.io/png/front/7/2/724682ef-d591-4d99-8557-0c970a043bf7.png?1675830395",
-    "legality": "legal"
-  },
-  {
-    "name": "Boomerang",
-    "image_url": "https://cards.scryfall.io/png/front/7/2/724b7896-74d0-491a-8aa6-183324660634.png?1675830177",
     "legality": "legal"
   },
   {
@@ -11787,6 +11367,11 @@
   {
     "name": "Steal Enchantment",
     "image_url": "https://cards.scryfall.io/png/front/7/3/734be7fa-0998-4771-9b97-4989b3fc1471.png?1562054484",
+    "legality": "legal"
+  },
+  {
+    "name": "Crypt Rats",
+    "image_url": "https://cards.scryfall.io/png/front/7/3/736455f6-c1b3-4a5a-a91f-a0cd3986ed53.png?1562277688",
     "legality": "legal"
   },
   {
@@ -11910,6 +11495,11 @@
     "legality": "legal"
   },
   {
+    "name": "Relentless Assault",
+    "image_url": "https://cards.scryfall.io/png/front/7/4/747161ea-cb65-4960-84dd-a05bfe5f3ba0.png?1562277689",
+    "legality": "legal"
+  },
+  {
     "name": "Death Stroke",
     "image_url": "https://cards.scryfall.io/png/front/7/4/7478a471-3bd2-4038-a4eb-70c38a43afa9.png?1562596864",
     "legality": "legal"
@@ -11952,11 +11542,6 @@
   {
     "name": "Temporal Distortion",
     "image_url": "https://cards.scryfall.io/png/front/7/4/74bd0d14-8d26-403f-9405-d0dcdecd1a49.png?1562918372",
-    "legality": "legal"
-  },
-  {
-    "name": "Mana Clash",
-    "image_url": "https://cards.scryfall.io/png/front/7/4/74c092c3-1fbe-4319-aefe-d5b819ee953f.png?1675830370",
     "legality": "legal"
   },
   {
@@ -12040,11 +11625,6 @@
     "legality": "legal"
   },
   {
-    "name": "Rod of Ruin",
-    "image_url": "https://cards.scryfall.io/png/front/7/5/754d90bd-d08d-4510-ad3c-f6ed52a92d6c.png?1675830521",
-    "legality": "legal"
-  },
-  {
     "name": "Divine Retribution",
     "image_url": "https://cards.scryfall.io/png/front/7/5/75629aa3-426e-4e25-a7ab-71e03436e061.png?1562720225",
     "legality": "legal"
@@ -12102,11 +11682,6 @@
   {
     "name": "Altar of Bone",
     "image_url": "https://cards.scryfall.io/png/front/7/5/75d5b014-8675-4d91-a539-ac5c31d44b35.png?1562916801",
-    "legality": "legal"
-  },
-  {
-    "name": "Aladdin's Ring",
-    "image_url": "https://cards.scryfall.io/png/front/7/5/75da20cc-2737-4a03-a75c-ed4f7b63cf95.png?1675830482",
     "legality": "legal"
   },
   {
@@ -12280,11 +11855,6 @@
     "legality": "legal"
   },
   {
-    "name": "Jayemdae Tome",
-    "image_url": "https://cards.scryfall.io/png/front/7/7/77d7ca08-92c3-42bb-98e3-d6d959d865d0.png?1675830508",
-    "legality": "legal"
-  },
-  {
     "name": "Morgue Toad",
     "image_url": "https://cards.scryfall.io/png/front/7/7/77d8ae73-70d1-4082-8581-5f74c1aaa63b.png?1562920182",
     "legality": "legal"
@@ -12352,11 +11922,6 @@
   {
     "name": "Vision Charm",
     "image_url": "https://cards.scryfall.io/png/front/7/8/78b384d3-3adf-493a-8b89-bfe68fd1c3e2.png?1562277700",
-    "legality": "legal"
-  },
-  {
-    "name": "Verduran Enchantress",
-    "image_url": "https://cards.scryfall.io/png/front/7/8/78b87a7f-41d0-4dd7-b479-f6bcccda54be.png?1675830474",
     "legality": "legal"
   },
   {
@@ -12487,11 +12052,6 @@
   {
     "name": "Prophetic Bolt",
     "image_url": "https://cards.scryfall.io/png/front/7/9/79f74291-c452-4a60-bf5f-73efad6583d4.png?1562923762",
-    "legality": "legal"
-  },
-  {
-    "name": "Longbow Archer",
-    "image_url": "https://cards.scryfall.io/png/front/7/a/7a0437fd-070a-4679-b1c9-6cb22820d181.png?1675830123",
     "legality": "legal"
   },
   {
@@ -12965,6 +12525,11 @@
     "legality": "legal"
   },
   {
+    "name": "Goblin Gardener",
+    "image_url": "https://cards.scryfall.io/png/front/7/e/7eab0544-9c0b-4365-86bb-bc0c3e9d87ce.png?1562444246",
+    "legality": "legal"
+  },
+  {
     "name": "Wall of Blossoms",
     "image_url": "https://cards.scryfall.io/png/front/7/e/7eb4a1a3-efcf-4c9a-ad1f-0a3f8f2b456f.png?1562596872",
     "legality": "legal"
@@ -13190,11 +12755,6 @@
     "legality": "legal"
   },
   {
-    "name": "Wall of Spears",
-    "image_url": "https://cards.scryfall.io/png/front/8/0/809e9c79-4acc-4933-8da5-993fd71164c4.png?1675830533",
-    "legality": "legal"
-  },
-  {
     "name": "Vernal Bloom",
     "image_url": "https://cards.scryfall.io/png/front/8/0/80a49c80-02ee-4d5a-83cb-53ac3e7870e7.png?1562922130",
     "legality": "legal"
@@ -13225,6 +12785,11 @@
     "legality": "legal"
   },
   {
+    "name": "Dregs of Sorrow",
+    "image_url": "https://cards.scryfall.io/png/front/8/0/80e4203a-ff11-4075-a03a-11448779b413.png?1562054971",
+    "legality": "legal"
+  },
+  {
     "name": "Manta Ray",
     "image_url": "https://cards.scryfall.io/png/front/8/0/80f74884-9b82-419d-9e97-c947a6b7d09f.png?1562801852",
     "legality": "legal"
@@ -13252,11 +12817,6 @@
   {
     "name": "Karn, Silver Golem",
     "image_url": "https://cards.scryfall.io/png/front/8/1/811a0988-2900-426c-9413-8f1778d99678.png?1562922231",
-    "legality": "legal"
-  },
-  {
-    "name": "Dingus Egg",
-    "image_url": "https://cards.scryfall.io/png/front/8/1/812171e0-bc15-4eb3-924a-1c779414469b.png?1675830492",
     "legality": "legal"
   },
   {
@@ -13367,11 +12927,6 @@
   {
     "name": "Ihsan's Shade",
     "image_url": "https://cards.scryfall.io/png/front/8/2/82351724-2814-4d9e-b065-bb72c761b2e7.png?1562587746",
-    "legality": "legal"
-  },
-  {
-    "name": "Delusions of Mediocrity",
-    "image_url": "https://cards.scryfall.io/png/front/8/2/8239e492-0946-4278-add2-9bc6a8b3661d.png?1675830186",
     "legality": "legal"
   },
   {
@@ -13502,6 +13057,11 @@
   {
     "name": "Quicksilver Dagger",
     "image_url": "https://cards.scryfall.io/png/front/8/3/83c74012-6060-4fad-aa73-6e6afd33c482.png?1562926052",
+    "legality": "legal"
+  },
+  {
+    "name": "Shock",
+    "image_url": "https://cards.scryfall.io/png/front/8/3/83c92b5d-103c-4719-a850-690a7010291a.png?1562926054",
     "legality": "legal"
   },
   {
@@ -13725,11 +13285,6 @@
     "legality": "legal"
   },
   {
-    "name": "Infernal Contract",
-    "image_url": "https://cards.scryfall.io/png/front/8/6/86272ecc-33bd-4144-996a-9e0c9d0a9e20.png?1687904731",
-    "legality": "legal"
-  },
-  {
     "name": "Parallax Nexus",
     "image_url": "https://cards.scryfall.io/png/front/8/6/862c50c7-0840-46e0-a653-5b660fdfd4bd.png?1562630856",
     "legality": "legal"
@@ -13840,6 +13395,11 @@
     "legality": "legal"
   },
   {
+    "name": "Gravedigger",
+    "image_url": "https://cards.scryfall.io/png/front/8/7/872f3328-c65d-49eb-a1bb-ca40e9c05627.png?1562054980",
+    "legality": "legal"
+  },
+  {
     "name": "Sick and Tired",
     "image_url": "https://cards.scryfall.io/png/front/8/7/8736f8a2-ee8d-49d2-883f-b22cbe3f3645.png?1562863294",
     "legality": "legal"
@@ -13940,11 +13500,6 @@
     "legality": "legal"
   },
   {
-    "name": "Nightmare",
-    "image_url": "https://cards.scryfall.io/png/front/8/8/8817ef5f-39f0-4358-bc98-f512f9cce8f0.png?1675830302",
-    "legality": "legal"
-  },
-  {
     "name": "Blinding Light",
     "image_url": "https://cards.scryfall.io/png/front/8/8/882c1e15-b508-4885-9626-4c8d2598a006.png?1562922528",
     "legality": "legal"
@@ -13977,11 +13532,6 @@
   {
     "name": "Cephalid Pathmage",
     "image_url": "https://cards.scryfall.io/png/front/8/8/88528929-4953-452a-b85e-dac15786e094.png?1562922565",
-    "legality": "legal"
-  },
-  {
-    "name": "Bloodshot Cyclops",
-    "image_url": "https://cards.scryfall.io/png/front/8/8/885c07aa-beae-4818-9424-6dbfb30a428d.png?1675830336",
     "legality": "legal"
   },
   {
@@ -14022,11 +13572,6 @@
   {
     "name": "Crovax the Cursed",
     "image_url": "https://cards.scryfall.io/png/front/8/8/88a9b76d-6ce1-40d4-bc04-7ae6237f5eaf.png?1562596881",
-    "legality": "legal"
-  },
-  {
-    "name": "Goblin Raider",
-    "image_url": "https://cards.scryfall.io/png/front/8/8/88af4784-e126-4628-b228-6c0a95f00a25.png?1675830357",
     "legality": "legal"
   },
   {
@@ -14112,6 +13657,11 @@
   {
     "name": "Flowstone Wall",
     "image_url": "https://cards.scryfall.io/png/front/8/9/89844c2f-f0a4-41c6-ad8c-d559fcaec85c.png?1562630926",
+    "legality": "legal"
+  },
+  {
+    "name": "Delusions of Mediocrity",
+    "image_url": "https://cards.scryfall.io/png/front/8/9/899088b3-4cdf-47c0-8c52-3c9f55c086c4.png?1562863298",
     "legality": "legal"
   },
   {
@@ -14315,11 +13865,6 @@
     "legality": "legal"
   },
   {
-    "name": "Agonizing Memories",
-    "image_url": "https://cards.scryfall.io/png/front/8/c/8c0c1ee9-5ebc-466d-a163-74d207ef8fd5.png?1675830257",
-    "legality": "legal"
-  },
-  {
     "name": "Think Tank",
     "image_url": "https://cards.scryfall.io/png/front/8/c/8c1c9d34-ea4c-4e89-a7ed-06c4469c1aca.png?1665819883",
     "legality": "legal"
@@ -14367,11 +13912,6 @@
   {
     "name": "Skirk Commando",
     "image_url": "https://cards.scryfall.io/png/front/8/c/8c870a66-4cd5-4a8d-9948-feffa7d4ff11.png?1562928132",
-    "legality": "legal"
-  },
-  {
-    "name": "Fervor",
-    "image_url": "https://cards.scryfall.io/png/front/8/c/8c955ff9-0615-4872-8a05-770558ff81dd.png?1675830343",
     "legality": "legal"
   },
   {
@@ -14440,11 +13980,6 @@
     "legality": "legal"
   },
   {
-    "name": "Sacred Nectar",
-    "image_url": "https://cards.scryfall.io/png/front/8/d/8d4b8de0-0bb5-40fb-8b73-d00d38a582d5.png?1687906481",
-    "legality": "legal"
-  },
-  {
     "name": "Prismatic Circle",
     "image_url": "https://cards.scryfall.io/png/front/8/d/8d4e3de4-f173-4bcc-a5fb-089eee7108d3.png?1562720477",
     "legality": "legal"
@@ -14495,11 +14030,6 @@
     "legality": "legal"
   },
   {
-    "name": "Prodigal Sorcerer",
-    "image_url": "https://cards.scryfall.io/png/front/8/d/8da1bfc3-de07-4600-ae01-b22057ba59d1.png?1675830220",
-    "legality": "legal"
-  },
-  {
     "name": "Cauldron Dance",
     "image_url": "https://cards.scryfall.io/png/front/8/d/8dadcae0-f2b2-487c-bb93-0a2c073044c0.png?1562923646",
     "legality": "legal"
@@ -14530,11 +14060,6 @@
     "legality": "legal"
   },
   {
-    "name": "Abyssal Specter",
-    "image_url": "https://cards.scryfall.io/png/front/8/d/8dcfb1fb-8e04-4312-9a06-ed3fc2e86c22.png?1675830254",
-    "legality": "legal"
-  },
-  {
     "name": "Fylamarid",
     "image_url": "https://cards.scryfall.io/png/front/8/d/8dd4f686-79e3-4067-81f9-7fae0c25dc8f.png?1562055416",
     "legality": "legal"
@@ -14552,11 +14077,6 @@
   {
     "name": "Gallowbraid",
     "image_url": "https://cards.scryfall.io/png/front/8/d/8df86192-6374-42ac-94bc-95e2e8284bd6.png?1562802094",
-    "legality": "legal"
-  },
-  {
-    "name": "Pyrotechnics",
-    "image_url": "https://cards.scryfall.io/png/front/8/d/8dfea5f9-500e-45e8-80b0-9ff9bd09e07a.png?1675830382",
     "legality": "legal"
   },
   {
@@ -14675,11 +14195,6 @@
     "legality": "legal"
   },
   {
-    "name": "Thoughtleech",
-    "image_url": "https://cards.scryfall.io/png/front/8/f/8f617305-8043-4576-bc79-67303b91bb69.png?1675830467",
-    "legality": "legal"
-  },
-  {
     "name": "Reveille Squad",
     "image_url": "https://cards.scryfall.io/png/front/8/f/8f6385bb-18f9-461b-b541-3c2a5e59189b.png?1562921605",
     "legality": "legal"
@@ -14727,11 +14242,6 @@
   {
     "name": "Slaughter",
     "image_url": "https://cards.scryfall.io/png/front/8/f/8ff06c7d-5e78-4bcf-864b-34487f6555b2.png?1562088317",
-    "legality": "legal"
-  },
-  {
-    "name": "Air Elemental",
-    "image_url": "https://cards.scryfall.io/png/front/9/0/9004140e-0369-44ae-84eb-5208a7ef4ced.png?1675830170",
     "legality": "legal"
   },
   {
@@ -14787,6 +14297,11 @@
   {
     "name": "Arcanis the Omnipotent",
     "image_url": "https://cards.scryfall.io/png/front/9/0/90865f52-c062-4505-a204-b4d7d4b3fc4c.png?1562929057",
+    "legality": "legal"
+  },
+  {
+    "name": "Worship",
+    "image_url": "https://cards.scryfall.io/png/front/9/0/908781a0-1ba4-4027-bd9d-13f9faf08686.png?1562925451",
     "legality": "legal"
   },
   {
@@ -14850,11 +14365,6 @@
     "legality": "legal"
   },
   {
-    "name": "Fyndhorn Elder",
-    "image_url": "https://cards.scryfall.io/png/front/9/0/90d03d69-2f6f-4c72-93b5-10bb8a278e24.png?1675830429",
-    "legality": "legal"
-  },
-  {
     "name": "Reckless Ogre",
     "image_url": "https://cards.scryfall.io/png/front/9/0/90d27b79-a22d-48d9-86b2-7ad02cab8697.png?1562088319",
     "legality": "legal"
@@ -14867,11 +14377,6 @@
   {
     "name": "Femeref Healer",
     "image_url": "https://cards.scryfall.io/png/front/9/0/90dedd5e-e2ee-46ec-8541-27f1548b2a2a.png?1562720481",
-    "legality": "legal"
-  },
-  {
-    "name": "Baleful Stare",
-    "image_url": "https://cards.scryfall.io/png/front/9/0/90f3896d-f54f-44fc-a619-ea3a71a513c0.png?1675830177",
     "legality": "legal"
   },
   {
@@ -14967,6 +14472,11 @@
   {
     "name": "Jungle Patrol",
     "image_url": "https://cards.scryfall.io/png/front/9/1/91c343b8-bbfd-4bc5-b80a-4bc4565cdd40.png?1562720486",
+    "legality": "legal"
+  },
+  {
+    "name": "Wind Drake",
+    "image_url": "https://cards.scryfall.io/png/front/9/1/91e0c9e2-a45d-44d1-b73e-73c0a22d0752.png?1562055424",
     "legality": "legal"
   },
   {
@@ -15075,6 +14585,11 @@
     "legality": "legal"
   },
   {
+    "name": "Bloodshot Cyclops",
+    "image_url": "https://cards.scryfall.io/png/front/9/3/9320f3d8-0e51-43d0-aedb-bfed771101e9.png?1562444704",
+    "legality": "legal"
+  },
+  {
     "name": "Argothian Wurm",
     "image_url": "https://cards.scryfall.io/png/front/9/3/93294349-75ae-4a6b-896d-b403a5d69e98.png?1562926099",
     "legality": "legal"
@@ -15180,18 +14695,23 @@
     "legality": "legal"
   },
   {
+    "name": "Soul Feast",
+    "image_url": "https://cards.scryfall.io/png/front/9/4/9417a9db-5101-4fe1-84b7-283ca1fd42e5.png?1562444706",
+    "legality": "legal"
+  },
+  {
     "name": "Abandon Hope",
     "image_url": "https://cards.scryfall.io/png/front/9/4/942cf220-472c-48f6-8f60-993939ea5ab8.png?1562055436",
     "legality": "legal"
   },
   {
-    "name": "Cloud Cover",
-    "image_url": "https://cards.scryfall.io/png/front/9/4/943b3886-5556-474f-8dc1-18219e25abc3.png?1562926366",
+    "name": "Abyssal Horror",
+    "image_url": "https://cards.scryfall.io/png/front/9/4/94396d26-cede-4a61-b30a-50aecc730407.png?1562926364",
     "legality": "legal"
   },
   {
-    "name": "Twiddle",
-    "image_url": "https://cards.scryfall.io/png/front/9/4/945956d4-ffd6-4fbc-ae2d-32f981337dd4.png?1675830242",
+    "name": "Cloud Cover",
+    "image_url": "https://cards.scryfall.io/png/front/9/4/943b3886-5556-474f-8dc1-18219e25abc3.png?1562926366",
     "legality": "legal"
   },
   {
@@ -15250,18 +14770,8 @@
     "legality": "legal"
   },
   {
-    "name": "Rag Man",
-    "image_url": "https://cards.scryfall.io/png/front/9/4/94dd33f6-2b7b-483a-b38e-bcf8e69a935c.png?1675830309",
-    "legality": "legal"
-  },
-  {
     "name": "Mogg Raider",
     "image_url": "https://cards.scryfall.io/png/front/9/4/94e9cc0a-c210-4525-8c7f-9c6306cc21b0.png?1562055437",
-    "legality": "legal"
-  },
-  {
-    "name": "Yavimaya Enchantress",
-    "image_url": "https://cards.scryfall.io/png/front/9/4/94ec6cdd-11ba-4acd-9bbc-87f01f703642.png?1675830480",
     "legality": "legal"
   },
   {
@@ -15345,8 +14855,8 @@
     "legality": "legal"
   },
   {
-    "name": "Hurricane",
-    "image_url": "https://cards.scryfall.io/png/front/9/6/96005f68-1712-4818-ad31-a0e629c54d36.png?1675830437",
+    "name": "Pygmy Pyrosaur",
+    "image_url": "https://cards.scryfall.io/png/front/9/6/96136626-4777-4e58-865b-c4d3f6ceb59d.png?1562863751",
     "legality": "legal"
   },
   {
@@ -15850,11 +15360,6 @@
     "legality": "legal"
   },
   {
-    "name": "Wall of Fire",
-    "image_url": "https://cards.scryfall.io/png/front/9/a/9ac8374f-abdf-495e-a11d-6dd7c30a21f7.png?1675830405",
-    "legality": "legal"
-  },
-  {
     "name": "Grave Consequences",
     "image_url": "https://cards.scryfall.io/png/front/9/a/9ad5f9f2-282a-4ee0-a259-cc24404ddf6f.png?1562631125",
     "legality": "legal"
@@ -15897,6 +15402,11 @@
   {
     "name": "Blackmail",
     "image_url": "https://cards.scryfall.io/png/front/9/b/9b40f6eb-e2a4-46d2-8822-b0f3dc508b73.png?1562931568",
+    "legality": "legal"
+  },
+  {
+    "name": "Blanchwood Armor",
+    "image_url": "https://cards.scryfall.io/png/front/9/b/9b5f3776-74f4-4626-833b-e1b0921d3cbc.png?1562927778",
     "legality": "legal"
   },
   {
@@ -16005,11 +15515,6 @@
     "legality": "legal"
   },
   {
-    "name": "Befoul",
-    "image_url": "https://cards.scryfall.io/png/front/9/c/9c92a967-ed52-44a8-a07b-04e643fb2e78.png?1675830257",
-    "legality": "legal"
-  },
-  {
     "name": "Seaside Haven",
     "image_url": "https://cards.scryfall.io/png/front/9/c/9c940a6b-3c5e-4ce2-92b6-63e2cb575c15.png?1562931946",
     "legality": "legal"
@@ -16085,11 +15590,6 @@
     "legality": "legal"
   },
   {
-    "name": "Breath of Life",
-    "image_url": "https://cards.scryfall.io/png/front/9/d/9d7a985b-d57a-4409-9ec4-fabd31afc461.png?1675830092",
-    "legality": "legal"
-  },
-  {
     "name": "Armadillo Cloak",
     "image_url": "https://cards.scryfall.io/png/front/9/d/9d816f98-6cb6-432c-b0a4-a0eed21658ac.png?1562926718",
     "legality": "legal"
@@ -16122,6 +15622,11 @@
   {
     "name": "Tectonic Break",
     "image_url": "https://cards.scryfall.io/png/front/9/d/9de0ee5d-10f6-4152-8416-1f2b749b439d.png?1562382077",
+    "legality": "legal"
+  },
+  {
+    "name": "Seasoned Marshal",
+    "image_url": "https://cards.scryfall.io/png/front/9/d/9de20845-06b7-4542-8d61-4b97309669f9.png?1562928286",
     "legality": "legal"
   },
   {
@@ -16162,6 +15667,11 @@
   {
     "name": "Anurid Murkdiver",
     "image_url": "https://cards.scryfall.io/png/front/9/e/9e43d62c-488a-4c8d-b193-bacbf8037761.png?1562932427",
+    "legality": "legal"
+  },
+  {
+    "name": "Seafloor Debris",
+    "image_url": "https://cards.scryfall.io/png/front/9/e/9e492399-d514-485a-8cdd-a3797a05e47a.png?1562924445",
     "legality": "legal"
   },
   {
@@ -16207,6 +15717,11 @@
   {
     "name": "Cateran Enforcer",
     "image_url": "https://cards.scryfall.io/png/front/9/e/9e9b6da8-39da-4fce-89cf-ea972f981331.png?1562382078",
+    "legality": "legal"
+  },
+  {
+    "name": "Goblin Matron",
+    "image_url": "https://cards.scryfall.io/png/front/9/e/9e9e2e5d-ad06-4378-9afb-ffb174e6a5b4.png?1562928477",
     "legality": "legal"
   },
   {
@@ -16262,6 +15777,11 @@
   {
     "name": "Magnetic Web",
     "image_url": "https://cards.scryfall.io/png/front/9/f/9f3c7309-4efb-49ce-a9cc-a8f7b04c1a15.png?1562055466",
+    "legality": "legal"
+  },
+  {
+    "name": "Mawcor",
+    "image_url": "https://cards.scryfall.io/png/front/9/f/9f50971e-2a18-4db7-8b5b-83dd5e85766e.png?1562055468",
     "legality": "legal"
   },
   {
@@ -16400,6 +15920,11 @@
     "legality": "legal"
   },
   {
+    "name": "Nausea",
+    "image_url": "https://cards.scryfall.io/png/front/a/1/a10531d8-fc99-4a2b-94b0-97a25521d725.png?1562088332",
+    "legality": "legal"
+  },
+  {
     "name": "Zirilan of the Claw",
     "image_url": "https://cards.scryfall.io/png/front/a/1/a105b7f4-c93b-4b54-acf8-7212907d9cd6.png?1562720947",
     "legality": "legal"
@@ -16492,11 +16017,6 @@
   {
     "name": "Restless Dead",
     "image_url": "https://cards.scryfall.io/png/front/a/2/a237cff4-af6f-4745-bda1-e3ed2267fa89.png?1562720951",
-    "legality": "legal"
-  },
-  {
-    "name": "Samite Healer",
-    "image_url": "https://cards.scryfall.io/png/front/a/2/a23ff360-3f4c-40e7-acb0-273cb35a903d.png?1675830140",
     "legality": "legal"
   },
   {
@@ -16630,11 +16150,6 @@
     "legality": "legal"
   },
   {
-    "name": "Jalum Tome",
-    "image_url": "https://cards.scryfall.io/png/front/a/3/a38c5b83-449e-4503-a34e-94a302370606.png?1675830506",
-    "legality": "legal"
-  },
-  {
     "name": "Barreling Attack",
     "image_url": "https://cards.scryfall.io/png/front/a/3/a3a2955e-e714-419e-9e3d-7ae3d7fae041.png?1562720958",
     "legality": "legal"
@@ -16712,11 +16227,6 @@
   {
     "name": "Touch of Death",
     "image_url": "https://cards.scryfall.io/png/front/a/4/a49c658f-e657-490b-af1f-e67e48d0046e.png?1562925773",
-    "legality": "legal"
-  },
-  {
-    "name": "Blaze",
-    "image_url": "https://cards.scryfall.io/png/front/a/4/a4a9a4ba-98ef-4eb1-a650-a77b84226701.png?1675830336",
     "legality": "legal"
   },
   {
@@ -16820,11 +16330,6 @@
     "legality": "legal"
   },
   {
-    "name": "Angelic Page",
-    "image_url": "https://cards.scryfall.io/png/front/a/6/a610860b-cc2f-4f7e-99f4-481d15c7cd90.png?1675830086",
-    "legality": "legal"
-  },
-  {
     "name": "Morningtide",
     "image_url": "https://cards.scryfall.io/png/front/a/6/a62e17a7-3602-45af-bdb6-fa5f2a9f1155.png?1574250416",
     "legality": "legal"
@@ -16867,11 +16372,6 @@
   {
     "name": "Quicksilver Wall",
     "image_url": "https://cards.scryfall.io/png/front/a/6/a680aeaf-8c6e-45b5-8814-7fd04e963220.png?1562926120",
-    "legality": "legal"
-  },
-  {
-    "name": "Wall of Air",
-    "image_url": "https://cards.scryfall.io/png/front/a/6/a68367ab-cf67-4e0d-a446-676b2734141c.png?1675830247",
     "legality": "legal"
   },
   {
@@ -16932,6 +16432,11 @@
   {
     "name": "Crackdown",
     "image_url": "https://cards.scryfall.io/png/front/a/7/a7009fd8-1d80-41bb-a1b0-fea9c909c63d.png?1562382094",
+    "legality": "legal"
+  },
+  {
+    "name": "Nature's Revolt",
+    "image_url": "https://cards.scryfall.io/png/front/a/7/a70386c5-053a-46c4-b26d-c6f92f536bed.png?1562055908",
     "legality": "legal"
   },
   {
@@ -17115,6 +16620,11 @@
     "legality": "legal"
   },
   {
+    "name": "Hurricane",
+    "image_url": "https://cards.scryfall.io/png/front/a/8/a8cc6db7-1f40-40e3-a7ea-92f1d05e2e3d.png?1562926538",
+    "legality": "legal"
+  },
+  {
     "name": "Blade Sliver",
     "image_url": "https://cards.scryfall.io/png/front/a/8/a8d6f7a6-7b6a-44f4-be04-7c02806b9f09.png?1562929059",
     "legality": "legal"
@@ -17142,11 +16652,6 @@
   {
     "name": "Pox",
     "image_url": "https://cards.scryfall.io/png/front/a/9/a914138c-a593-414c-bbcb-83d3c1bc4f6f.png?1562926598",
-    "legality": "legal"
-  },
-  {
-    "name": "Plague Beetle",
-    "image_url": "https://cards.scryfall.io/png/front/a/9/a91546e2-3384-40c0-a7b9-d83a7a642083.png?1675830309",
     "legality": "legal"
   },
   {
@@ -17355,11 +16860,6 @@
     "legality": "legal"
   },
   {
-    "name": "Vengeance",
-    "image_url": "https://cards.scryfall.io/png/front/a/b/ab0e4d5a-079c-429f-b4f7-aa12fded1dce.png?1675830164",
-    "legality": "legal"
-  },
-  {
     "name": "Distorting Lens",
     "image_url": "https://cards.scryfall.io/png/front/a/b/ab196d8d-5d1c-4f0e-a924-37774db02821.png?1562382535",
     "legality": "legal"
@@ -17392,6 +16892,11 @@
   {
     "name": "Seraph",
     "image_url": "https://cards.scryfall.io/png/front/a/b/ab675291-3189-43f3-b11b-0724eca8b941.png?1562927013",
+    "legality": "legal"
+  },
+  {
+    "name": "Serpent Warrior",
+    "image_url": "https://cards.scryfall.io/png/front/a/b/ab726e7d-171f-48b2-9652-545e17913330.png?1562597345",
     "legality": "legal"
   },
   {
@@ -17467,11 +16972,6 @@
   {
     "name": "Haunting Echoes",
     "image_url": "https://cards.scryfall.io/png/front/a/c/aca4c571-48b8-4150-93f8-4cb5c8e797c4.png?1562927203",
-    "legality": "legal"
-  },
-  {
-    "name": "Benthic Behemoth",
-    "image_url": "https://cards.scryfall.io/png/front/a/c/acb24340-0c10-485c-a9a8-3ac65d494a57.png?1675830178",
     "legality": "legal"
   },
   {
@@ -17557,11 +17057,6 @@
   {
     "name": "Off Balance",
     "image_url": "https://cards.scryfall.io/png/front/a/d/adafe5c4-8de0-4d38-919f-de96bc70c21b.png?1562631476",
-    "legality": "legal"
-  },
-  {
-    "name": "Spineless Thug",
-    "image_url": "https://cards.scryfall.io/png/front/a/d/adc7ec32-96ca-472f-9a2c-4b4b30cdcc98.png?1675830322",
     "legality": "legal"
   },
   {
@@ -17667,6 +17162,11 @@
   {
     "name": "Elvish Scrapper",
     "image_url": "https://cards.scryfall.io/png/front/a/e/ae85fafb-114b-4fd8-ac4c-5ada57054705.png?1562936242",
+    "legality": "legal"
+  },
+  {
+    "name": "Razortooth Rats",
+    "image_url": "https://cards.scryfall.io/png/front/a/e/ae869780-27e8-4a6d-9ac6-cdab617725e2.png?1562802720",
     "legality": "legal"
   },
   {
@@ -17780,18 +17280,13 @@
     "legality": "legal"
   },
   {
-    "name": "Lone Wolf",
-    "image_url": "https://cards.scryfall.io/png/front/a/f/afae9668-4131-4cf7-acf0-6e5684165896.png?1675830442",
-    "legality": "legal"
-  },
-  {
     "name": "Change of Heart",
     "image_url": "https://cards.scryfall.io/png/front/a/f/afaf277e-b430-4c96-880c-ae654973478c.png?1562597354",
     "legality": "legal"
   },
   {
-    "name": "Jandor's Saddlebags",
-    "image_url": "https://cards.scryfall.io/png/front/a/f/afb83a18-4efd-4e4e-99ad-bc6f09ddce6e.png?1675830508",
+    "name": "Skyshroud Falcon",
+    "image_url": "https://cards.scryfall.io/png/front/a/f/afb86621-1a6e-4d56-ab0e-531105775c56.png?1562597355",
     "legality": "legal"
   },
   {
@@ -17905,11 +17400,6 @@
     "legality": "legal"
   },
   {
-    "name": "Orcish Oriflamme",
-    "image_url": "https://cards.scryfall.io/png/front/b/1/b10c2e08-c18a-4fc6-9e8b-120fb87c4f26.png?1675830376",
-    "legality": "legal"
-  },
-  {
     "name": "Freyalise's Winds",
     "image_url": "https://cards.scryfall.io/png/front/b/1/b11cd2e0-9419-4267-807e-5b73915c748a.png?1562927954",
     "legality": "legal"
@@ -18020,11 +17510,6 @@
     "legality": "legal"
   },
   {
-    "name": "Uktabi Wildcats",
-    "image_url": "https://cards.scryfall.io/png/front/b/2/b23d1a8c-01cb-4dd3-8562-c3ce7bc88d77.png?1675830471",
-    "legality": "legal"
-  },
-  {
     "name": "Rats' Feast",
     "image_url": "https://cards.scryfall.io/png/front/b/2/b243ce02-4fff-444c-acc4-e1a199621a53.png?1595095831",
     "legality": "legal"
@@ -18052,11 +17537,6 @@
   {
     "name": "Saprazzan Outrigger",
     "image_url": "https://cards.scryfall.io/png/front/b/2/b28048f1-4cf5-4389-9e69-9b5e1bc95396.png?1562382550",
-    "legality": "legal"
-  },
-  {
-    "name": "Goblin War Drums",
-    "image_url": "https://cards.scryfall.io/png/front/b/2/b2de28d4-ab1d-4e4d-a8b9-6faa19f9d283.png?1675830360",
     "legality": "legal"
   },
   {
@@ -18145,6 +17625,11 @@
     "legality": "legal"
   },
   {
+    "name": "Phantom Warrior",
+    "image_url": "https://cards.scryfall.io/png/front/b/4/b414c9f8-ee46-4368-a8dc-0767c645a9c1.png?1562802863",
+    "legality": "legal"
+  },
+  {
     "name": "Blue Scarab",
     "image_url": "https://cards.scryfall.io/png/front/b/4/b423bb5a-eaac-4c1d-981a-1c635001fc5a.png?1562928584",
     "legality": "legal"
@@ -18195,6 +17680,11 @@
     "legality": "legal"
   },
   {
+    "name": "Seeker of Skybreak",
+    "image_url": "https://cards.scryfall.io/png/front/b/4/b4bb98ba-d599-4597-911c-2b472fa8817c.png?1562055938",
+    "legality": "legal"
+  },
+  {
     "name": "Hero's Resolve",
     "image_url": "https://cards.scryfall.io/png/front/b/4/b4cdcc7c-0d01-4aa2-8934-079dfc00eef2.png?1562056375",
     "legality": "legal"
@@ -18202,6 +17692,11 @@
   {
     "name": "Stalking Stones",
     "image_url": "https://cards.scryfall.io/png/front/b/4/b4d3d349-5c23-43a9-b25e-0e1a35b84673.png?1562056376",
+    "legality": "legal"
+  },
+  {
+    "name": "Fervor",
+    "image_url": "https://cards.scryfall.io/png/front/b/4/b4df70ea-2b6b-4e25-a564-655989ef16fa.png?1562802875",
     "legality": "legal"
   },
   {
@@ -18337,11 +17832,6 @@
   {
     "name": "Harmattan Efreet",
     "image_url": "https://cards.scryfall.io/png/front/b/6/b6673d49-c3f6-41f6-84c6-1957fff71509.png?1562721423",
-    "legality": "legal"
-  },
-  {
-    "name": "Squall",
-    "image_url": "https://cards.scryfall.io/png/front/b/6/b67e4e64-adf5-480c-b47b-c8eb03cb74c4.png?1675830464",
     "legality": "legal"
   },
   {
@@ -18710,6 +18200,11 @@
     "legality": "legal"
   },
   {
+    "name": "Ardent Militia",
+    "image_url": "https://cards.scryfall.io/png/front/b/b/bb212ca5-bbb5-4c83-9a7b-9d5ab451e032.png?1562802991",
+    "legality": "legal"
+  },
+  {
     "name": "Commando Raid",
     "image_url": "https://cards.scryfall.io/png/front/b/b/bb237330-ac2e-411d-836c-6628f96f3262.png?1562939151",
     "legality": "legal"
@@ -18845,6 +18340,11 @@
     "legality": "legal"
   },
   {
+    "name": "Fire Diamond",
+    "image_url": "https://cards.scryfall.io/png/front/b/c/bcca5bbe-df01-45ea-a6ac-4e3d1cf237c8.png?1562721432",
+    "legality": "legal"
+  },
+  {
     "name": "Giant Albatross",
     "image_url": "https://cards.scryfall.io/png/front/b/c/bce05870-74d3-43f1-92d0-dc1744c0138d.png?1562588235",
     "legality": "legal"
@@ -18970,6 +18470,11 @@
     "legality": "legal"
   },
   {
+    "name": "Heavy Ballista",
+    "image_url": "https://cards.scryfall.io/png/front/b/d/bdfe3eed-e415-4b28-8b4d-e50a19235683.png?1562803088",
+    "legality": "legal"
+  },
+  {
     "name": "Peer Pressure",
     "image_url": "https://cards.scryfall.io/png/front/b/e/be0110ba-49e4-4729-8a84-4d408b20df53.png?1562939869",
     "legality": "legal"
@@ -18982,6 +18487,16 @@
   {
     "name": "Fanatical Devotion",
     "image_url": "https://cards.scryfall.io/png/front/b/e/be0ed1fb-d380-4e3e-a43f-c39660a996e9.png?1562631775",
+    "legality": "legal"
+  },
+  {
+    "name": "Agonizing Memories",
+    "image_url": "https://cards.scryfall.io/png/front/b/e/be277367-a58e-429e-af1b-58163becf861.png?1562803090",
+    "legality": "legal"
+  },
+  {
+    "name": "Fighting Drake",
+    "image_url": "https://cards.scryfall.io/png/front/b/e/be436b65-9193-45ca-93e0-c5e9718f7e72.png?1562056385",
     "legality": "legal"
   },
   {
@@ -19240,6 +18755,11 @@
     "legality": "legal"
   },
   {
+    "name": "Plague Beetle",
+    "image_url": "https://cards.scryfall.io/png/front/c/0/c07f4e55-57f9-49f6-a1a2-1c94dcbe7d71.png?1562864222",
+    "legality": "legal"
+  },
+  {
     "name": "Cannibalize",
     "image_url": "https://cards.scryfall.io/png/front/c/0/c0896ae6-fe96-44e8-ba62-a6d3fc1aae4f.png?1562597371",
     "legality": "legal"
@@ -19330,6 +18850,16 @@
     "legality": "legal"
   },
   {
+    "name": "Tahngarth, Talruum Hero",
+    "image_url": "https://cards.scryfall.io/png/front/c/1/c1778f37-af01-4f8c-ab9d-a4c60abf7e78.png?1741744595",
+    "legality": "legal"
+  },
+  {
+    "name": "Elvish Champion",
+    "image_url": "https://cards.scryfall.io/png/front/c/1/c19bb473-03b0-4e6d-a7da-0ec1e7707a68.png?1687904220",
+    "legality": "legal"
+  },
+  {
     "name": "Zuberi, Golden Feather",
     "image_url": "https://cards.scryfall.io/png/front/c/1/c1b24a80-b5e1-484f-9e21-886cb6b5db48.png?1562721448",
     "legality": "legal"
@@ -19372,11 +18902,6 @@
   {
     "name": "Righteous Indignation",
     "image_url": "https://cards.scryfall.io/png/front/c/1/c1fb6335-cfd8-438c-b936-09b850d61b28.png?1562383018",
-    "legality": "legal"
-  },
-  {
-    "name": "Balduvian Barbarians",
-    "image_url": "https://cards.scryfall.io/png/front/c/2/c201ace3-4d99-467e-a558-7d22ad004cf2.png?1687904157",
     "legality": "legal"
   },
   {
@@ -19795,11 +19320,6 @@
     "legality": "legal"
   },
   {
-    "name": "Rolling Stones",
-    "image_url": "https://cards.scryfall.io/png/front/c/6/c66582c6-2eaa-43a8-a0cd-43dab0abc656.png?1675830137",
-    "legality": "legal"
-  },
-  {
     "name": "Spire Owl",
     "image_url": "https://cards.scryfall.io/png/front/c/6/c66b2aa6-e891-4ae5-b6c9-1537b797c3ab.png?1562936947",
     "legality": "legal"
@@ -19930,16 +19450,6 @@
     "legality": "legal"
   },
   {
-    "name": "Treasure Trove",
-    "image_url": "https://cards.scryfall.io/png/front/c/8/c8646aef-f926-4e04-9a6d-c10bea1dd992.png?1675830240",
-    "legality": "legal"
-  },
-  {
-    "name": "Fleeting Image",
-    "image_url": "https://cards.scryfall.io/png/front/c/8/c86a6f29-6fbf-4fd9-a923-1fdf33abbe16.png?1675830193",
-    "legality": "legal"
-  },
-  {
     "name": "Alabaster Leech",
     "image_url": "https://cards.scryfall.io/png/front/c/8/c86b45d9-aba6-4c09-8605-037754ba7fd4.png?1562935200",
     "legality": "legal"
@@ -19995,11 +19505,6 @@
     "legality": "legal"
   },
   {
-    "name": "Soul Net",
-    "image_url": "https://cards.scryfall.io/png/front/c/9/c9454461-c2b4-45e0-8c99-ac8ea506e267.png?1675830525",
-    "legality": "legal"
-  },
-  {
     "name": "Annex",
     "image_url": "https://cards.scryfall.io/png/front/c/9/c95d5cb7-3121-430b-80c3-84c75e5f869e.png?1562942558",
     "legality": "legal"
@@ -20045,11 +19550,6 @@
     "legality": "legal"
   },
   {
-    "name": "Wild Growth",
-    "image_url": "https://cards.scryfall.io/png/front/c/9/c9a02887-beb9-454b-8592-f551f48cd93c.png?1675830478",
-    "legality": "legal"
-  },
-  {
     "name": "Selfless Exorcist",
     "image_url": "https://cards.scryfall.io/png/front/c/9/c9b1c300-aec3-4512-9902-309615e86c73.png?1562631965",
     "legality": "legal"
@@ -20067,6 +19567,11 @@
   {
     "name": "Forsaken Wastes",
     "image_url": "https://cards.scryfall.io/png/front/c/9/c9dbfc7c-164d-47b8-8f05-987864fca89b.png?1562721899",
+    "legality": "legal"
+  },
+  {
+    "name": "Yavimaya Enchantress",
+    "image_url": "https://cards.scryfall.io/png/front/c/9/c9e3934e-6169-416e-92bb-359e41900c3b.png?1562445208",
     "legality": "legal"
   },
   {
@@ -20120,6 +19625,11 @@
     "legality": "legal"
   },
   {
+    "name": "Sustainer of the Realm",
+    "image_url": "https://cards.scryfall.io/png/front/c/a/ca280e1e-4231-48e5-be1b-965480822c46.png?1587857473",
+    "legality": "legal"
+  },
+  {
     "name": "Talruum Piper",
     "image_url": "https://cards.scryfall.io/png/front/c/a/ca2cb9a7-5063-4b31-9782-8bfd784bca0a.png?1562278637",
     "legality": "legal"
@@ -20142,6 +19652,11 @@
   {
     "name": "Battlewise Aven",
     "image_url": "https://cards.scryfall.io/png/front/c/a/ca363409-cba9-43ed-bf88-3519521e1983.png?1562631973",
+    "legality": "legal"
+  },
+  {
+    "name": "Duress",
+    "image_url": "https://cards.scryfall.io/png/front/c/a/ca367f49-0f4a-4b7f-8104-851893fbcd8a.png?1562937711",
     "legality": "legal"
   },
   {
@@ -20175,6 +19690,11 @@
     "legality": "legal"
   },
   {
+    "name": "Howl from Beyond",
+    "image_url": "https://cards.scryfall.io/png/front/c/a/ca9d0d6b-056e-4b94-8de5-a325768f67b6.png?1587911707",
+    "legality": "legal"
+  },
+  {
     "name": "Rootwater Shaman",
     "image_url": "https://cards.scryfall.io/png/front/c/a/caa1b84b-efda-4324-9106-0d1d00385cdc.png?1562056414",
     "legality": "legal"
@@ -20205,6 +19725,11 @@
     "legality": "legal"
   },
   {
+    "name": "Serra Advocate",
+    "image_url": "https://cards.scryfall.io/png/front/c/a/cac540c7-8b3a-4e28-96a2-d414ff613640.png?1562445211",
+    "legality": "legal"
+  },
+  {
     "name": "Mtenda Lion",
     "image_url": "https://cards.scryfall.io/png/front/c/b/cb05cf5b-2a0d-432a-b8e7-10335c2a18e8.png?1587912668",
     "legality": "legal"
@@ -20232,11 +19757,6 @@
   {
     "name": "Soul Echo",
     "image_url": "https://cards.scryfall.io/png/front/c/b/cb6f9427-ef5c-49fd-81e1-ddf130d69da0.png?1562721907",
-    "legality": "legal"
-  },
-  {
-    "name": "Bog Wraith",
-    "image_url": "https://cards.scryfall.io/png/front/c/b/cb6fd6e1-58b0-4c98-b0ca-58409d3b2383.png?1675830264",
     "legality": "legal"
   },
   {
@@ -20300,8 +19820,23 @@
     "legality": "legal"
   },
   {
+    "name": "Stronghold Assassin",
+    "image_url": "https://cards.scryfall.io/png/front/c/c/cc0f043c-efb3-4392-ae25-b3ec180b0cb2.png?1562597376",
+    "legality": "legal"
+  },
+  {
+    "name": "Inferno",
+    "image_url": "https://cards.scryfall.io/png/front/c/c/cc2850e8-f135-4a51-905b-ae30b83913a6.png?1562355863",
+    "legality": "legal"
+  },
+  {
     "name": "Jungle Basin",
     "image_url": "https://cards.scryfall.io/png/front/c/c/cc3146db-2f86-4728-9af1-ff651f871652.png?1562278640",
+    "legality": "legal"
+  },
+  {
+    "name": "Seismic Assault",
+    "image_url": "https://cards.scryfall.io/png/front/c/c/cc494af5-4da4-43f5-a193-426ef84d80a7.png?1562088802",
     "legality": "legal"
   },
   {
@@ -20322,6 +19857,11 @@
   {
     "name": "Cursed Totem",
     "image_url": "https://cards.scryfall.io/png/front/c/c/cc99ee76-45b6-4f1d-b0b0-7da8775ca90c.png?1562721911",
+    "legality": "legal"
+  },
+  {
+    "name": "Benthic Behemoth",
+    "image_url": "https://cards.scryfall.io/png/front/c/c/cc9fb7b6-d20c-4c08-9dae-4ccc9138b662.png?1687991766",
     "legality": "legal"
   },
   {
@@ -20520,11 +20060,6 @@
     "legality": "legal"
   },
   {
-    "name": "Holy Strength",
-    "image_url": "https://cards.scryfall.io/png/front/c/e/ce20ca0f-8747-43a6-9723-bca7669badb7.png?1675830114",
-    "legality": "legal"
-  },
-  {
     "name": "Sirocco",
     "image_url": "https://cards.scryfall.io/png/front/c/e/ce37492e-4f07-4171-97d4-84f28fb4e2be.png?1562721916",
     "legality": "legal"
@@ -20557,11 +20092,6 @@
   {
     "name": "Gaseous Form",
     "image_url": "https://cards.scryfall.io/png/front/c/e/ce8402d6-b509-4771-ba80-128db343880d.png?1562056859",
-    "legality": "legal"
-  },
-  {
-    "name": "Stream of Life",
-    "image_url": "https://cards.scryfall.io/png/front/c/e/ce87747f-4565-43f2-b966-8bef41ebbe03.png?1675830464",
     "legality": "legal"
   },
   {
@@ -20670,13 +20200,13 @@
     "legality": "legal"
   },
   {
-    "name": "Granite Grip",
-    "image_url": "https://cards.scryfall.io/png/front/c/f/cfb23039-0f38-44f9-845d-b76ca85e4761.png?1675830362",
+    "name": "Alley Grifters",
+    "image_url": "https://cards.scryfall.io/png/front/c/f/cfb648e3-f5ad-4b33-afa3-d4cda0d369a1.png?1562383036",
     "legality": "legal"
   },
   {
-    "name": "Alley Grifters",
-    "image_url": "https://cards.scryfall.io/png/front/c/f/cfb648e3-f5ad-4b33-afa3-d4cda0d369a1.png?1562383036",
+    "name": "Sanctimony",
+    "image_url": "https://cards.scryfall.io/png/front/c/f/cfc6b744-92c7-4839-9b27-833bedb92bba.png?1562445212",
     "legality": "legal"
   },
   {
@@ -20737,6 +20267,11 @@
   {
     "name": "War Chariot",
     "image_url": "https://cards.scryfall.io/png/front/d/0/d0ea0c6c-aa76-4b16-bc99-2ff46dc56d4e.png?1587912182",
+    "legality": "legal"
+  },
+  {
+    "name": "Uktabi Wildcats",
+    "image_url": "https://cards.scryfall.io/png/front/d/0/d0f287ff-1b1b-454a-9360-fac34c8e1f24.png?1562721921",
     "legality": "legal"
   },
   {
@@ -20940,11 +20475,6 @@
     "legality": "legal"
   },
   {
-    "name": "Millstone",
-    "image_url": "https://cards.scryfall.io/png/front/d/2/d2d361c3-8aa7-4b3c-ae68-15910cc341ca.png?1675830513",
-    "legality": "legal"
-  },
-  {
     "name": "Words of Waste",
     "image_url": "https://cards.scryfall.io/png/front/d/2/d2dcb8ed-23e7-4cee-9f43-042232c6035a.png?1562945240",
     "legality": "legal"
@@ -20957,11 +20487,6 @@
   {
     "name": "Pulsating Illusion",
     "image_url": "https://cards.scryfall.io/png/front/d/3/d3297f28-a15d-43dd-a96e-09701d5f9aed.png?1562934456",
-    "legality": "legal"
-  },
-  {
-    "name": "Goblin King",
-    "image_url": "https://cards.scryfall.io/png/front/d/3/d32b3637-ffc8-4bda-bfc1-912f5789b5ed.png?1675830355",
     "legality": "legal"
   },
   {
@@ -20980,11 +20505,6 @@
     "legality": "legal"
   },
   {
-    "name": "Meekstone",
-    "image_url": "https://cards.scryfall.io/png/front/d/3/d35fd53a-08ed-4f7c-937d-3dc6e834a481.png?1675830512",
-    "legality": "legal"
-  },
-  {
     "name": "Kaervek's Spite",
     "image_url": "https://cards.scryfall.io/png/front/d/3/d385b9e5-e13d-4098-ba74-ea55bde164d9.png?1562278645",
     "legality": "legal"
@@ -20995,8 +20515,8 @@
     "legality": "legal"
   },
   {
-    "name": "Spirit Link",
-    "image_url": "https://cards.scryfall.io/png/front/d/3/d3a6a4db-045d-48f7-8f82-4486231d755a.png?1675830152",
+    "name": "Impatience",
+    "image_url": "https://cards.scryfall.io/png/front/d/3/d39c8166-9e63-4b02-af7b-4caf14ca73ac.png?1562445217",
     "legality": "legal"
   },
   {
@@ -21017,11 +20537,6 @@
   {
     "name": "Shrouded Serpent",
     "image_url": "https://cards.scryfall.io/png/front/d/3/d3d9035b-b6ec-479f-b697-3e5c3110ef10.png?1562934599",
-    "legality": "legal"
-  },
-  {
-    "name": "Bog Imp",
-    "image_url": "https://cards.scryfall.io/png/front/d/3/d3f70e3a-b094-45f9-8e34-02db116292ce.png?1675830263",
     "legality": "legal"
   },
   {
@@ -21052,11 +20567,6 @@
   {
     "name": "Broken Fall",
     "image_url": "https://cards.scryfall.io/png/front/d/4/d43f5349-a3f8-492d-a835-24a9f948741c.png?1562056864",
-    "legality": "legal"
-  },
-  {
-    "name": "Wooden Sphere",
-    "image_url": "https://cards.scryfall.io/png/front/d/4/d452f2c4-1500-4301-8278-19922026fcaa.png?1675830533",
     "legality": "legal"
   },
   {
@@ -21152,11 +20662,6 @@
   {
     "name": "Fortitude",
     "image_url": "https://cards.scryfall.io/png/front/d/5/d54d5240-8afc-4c61-aaf6-a78d2b92e5c9.png?1562940139",
-    "legality": "legal"
-  },
-  {
-    "name": "Unsummon",
-    "image_url": "https://cards.scryfall.io/png/front/d/5/d5616986-970c-45d3-878e-403434b35988.png?1675830242",
     "legality": "legal"
   },
   {
@@ -21280,11 +20785,6 @@
     "legality": "legal"
   },
   {
-    "name": "Giant Octopus",
-    "image_url": "https://cards.scryfall.io/png/front/d/6/d6343d49-1336-445d-ac7a-83e436953332.png?1675830198",
-    "legality": "legal"
-  },
-  {
     "name": "Invulnerability",
     "image_url": "https://cards.scryfall.io/png/front/d/6/d66d1f00-e857-4bc3-a36d-a33669d281e9.png?1562056870",
     "legality": "legal"
@@ -21395,11 +20895,6 @@
     "legality": "legal"
   },
   {
-    "name": "Mind Rot",
-    "image_url": "https://cards.scryfall.io/png/front/d/7/d7628b7e-7da8-4ef8-8be2-1865605a7589.png?1675830297",
-    "legality": "legal"
-  },
-  {
     "name": "Lightning Rift",
     "image_url": "https://cards.scryfall.io/png/front/d/7/d775d729-0ad9-4b14-9d44-6282f6936e07.png?1562946381",
     "legality": "legal"
@@ -21505,11 +21000,6 @@
     "legality": "legal"
   },
   {
-    "name": "Eager Cadet",
-    "image_url": "https://cards.scryfall.io/png/front/d/8/d8b718ad-1ca3-4587-994d-6a9df47db1e0.png?1675830105",
-    "legality": "legal"
-  },
-  {
     "name": "Spirit Cairn",
     "image_url": "https://cards.scryfall.io/png/front/d/8/d8baf60f-c20b-4b2f-9fe1-df008a9273c6.png?1562632197",
     "legality": "legal"
@@ -21527,6 +21017,11 @@
   {
     "name": "Crumbling Sanctuary",
     "image_url": "https://cards.scryfall.io/png/front/d/8/d8fa6d6c-c1cd-46f3-8430-94f67be55bf7.png?1562383053",
+    "legality": "legal"
+  },
+  {
+    "name": "Thoughtleech",
+    "image_url": "https://cards.scryfall.io/png/front/d/8/d8fe7f9d-644f-48d0-93fa-d9a536f1f755.png?1562935573",
     "legality": "legal"
   },
   {
@@ -21557,11 +21052,6 @@
   {
     "name": "Phelddagrif",
     "image_url": "https://cards.scryfall.io/png/front/d/9/d9631cb2-d53b-4401-b53b-29d27bdefc44.png?1562770627",
-    "legality": "legal"
-  },
-  {
-    "name": "Scavenger Folk",
-    "image_url": "https://cards.scryfall.io/png/front/d/9/d9637b1e-3a78-4946-afd9-29d0d90df282.png?1675830457",
     "legality": "legal"
   },
   {
@@ -21765,11 +21255,6 @@
     "legality": "legal"
   },
   {
-    "name": "Steal Artifact",
-    "image_url": "https://cards.scryfall.io/png/front/d/b/dbad5469-0b78-476f-8573-22fb117392ab.png?1675830229",
-    "legality": "legal"
-  },
-  {
     "name": "Three Wishes",
     "image_url": "https://cards.scryfall.io/png/front/d/b/dbb2b253-7023-44d1-963b-eae98d48f498.png?1562278653",
     "legality": "legal"
@@ -21782,11 +21267,6 @@
   {
     "name": "Escape Routes",
     "image_url": "https://cards.scryfall.io/png/front/d/b/dbc9062e-ddd9-41ac-a88a-33f5a7b22103.png?1562941413",
-    "legality": "legal"
-  },
-  {
-    "name": "Untamed Wilds",
-    "image_url": "https://cards.scryfall.io/png/front/d/b/dbc908d9-2a08-4465-81cd-11199685c660.png?1675830473",
     "legality": "legal"
   },
   {
@@ -21822,11 +21302,6 @@
   {
     "name": "Skizzik",
     "image_url": "https://cards.scryfall.io/png/front/d/c/dc7732bc-e168-44d9-923a-db7e985bd6db.png?1562939314",
-    "legality": "legal"
-  },
-  {
-    "name": "Trained Orgg",
-    "image_url": "https://cards.scryfall.io/png/front/d/c/dc81dc1a-6560-479b-8c6f-54d04b1853f7.png?1675830400",
     "legality": "legal"
   },
   {
@@ -21882,6 +21357,11 @@
   {
     "name": "Warthog",
     "image_url": "https://cards.scryfall.io/png/front/d/d/dd2510b8-52d6-4d2e-89a5-31b27b732dd8.png?1562278655",
+    "legality": "legal"
+  },
+  {
+    "name": "Rolling Stones",
+    "image_url": "https://cards.scryfall.io/png/front/d/d/dd27e9c9-0a47-4fa3-9da5-1993f20305c2.png?1562597821",
     "legality": "legal"
   },
   {
@@ -21967,11 +21447,6 @@
   {
     "name": "Mind Warp",
     "image_url": "https://cards.scryfall.io/png/front/d/e/de150cd6-0bbc-47f7-a781-cd1aa10eabc6.png?1562936440",
-    "legality": "legal"
-  },
-  {
-    "name": "Drudge Skeletons",
-    "image_url": "https://cards.scryfall.io/png/front/d/e/de18b04b-16d2-4f92-8b06-35e195ec7b58.png?1675830273",
     "legality": "legal"
   },
   {
@@ -22165,11 +21640,6 @@
     "legality": "legal"
   },
   {
-    "name": "Grapeshot Catapult",
-    "image_url": "https://cards.scryfall.io/png/front/e/0/e0067413-338a-4a24-afe2-010a9915e73e.png?1675830500",
-    "legality": "legal"
-  },
-  {
     "name": "Escaped Shapeshifter",
     "image_url": "https://cards.scryfall.io/png/front/e/0/e0171d4f-c871-4a7f-821a-82b7f401e9ca.png?1562056894",
     "legality": "legal"
@@ -22275,8 +21745,8 @@
     "legality": "legal"
   },
   {
-    "name": "Remove Soul",
-    "image_url": "https://cards.scryfall.io/png/front/e/1/e1736d01-1bd0-444c-9d7a-3846441bd409.png?1675830225",
+    "name": "Goblin Raider",
+    "image_url": "https://cards.scryfall.io/png/front/e/1/e150a460-8a81-4097-8100-ccb8a9bb1bd7.png?1562942507",
     "legality": "legal"
   },
   {
@@ -22342,6 +21812,11 @@
   {
     "name": "Patrol Hound",
     "image_url": "https://cards.scryfall.io/png/front/e/2/e216a539-152b-4a83-98ef-1996182a5714.png?1562937268",
+    "legality": "legal"
+  },
+  {
+    "name": "Master Healer",
+    "image_url": "https://cards.scryfall.io/png/front/e/2/e21a342c-ad80-43e4-8b2d-1c48241c52b1.png?1562445223",
     "legality": "legal"
   },
   {
@@ -22425,6 +21900,11 @@
     "legality": "legal"
   },
   {
+    "name": "Longbow Archer",
+    "image_url": "https://cards.scryfall.io/png/front/e/2/e2ee185d-f5ae-4b1d-90a4-840182f87ab8.png?1562279093",
+    "legality": "legal"
+  },
+  {
     "name": "Choke",
     "image_url": "https://cards.scryfall.io/png/front/e/2/e2f85205-3c4f-4411-b09c-d1271be56dde.png?1562057333",
     "legality": "legal"
@@ -22452,6 +21932,11 @@
   {
     "name": "Soul Strings",
     "image_url": "https://cards.scryfall.io/png/front/e/3/e34f9d1b-a89a-439f-8aa9-b96a1bf892eb.png?1562937506",
+    "legality": "legal"
+  },
+  {
+    "name": "Foul Imp",
+    "image_url": "https://cards.scryfall.io/png/front/e/3/e35ab62e-d6c6-448c-bbe0-42abe5780adc.png?1562597827",
     "legality": "legal"
   },
   {
@@ -22497,11 +21982,6 @@
   {
     "name": "Noxious Vapors",
     "image_url": "https://cards.scryfall.io/png/front/e/3/e3cf9326-6e1c-4a05-abea-16d6b6cb2a6d.png?1562943129",
-    "legality": "legal"
-  },
-  {
-    "name": "Disrupting Scepter",
-    "image_url": "https://cards.scryfall.io/png/front/e/3/e3d47309-9595-4b19-bd9c-4973b87651eb.png?1675830493",
     "legality": "legal"
   },
   {
@@ -22560,11 +22040,6 @@
     "legality": "legal"
   },
   {
-    "name": "Orcish Artillery",
-    "image_url": "https://cards.scryfall.io/png/front/e/4/e42afac9-b9a4-4d02-b026-3d03c41d15c6.png?1675830375",
-    "legality": "legal"
-  },
-  {
     "name": "Squirming Mass",
     "image_url": "https://cards.scryfall.io/png/front/e/4/e47793a3-9a98-4733-8d6a-2fb1a67b15c9.png?1562445227",
     "legality": "legal"
@@ -22577,6 +22052,11 @@
   {
     "name": "Remote Isle",
     "image_url": "https://cards.scryfall.io/png/front/e/4/e48d55ff-10d0-4d9b-9202-02ebb2137953.png?1562943282",
+    "legality": "legal"
+  },
+  {
+    "name": "Spineless Thug",
+    "image_url": "https://cards.scryfall.io/png/front/e/4/e4a9bb47-3855-425d-924c-09dbde74735b.png?1562632555",
     "legality": "legal"
   },
   {
@@ -22597,6 +22077,11 @@
   {
     "name": "Capsize",
     "image_url": "https://cards.scryfall.io/png/front/e/5/e538b359-d893-422d-9d60-5f3e8ee0fa9e.png?1562057338",
+    "legality": "legal"
+  },
+  {
+    "name": "Squall",
+    "image_url": "https://cards.scryfall.io/png/front/e/5/e5409b54-66ed-4add-bf43-cfeb074b1c50.png?1562383517",
     "legality": "legal"
   },
   {
@@ -22630,11 +22115,6 @@
     "legality": "legal"
   },
   {
-    "name": "Familiar Ground",
-    "image_url": "https://cards.scryfall.io/png/front/e/5/e5be1074-fd40-46ba-b3bb-fb3207d2d41b.png?1675830428",
-    "legality": "legal"
-  },
-  {
     "name": "Ascendant Evincar",
     "image_url": "https://cards.scryfall.io/png/front/e/5/e5c87c93-8cf4-4d1a-9bb8-349600da55bc.png?1562632574",
     "legality": "legal"
@@ -22652,6 +22132,11 @@
   {
     "name": "Trade Caravan",
     "image_url": "https://cards.scryfall.io/png/front/e/6/e60ddb1e-e607-4080-849c-3e1a79052729.png?1562588705",
+    "legality": "legal"
+  },
+  {
+    "name": "Infernal Contract",
+    "image_url": "https://cards.scryfall.io/png/front/e/6/e62c43bd-59fe-46e3-83f8-c4b37cbc4931.png?1562722382",
     "legality": "legal"
   },
   {
@@ -22710,6 +22195,11 @@
     "legality": "legal"
   },
   {
+    "name": "Spitting Earth",
+    "image_url": "https://cards.scryfall.io/png/front/e/6/e6b774d2-1272-4cd2-b5f8-dfe3ca6e41ee.png?1592485294",
+    "legality": "legal"
+  },
+  {
     "name": "Llanowar Knight",
     "image_url": "https://cards.scryfall.io/png/front/e/6/e6c75d89-e432-49aa-a407-555b223b7eff.png?1562941356",
     "legality": "legal"
@@ -22732,6 +22222,11 @@
   {
     "name": "Terrain Generator",
     "image_url": "https://cards.scryfall.io/png/front/e/6/e6fe66a2-8e70-414f-bedb-8f1f85f1d2d9.png?1562632596",
+    "legality": "legal"
+  },
+  {
+    "name": "Lone Wolf",
+    "image_url": "https://cards.scryfall.io/png/front/e/7/e70ae8e9-852e-4e47-b48d-d1847666fc50.png?1562864235",
     "legality": "legal"
   },
   {
@@ -23120,11 +22615,6 @@
     "legality": "legal"
   },
   {
-    "name": "Wall of Bone",
-    "image_url": "https://cards.scryfall.io/png/front/e/b/eb18ebfa-9a70-48c6-a906-149f0e7cd474.png?1675830328",
-    "legality": "legal"
-  },
-  {
     "name": "Gustcloak Runner",
     "image_url": "https://cards.scryfall.io/png/front/e/b/eb227f65-9189-41ed-94a0-2aa21cad26f5.png?1562950998",
     "legality": "legal"
@@ -23185,18 +22675,8 @@
     "legality": "legal"
   },
   {
-    "name": "Force Spike",
-    "image_url": "https://cards.scryfall.io/png/front/e/b/eb7d6594-a57d-4557-880a-d65f46bb6033.png?1675830195",
-    "legality": "legal"
-  },
-  {
     "name": "Cabal Conditioning",
     "image_url": "https://cards.scryfall.io/png/front/e/b/eb81c6e6-fded-4cd3-a6fa-486419a5408a.png?1650357097",
-    "legality": "legal"
-  },
-  {
-    "name": "Goblin Digging Team",
-    "image_url": "https://cards.scryfall.io/png/front/e/b/eb84e6b4-2f87-4662-843d-27d2eada54aa.png?1675830349",
     "legality": "legal"
   },
   {
@@ -23317,11 +22797,6 @@
   {
     "name": "Rising Waters",
     "image_url": "https://cards.scryfall.io/png/front/e/c/ec9c84db-cf45-43e1-b38f-8bbf53cf088b.png?1562632693",
-    "legality": "legal"
-  },
-  {
-    "name": "Howling Mine",
-    "image_url": "https://cards.scryfall.io/png/front/e/c/ec9d720e-68f9-464a-8b11-0f243f184ccf.png?1675830502",
     "legality": "legal"
   },
   {
@@ -23540,6 +23015,11 @@
     "legality": "legal"
   },
   {
+    "name": "Granite Grip",
+    "image_url": "https://cards.scryfall.io/png/front/e/e/ee9e0e7e-ada8-49f5-9dd9-f62464697675.png?1562864243",
+    "legality": "legal"
+  },
+  {
     "name": "Narcissism",
     "image_url": "https://cards.scryfall.io/png/front/e/e/eea658dd-7567-4b93-88a4-08b4ffb3dad7.png?1562632604",
     "legality": "legal"
@@ -23620,13 +23100,13 @@
     "legality": "legal"
   },
   {
-    "name": "Birds of Paradise",
-    "image_url": "https://cards.scryfall.io/png/front/e/f/ef7106d8-ec4f-4bc2-aa39-9a605b04cf88.png?1675830411",
+    "name": "Witch Engine",
+    "image_url": "https://cards.scryfall.io/png/front/e/f/ef749290-58e2-4b40-a141-5fe294f9b995.png?1642038766",
     "legality": "legal"
   },
   {
-    "name": "Witch Engine",
-    "image_url": "https://cards.scryfall.io/png/front/e/f/ef749290-58e2-4b40-a141-5fe294f9b995.png?1642038766",
+    "name": "Fleeting Image",
+    "image_url": "https://cards.scryfall.io/png/front/e/f/ef9a5501-f149-47d0-9d79-151a524c7c54.png?1562864245",
     "legality": "legal"
   },
   {
@@ -23680,6 +23160,11 @@
     "legality": "legal"
   },
   {
+    "name": "Balduvian Barbarians",
+    "image_url": "https://cards.scryfall.io/png/front/e/f/efeabe8e-8107-4d19-8a43-362aa79cdd92.png?1562940077",
+    "legality": "legal"
+  },
+  {
     "name": "Phyrexian Driver",
     "image_url": "https://cards.scryfall.io/png/front/e/f/efeef7f3-5b87-440d-a851-95ae2bdb840d.png?1562632735",
     "legality": "legal"
@@ -23702,6 +23187,11 @@
   {
     "name": "Consume Strength",
     "image_url": "https://cards.scryfall.io/png/front/f/0/f005fc90-7e81-4bd4-a479-438337110979.png?1562952023",
+    "legality": "legal"
+  },
+  {
+    "name": "Eastern Paladin",
+    "image_url": "https://cards.scryfall.io/png/front/f/0/f042a8c7-f07b-42bd-8251-c588d890683c.png?1562945692",
     "legality": "legal"
   },
   {
@@ -23820,11 +23310,6 @@
     "legality": "legal"
   },
   {
-    "name": "Shanodin Dryads",
-    "image_url": "https://cards.scryfall.io/png/front/f/1/f19f7690-87bf-4259-adc1-7e69cc3081a9.png?1675830461",
-    "legality": "legal"
-  },
-  {
     "name": "Withdraw",
     "image_url": "https://cards.scryfall.io/png/front/f/1/f1a3a52f-0ccd-4935-b3ca-9c69cba283cc.png?1562940431",
     "legality": "legal"
@@ -23872,6 +23357,11 @@
   {
     "name": "Silverglade Elemental",
     "image_url": "https://cards.scryfall.io/png/front/f/2/f222fe90-ac92-4ba9-b060-9b64075bf139.png?1562383988",
+    "legality": "legal"
+  },
+  {
+    "name": "Treasure Trove",
+    "image_url": "https://cards.scryfall.io/png/front/f/2/f23ce909-e744-47ca-943d-62d97e97b1ea.png?1562089264",
     "legality": "legal"
   },
   {
@@ -24110,6 +23600,16 @@
     "legality": "legal"
   },
   {
+    "name": "Angelic Page",
+    "image_url": "https://cards.scryfall.io/png/front/f/5/f50a4378-8b14-484c-b285-09cc4c4e1b3c.png?1562946716",
+    "legality": "legal"
+  },
+  {
+    "name": "Embermage Goblin",
+    "image_url": "https://cards.scryfall.io/png/front/f/5/f50f60a8-e99a-4891-b474-a21abee38970.png?1643753588",
+    "legality": "legal"
+  },
+  {
     "name": "Prophecy",
     "image_url": "https://cards.scryfall.io/png/front/f/5/f514eb63-3a4e-4410-ba3d-487cf81f7063.png?1562588721",
     "legality": "legal"
@@ -24157,6 +23657,11 @@
   {
     "name": "Venomous Fangs",
     "image_url": "https://cards.scryfall.io/png/front/f/5/f5ae1348-c063-4ec8-9d8c-3d19a6421800.png?1562946825",
+    "legality": "legal"
+  },
+  {
+    "name": "Boomerang",
+    "image_url": "https://cards.scryfall.io/png/front/f/5/f5c98413-740d-47fd-bed6-2d3d05a72b31.png?1562722856",
     "legality": "legal"
   },
   {
@@ -24345,6 +23850,11 @@
     "legality": "legal"
   },
   {
+    "name": "Wild Growth",
+    "image_url": "https://cards.scryfall.io/png/front/f/8/f8047ab9-a0fc-4933-bcbc-e761aa0f622b.png?1587912081",
+    "legality": "legal"
+  },
+  {
     "name": "Thicket Elemental",
     "image_url": "https://cards.scryfall.io/png/front/f/8/f80a56ed-3ebb-4e20-bf6a-e27127f762e8.png?1562945003",
     "legality": "legal"
@@ -24352,6 +23862,11 @@
   {
     "name": "Energy Arc",
     "image_url": "https://cards.scryfall.io/png/front/f/8/f81cd99e-902a-44dd-8928-803a96fe25c4.png?1562770856",
+    "legality": "legal"
+  },
+  {
+    "name": "Gerrard's Wisdom",
+    "image_url": "https://cards.scryfall.io/png/front/f/8/f81defa5-edb4-4f1f-b13c-7cfb34511138.png?1562804288",
     "legality": "legal"
   },
   {
@@ -24367,11 +23882,6 @@
   {
     "name": "Goliath Beetle",
     "image_url": "https://cards.scryfall.io/png/front/f/8/f83d8765-f654-4837-9b06-739610188415.png?1562445658",
-    "legality": "legal"
-  },
-  {
-    "name": "Fallen Angel",
-    "image_url": "https://cards.scryfall.io/png/front/f/8/f84fea71-0018-43b2-ba74-1612cca4ae96.png?1675830279",
     "legality": "legal"
   },
   {
@@ -24392,6 +23902,11 @@
   {
     "name": "Breathstealer's Crypt",
     "image_url": "https://cards.scryfall.io/png/front/f/8/f87ace53-d77c-4df5-b200-4be2ac2b7fdb.png?1562279118",
+    "legality": "legal"
+  },
+  {
+    "name": "Daring Apprentice",
+    "image_url": "https://cards.scryfall.io/png/front/f/8/f87b3c06-5479-4060-8d3a-d161fd5830c1.png?1562722859",
     "legality": "legal"
   },
   {
@@ -24440,6 +23955,11 @@
     "legality": "legal"
   },
   {
+    "name": "Befoul",
+    "image_url": "https://cards.scryfall.io/png/front/f/9/f92cb48d-315b-4877-b615-ffdf275c4d61.png?1562947702",
+    "legality": "legal"
+  },
+  {
     "name": "Opal Avenger",
     "image_url": "https://cards.scryfall.io/png/front/f/9/f9337bbe-e092-469d-8122-77f92e233306.png?1562864251",
     "legality": "legal"
@@ -24467,6 +23987,11 @@
   {
     "name": "Fire // Ice",
     "image_url": "https://cards.scryfall.io/png/front/f/9/f98f4538-5b5b-475d-b98f-49d01dae6f04.png?1599477987",
+    "legality": "legal"
+  },
+  {
+    "name": "Familiar Ground",
+    "image_url": "https://cards.scryfall.io/png/front/f/9/f993f517-999f-4ee6-8ffb-946bffdcf7fe.png?1562804319",
     "legality": "legal"
   },
   {
@@ -24567,11 +24092,6 @@
   {
     "name": "Balduvian Dead",
     "image_url": "https://cards.scryfall.io/png/front/f/a/fac1875a-feab-4213-aa15-69892b7df58b.png?1562770862",
-    "legality": "legal"
-  },
-  {
-    "name": "Dakmor Lancer",
-    "image_url": "https://cards.scryfall.io/png/front/f/a/faca0f0d-c47c-4c29-a47d-d44e2083c3d1.png?1675830268",
     "legality": "legal"
   },
   {
@@ -24685,11 +24205,6 @@
     "legality": "legal"
   },
   {
-    "name": "Merfolk of the Pearl Trident",
-    "image_url": "https://cards.scryfall.io/png/front/f/b/fbd471f7-4d06-4a86-bb24-564b88344cdc.png?1675830218",
-    "legality": "legal"
-  },
-  {
     "name": "Encroach",
     "image_url": "https://cards.scryfall.io/png/front/f/b/fbd48dac-0a1a-49c4-8daf-11972b990454.png?1595573354",
     "legality": "legal"
@@ -24697,6 +24212,11 @@
   {
     "name": "Grave Servitude",
     "image_url": "https://cards.scryfall.io/png/front/f/b/fbe072da-0524-492b-af3d-7c2600e915ab.png?1562722873",
+    "legality": "legal"
+  },
+  {
+    "name": "Abyssal Specter",
+    "image_url": "https://cards.scryfall.io/png/front/f/c/fc26f19c-bcf7-4bd8-af42-4757dbe47fb1.png?1562942524",
     "legality": "legal"
   },
   {
@@ -24732,6 +24252,11 @@
   {
     "name": "Vine Dryad",
     "image_url": "https://cards.scryfall.io/png/front/f/c/fc9c9158-faed-42ae-9f6b-71dee49ff79f.png?1562384004",
+    "legality": "legal"
+  },
+  {
+    "name": "Fyndhorn Elder",
+    "image_url": "https://cards.scryfall.io/png/front/f/c/fca8aa11-f7cb-4f88-a041-30098579f1d2.png?1562942626",
     "legality": "legal"
   },
   {
@@ -25050,6 +24575,11 @@
     "legality": "legal"
   },
   {
+    "name": "Unholy Strength",
+    "image_url": "https://cards.scryfall.io/png/front/0/0/0030407c-9aa0-49ad-b2d6-cde0adbd9d09.png?1562231343",
+    "legality": "legal"
+  },
+  {
     "name": "Ornithopter",
     "image_url": "https://cards.scryfall.io/png/front/0/0/00427d72-b140-45eb-b2ec-2ac2dab16966.png?1562588733",
     "legality": "legal"
@@ -25060,8 +24590,18 @@
     "legality": "legal"
   },
   {
+    "name": "Dingus Egg",
+    "image_url": "https://cards.scryfall.io/png/front/0/1/010d1107-a18c-4e25-86c7-8e09cba72a12.png?1562588737",
+    "legality": "legal"
+  },
+  {
     "name": "Time Elemental",
     "image_url": "https://cards.scryfall.io/png/front/0/1/011b1e44-776a-44b9-a976-777e49ae628e.png?1562588739",
+    "legality": "legal"
+  },
+  {
+    "name": "Vengeance",
+    "image_url": "https://cards.scryfall.io/png/front/0/1/011b9836-fee4-4e83-add7-5e13cb1275d6.png?1562231350",
     "legality": "legal"
   },
   {
@@ -25075,6 +24615,16 @@
     "legality": "legal"
   },
   {
+    "name": "Rag Man",
+    "image_url": "https://cards.scryfall.io/png/front/0/1/018a02f9-81f7-412b-8e98-d7be3eb73eca.png?1559603755",
+    "legality": "legal"
+  },
+  {
+    "name": "Earthquake",
+    "image_url": "https://cards.scryfall.io/png/front/0/1/01bde909-899d-4efc-aac5-57b69fa764db.png?1562588740",
+    "legality": "legal"
+  },
+  {
     "name": "Phantasmal Forces",
     "image_url": "https://cards.scryfall.io/png/front/0/2/021b26cb-ec7d-464b-b835-82e60e86f827.png?1562588742",
     "legality": "legal"
@@ -25085,8 +24635,18 @@
     "legality": "legal"
   },
   {
+    "name": "Fire Elemental",
+    "image_url": "https://cards.scryfall.io/png/front/0/2/0261cd0f-e763-49b5-96ed-5e5767a3d8d7.png?1559603855",
+    "legality": "legal"
+  },
+  {
     "name": "Bird Maiden",
     "image_url": "https://cards.scryfall.io/png/front/0/2/02750f36-d9d3-4c50-adbf-dadab46e92fd.png?1562589173",
+    "legality": "legal"
+  },
+  {
+    "name": "Steal Artifact",
+    "image_url": "https://cards.scryfall.io/png/front/0/2/02f76c5c-f445-4c02-98d1-d7376a76d612.png?1562231392",
     "legality": "legal"
   },
   {
@@ -25150,6 +24710,11 @@
     "legality": "legal"
   },
   {
+    "name": "Disrupting Scepter",
+    "image_url": "https://cards.scryfall.io/png/front/0/6/060f2e80-f7af-4b9d-bb0f-3de14ddf0b02.png?1562589184",
+    "legality": "legal"
+  },
+  {
     "name": "Craw Giant",
     "image_url": "https://cards.scryfall.io/png/front/0/6/06274d3b-8feb-4c68-adbc-b1ee633c3353.png?1562589186",
     "legality": "legal"
@@ -25160,8 +24725,18 @@
     "legality": "legal"
   },
   {
+    "name": "Jayemdae Tome",
+    "image_url": "https://cards.scryfall.io/png/front/0/7/0736c836-d90b-440c-bb6f-4b2eeaaa3d73.png?1562589189",
+    "legality": "legal"
+  },
+  {
     "name": "Armageddon",
     "image_url": "https://cards.scryfall.io/png/front/0/7/0794bc35-a8e1-4268-87b2-af5483ca6e5e.png?1559603613",
+    "legality": "legal"
+  },
+  {
+    "name": "Grapeshot Catapult",
+    "image_url": "https://cards.scryfall.io/png/front/0/7/07d63d66-5e59-4302-8b74-db1aa67f50c5.png?1562231867",
     "legality": "legal"
   },
   {
@@ -25175,8 +24750,18 @@
     "legality": "legal"
   },
   {
+    "name": "Shanodin Dryads",
+    "image_url": "https://cards.scryfall.io/png/front/0/8/08f7b4be-dce2-414e-a9f4-f7e46c1bd15e.png?1562814351",
+    "legality": "legal"
+  },
+  {
     "name": "Triskelion",
     "image_url": "https://cards.scryfall.io/png/front/0/9/09294401-a895-4084-8302-196a946863d6.png?1559603591",
+    "legality": "legal"
+  },
+  {
+    "name": "Northern Paladin",
+    "image_url": "https://cards.scryfall.io/png/front/0/9/09e97dce-6bef-480d-939e-d35cfbf6b989.png?1559604141",
     "legality": "legal"
   },
   {
@@ -25185,8 +24770,18 @@
     "legality": "legal"
   },
   {
+    "name": "Meekstone",
+    "image_url": "https://cards.scryfall.io/png/front/0/a/0a691664-9275-4b89-a8e3-b99c88717ffb.png?1562231937",
+    "legality": "legal"
+  },
+  {
     "name": "Tsunami",
     "image_url": "https://cards.scryfall.io/png/front/0/a/0ab151ce-9468-4427-853b-4e0011d783fb.png?1562589197",
+    "legality": "legal"
+  },
+  {
+    "name": "Birds of Paradise",
+    "image_url": "https://cards.scryfall.io/png/front/0/a/0ad85d15-e700-455d-96f4-dfd6661f9722.png?1562814456",
     "legality": "legal"
   },
   {
@@ -25225,8 +24820,18 @@
     "legality": "legal"
   },
   {
+    "name": "Goblin King",
+    "image_url": "https://cards.scryfall.io/png/front/0/c/0c77029a-7f00-490e-bf8b-dce192d72e2f.png?1562232365",
+    "legality": "legal"
+  },
+  {
     "name": "Tundra Wolves",
     "image_url": "https://cards.scryfall.io/png/front/0/c/0c8527ac-27c3-4e2d-b46c-bfd6a1e1f778.png?1559604099",
+    "legality": "legal"
+  },
+  {
+    "name": "Wrath of God",
+    "image_url": "https://cards.scryfall.io/png/front/0/d/0d223e83-0d3c-459e-96f5-ba9227fe49dd.png?1562232378",
     "legality": "legal"
   },
   {
@@ -25250,6 +24855,11 @@
     "legality": "legal"
   },
   {
+    "name": "Elvish Archers",
+    "image_url": "https://cards.scryfall.io/png/front/0/e/0e8411c9-4f6f-4301-ac36-386016a32852.png?1562232411",
+    "legality": "legal"
+  },
+  {
     "name": "Palladia-Mors",
     "image_url": "https://cards.scryfall.io/png/front/0/e/0ea81883-7cd6-4443-9733-39d25cc64328.png?1562898025",
     "legality": "legal"
@@ -25260,13 +24870,43 @@
     "legality": "legal"
   },
   {
+    "name": "Aladdin's Ring",
+    "image_url": "https://cards.scryfall.io/png/front/0/f/0f6595fe-8190-4e8c-8731-cd801f550eab.png?1562814626",
+    "legality": "legal"
+  },
+  {
     "name": "Mishra's War Machine",
     "image_url": "https://cards.scryfall.io/png/front/0/f/0f7b5921-3e10-47e7-98a7-8411a18313bf.png?1559604144",
     "legality": "legal"
   },
   {
+    "name": "Flight",
+    "image_url": "https://cards.scryfall.io/png/front/0/f/0f99d08e-edc4-4049-a3de-99f6c5cb0f70.png?1562814642",
+    "legality": "legal"
+  },
+  {
     "name": "Urza's Tower",
     "image_url": "https://cards.scryfall.io/png/front/0/f/0fc0146c-3f85-4ed5-b37c-f1eeea04143d.png?1562898205",
+    "legality": "legal"
+  },
+  {
+    "name": "Reverse Damage",
+    "image_url": "https://cards.scryfall.io/png/front/1/0/1040133a-f80d-48dc-a50b-a11e5b793a2b.png?1562814676",
+    "legality": "legal"
+  },
+  {
+    "name": "Grizzly Bears",
+    "image_url": "https://cards.scryfall.io/png/front/1/0/10c845b8-40f1-44df-9e91-dab7606f6271.png?1562814697",
+    "legality": "legal"
+  },
+  {
+    "name": "Orcish Oriflamme",
+    "image_url": "https://cards.scryfall.io/png/front/1/1/11192972-eb57-4042-83f2-2470b49940b8.png?1562814707",
+    "legality": "legal"
+  },
+  {
+    "name": "Bog Wraith",
+    "image_url": "https://cards.scryfall.io/png/front/1/1/1145a4b6-36f9-4cdc-9e81-ad8c22a21150.png?1562814723",
     "legality": "legal"
   },
   {
@@ -25290,6 +24930,11 @@
     "legality": "legal"
   },
   {
+    "name": "Drudge Skeletons",
+    "image_url": "https://cards.scryfall.io/png/front/1/2/127bb737-85ed-4de3-9a1d-ec789d54b7cd.png?1562589214",
+    "legality": "legal"
+  },
+  {
     "name": "Land Tax",
     "image_url": "https://cards.scryfall.io/png/front/1/3/1301e203-7d9a-4735-8db3-7882ad70d343.png?1559604176",
     "legality": "banned"
@@ -25297,6 +24942,26 @@
   {
     "name": "Concordant Crossroads",
     "image_url": "https://cards.scryfall.io/png/front/1/3/13cfca5f-e25a-432e-8679-54704eeeecc8.png?1562898962",
+    "legality": "legal"
+  },
+  {
+    "name": "Trained Orgg",
+    "image_url": "https://cards.scryfall.io/png/front/1/4/14a83031-8b57-41d2-b586-bb4dcf16136a.png?1562233268",
+    "legality": "legal"
+  },
+  {
+    "name": "Wall of Wonder",
+    "image_url": "https://cards.scryfall.io/png/front/1/4/14c65a4e-ea5a-4cad-9542-1cfd18eb3c25.png?1562899160",
+    "legality": "legal"
+  },
+  {
+    "name": "Ivory Cup",
+    "image_url": "https://cards.scryfall.io/png/front/1/4/14f378af-ea54-4035-9e3e-e8cf980d1e84.png?1559603741",
+    "legality": "legal"
+  },
+  {
+    "name": "Rod of Ruin",
+    "image_url": "https://cards.scryfall.io/png/front/1/5/1589724f-bec2-43a9-824a-1e85020731a4.png?1562589659",
     "legality": "legal"
   },
   {
@@ -25310,8 +24975,18 @@
     "legality": "legal"
   },
   {
+    "name": "Giant Spider",
+    "image_url": "https://cards.scryfall.io/png/front/1/7/17f78166-50e9-4aa8-9025-930b46f70041.png?1562815071",
+    "legality": "legal"
+  },
+  {
     "name": "Urza's Power Plant",
     "image_url": "https://cards.scryfall.io/png/front/1/8/18074937-9ad1-4d96-b4c0-96af06cedac4.png?1562899792",
+    "legality": "legal"
+  },
+  {
+    "name": "Sleight of Hand",
+    "image_url": "https://cards.scryfall.io/png/front/1/8/181fff80-4dea-47ee-a020-d8dc9ea7acdf.png?1562233328",
     "legality": "legal"
   },
   {
@@ -25325,8 +25000,28 @@
     "legality": "legal"
   },
   {
+    "name": "Wall of Swords",
+    "image_url": "https://cards.scryfall.io/png/front/1/8/18ffa85c-61c4-49b7-8946-ab353355a11c.png?1559603825",
+    "legality": "legal"
+  },
+  {
+    "name": "Orcish Artillery",
+    "image_url": "https://cards.scryfall.io/png/front/1/9/19281eb4-f5b6-4b27-8c65-7e56d2a8ab77.png?1559604138",
+    "legality": "legal"
+  },
+  {
+    "name": "Remove Soul",
+    "image_url": "https://cards.scryfall.io/png/front/1/9/19345cab-4595-4325-b6b4-539c2003679e.png?1562815129",
+    "legality": "legal"
+  },
+  {
     "name": "Black Vise",
     "image_url": "https://cards.scryfall.io/png/front/1/9/196b83a1-2a25-498d-83b8-8faacd79909d.png?1559601201",
+    "legality": "legal"
+  },
+  {
+    "name": "Samite Healer",
+    "image_url": "https://cards.scryfall.io/png/front/1/9/19d997ce-6b08-4058-a7f8-82cc74b9974d.png?1562233753",
     "legality": "legal"
   },
   {
@@ -25340,6 +25035,11 @@
     "legality": "legal"
   },
   {
+    "name": "Wall of Air",
+    "image_url": "https://cards.scryfall.io/png/front/1/a/1a99adbb-7723-4046-92af-95d6d21fae53.png?1562815202",
+    "legality": "legal"
+  },
+  {
     "name": "Nether Shadow",
     "image_url": "https://cards.scryfall.io/png/front/1/b/1b6d9e96-0c7f-45c5-b6d0-6444ef84bab1.png?1559603818",
     "legality": "legal"
@@ -25347,6 +25047,11 @@
   {
     "name": "Control Magic",
     "image_url": "https://cards.scryfall.io/png/front/1/b/1bb371e5-424e-42dd-9966-732c22e8ece8.png?1559604206",
+    "legality": "legal"
+  },
+  {
+    "name": "Force Spike",
+    "image_url": "https://cards.scryfall.io/png/front/1/d/1d03d73f-0530-4125-8689-1c43e502e331.png?1562233829",
     "legality": "legal"
   },
   {
@@ -25362,6 +25067,11 @@
   {
     "name": "Oasis",
     "image_url": "https://cards.scryfall.io/png/front/1/d/1d51a6de-7bb4-4e3d-82a7-a298c8d742ef.png?1559604143",
+    "legality": "legal"
+  },
+  {
+    "name": "Millstone",
+    "image_url": "https://cards.scryfall.io/png/front/1/d/1da21381-38bf-49d0-98d3-81eb9c99ce82.png?1562233837",
     "legality": "legal"
   },
   {
@@ -25392,6 +25102,21 @@
   {
     "name": "Animate Dead",
     "image_url": "https://cards.scryfall.io/png/front/1/f/1f2cd314-8f99-4443-ae86-a967effc7490.png?1562589685",
+    "legality": "legal"
+  },
+  {
+    "name": "Unsummon",
+    "image_url": "https://cards.scryfall.io/png/front/1/f/1ff96224-d6cd-492b-ab2f-3ec15b3230cb.png?1562815394",
+    "legality": "legal"
+  },
+  {
+    "name": "Crystal Rod",
+    "image_url": "https://cards.scryfall.io/png/front/2/0/2017cded-4157-4ccb-80f0-e298aa89d17d.png?1562234270",
+    "legality": "legal"
+  },
+  {
+    "name": "Raise Dead",
+    "image_url": "https://cards.scryfall.io/png/front/2/0/2096e54e-1a55-4fd7-8415-a6f2fdb2a536.png?1559601309",
     "legality": "legal"
   },
   {
@@ -25435,6 +25160,11 @@
     "legality": "legal"
   },
   {
+    "name": "Untamed Wilds",
+    "image_url": "https://cards.scryfall.io/png/front/2/2/22e522c2-ed5d-46bc-b043-6a37d6402a9f.png?1562815541",
+    "legality": "legal"
+  },
+  {
     "name": "Segovian Leviathan",
     "image_url": "https://cards.scryfall.io/png/front/2/2/22e6e890-d1d0-4a9b-a453-5b51974a9dff.png?1559600474",
     "legality": "legal"
@@ -25465,6 +25195,11 @@
     "legality": "legal"
   },
   {
+    "name": "Jandor's Saddlebags",
+    "image_url": "https://cards.scryfall.io/png/front/2/5/252a9b1d-4046-484c-add9-567b3303cc98.png?1562590135",
+    "legality": "legal"
+  },
+  {
     "name": "Goblin Rock Sled",
     "image_url": "https://cards.scryfall.io/png/front/2/5/25f4f0c1-a43e-4282-b20e-91c711c57521.png?1559601325",
     "legality": "legal"
@@ -25487,6 +25222,11 @@
   {
     "name": "Detonate",
     "image_url": "https://cards.scryfall.io/png/front/2/6/26e23d23-92ca-4d74-88e8-e1137d7faaf1.png?1559603794",
+    "legality": "legal"
+  },
+  {
+    "name": "Blaze",
+    "image_url": "https://cards.scryfall.io/png/front/2/6/26f8c6ab-ae62-4e2e-a5ba-2ec5bbe22445.png?1562234516",
     "legality": "legal"
   },
   {
@@ -25540,6 +25280,11 @@
     "legality": "legal"
   },
   {
+    "name": "City of Brass",
+    "image_url": "https://cards.scryfall.io/png/front/2/a/2ac29c5c-3c55-4778-9bcd-642d38a0d3f9.png?1562234946",
+    "legality": "legal"
+  },
+  {
     "name": "Karma",
     "image_url": "https://cards.scryfall.io/png/front/2/a/2acd8dd7-f561-487f-abae-4ad910db9d27.png?1559603616",
     "legality": "legal"
@@ -25557,6 +25302,11 @@
   {
     "name": "Juxtapose",
     "image_url": "https://cards.scryfall.io/png/front/2/b/2b1fb725-0daa-45f4-ad31-6a061fa4d20f.png?1562815913",
+    "legality": "legal"
+  },
+  {
+    "name": "Mana Short",
+    "image_url": "https://cards.scryfall.io/png/front/2/c/2c2893b8-11e4-4a76-a3bf-6dd86c11ae09.png?1562815962",
     "legality": "legal"
   },
   {
@@ -25585,6 +25335,11 @@
     "legality": "legal"
   },
   {
+    "name": "Flying Carpet",
+    "image_url": "https://cards.scryfall.io/png/front/3/0/300428ea-7909-4c2b-81cc-a03d51030bcb.png?1559603685",
+    "legality": "legal"
+  },
+  {
     "name": "Evil Presence",
     "image_url": "https://cards.scryfall.io/png/front/3/0/3042fdde-595d-4f60-be59-364eedecf3bd.png?1562590156",
     "legality": "legal"
@@ -25595,6 +25350,11 @@
     "legality": "legal"
   },
   {
+    "name": "Soul Net",
+    "image_url": "https://cards.scryfall.io/png/front/3/2/321d3dc9-4bd0-440e-9436-c565f500e126.png?1562590160",
+    "legality": "legal"
+  },
+  {
     "name": "Glasses of Urza",
     "image_url": "https://cards.scryfall.io/png/front/3/2/3259a69e-1011-475b-b554-8cf5a25169f3.png?1562590162",
     "legality": "legal"
@@ -25602,6 +25362,11 @@
   {
     "name": "Benalish Hero",
     "image_url": "https://cards.scryfall.io/png/front/3/2/32dcd608-ef94-4047-841d-5c3471375d5d.png?1562590164",
+    "legality": "legal"
+  },
+  {
+    "name": "Spirit Link",
+    "image_url": "https://cards.scryfall.io/png/front/3/3/3327949d-3b11-4409-911c-4289a89b488f.png?1562590165",
     "legality": "legal"
   },
   {
@@ -25620,6 +25385,11 @@
     "legality": "legal"
   },
   {
+    "name": "Wall of Fire",
+    "image_url": "https://cards.scryfall.io/png/front/3/5/35113d19-0d4a-4513-82f3-c8deaa1e4324.png?1562235498",
+    "legality": "legal"
+  },
+  {
     "name": "Akron Legionnaire",
     "image_url": "https://cards.scryfall.io/png/front/3/5/359e49df-aef4-4bce-abd6-a61f821faedf.png?1562905833",
     "legality": "legal"
@@ -25627,6 +25397,11 @@
   {
     "name": "Dwarven Warriors",
     "image_url": "https://cards.scryfall.io/png/front/3/6/3616f381-ca10-4945-b95e-96dfefa3c303.png?1559603774",
+    "legality": "legal"
+  },
+  {
+    "name": "Wall of Bone",
+    "image_url": "https://cards.scryfall.io/png/front/3/6/36ce3251-017f-4834-9935-0985c56cccb7.png?1559600408",
     "legality": "legal"
   },
   {
@@ -25642,6 +25417,11 @@
   {
     "name": "Blood Lust",
     "image_url": "https://cards.scryfall.io/png/front/3/7/37a63f96-e2d4-4786-80ea-79b206263cef.png?1562590173",
+    "legality": "legal"
+  },
+  {
+    "name": "Mana Clash",
+    "image_url": "https://cards.scryfall.io/png/front/3/7/37b2e818-a5a8-4b9b-93e8-121dd7fefe32.png?1562590175",
     "legality": "legal"
   },
   {
@@ -25705,6 +25485,11 @@
     "legality": "legal"
   },
   {
+    "name": "Nightmare",
+    "image_url": "https://cards.scryfall.io/png/front/3/c/3c2a1e82-4922-4075-a869-3a1b607498c3.png?1562816625",
+    "legality": "legal"
+  },
+  {
     "name": "Winter Blast",
     "image_url": "https://cards.scryfall.io/png/front/3/d/3d4f72de-51e9-45c2-853b-1b6668416417.png?1559604115",
     "legality": "legal"
@@ -25712,6 +25497,11 @@
   {
     "name": "Hollow Trees",
     "image_url": "https://cards.scryfall.io/png/front/3/d/3d6d30a4-a24e-4537-9230-bf6f57fbcd98.png?1562590631",
+    "legality": "legal"
+  },
+  {
+    "name": "Throne of Bone",
+    "image_url": "https://cards.scryfall.io/png/front/3/e/3e90f7cf-efcb-48cc-b725-2f5fb6e37da9.png?1562235990",
     "legality": "legal"
   },
   {
@@ -25765,6 +25555,16 @@
     "legality": "legal"
   },
   {
+    "name": "Iron Star",
+    "image_url": "https://cards.scryfall.io/png/front/4/3/43e1a0e8-3ca4-4928-9299-36efce7fb641.png?1562816965",
+    "legality": "legal"
+  },
+  {
+    "name": "Stream of Life",
+    "image_url": "https://cards.scryfall.io/png/front/4/4/4405ab25-c001-4da8-ac72-2afcb01db200.png?1562236853",
+    "legality": "legal"
+  },
+  {
     "name": "Ankh of Mishra",
     "image_url": "https://cards.scryfall.io/png/front/4/4/44135b17-69e7-4002-a6e0-d76f4c0c423b.png?1559603663",
     "legality": "legal"
@@ -25772,6 +25572,16 @@
   {
     "name": "Crumble",
     "image_url": "https://cards.scryfall.io/png/front/4/5/45c781ee-7ffb-4dd3-ac84-4d6fe4649591.png?1687903680",
+    "legality": "legal"
+  },
+  {
+    "name": "Pyrotechnics",
+    "image_url": "https://cards.scryfall.io/png/front/4/5/45e9f71f-cb85-4b57-9bb3-fe98ed4a524e.png?1562590649",
+    "legality": "legal"
+  },
+  {
+    "name": "Eager Cadet",
+    "image_url": "https://cards.scryfall.io/png/front/4/6/46b89ce6-8a73-4e27-8696-e65ea0c16925.png?1562236949",
     "legality": "legal"
   },
   {
@@ -25792,6 +25602,11 @@
   {
     "name": "Black Knight",
     "image_url": "https://cards.scryfall.io/png/front/4/7/47716cf4-f35c-4613-9686-4e00b5063408.png?1559601186",
+    "legality": "legal"
+  },
+  {
+    "name": "Fallen Angel",
+    "image_url": "https://cards.scryfall.io/png/front/4/7/47e79d10-5561-41f7-b6d7-ab7560a9ff23.png?1562909661",
     "legality": "legal"
   },
   {
@@ -25825,6 +25640,11 @@
     "legality": "legal"
   },
   {
+    "name": "Hill Giant",
+    "image_url": "https://cards.scryfall.io/png/front/4/b/4bb9d069-1163-46bd-9a71-21c05898330e.png?1562590651",
+    "legality": "legal"
+  },
+  {
     "name": "Gaea's Liege",
     "image_url": "https://cards.scryfall.io/png/front/4/d/4d9e1c1b-bc7c-41b8-a983-b1c60f558547.png?1753787912",
     "legality": "legal"
@@ -25832,6 +25652,11 @@
   {
     "name": "Witch Hunter",
     "image_url": "https://cards.scryfall.io/png/front/4/d/4dc64378-3495-42d7-bf14-faa969f62583.png?1562910746",
+    "legality": "legal"
+  },
+  {
+    "name": "Howling Mine",
+    "image_url": "https://cards.scryfall.io/png/front/4/d/4dd270d3-da58-4195-80f4-ade6ae32d092.png?1562237444",
     "legality": "legal"
   },
   {
@@ -25920,6 +25745,11 @@
     "legality": "legal"
   },
   {
+    "name": "Mind Rot",
+    "image_url": "https://cards.scryfall.io/png/front/5/6/5681e85c-79d5-4300-bda6-4ae40bb7d5d4.png?1562238079",
+    "legality": "legal"
+  },
+  {
     "name": "Active Volcano",
     "image_url": "https://cards.scryfall.io/png/front/5/6/56adb184-f261-40e1-bdf3-e85d7d13faa2.png?1562912639",
     "legality": "legal"
@@ -25965,8 +25795,28 @@
     "legality": "legal"
   },
   {
+    "name": "Giant Octopus",
+    "image_url": "https://cards.scryfall.io/png/front/5/b/5b707b2d-63e1-4c2c-ba42-9e027f02b1ff.png?1562238538",
+    "legality": "legal"
+  },
+  {
     "name": "Hurloon Minotaur",
     "image_url": "https://cards.scryfall.io/png/front/5/c/5c2c27de-e788-4ad7-b1e3-030e7ef00471.png?1559604187",
+    "legality": "legal"
+  },
+  {
+    "name": "Wall of Spears",
+    "image_url": "https://cards.scryfall.io/png/front/5/c/5c94f13f-6e7a-4bb1-a9a0-5c885e231d5c.png?1562238553",
+    "legality": "legal"
+  },
+  {
+    "name": "Air Elemental",
+    "image_url": "https://cards.scryfall.io/png/front/5/d/5d31dca7-df16-4a70-8f17-b78d745bac96.png?1562818070",
+    "legality": "legal"
+  },
+  {
+    "name": "Mahamoti Djinn",
+    "image_url": "https://cards.scryfall.io/png/front/5/d/5d464226-5607-4db2-bd43-7855efb92628.png?1562238564",
     "legality": "legal"
   },
   {
@@ -25980,13 +25830,28 @@
     "legality": "legal"
   },
   {
+    "name": "Merfolk of the Pearl Trident",
+    "image_url": "https://cards.scryfall.io/png/front/5/f/5f7003be-4464-4eab-a77d-ab0346643613.png?1562590891",
+    "legality": "legal"
+  },
+  {
     "name": "Urza's Avenger",
     "image_url": "https://cards.scryfall.io/png/front/6/0/60bd9559-1a8f-47d0-af6b-d0681cae4060.png?1562591335",
     "legality": "legal"
   },
   {
+    "name": "Jalum Tome",
+    "image_url": "https://cards.scryfall.io/png/front/6/2/627ecfc9-faea-4d52-b0fb-ec0895001fd4.png?1562914956",
+    "legality": "legal"
+  },
+  {
     "name": "Ironclaw Orcs",
     "image_url": "https://cards.scryfall.io/png/front/6/2/628a3506-352d-4d4f-b63e-05abb3ca906d.png?1562591337",
+    "legality": "legal"
+  },
+  {
+    "name": "Llanowar Elves",
+    "image_url": "https://cards.scryfall.io/png/front/6/3/632b9428-45c6-4b81-a701-f1c7d7e8d2f0.png?1562591340",
     "legality": "legal"
   },
   {
@@ -26000,8 +25865,18 @@
     "legality": "legal"
   },
   {
+    "name": "Pride of Lions",
+    "image_url": "https://cards.scryfall.io/png/front/6/5/65c3274b-3eb0-450a-88bf-fb378e6cf94a.png?1562239123",
+    "legality": "legal"
+  },
+  {
     "name": "Evil Eye of Orms-by-Gore",
     "image_url": "https://cards.scryfall.io/png/front/6/5/65c7e01b-68a9-4380-94b6-d687e2c2ee86.png?1562591346",
+    "legality": "legal"
+  },
+  {
+    "name": "Dakmor Lancer",
+    "image_url": "https://cards.scryfall.io/png/front/6/6/660cc594-63f5-4819-a556-7a9484145f72.png?1562239129",
     "legality": "legal"
   },
   {
@@ -26050,6 +25925,11 @@
     "legality": "legal"
   },
   {
+    "name": "Wooden Sphere",
+    "image_url": "https://cards.scryfall.io/png/front/6/a/6a51abf0-8661-4776-929d-35b7bd345e21.png?1559604096",
+    "legality": "legal"
+  },
+  {
     "name": "Gloom",
     "image_url": "https://cards.scryfall.io/png/front/6/a/6a6fff23-21c9-4519-b84a-59868a918996.png?1562591359",
     "legality": "legal"
@@ -26057,6 +25937,11 @@
   {
     "name": "Killer Bees",
     "image_url": "https://cards.scryfall.io/png/front/6/a/6a749837-56ff-4e42-9bf2-82633bccdc39.png?1562591361",
+    "legality": "legal"
+  },
+  {
+    "name": "Castle",
+    "image_url": "https://cards.scryfall.io/png/front/6/a/6a77e784-d7a8-4b92-8765-375ad70b929e.png?1562818663",
     "legality": "legal"
   },
   {
@@ -26092,6 +25977,11 @@
   {
     "name": "Dust to Dust",
     "image_url": "https://cards.scryfall.io/png/front/6/e/6e8a9a5c-0e5f-4498-88d8-6aac465923b1.png?1616400076",
+    "legality": "legal"
+  },
+  {
+    "name": "Scathe Zombies",
+    "image_url": "https://cards.scryfall.io/png/front/6/e/6e992239-691b-4bb2-a005-c73c24a52a9b.png?1687905281",
     "legality": "legal"
   },
   {
@@ -26175,6 +26065,21 @@
     "legality": "legal"
   },
   {
+    "name": "Greed",
+    "image_url": "https://cards.scryfall.io/png/front/7/6/76fb0c62-1c53-464e-a2df-59285f2d593d.png?1747638877",
+    "legality": "legal"
+  },
+  {
+    "name": "Verduran Enchantress",
+    "image_url": "https://cards.scryfall.io/png/front/7/7/77131286-50ec-47a3-80fb-6194da338de6.png?1562819187",
+    "legality": "legal"
+  },
+  {
+    "name": "Holy Strength",
+    "image_url": "https://cards.scryfall.io/png/front/7/7/77af9f19-66d1-44e5-9aed-955e6bfd9902.png?1559593855",
+    "legality": "legal"
+  },
+  {
     "name": "Wall of Water",
     "image_url": "https://cards.scryfall.io/png/front/7/8/78028eda-61b0-408c-b3fc-adc968d39b47.png?1559600430",
     "legality": "legal"
@@ -26207,6 +26112,36 @@
   {
     "name": "Simulacrum",
     "image_url": "https://cards.scryfall.io/png/front/7/c/7c23232c-a264-4df9-824b-4111a5c6524c.png?1559600479",
+    "legality": "legal"
+  },
+  {
+    "name": "Baleful Stare",
+    "image_url": "https://cards.scryfall.io/png/front/7/c/7c53b808-c2c5-4941-bead-1cb94adc5a2f.png?1562241440",
+    "legality": "legal"
+  },
+  {
+    "name": "Lord of Atlantis",
+    "image_url": "https://cards.scryfall.io/png/front/7/e/7eaad8e0-947f-47d9-b78f-b0f2a5a06906.png?1562591852",
+    "legality": "legal"
+  },
+  {
+    "name": "Bog Imp",
+    "image_url": "https://cards.scryfall.io/png/front/7/f/7f1e2c65-d2b0-4bf7-b302-d755e9259ce2.png?1562241507",
+    "legality": "legal"
+  },
+  {
+    "name": "Scavenger Folk",
+    "image_url": "https://cards.scryfall.io/png/front/7/f/7ff2dd57-9d8c-44ec-9705-70ed02bf0799.png?1562241653",
+    "legality": "legal"
+  },
+  {
+    "name": "Goblin Digging Team",
+    "image_url": "https://cards.scryfall.io/png/front/8/0/8000425a-4761-4370-95eb-6fe3df628482.png?1595078453",
+    "legality": "legal"
+  },
+  {
+    "name": "Serra Angel",
+    "image_url": "https://cards.scryfall.io/png/front/8/0/8072d00a-82ff-4406-bdf8-1af20cd3a170.png?1559604164",
     "legality": "legal"
   },
   {
@@ -26252,6 +26187,11 @@
   {
     "name": "Obsianus Golem",
     "image_url": "https://cards.scryfall.io/png/front/8/3/837605e3-f4c2-4b60-8478-f21ca8734ef2.png?1559601306",
+    "legality": "legal"
+  },
+  {
+    "name": "Goblin Glider",
+    "image_url": "https://cards.scryfall.io/png/front/8/3/839a7e39-8d98-4e84-8a5c-2b067c8654d5.png?1562241712",
     "legality": "legal"
   },
   {
@@ -26405,13 +26345,28 @@
     "legality": "legal"
   },
   {
+    "name": "Twiddle",
+    "image_url": "https://cards.scryfall.io/png/front/9/a/9a9fa429-a3d5-418d-b94d-ef534b5b86f0.png?1562592793",
+    "legality": "legal"
+  },
+  {
     "name": "Dand\u00e2n",
     "image_url": "https://cards.scryfall.io/png/front/9/a/9ac60e8c-ef5b-4893-b3e5-4a54cb0a0d3a.png?1562592795",
     "legality": "legal"
   },
   {
+    "name": "Goblin War Drums",
+    "image_url": "https://cards.scryfall.io/png/front/9/b/9b57d24a-1f2d-4227-a952-03abaecb19de.png?1562592798",
+    "legality": "legal"
+  },
+  {
     "name": "Sindbad",
     "image_url": "https://cards.scryfall.io/png/front/9/b/9b6906d0-4963-4f4b-aa29-ad98e9944107.png?1559603800",
+    "legality": "legal"
+  },
+  {
+    "name": "Prodigal Sorcerer",
+    "image_url": "https://cards.scryfall.io/png/front/9/b/9bf045ee-7923-4b3d-9bb4-f573d37cc7d8.png?1621595942",
     "legality": "legal"
   },
   {
@@ -26432,6 +26387,11 @@
   {
     "name": "Energy Tap",
     "image_url": "https://cards.scryfall.io/png/front/9/f/9f67692d-9df6-4841-a36b-26c28110b63b.png?1559604235",
+    "legality": "legal"
+  },
+  {
+    "name": "Starlight",
+    "image_url": "https://cards.scryfall.io/png/front/9/f/9f9ef338-1a74-433c-a7d9-f667246e6622.png?1687905642",
     "legality": "legal"
   },
   {
@@ -26640,6 +26600,11 @@
     "legality": "legal"
   },
   {
+    "name": "Shield Wall",
+    "image_url": "https://cards.scryfall.io/png/front/b/9/b97ea2e6-9bc7-4eb8-a23b-4b23d507865e.png?1562932325",
+    "legality": "legal"
+  },
+  {
     "name": "Living Armor",
     "image_url": "https://cards.scryfall.io/png/front/b/9/b9da41f7-c1d2-4d5c-b6a5-09f6cc05cd4a.png?1562932409",
     "legality": "legal"
@@ -26677,6 +26642,11 @@
   {
     "name": "Phantom Monster",
     "image_url": "https://cards.scryfall.io/png/front/c/2/c2a8a6c0-1a17-4b7e-b1e6-cdd52ee1ece8.png?1562593778",
+    "legality": "legal"
+  },
+  {
+    "name": "Vizzerdrix",
+    "image_url": "https://cards.scryfall.io/png/front/c/2/c2c681e3-fc54-4da1-80ff-13507688dbc3.png?1562247258",
     "legality": "legal"
   },
   {
@@ -26845,6 +26815,11 @@
     "legality": "legal"
   },
   {
+    "name": "Knight Errant",
+    "image_url": "https://cards.scryfall.io/png/front/d/8/d8d1d55b-6be0-4bb5-b452-ba4994b21774.png?1562248920",
+    "legality": "legal"
+  },
+  {
     "name": "Timber Wolves",
     "image_url": "https://cards.scryfall.io/png/front/d/8/d8f84fc8-69b4-4756-9634-4d6c17ec88a1.png?1559600380",
     "legality": "legal"
@@ -26955,6 +26930,11 @@
     "legality": "legal"
   },
   {
+    "name": "Monstrous Growth",
+    "image_url": "https://cards.scryfall.io/png/front/e/b/eb56633e-692c-41bc-9253-ebd1528f4e99.png?1562250416",
+    "legality": "legal"
+  },
+  {
     "name": "Blessing",
     "image_url": "https://cards.scryfall.io/png/front/e/e/eea35ac3-071d-4a42-9a7a-9104fe63bddc.png?1559604112",
     "legality": "legal"
@@ -26980,6 +26960,11 @@
     "legality": "legal"
   },
   {
+    "name": "Sacred Nectar",
+    "image_url": "https://cards.scryfall.io/png/front/f/2/f298a56d-8a33-46b1-aca0-acb68cdb3e29.png?1687906473",
+    "legality": "legal"
+  },
+  {
     "name": "Gabriel Angelfire",
     "image_url": "https://cards.scryfall.io/png/front/f/2/f2a26496-b4c9-4a29-9a85-26e217deafa2.png?1562943762",
     "legality": "legal"
@@ -26992,6 +26977,16 @@
   {
     "name": "Conservator",
     "image_url": "https://cards.scryfall.io/png/front/f/6/f6639eea-d0ae-4f0d-a8da-1b863b482b68.png?1559604203",
+    "legality": "legal"
+  },
+  {
+    "name": "Goblin Chariot",
+    "image_url": "https://cards.scryfall.io/png/front/f/7/f7571801-c1df-4387-ae61-1fefd449ebf9.png?1562251736",
+    "legality": "legal"
+  },
+  {
+    "name": "Volcanic Hammer",
+    "image_url": "https://cards.scryfall.io/png/front/f/8/f8d93606-4864-4a5f-bcbf-8638211e979d.png?1562251759",
     "legality": "legal"
   },
   {
@@ -27022,6 +27017,11 @@
   {
     "name": "Orcish Captain",
     "image_url": "https://cards.scryfall.io/png/front/f/e/fe9d422f-101e-44f2-ab0d-7ad962c6d657.png?1562595439",
+    "legality": "legal"
+  },
+  {
+    "name": "Breath of Life",
+    "image_url": "https://cards.scryfall.io/png/front/f/e/fee1bad3-85e0-4c65-916c-d744e6e6ec61.png?1562252245",
     "legality": "legal"
   },
   {
