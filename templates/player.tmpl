@@ -51,7 +51,7 @@
               <tr>
                 <td class="py-2 text-gray-500 dark:text-gray-400">Elo Rating:</td>
                 <td class="py-2 text-gray-500 dark:text-gray-400">
-                  {{ printf "%.2f" .Player.EloRating }}
+                  {{ .Player.EloRating }}
                 </td>
               </tr>
               <tr>
@@ -103,13 +103,13 @@
             <div class="max-h-50 overflow-y-auto">
               <table class="min-w-full">
                 <tbody>
-                  {{ range $opponent, $count := .Player.WonAgainst }}
+                  {{ range .Player.WonAgainst }}
                     <tr>
                       <td class="text-gray-500 dark:text-gray-400">
-                        {{ $opponent }}
+                        {{ .Opponent }}
                       </td>
-                      <td class="text-right text-gray-500 dark:text-gray-400">
-                        {{ $count }}
+                      <td class="text-right text-gray-500 dark:text-gray-400 pr-4">
+                        {{ .Count }}
                       </td>
                     </tr>
                   {{ end }}
@@ -128,13 +128,13 @@
             <div class="max-h-50 overflow-y-auto">
               <table class="min-w-full">
                 <tbody>
-                  {{ range $opponent, $count := .Player.LostAgainst }}
+                  {{ range .Player.LostAgainst }}
                     <tr>
                       <td class="text-gray-500 dark:text-gray-400">
-                        {{ $opponent }}
+                        {{ .Opponent }}
                       </td>
-                      <td class="text-right text-gray-500 dark:text-gray-400">
-                        {{ $count }}
+                      <td class="text-right text-gray-500 dark:text-gray-400 pr-4">
+                        {{ .Count }}
                       </td>
                     </tr>
                   {{ end }}
