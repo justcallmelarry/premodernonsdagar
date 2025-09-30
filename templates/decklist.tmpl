@@ -24,17 +24,21 @@
       {{ $cards := index . 1 }}
       <div class="rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
         <div class="p-4">
-          <h5 class="text-lg font-bold text-gray-900 dark:text-white">{{ $title }}</h5>
-          <ul>
-            {{ range $cards }}
-              <li>
-                {{ .Count }}
-                <a href="#" class="text-blue-500 hover:underline" onclick="showCardImage('{{ .URL }}')">
-                  {{ .Name }}
-                </a>
-              </li>
-            {{ end }}
-          </ul>
+          <h5 class="pb-3 text-lg font-bold text-gray-900 dark:text-white">{{ $title }}</h5>
+          <table class="min-w-full">
+            <tbody>
+              {{ range $cards }}
+                <tr>
+                  <td>{{ .Count }}</td>
+                  <td>
+                    <a href="#" class="text-blue-500 hover:underline" onclick="showCardImage('{{ .URL }}')">
+                      {{ .Name }}
+                    </a>
+                  </td>
+                </tr>
+              {{ end }}
+            </tbody>
+          </table>
         </div>
       </div>
     {{ end }}
