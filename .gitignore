@@ -39,3 +39,5 @@ node_modules/
 copy-data.sh
 static/source/*.jpg
 pages/
+scripts/*.json
+!files/db.json

@@ -20,6 +20,25 @@ func (o *GlickoOpponent) RD() float64    { return o.rd }
 func (o *GlickoOpponent) Sigma() float64 { return o.sigma }
 func (o *GlickoOpponent) SJ() float64    { return o.score }
 
+// sortMatchupsByValue sorts a map[string]int by value in descending order
+func sortMatchupsByValue(matchups map[string]int) []MatchupRecord {
+	// Convert map to slice of MatchupRecord
+	records := make([]MatchupRecord, 0, len(matchups))
+	for opponent, count := range matchups {
+		records = append(records, MatchupRecord{
+			Opponent: opponent,
+			Count:    count,
+		})
+	}
+
+	// Sort by count in descending order
+	sort.Slice(records, func(i, j int) bool {
+		return records[i].Count > records[j].Count
+	})
+
+	return records
+}
+
 func aggregatePlayerStats() error {
 	eloCalc := elogo.NewElo()
 
@@ -83,6 +102,12 @@ func aggregatePlayerStats() error {
 							RD:     350,
 							Sigma:  0.06,
 						},
+						EloHistory: []EloHistoryEntry{
+							{Date: "Unranked", Score: 1500},
+						},
+						GlickoHistory: []GlickoHistoryEntry{
+							{Date: "Unranked", Score: 1500},
+						},
 					}
 				}
 			}
@@ -123,14 +148,23 @@ func aggregatePlayerStats() error {
 			return err
 		}
 
-		eventPlayers := make(map[string]bool)
-		for name := range eventData.PlayerInfo {
-			eventPlayers[name] = true
-		}
+		eventPlayerData := make(map[string]*PlayerEventData)
 
 		for _, match := range eventData.Matches {
-			eventPlayers[match.Player1] = true
-			eventPlayers[match.Player2] = true
+			if _, exists := eventPlayerData[match.Player1]; !exists {
+				eventPlayerData[match.Player1] = &PlayerEventData{
+					TotalMatchesPlayed: 0,
+					TotalWins:          0,
+				}
+			}
+			if _, exists := eventPlayerData[match.Player2]; !exists {
+				eventPlayerData[match.Player2] = &PlayerEventData{
+					TotalMatchesPlayed: 0,
+					TotalWins:          0,
+				}
+			}
+			eventPlayerData[match.Player1].TotalMatchesPlayed++
+			eventPlayerData[match.Player2].TotalMatchesPlayed++
 
 			result := ParseMatchResult(match)
 
@@ -138,6 +172,7 @@ func aggregatePlayerStats() error {
 				players[match.Player1].MatchesDrawn++
 				players[match.Player2].MatchesDrawn++
 			} else {
+				eventPlayerData[result.Winner].TotalWins++
 				players[result.Winner].MatchesWon++
 				players[result.Loser].MatchesLost++
 
@@ -179,14 +214,13 @@ func aggregatePlayerStats() error {
 			// Glicko-2: needs to be done after processing all matches
 		}
 
-		for name := range eventPlayers {
+		for name := range eventPlayerData {
 			players[name].AttendedEvents++
 
-			if players[name].TotalMatchesPlayed < eventData.Rounds {
+			if eventPlayerData[name].TotalMatchesPlayed < eventData.Rounds {
 				players[name].UnfinishedEvents++
 
-			} else if players[name].TotalMatchesPlayed > 0 &&
-				players[name].MatchesLost == 0 &&
+			} else if eventPlayerData[name].TotalWins == eventData.Rounds &&
 				players[name].MatchesDrawn == 0 {
 				players[name].UndefeatedEvents++
 			}
@@ -258,6 +292,16 @@ func aggregatePlayerStats() error {
 				}
 			}
 		}
+		for name := range eventPlayerData {
+			players[name].EloHistory = append(players[name].EloHistory, EloHistoryEntry{
+				Date:  eventData.Date,
+				Score: players[name].EloRating,
+			})
+			players[name].GlickoHistory = append(players[name].GlickoHistory, GlickoHistoryEntry{
+				Date:  eventData.Date,
+				Score: math.Round(players[name].GlickoRating.Rating*100) / 100,
+			})
+		}
 	}
 
 	playersList := []PlayerListEntry{}
@@ -289,10 +333,12 @@ func aggregatePlayerStats() error {
 			DrawCounter:      stats.MatchesDrawn,
 			GameWinRate:      math.Round(gameWinRate*100) / 100,
 			MatchWinRate:     math.Round(matchWinRate*100) / 100,
-			WonAgainst:       stats.WonAgainst,
-			LostAgainst:      stats.LostAgainst,
+			WonAgainst:       sortMatchupsByValue(stats.WonAgainst),
+			LostAgainst:      sortMatchupsByValue(stats.LostAgainst),
 			UndefeatedEvents: stats.UndefeatedEvents,
 			UnfinishedEvents: stats.UnfinishedEvents,
+			EloHistory:       stats.EloHistory,
+			GlickoHistory:    stats.GlickoHistory,
 		}
 
 		// Write player to JSON file
