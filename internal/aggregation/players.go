@@ -102,6 +102,12 @@ func aggregatePlayerStats() error {
 							RD:     350,
 							Sigma:  0.06,
 						},
+						EloHistory: []EloHistoryEntry{
+							{Date: "Unranked", Score: 1500},
+						},
+						GlickoHistory: []GlickoHistoryEntry{
+							{Date: "Unranked", Score: 1500},
+						},
 					}
 				}
 			}

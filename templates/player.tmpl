@@ -44,7 +44,7 @@
   <hr class="my-4 border-gray-200 dark:border-gray-700" />
   <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
     <div>
-      <div class="mb-4 rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
+      <div class="rounded-lg border border-gray-200 bg-white shadow md:mb-4 dark:border-gray-700 dark:bg-gray-800">
         <div class="p-6">
           <table class="min-w-full">
             <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
@@ -100,7 +100,7 @@
           {{ if eq (len .Player.WonAgainst) 0 }}
             <p class="text-gray-500 dark:text-gray-400">No matches won against any opponent yet.</p>
           {{ else }}
-            <div class="max-h-50 overflow-y-auto">
+            <div class="max-h-32 overflow-y-auto">
               <table class="min-w-full">
                 <tbody>
                   {{ range .Player.WonAgainst }}
@@ -125,7 +125,7 @@
           {{ if eq (len .Player.LostAgainst) 0 }}
             <p class="text-gray-500 dark:text-gray-400">Undefeated! 💪</p>
           {{ else }}
-            <div class="max-h-50 overflow-y-auto">
+            <div class="max-h-32 overflow-y-auto">
               <table class="min-w-full">
                 <tbody>
                   {{ range .Player.LostAgainst }}

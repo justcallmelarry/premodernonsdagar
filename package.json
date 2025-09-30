@@ -1,7 +1,8 @@
 {
   "scripts": {
     "format": "prettier --write ./templates ./static/styles.css",
-    "tailwind": "tailwindcss -i ./static/tailwind.css -o ./static/prod.css --minify --watch"
+    "tailwind": "tailwindcss -i ./static/tailwind.css -o ./static/prod.css --minify --watch",
+    "test": "go test ./internal/..."
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.1.13",
