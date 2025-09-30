@@ -97,6 +97,14 @@ func processDecklistFile(cm *cardmatcher.CardMatcher, filePath string) (*Decklis
 		return nil, fmt.Errorf("error reading file: %w", err)
 	}
 
+	for _, card := range decklist.MainDeck {
+		decklist.MainDeckCount += card.Count
+	}
+
+	for _, card := range decklist.Sideboard {
+		decklist.SideboardCount += card.Count
+	}
+
 	return decklist, nil
 }
 

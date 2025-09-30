@@ -155,6 +155,8 @@ type DecklistCard struct {
 }
 
 type Decklist struct {
-	MainDeck  []DecklistCard `json:"main_deck"`
-	Sideboard []DecklistCard `json:"sideboard,omitempty"`
+	MainDeck       []DecklistCard `json:"main_deck"`
+	MainDeckCount  int            `json:"main_deck_count"`
+	Sideboard      []DecklistCard `json:"sideboard,omitempty"`
+	SideboardCount int            `json:"sideboard_count"`
 }
