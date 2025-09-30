@@ -31,7 +31,7 @@ func ColorScheme() TailwindClasses {
 		Navbar:        fmt.Sprintf("mb-3 bg-%s text-white", primary),
 		SymbolPrimary: fmt.Sprintf("material-symbols-outlined text-%s dark:text-%s", primary, primaryDark),
 		Primary:       primary,
-		PriimaryDark:  primaryDark,
+		PrimaryDark:   primaryDark,
 		PrimaryHover:  primaryHover,
 		PrimaryActive: fmt.Sprintf("%s active:scale-95 active:opacity-80", primary),
 		PrimaryDeep:   primaryDeep,

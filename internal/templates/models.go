@@ -10,7 +10,7 @@ type TailwindClasses struct {
 	NavBarActive  string
 	SymbolPrimary string
 	Primary       string
-	PriimaryDark  string
+	PrimaryDark   string
 	PrimaryHover  string
 	PrimaryActive string
 	PrimaryDeep   string
