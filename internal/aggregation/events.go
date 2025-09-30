@@ -19,7 +19,7 @@ func generateEventsList() error {
 
 	err = os.MkdirAll("files/events", 0755)
 	if err != nil {
-		return fmt.Errorf("failed to create lists directory: %w", err)
+		return fmt.Errorf("failed to create events directory: %w", err)
 	}
 
 	eventFiles, err := filepath.Glob("input/events/*.json")

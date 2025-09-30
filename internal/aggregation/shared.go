@@ -16,5 +16,10 @@ func AggregateStats() error {
 		return err
 	}
 
+	err = generateDecklists()
+	if err != nil {
+		return err
+	}
+
 	return nil
 }
