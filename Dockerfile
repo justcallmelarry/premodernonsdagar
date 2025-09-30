@@ -3,8 +3,6 @@ FROM golang:1.25-alpine AS build
 WORKDIR /app
 
 COPY go.mod ./
-COPY files /app/files/
-COPY input /app/input/
 COPY cmd /app/cmd
 COPY internal /app/internal
 COPY pkg /app/pkg
@@ -18,7 +16,8 @@ COPY --from=build /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 COPY --from=build /app/main /app/main
 COPY --from=build /app/files/ /app/files/
 COPY --from=build /app/input/ /app/input/
-COPY  static /app/static/
+COPY input /app/input/
+COPY static /app/static/
 COPY templates /app/templates/
 
 EXPOSE 8080
