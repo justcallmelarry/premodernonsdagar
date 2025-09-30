@@ -100,7 +100,6 @@ func processDecklistFile(cm *cardmatcher.CardMatcher, filePath string) (*Decklis
 	return decklist, nil
 }
 
-// saveDecklistAsJSON saves a decklist as a JSON file
 func saveDecklistAsJSON(baseName string, decklist *Decklist) error {
 	// Marshal to JSON with proper formatting
 	jsonData, err := json.MarshalIndent(decklist, "", "  ")

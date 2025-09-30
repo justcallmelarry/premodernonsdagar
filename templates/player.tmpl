@@ -44,7 +44,7 @@
   <hr class="my-4 border-gray-200 dark:border-gray-700" />
   <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
     <div>
-      <div class="rounded-lg border border-gray-200 bg-white shadow md:mb-4 dark:border-gray-700 dark:bg-gray-800">
+      <div class="rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
         <div class="p-6">
           <table class="min-w-full">
             <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
@@ -146,8 +146,14 @@
       </div>
     </div>
   </div>
-  <div class="h-64 rounded border border-gray-200 p-6 shadow md:h-80 dark:border-gray-700">
-    <canvas id="ratingChart">Your browser does not support the canvas element.</canvas>
+  <hr class="my-4 hidden border-gray-200 md:block dark:border-gray-700" />
+  <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+    <div class="h-64 rounded border border-gray-200 p-6 shadow md:h-80 dark:border-gray-700">
+      <canvas id="ratingChart">Your browser does not support the canvas element.</canvas>
+    </div>
+    <div class="h-64 rounded border border-gray-200 p-6 shadow md:h-80 dark:border-gray-700">
+      <canvas id="winRateChart">Your browser does not support the canvas element.</canvas>
+    </div>
   </div>
   <div class="mt-8 flex justify-center">
     <button class="{{ .Scheme.ButtonBack }}" onclick="history.back()">Go Back</button>
@@ -156,12 +162,11 @@
 
 {{ define "post-script" }}
   <script>
-    const ctx = document.getElementById('ratingChart');
-
     const cssVar = (name) => {
       return getComputedStyle(document.documentElement).getPropertyValue(name);
     };
 
+    const ratingCtx = document.getElementById('ratingChart');
     const darkMode = document.documentElement.classList.contains("dark");
     let backgroundColor = cssVar('--color-{{ .Scheme.Primary }}');
     if (darkMode) {
@@ -169,7 +174,7 @@
     }
     let deepColor = cssVar('--color-{{ .Scheme.PrimaryDeep }}');
 
-    const data = {
+    const ratingData = {
       labels: [{{ range $index, $element := .Player.EloHistory }}{{ if $index }},{{ end }}{{ $element.Date }}{{ end }}],
       datasets: [
         {
@@ -187,9 +192,9 @@
       ]
     };
 
-    const config = {
+    const ratingConfig = {
       type: 'line',
-      data: data,
+      data: ratingData,
       options: {
         responsive: true,
         maintainAspectRatio: false,
@@ -201,6 +206,35 @@
       },
     };
 
-    new Chart(ctx, config);
+    const winRateCtx = document.getElementById('winRateChart');
+
+    const winRateData = {
+      labels: [{{ range $index, $element := .Player.WinRateHistory }}{{ if $index }},{{ end }}{{ $element.Date }}{{ end }}],
+      datasets: [
+        {
+          label: 'Win Rate %',
+          data: [{{ range $index, $element := .Player.WinRateHistory }}{{ if $index }},{{ end }}{{ $element.Score }}{{ end }}],
+          borderColor: backgroundColor,
+          backgroundColor: backgroundColor,
+        }
+      ]
+    };
+
+    const winRateConfig = {
+      type: 'line',
+      data: winRateData,
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            position: 'bottom',
+          },
+        }
+      },
+    };
+
+    new Chart(ratingCtx, ratingConfig);
+    new Chart(winRateCtx, winRateConfig);
   </script>
 {{ end }}

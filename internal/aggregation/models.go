@@ -65,8 +65,9 @@ type PlayerStats struct {
 	UnfinishedEvents   int
 	EloRating          int
 	GlickoRating       GlickoStats
-	EloHistory         []EloHistoryEntry
-	GlickoHistory      []GlickoHistoryEntry
+	EloHistory         []HistoryEntry
+	GlickoHistory      []HistoryEntry
+	WinRateHistory     []HistoryEntry
 }
 
 type GlickoOpponent struct {
@@ -100,30 +101,26 @@ type PlayerEventData struct {
 	TotalWins          int
 }
 
-type EloHistoryEntry struct {
-	Date  string `json:"date"`
-	Score int    `json:"score"`
-}
-
-type GlickoHistoryEntry struct {
-	Date  string
+type HistoryEntry struct {
+	Date  string  `json:"date"`
 	Score float64 `json:"score"`
 }
 
 type Player struct {
-	Name             string               `json:"name"`
-	EloRating        int                  `json:"elo_rating"`
-	GlickoRating     GlickoRating         `json:"glicko_rating"`
-	DrawCounter      int                  `json:"draw_counter"`
-	GameWinRate      float64              `json:"game_win_rate"`
-	MatchWinRate     float64              `json:"match_win_rate"`
-	WonAgainst       []MatchupRecord      `json:"won_against"`
-	LostAgainst      []MatchupRecord      `json:"lost_against"`
-	UndefeatedEvents int                  `json:"undefeated_events"`
-	UnfinishedEvents int                  `json:"unfinished_events"`
-	AttendedEvents   int                  `json:"attended_events"`
-	EloHistory       []EloHistoryEntry    `json:"elo_history"`
-	GlickoHistory    []GlickoHistoryEntry `json:"glicko_history"`
+	Name             string          `json:"name"`
+	EloRating        int             `json:"elo_rating"`
+	GlickoRating     GlickoRating    `json:"glicko_rating"`
+	DrawCounter      int             `json:"draw_counter"`
+	GameWinRate      float64         `json:"game_win_rate"`
+	MatchWinRate     float64         `json:"match_win_rate"`
+	WonAgainst       []MatchupRecord `json:"won_against"`
+	LostAgainst      []MatchupRecord `json:"lost_against"`
+	UndefeatedEvents int             `json:"undefeated_events"`
+	UnfinishedEvents int             `json:"unfinished_events"`
+	AttendedEvents   int             `json:"attended_events"`
+	EloHistory       []HistoryEntry  `json:"elo_history"`
+	GlickoHistory    []HistoryEntry  `json:"glicko_history"`
+	WinRateHistory   []HistoryEntry  `json:"win_rate_history"`
 }
 
 type GlickoRating struct {

@@ -74,7 +74,7 @@ func aggregatePlayerStats() error {
 		return fmt.Errorf("failed to collect existing player files: %w", err)
 	}
 
-	// First pass: Identify all players
+	eventFiles := []string{}
 	err = filepath.WalkDir("files/events", func(path string, d fs.DirEntry, err error) error {
 		if err != nil {
 			return err
@@ -96,16 +96,16 @@ func aggregatePlayerStats() error {
 						Name:        name,
 						WonAgainst:  make(map[string]int),
 						LostAgainst: make(map[string]int),
-						EloRating:   1500, // Starting ELO
+						EloRating:   1500,
 						GlickoRating: GlickoStats{
 							Rating: 1500,
 							RD:     350,
 							Sigma:  0.06,
 						},
-						EloHistory: []EloHistoryEntry{
+						EloHistory: []HistoryEntry{
 							{Date: "Unranked", Score: 1500},
 						},
-						GlickoHistory: []GlickoHistoryEntry{
+						GlickoHistory: []HistoryEntry{
 							{Date: "Unranked", Score: 1500},
 						},
 					}
@@ -113,30 +113,13 @@ func aggregatePlayerStats() error {
 			}
 		}
 
+		eventFiles = append(eventFiles, path)
+
 		return nil
 	})
 
 	if err != nil {
 		return fmt.Errorf("error in first pass: %w", err)
-	}
-
-	// Second pass: Process all events in chronological order
-	eventFiles := []string{}
-	err = filepath.WalkDir("files/events", func(path string, d fs.DirEntry, err error) error {
-		if err != nil {
-			return err
-		}
-
-		if d.IsDir() || !strings.HasSuffix(strings.ToLower(path), ".json") {
-			return nil
-		}
-
-		eventFiles = append(eventFiles, path)
-		return nil
-	})
-
-	if err != nil {
-		return fmt.Errorf("error collecting event files: %w", err)
 	}
 
 	sort.Strings(eventFiles)
@@ -293,13 +276,17 @@ func aggregatePlayerStats() error {
 			}
 		}
 		for name := range eventPlayerData {
-			players[name].EloHistory = append(players[name].EloHistory, EloHistoryEntry{
+			players[name].EloHistory = append(players[name].EloHistory, HistoryEntry{
 				Date:  eventData.Date,
-				Score: players[name].EloRating,
+				Score: float64(players[name].EloRating),
 			})
-			players[name].GlickoHistory = append(players[name].GlickoHistory, GlickoHistoryEntry{
+			players[name].GlickoHistory = append(players[name].GlickoHistory, HistoryEntry{
 				Date:  eventData.Date,
 				Score: math.Round(players[name].GlickoRating.Rating*100) / 100,
+			})
+			players[name].WinRateHistory = append(players[name].WinRateHistory, HistoryEntry{
+				Date:  eventData.Date,
+				Score: math.Round(float64(players[name].MatchesWon)/float64(players[name].MatchesWon+players[name].MatchesLost+players[name].MatchesDrawn)*10000) / 100,
 			})
 		}
 	}
@@ -339,6 +326,7 @@ func aggregatePlayerStats() error {
 			UnfinishedEvents: stats.UnfinishedEvents,
 			EloHistory:       stats.EloHistory,
 			GlickoHistory:    stats.GlickoHistory,
+			WinRateHistory:   stats.WinRateHistory,
 		}
 
 		// Write player to JSON file
