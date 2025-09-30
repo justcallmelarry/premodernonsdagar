@@ -90,7 +90,7 @@ def main() -> None:
         unique_cards.add(name)
 
     with open(current_dir.parent / "files" / "db.json", "w") as f:
-        json.dump(cards_db, f, indent=2)
+        json.dump(sorted(cards_db, key=lambda x: x["name"]), f, indent=2)
 
     card_count = len(cards_db)
     print(f"Card database updated with {card_count} cards.")
