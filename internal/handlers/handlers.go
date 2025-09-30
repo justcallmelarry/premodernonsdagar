@@ -193,17 +193,24 @@ func DecklistHandler(w http.ResponseWriter, r *http.Request) {
 	// Extract decklist ID from URL path
 	decklistID := r.URL.Path[len("/decklists/"):]
 
-	filePath := "files/decklists/" + decklistID + ".txt"
+	filePath := "files/decklists/" + decklistID + ".json"
 	fileContent, err := os.ReadFile(filePath)
 	if err != nil {
 		NotFoundHandler(w, r)
 		return
 	}
 
+	var decklistData aggregation.Decklist
+	err = json.Unmarshal(fileContent, &decklistData)
+	if err != nil {
+		http.Error(w, "Error parsing decklist data", http.StatusInternalServerError)
+		return
+	}
+
 	templateData := map[string]interface{}{
 		"ActivePage": "",
 		"Scheme":     templates.ColorScheme(),
-		"Decklist":   string(fileContent),
+		"Decklist":   decklistData,
 	}
 	player := r.URL.Query().Get("player")
 	event := r.URL.Query().Get("event")
