@@ -13,9 +13,73 @@
         {{ .Player }}
       </h4>
     {{ end }}
-    <pre>{{ .Decklist }}</pre>
   </div>
+  <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+    {{ $deckParts := slice
+      (slice "Main Deck" .Decklist.MainDeck)
+      (slice "Sideboard" .Decklist.Sideboard)
+    }}
+    {{ range $deckParts }}
+      {{ $title := index . 0 }}
+      {{ $cards := index . 1 }}
+      <div class="rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
+        <div class="p-4">
+          <h5 class="text-lg font-bold text-gray-900 dark:text-white">{{ $title }}</h5>
+          <ul>
+            {{ range $cards }}
+              <li>
+                {{ .Count }}
+                <a href="#" class="text-blue-500 hover:underline" onclick="showCardImage('{{ .URL }}')">
+                  {{ .Name }}
+                </a>
+              </li>
+            {{ end }}
+          </ul>
+        </div>
+      </div>
+    {{ end }}
+  </div>
+
   <div class="mt-8 flex justify-center">
     <button class="{{ .Scheme.ButtonBack }}" onclick="history.back()">Go Back</button>
   </div>
+
+  <!-- Modal for card image -->
+  <div id="cardImageModal" class="fixed inset-0 flex hidden items-center justify-center bg-black/80">
+    <div class="flex flex-col justify-center rounded bg-white p-4 dark:bg-gray-800">
+      <img id="cardImage" src="" alt="Card Image" class="h-auto max-w-80" />
+      <button class="mt-4 rounded bg-red-500 px-4 py-2 text-white" onclick="closeCardImage()">Close</button>
+    </div>
+  </div>
+{{ end }}
+
+{{ define "post-script" }}
+  <script>
+    function showCardImage(url) {
+      const modal = document.getElementById('cardImageModal');
+      const image = document.getElementById('cardImage');
+      image.src = url;
+      modal.classList.remove('hidden');
+    }
+
+    function closeCardImage() {
+      const modal = document.getElementById('cardImageModal');
+      modal.classList.add('hidden');
+    }
+
+    document.addEventListener('click', (event) => {
+      const modal = document.getElementById('cardImageModal');
+      const modalContent = modal.querySelector('div');
+      const isCardLink = event.target.closest('a') && event.target.closest('a').onclick;
+      if (!isCardLink && !modalContent.contains(event.target) && !modal.classList.contains('hidden')) {
+        closeCardImage();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        closeCardImage();
+      }
+    });
+  </script>
 {{ end }}

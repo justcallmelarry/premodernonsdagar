@@ -2,6 +2,7 @@
   "scripts": {
     "format": "prettier --write ./templates ./static/styles.css",
     "tailwind": "tailwindcss -i ./static/tailwind.css -o ./static/prod.css --minify --watch",
+    "tailwind:build": "tailwindcss -i ./static/tailwind.css -o ./static/prod.css --minify",
     "test": "go test ./internal/..."
   },
   "devDependencies": {

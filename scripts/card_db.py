@@ -34,9 +34,6 @@ LEGAL_SETS = [
 ]
 
 
-IGNORE_COMBO = {}
-
-
 def main() -> None:
     """
     Generate a card database (db.json) from the provided scryfall default cards file.
@@ -48,10 +45,13 @@ def main() -> None:
     cards_db = []
     unique_cards = set()
 
+    white_border_cards = {}
+
     for card in cards:
         name = card["name"]
         set_code = card.get("set", "")
         legality = card.get("legalities", {}).get("premodern", "")
+        border = card.get("border_color")
 
         if name in unique_cards:
             continue
@@ -62,20 +62,36 @@ def main() -> None:
         if set_code not in LEGAL_SETS:
             continue
 
-        cards_db.append(
-            {
-                "name": name,
-                "image_url": card.get("image_uris", {}).get("normal", ""),
-                "legality": card.get("legalities", {}).get("premodern"),
-            }
-        )
+        db_card = {
+            "name": name,
+            "image_url": card.get("image_uris", {}).get("png", ""),
+            "legality": legality,
+        }
+
+        if border == "white":
+            if name in white_border_cards:
+                continue
+
+            white_border_cards[name] = db_card
+            continue
+
+        cards_db.append(db_card)
         unique_cards.add(name)
 
-    # Save to db.json
-    with open(current_dir / "db.json", "w") as f:
+    for name, db_card in white_border_cards.items():
+        if name in unique_cards:
+            continue
+
+        cards_db.append(db_card)
+        unique_cards.add(name)
+
+    with open(current_dir.parent / "files" / "db.json", "w") as f:
         json.dump(cards_db, f, indent=2)
 
-    print(f"Card database updated with {len(cards_db)} cards. (should be 5408)")
+    card_count = len(cards_db)
+    print(f"Card database updated with {card_count} cards.")
+    if card_count != 5408:
+        print("Warning: The expected card count is 5408. Please verify the database.")
 
 
 if __name__ == "__main__":
