@@ -1,8 +1,8 @@
 {{ template "base" . }}
 
-{{ define "title" }}{{ .Name }}}}{{ end }}
+{{ define "title" }}{{ .Event.Name }}}}{{ end }}
 {{ define "content" }}
-  {{ $eventName := .Name }}
+  {{ $eventName := .Event.Name }}
   <div>
     <h3 class="mb-4 text-2xl font-bold text-gray-900 dark:text-white">
       {{ $eventName }}
