@@ -30,6 +30,35 @@ func processDecklistFile(cm *cardmatcher.CardMatcher, filePath string) (*Decklis
 	inSideboard := false
 	lineNum := 0
 
+	// Extract the date from the base filename (first 10 characters)
+	baseName := strings.TrimSuffix(filepath.Base(filePath), filepath.Ext(filePath))
+	if len(baseName) < 10 {
+		return nil, fmt.Errorf("filename too short to extract date: %s", filePath)
+	}
+	date := baseName[:10]
+
+	// Open the event JSON file to get the event name
+	eventFilePath := filepath.Join("input/events", date+".json")
+	eventFile, err := os.Open(eventFilePath)
+	if err != nil {
+		return nil, fmt.Errorf("failed to open event file: %w", err)
+	}
+	defer eventFile.Close()
+
+	var eventData InputEvent
+	decoder := json.NewDecoder(eventFile)
+	if err := decoder.Decode(&eventData); err != nil {
+		return nil, fmt.Errorf("failed to decode event file: %w", err)
+	}
+
+	decklist.EventName = eventData.Name
+	for playerName, playerInfo := range eventData.PlayerInfo {
+		if playerInfo.Decklist == baseName {
+			decklist.PlayerName = playerName
+			break
+		}
+	}
+
 	// Regex to match card lines: number followed by space(s) and card name
 	cardLineRegex := regexp.MustCompile(`^(\d+)\s+(.+)$`)
 
@@ -151,7 +180,7 @@ func cleanupOldFiles(generatedFiles map[string]bool) error {
 }
 
 func generateDecklists() error {
-	err := os.MkdirAll("files/events", 0755)
+	err := os.MkdirAll("files/decklists", 0755)
 	if err != nil {
 		return fmt.Errorf("failed to create decklists directory: %w", err)
 	}

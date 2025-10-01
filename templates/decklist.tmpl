@@ -3,16 +3,12 @@
 {{ define "title" }}Decklist{{ end }}
 {{ define "content" }}
   <div>
-    {{ if .Event }}
-      <h3 class="mb-4 text-2xl font-bold text-gray-900 dark:text-white">
-        {{ .Event }}
-      </h3>
-    {{ end }}
-    {{ if .Player }}
-      <h4 class="mb-6 text-xl font-bold text-gray-900 dark:text-white">
-        {{ .Player }}
-      </h4>
-    {{ end }}
+    <h3 class="mb-4 text-2xl font-bold text-gray-900 dark:text-white">
+      {{ .Decklist.EventName }}
+    </h3>
+    <h4 class="mb-6 text-xl font-bold text-gray-900 dark:text-white">
+      {{ .Decklist.PlayerName }}
+    </h4>
   </div>
   <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
     {{ $deckParts := slice

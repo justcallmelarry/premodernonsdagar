@@ -212,13 +212,6 @@ func DecklistHandler(w http.ResponseWriter, r *http.Request) {
 		"Scheme":     templates.ColorScheme(),
 		"Decklist":   decklistData,
 	}
-	player := r.URL.Query().Get("player")
-	event := r.URL.Query().Get("event")
-
-	if player != "" || event != "" {
-		templateData["Player"] = player
-		templateData["Event"] = event
-	}
 
 	templates.RenderTemplate(w, "decklist.tmpl", templateData)
 }
