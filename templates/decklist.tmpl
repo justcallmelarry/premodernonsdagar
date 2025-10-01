@@ -32,9 +32,13 @@
                 <tr>
                   <td>{{ .Count }}</td>
                   <td>
-                    <a href="#" class="text-blue-500 hover:underline" onclick="showCardImage('{{ .URL }}')">
-                      {{ .Name }}
-                    </a>
+                    {{ if eq .Legality "banned" }}
+                      <a href="#" class="text-red-500 hover:underline" onclick="showCardImage('{{ .URL }}')"> {{ .Name }} ( banned ) </a>
+                    {{ else }}
+                      <a href="#" class="text-blue-500 hover:underline" onclick="showCardImage('{{ .URL }}')">
+                        {{ .Name }}
+                      </a>
+                    {{ end }}
                   </td>
                 </tr>
               {{ end }}

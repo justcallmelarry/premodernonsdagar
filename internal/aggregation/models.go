@@ -149,9 +149,10 @@ type PlayerListEntry struct {
 }
 
 type DecklistCard struct {
-	Count int    `json:"count"`
-	Name  string `json:"name"`
-	URL   string `json:"url,omitempty"`
+	Count    int    `json:"count"`
+	Name     string `json:"name"`
+	URL      string `json:"url,omitempty"`
+	Legality string `json:"legality,omitempty"`
 }
 
 type Decklist struct {

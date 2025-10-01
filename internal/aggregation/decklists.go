@@ -81,9 +81,10 @@ func processDecklistFile(cm *cardmatcher.CardMatcher, filePath string) (*Decklis
 		}
 
 		decklistCard := DecklistCard{
-			Count: count,
-			Name:  card.Name,
-			URL:   card.ImageURL,
+			Count:    count,
+			Name:     card.Name,
+			URL:      card.ImageURL,
+			Legality: card.Legality,
 		}
 
 		if inSideboard {
