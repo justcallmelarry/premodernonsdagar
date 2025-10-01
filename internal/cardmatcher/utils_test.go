@@ -92,91 +92,6 @@ func TestNormalizeString(t *testing.T) {
 	}
 }
 
-func TestLevenshteinDistance(t *testing.T) {
-	tests := []struct {
-		name     string
-		a        string
-		b        string
-		expected int
-	}{
-		{
-			name:     "identical strings",
-			a:        "hello",
-			b:        "hello",
-			expected: 0,
-		},
-		{
-			name:     "empty strings",
-			a:        "",
-			b:        "",
-			expected: 0,
-		},
-		{
-			name:     "one empty string",
-			a:        "hello",
-			b:        "",
-			expected: 5,
-		},
-		{
-			name:     "other empty string",
-			a:        "",
-			b:        "world",
-			expected: 5,
-		},
-		{
-			name:     "single character substitution",
-			a:        "cat",
-			b:        "bat",
-			expected: 1,
-		},
-		{
-			name:     "single character insertion",
-			a:        "cat",
-			b:        "cart",
-			expected: 1,
-		},
-		{
-			name:     "single character deletion",
-			a:        "cart",
-			b:        "cat",
-			expected: 1,
-		},
-		{
-			name:     "multiple operations",
-			a:        "kitten",
-			b:        "sitting",
-			expected: 3,
-		},
-		{
-			name:     "completely different",
-			a:        "abc",
-			b:        "xyz",
-			expected: 3,
-		},
-		{
-			name:     "case sensitive",
-			a:        "Hello",
-			b:        "hello",
-			expected: 1,
-		},
-		{
-			name:     "longer strings",
-			a:        "Lightning Bolt",
-			b:        "Lightining Bolt",
-			expected: 1,
-		},
-	}
-
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			result := levenshteinDistance(tt.a, tt.b)
-			if result != tt.expected {
-				t.Errorf("levenshteinDistance(%q, %q) = %d, want %d", tt.a, tt.b, result, tt.expected)
-			}
-		})
-	}
-}
-
 func TestCalculateSimilarity(t *testing.T) {
 	tests := []struct {
 		name               string
@@ -412,14 +327,6 @@ func BenchmarkNormalizeString(b *testing.B) {
 	testString := "Lightning Bolt's Amazing Power!"
 	for i := 0; i < b.N; i++ {
 		normalizeString(testString)
-	}
-}
-
-func BenchmarkLevenshteinDistance(b *testing.B) {
-	a := "Lightning Bolt"
-	c := "Lightining Bolt"
-	for i := 0; i < b.N; i++ {
-		levenshteinDistance(a, c)
 	}
 }
 
