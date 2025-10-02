@@ -1,0 +1,208 @@
+{
+  "name": "Premodern Monday 2025-09-30",
+  "date": "2025-09-30",
+  "rounds": 4,
+  "player_info": {
+    "Alex Thunderstorm": {
+      "deck": "Survival",
+      "decklist": ""
+    },
+    "Mia Firekeeper": {
+      "deck": "RG Beats",
+      "decklist": ""
+    },
+    "Jonas Stormcaller": {
+      "deck": "UW Control",
+      "decklist": "2025-09-30-jonas-stormcaller"
+    },
+    "Emma Voidwalker": {
+      "deck": "Reanimator",
+      "decklist": ""
+    },
+    "Lucas Artificer": {
+      "deck": "Affinity",
+      "decklist": ""
+    },
+    "Sara Naturalist": {
+      "deck": "Elves",
+      "decklist": ""
+    },
+    "Erik Mindbreaker": {
+      "deck": "UB Psychatog",
+      "decklist": ""
+    },
+    "Anna Lifebinder": {
+      "deck": "GW Enchantress",
+      "decklist": ""
+    },
+    "David Goblinking": {
+      "deck": "Goblins",
+      "decklist": ""
+    },
+    "Lisa Shadowmage": {
+      "deck": "Mono Black Control",
+      "decklist": ""
+    },
+    "Oscar Burnmaster": {
+      "deck": "Burn",
+      "decklist": ""
+    },
+    "Nina Counterspell": {
+      "deck": "UW Standstill",
+      "decklist": ""
+    },
+    "Mark Rocksolid": {
+      "deck": "The Rock",
+      "decklist": "2025-09-30-mark-rocksolid"
+    },
+    "Julia Stompy": {
+      "deck": "Stompy",
+      "decklist": ""
+    },
+    "Simon Combo": {
+      "deck": "Oath of Druids",
+      "decklist": ""
+    },
+    "Clara Tinker": {
+      "deck": "Tinker",
+      "decklist": ""
+    }
+  },
+  "matches": [
+    {
+      "player_1": "Alex Thunderstorm",
+      "player_2": "Mia Firekeeper",
+      "result": "2-1"
+    },
+    {
+      "player_1": "Jonas Stormcaller",
+      "player_2": "Emma Voidwalker",
+      "result": "2-0"
+    },
+    {
+      "player_1": "Lucas Artificer",
+      "player_2": "Sara Naturalist",
+      "result": "1-2"
+    },
+    {
+      "player_1": "Erik Mindbreaker",
+      "player_2": "Anna Lifebinder",
+      "result": "2-1"
+    },
+    {
+      "player_1": "David Goblinking",
+      "player_2": "Lisa Shadowmage",
+      "result": "2-0"
+    },
+    {
+      "player_1": "Oscar Burnmaster",
+      "player_2": "Nina Counterspell",
+      "result": "1-2"
+    },
+    {
+      "player_1": "Mark Rocksolid",
+      "player_2": "Julia Stompy",
+      "result": "2-1"
+    },
+    {
+      "player_1": "Simon Combo",
+      "player_2": "Clara Tinker",
+      "result": "0-2"
+    },
+    {
+      "player_1": "Alex Thunderstorm",
+      "player_2": "Jonas Stormcaller",
+      "result": "1-2"
+    },
+    {
+      "player_1": "Sara Naturalist",
+      "player_2": "Emma Voidwalker",
+      "result": "2-0"
+    },
+    {
+      "player_1": "Erik Mindbreaker",
+      "player_2": "David Goblinking",
+      "result": "1-2"
+    },
+    {
+      "player_1": "Anna Lifebinder",
+      "player_2": "Nina Counterspell",
+      "result": "0-2"
+    },
+    {
+      "player_1": "Lisa Shadowmage",
+      "player_2": "Mark Rocksolid",
+      "result": "1-2"
+    },
+    {
+      "player_1": "Oscar Burnmaster",
+      "player_2": "Julia Stompy",
+      "result": "2-1"
+    },
+    {
+      "player_1": "Clara Tinker",
+      "player_2": "Mia Firekeeper",
+      "result": "2-0"
+    },
+    {
+      "player_1": "Alex Thunderstorm",
+      "player_2": "Sara Naturalist",
+      "result": "2-1"
+    },
+    {
+      "player_1": "Jonas Stormcaller",
+      "player_2": "David Goblinking",
+      "result": "2-0"
+    },
+    {
+      "player_1": "Emma Voidwalker",
+      "player_2": "Erik Mindbreaker",
+      "result": "1-2"
+    },
+    {
+      "player_1": "Nina Counterspell",
+      "player_2": "Mark Rocksolid",
+      "result": "0-2"
+    },
+    {
+      "player_1": "Oscar Burnmaster",
+      "player_2": "Clara Tinker",
+      "result": "2-1"
+    },
+    {
+      "player_1": "Julia Stompy",
+      "player_2": "Lisa Shadowmage",
+      "result": "1-2"
+    },
+    {
+      "player_1": "Alex Thunderstorm",
+      "player_2": "David Goblinking",
+      "result": "0-2"
+    },
+    {
+      "player_1": "Jonas Stormcaller",
+      "player_2": "Sara Naturalist",
+      "result": "2-1"
+    },
+    {
+      "player_1": "Emma Voidwalker",
+      "player_2": "Nina Counterspell",
+      "result": "2-0"
+    },
+    {
+      "player_1": "Erik Mindbreaker",
+      "player_2": "Mark Rocksolid",
+      "result": "1-2"
+    },
+    {
+      "player_1": "Oscar Burnmaster",
+      "player_2": "Lisa Shadowmage",
+      "result": "2-1"
+    },
+    {
+      "player_1": "Clara Tinker",
+      "player_2": "Julia Stompy",
+      "result": "2-0"
+    }
+  ]
+}

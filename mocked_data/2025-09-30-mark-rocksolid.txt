@@ -1,0 +1,43 @@
+4 Llanowar Wastes
+3 Forest
+2 Swamp
+4 Wasteland
+2 Treetop Village
+2 Rishadan Port
+1 Dust Bowl
+1 Volrath's Stronghold
+1 Gaea's Cradle
+2 Bayou
+2 Brushland
+
+4 Birds of Paradise
+4 Llanowar Elves
+3 Deranged Hermit
+2 Spike Feeder
+2 Uktabi Orangutan
+1 Masticore
+1 Yavimaya Elder
+1 Spiritmonger
+
+4 Cabal Therapy
+3 Duress
+2 Vampiric Tutor
+2 Pernicious Deed
+2 Naturalize
+1 Recurring Nightmare
+1 Living Death
+1 Diabolic Edict
+1 Bone Shredder
+1 Engineered Plague
+
+// Sideboard
+3 Engineered Plague
+2 Tormod's Crypt
+2 Naturalize
+2 Seal of Primordium
+1 Masticore
+1 Bone Shredder
+1 Diabolic Edict
+1 Null Rod
+1 Powder Keg
+1 Ravenous Baloth

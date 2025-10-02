@@ -1,0 +1,36 @@
+4 Wooded Foothills
+2 Mountain
+2 Forest
+4 Wasteland
+4 Karplusan Forest
+2 Taiga
+2 Treetop Village
+2 Rishadan Port
+2 Barbarian Ring
+
+4 Wild Mongrel
+4 Jackal Pup
+4 Mogg Fanatic
+3 River Boa
+3 Grim Lavamancer
+2 Flametongue Kavu
+2 Thornscape Battlemage
+1 Quirion Ranger
+
+4 Lightning Bolt
+4 Reckless Charge
+3 Seal of Fire
+2 Pyroblast
+2 Price of Progress
+1 Fireblast
+
+// Sideboard
+3 Pyroblast
+2 Tormod's Crypt
+2 Naturalize
+2 Compost
+2 Red Elemental Blast
+1 Seal of Fire
+1 Price of Progress
+1 Flametongue Kavu
+1 Masticore

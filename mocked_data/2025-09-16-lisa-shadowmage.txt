@@ -1,0 +1,41 @@
+4 Wasteland
+3 Swamp
+2 Mishra's Factory
+4 Rishadan Port
+2 Dust Bowl
+1 Volrath's Stronghold
+4 Polluted Mire
+2 Barren Moor
+1 Cabal Coffers
+2 Spawning Pool
+
+2 Nether Spirit
+2 Phyrexian Negator
+1 Corrupt Official
+1 Ghastly Demise
+
+4 Duress
+4 Cabal Therapy
+3 Hymn to Tourach
+4 Dark Ritual
+3 Diabolic Edict
+2 Chainer's Edict
+2 Innocent Blood
+2 Skeletal Scrying
+1 Demonic Tutor
+1 Vampiric Tutor
+1 Yawgmoth's Will
+1 Necropotence
+1 The Abyss
+
+// Sideboard
+3 Engineered Plague
+2 Perish
+2 Tormod's Crypt
+2 Dystopia
+1 Powder Keg
+1 Diabolic Edict
+1 Chainer's Edict
+1 Withered Wretch
+1 Nether Void
+1 Planar Void

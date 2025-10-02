@@ -1,0 +1,40 @@
+4 Flooded Strand
+3 Island
+2 Plains
+4 Tundra
+3 Wasteland
+4 Mishra's Factory
+2 Dust Bowl
+2 Rishadan Port
+1 Faerie Conclave
+
+4 Morphling
+
+4 Counterspell
+4 Force of Will
+3 Mana Leak
+2 Miscalculation
+4 Swords to Plowshares
+3 Wrath of God
+2 Fact or Fiction
+1 Decree of Justice
+2 Absorb
+1 Forbid
+1 Disenchant
+1 Powder Keg
+1 Nevinyrral's Disk
+1 Jayemdae Tome
+1 Legacy Weapon
+
+// Sideboard
+2 Circle of Protection: Red
+2 Disenchant
+2 Hydroblast
+1 Blue Elemental Blast
+2 Seal of Cleansing
+1 Wrath of God
+1 Dust Bowl
+1 Tormod's Crypt
+1 Powder Keg
+1 Humility
+1 Sacred Ground
