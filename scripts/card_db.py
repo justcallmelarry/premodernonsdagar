@@ -66,10 +66,17 @@ def main() -> None:
         if set_code not in LEGAL_SETS:
             continue
 
+        card_type = "other"
+        if "Land" in card.get("type_line", ""):
+            card_type = "land"
+        elif "Creature" in card.get("type_line", ""):
+            card_type = "creature"
+
         db_card = {
             "name": name,
             "image_url": card.get("image_uris", {}).get("png", ""),
             "legality": legality,
+            "card_type": card_type,
         }
 
         if border == "white":

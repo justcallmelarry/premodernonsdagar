@@ -7,6 +7,7 @@ import (
 	"math"
 	"os"
 	"path/filepath"
+	"slices"
 	"sort"
 	"strings"
 
@@ -163,6 +164,12 @@ func aggregatePlayerStats() error {
 				players[result.Loser].LostAgainst[result.Winner]++
 			}
 
+			for _, p := range []string{match.Player1, match.Player2} {
+				if slices.Contains(match.ExtraMatch, p) {
+					players[p].ExtraMatchesPlayed++
+				}
+			}
+
 			parts := strings.Split(result.Score, "-")
 			if len(parts) == 2 {
 				p1Games, p2Games := 0, 0
@@ -309,27 +316,27 @@ func aggregatePlayerStats() error {
 		}
 
 		player := &Player{
-			Name:           name,
-			AttendedEvents: stats.AttendedEvents,
-			EloRating:      players[name].EloRating,
+			Name:             name,
+			AttendedEvents:   stats.AttendedEvents,
+			UndefeatedEvents: stats.UndefeatedEvents,
+			UnfinishedEvents: stats.UnfinishedEvents,
+			EloRating:        players[name].EloRating,
 			GlickoRating: GlickoRating{
 				Mu:    math.Round(players[name].GlickoRating.Rating*100) / 100,
 				Phi:   math.Round(players[name].GlickoRating.RD*100) / 100,
 				Sigma: math.Round(players[name].GlickoRating.Sigma*100) / 100,
 			},
-			DrawCounter:      stats.MatchesDrawn,
-			GameWinRate:      math.Round(gameWinRate*100) / 100,
-			MatchWinRate:     math.Round(matchWinRate*100) / 100,
-			WonAgainst:       sortMatchupsByValue(stats.WonAgainst),
-			LostAgainst:      sortMatchupsByValue(stats.LostAgainst),
-			UndefeatedEvents: stats.UndefeatedEvents,
-			UnfinishedEvents: stats.UnfinishedEvents,
-			EloHistory:       stats.EloHistory,
-			GlickoHistory:    stats.GlickoHistory,
-			WinRateHistory:   stats.WinRateHistory,
+			DrawCounter:        stats.MatchesDrawn,
+			GameWinRate:        math.Round(gameWinRate*100) / 100,
+			MatchWinRate:       math.Round(matchWinRate*100) / 100,
+			ExtraMatchesPlayed: stats.ExtraMatchesPlayed,
+			WonAgainst:         sortMatchupsByValue(stats.WonAgainst),
+			LostAgainst:        sortMatchupsByValue(stats.LostAgainst),
+			EloHistory:         stats.EloHistory,
+			GlickoHistory:      stats.GlickoHistory,
+			WinRateHistory:     stats.WinRateHistory,
 		}
 
-		// Write player to JSON file
 		playerJSON, err := json.MarshalIndent(player, "", "  ")
 		if err != nil {
 			return fmt.Errorf("failed to marshal player %s: %w", name, err)
@@ -342,10 +349,8 @@ func aggregatePlayerStats() error {
 			return fmt.Errorf("failed to write player file for %s: %w", name, err)
 		}
 
-		// Mark this file as generated
 		delete(existingFiles, filePath)
 
-		// Add to the players list
 		playersList = append(playersList, PlayerListEntry{
 			Name: name,
 			Slug: slug,
@@ -361,12 +366,10 @@ func aggregatePlayerStats() error {
 		}
 	}
 
-	// Sort the players list alphabetically by slug
 	sort.Slice(playersList, func(i, j int) bool {
 		return playersList[i].Slug < playersList[j].Slug
 	})
 
-	// Write the players list to a JSON file
 	playersListJSON, err := json.MarshalIndent(playersList, "", "  ")
 	if err != nil {
 		return fmt.Errorf("failed to marshal players list: %w", err)
@@ -380,7 +383,6 @@ func aggregatePlayerStats() error {
 	return nil
 }
 
-// readEventFile reads and parses an event JSON file
 func readEventFile(path string) (*Event, error) {
 	data, err := os.ReadFile(path)
 	if err != nil {
@@ -395,7 +397,6 @@ func readEventFile(path string) (*Event, error) {
 	return &eventData, nil
 }
 
-// ParseMatchResult processes a match result string
 func ParseMatchResult(match Match) MatchResult {
 	parts := strings.Split(match.Result, "-")
 	if len(parts) != 2 {

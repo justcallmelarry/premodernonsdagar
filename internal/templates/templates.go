@@ -1,3 +1,4 @@
+// Package templates provides utilities for rendering HTML templates with custom functions.
 package templates
 
 import (

@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-const PREMODERN_CARD_COUNT = 5408
+const PremodernCardCount = 5408
 
 func TestCardDatabase_LoadDatabase(t *testing.T) {
 	db := NewCardDatabase()
@@ -17,8 +17,8 @@ func TestCardDatabase_LoadDatabase(t *testing.T) {
 		t.Fatalf("Failed to load database: %v", err)
 	}
 
-	if db.GetCardCount() != PREMODERN_CARD_COUNT {
-		t.Errorf("Expected %d cards, got %d", PREMODERN_CARD_COUNT, db.GetCardCount())
+	if db.GetCardCount() != PremodernCardCount {
+		t.Errorf("Expected %d cards, got %d", PremodernCardCount, db.GetCardCount())
 	}
 }
 
@@ -141,8 +141,8 @@ func TestCardDatabase_GetCardCount(t *testing.T) {
 		t.Fatalf("Failed to load database: %v", err)
 	}
 
-	if db.GetCardCount() != PREMODERN_CARD_COUNT {
-		t.Errorf("Expected %d cards after loading, got %d", PREMODERN_CARD_COUNT, db.GetCardCount())
+	if db.GetCardCount() != PremodernCardCount {
+		t.Errorf("Expected %d cards after loading, got %d", PremodernCardCount, db.GetCardCount())
 	}
 }
 
@@ -153,8 +153,8 @@ func TestCardDatabase_Close(t *testing.T) {
 		t.Fatalf("Failed to load database: %v", err)
 	}
 
-	if db.GetCardCount() != PREMODERN_CARD_COUNT {
-		t.Errorf("Expected %d cards before close, got %d", PREMODERN_CARD_COUNT, db.GetCardCount())
+	if db.GetCardCount() != PremodernCardCount {
+		t.Errorf("Expected %d cards before close, got %d", PremodernCardCount, db.GetCardCount())
 	}
 
 	db.Close()

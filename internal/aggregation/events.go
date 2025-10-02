@@ -7,6 +7,7 @@ import (
 	"os"
 	"path/filepath"
 	"premodernonsdagar/internal/utils"
+	"slices"
 	"sort"
 	"strings"
 )
@@ -97,18 +98,30 @@ func generateEventsList() error {
 			result := ParseMatchResult(match)
 
 			if result.Draw {
-				draws[match.Player1]++
-				draws[match.Player2]++
-				points[match.Player1] += 1
-				points[match.Player2] += 1
+				if !slices.Contains(match.ExtraMatch, match.Player1) {
+					draws[match.Player1]++
+					points[match.Player1] += 1
+				}
+				if !slices.Contains(match.ExtraMatch, match.Player2) {
+					draws[match.Player2]++
+					points[match.Player2] += 1
+				}
 			} else {
-				wins[result.Winner]++
-				losses[result.Loser]++
-				points[result.Winner] += 3
-				points[result.Loser] += 0
+				if !slices.Contains(match.ExtraMatch, result.Winner) {
+					wins[result.Winner]++
+					points[result.Winner] += 3
+				}
+				if !slices.Contains(match.ExtraMatch, result.Loser) {
+					losses[result.Loser]++
+					points[result.Loser] += 0
+				}
 			}
-			matches[match.Player1]++
-			matches[match.Player2]++
+			if !slices.Contains(match.ExtraMatch, match.Player1) {
+				matches[match.Player1]++
+			}
+			if !slices.Contains(match.ExtraMatch, match.Player2) {
+				matches[match.Player2]++
+			}
 		}
 
 		results := []PlayerResult{}

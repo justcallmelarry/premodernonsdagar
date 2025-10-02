@@ -7,11 +7,13 @@ import (
 	"os"
 	"path/filepath"
 	"premodernonsdagar/internal/aggregation"
+	"slices"
 )
 
 var TemplateFuncs = map[string]interface{}{
-	"slice": Slice,
-	"add":   func(a, b int) int { return a + b },
+	"slice":    Slice,
+	"add":      func(a, b int) int { return a + b },
+	"contains": func(slice []string, item string) bool { return slices.Contains(slice, item) },
 }
 
 func Slice(args ...interface{}) []interface{} {

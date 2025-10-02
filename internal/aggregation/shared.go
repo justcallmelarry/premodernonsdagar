@@ -1,3 +1,4 @@
+// Package aggregation provides data structures and types for event and player statistics aggregation.
 package aggregation
 
 func AggregateStats() error {

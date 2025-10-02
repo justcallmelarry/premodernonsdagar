@@ -1,3 +1,4 @@
+// Package cardmatcher provides functionality to match card names to a card database.
 package cardmatcher
 
 import (
