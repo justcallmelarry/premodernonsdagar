@@ -146,6 +146,12 @@ func processDecklistFile(cm *cardmatcher.CardMatcher, filePath string) (*Decklis
 		}
 		return decklist.MainDeck[i].Name < decklist.MainDeck[j].Name
 	})
+
+	// Sort sideboard alphabetically
+	sort.Slice(decklist.Sideboard, func(i, j int) bool {
+		return decklist.Sideboard[i].Name < decklist.Sideboard[j].Name
+	})
+
 	return decklist, nil
 }
 
