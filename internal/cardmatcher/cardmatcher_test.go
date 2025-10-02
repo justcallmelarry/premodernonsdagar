@@ -71,6 +71,11 @@ func TestCardMatcher_FindCard(t *testing.T) {
 			query:    "Birds of",
 			expected: "Birds of Paradise",
 		},
+		{
+			name:     "misspelling",
+			query:    "Sight of Man",
+			expected: "Light of Day",
+		},
 	}
 
 	for _, tt := range tests {
