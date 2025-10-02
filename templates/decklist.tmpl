@@ -12,13 +12,14 @@
   </div>
   <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
     {{ $deckParts := slice
-      (slice "Main Deck" .Decklist.MainDeck .Decklist.MainDeckCount)
-      (slice "Sideboard" .Decklist.Sideboard .Decklist.SideboardCount)
+      (slice "Main Deck" .Decklist.MainDeck .Decklist.MainDeckCount "true")
+      (slice "Sideboard" .Decklist.Sideboard .Decklist.SideboardCount "false")
     }}
     {{ range $deckParts }}
       {{ $title := index . 0 }}
       {{ $cards := index . 1 }}
       {{ $count := index . 2 }}
+      {{ $showTypes := index . 3 }}
       <div class="rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
         <div class="p-4">
           <h5 class="pb-3 text-lg font-bold text-gray-900 dark:text-white">{{ $title }} ({{ $count }})</h5>
@@ -26,11 +27,11 @@
             <tbody>
               {{ $type := "" }}
               {{ range $cards }}
-              {{ if and (ne $type "") (ne .CardType $type) }}
-              <tr>
-                <td colspan="2" class="pt-2"></td>
-              </tr>
-              {{ end }}
+                {{ if and (eq $showTypes "true") (ne .CardType $type) }}
+                  <tr>
+                    <td colspan="2" class="{{ if ne $type "" }}pt-4{{ end }} text-sm uppercase">{{ cardtype .CardType }}</td>
+                  </tr>
+                {{ end }}
                 <tr>
                   <td>{{ .Count }}</td>
                   <td>

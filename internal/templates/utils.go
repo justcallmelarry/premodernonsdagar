@@ -14,6 +14,18 @@ var TemplateFuncs = map[string]interface{}{
 	"slice":    Slice,
 	"add":      func(a, b int) int { return a + b },
 	"contains": func(slice []string, item string) bool { return slices.Contains(slice, item) },
+	"cardtype": func(t string) string {
+		switch t {
+		case "creature":
+			return "Creatures"
+		case "other":
+			return "Other Spells"
+		case "land":
+			return "Lands"
+		default:
+			return "Other"
+		}
+	},
 }
 
 func Slice(args ...interface{}) []interface{} {
