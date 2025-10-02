@@ -8,6 +8,7 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
+	"sort"
 	"strconv"
 	"strings"
 
@@ -114,6 +115,7 @@ func processDecklistFile(cm *cardmatcher.CardMatcher, filePath string) (*Decklis
 			Name:     card.Name,
 			URL:      card.ImageURL,
 			Legality: card.Legality,
+			CardType: card.CardType,
 		}
 
 		if inSideboard {
@@ -135,6 +137,15 @@ func processDecklistFile(cm *cardmatcher.CardMatcher, filePath string) (*Decklis
 		decklist.SideboardCount += card.Count
 	}
 
+	// Sort main deck by card type (Creature, Other, Land) then alphabetically
+	sort.Slice(decklist.MainDeck, func(i, j int) bool {
+		typeI := getCardTypePriority(decklist.MainDeck[i].CardType)
+		typeJ := getCardTypePriority(decklist.MainDeck[j].CardType)
+		if typeI != typeJ {
+			return typeI < typeJ
+		}
+		return decklist.MainDeck[i].Name < decklist.MainDeck[j].Name
+	})
 	return decklist, nil
 }
 
@@ -221,4 +232,17 @@ func generateDecklists() error {
 	}
 
 	return nil
+}
+
+func getCardTypePriority(cardType string) int {
+	switch strings.ToLower(cardType) {
+	case "land":
+		return 2
+	case "creature":
+		return 0
+	case "other":
+		return 1
+	default:
+		return 3 // Unknown types go last
+	}
 }

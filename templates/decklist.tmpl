@@ -24,7 +24,13 @@
           <h5 class="pb-3 text-lg font-bold text-gray-900 dark:text-white">{{ $title }} ({{ $count }})</h5>
           <table class="min-w-full">
             <tbody>
+              {{ $type := "" }}
               {{ range $cards }}
+              {{ if and (ne $type "") (ne .CardType $type) }}
+              <tr>
+                <td colspan="2" class="pt-2"></td>
+              </tr>
+              {{ end }}
                 <tr>
                   <td>{{ .Count }}</td>
                   <td>
@@ -37,6 +43,7 @@
                     {{ end }}
                   </td>
                 </tr>
+                {{ $type = .CardType }}
               {{ end }}
             </tbody>
           </table>
