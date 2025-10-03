@@ -32,5 +32,10 @@ func SetupRoutes() *http.ServeMux {
 	mux.HandleFunc("GET /leaderboards", LeaderboardsHandler)
 	mux.HandleFunc("GET /decklists/{id}", DecklistHandler)
 
+	mux.HandleFunc("GET /_/health", func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(http.StatusOK)
+		w.Write([]byte("ok"))
+	})
+
 	return mux
 }
