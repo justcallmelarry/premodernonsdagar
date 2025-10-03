@@ -22,7 +22,7 @@
               {{ $suffix := .Suffix }}
               {{ $type := .Type }}
               {{ range $index, $entry := .Entries }}
-                <tr class="{{ $.Scheme.TableRowHover }}" onclick="window.location='{{ $entry.URL }}'">
+                <tr class="{{ $.Scheme.TableRowHover }} cursor-pointer" onclick="window.location='{{ $entry.URL }}'">
                   <td class="px-6 py-2 text-sm whitespace-nowrap text-gray-900 dark:text-white">
                     {{ add $index 1 }}.
                     {{ $entry.Name }}
