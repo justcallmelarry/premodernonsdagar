@@ -73,6 +73,11 @@ func generateLeaderboards() error {
 			Type:    "int",
 		},
 		{
+			Title:   "Extra Matches Played",
+			Entries: topN(players, func(p Player) float64 { return float64(p.ExtraMatchesPlayed) }, 8),
+			Type:    "int",
+		},
+		{
 			Title:   "Unfinished Events",
 			Entries: topN(players, func(p Player) float64 { return float64(p.UnfinishedEvents) }, 8),
 			Type:    "int",
