@@ -2,7 +2,6 @@ package templates
 
 type TailwindClasses struct {
 	Link          string
-	LinkInternal  string
 	ButtonBack    string
 	ButtonPrimary string
 	TableRowHover string
