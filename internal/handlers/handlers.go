@@ -42,9 +42,9 @@ func NotFoundHandler(w http.ResponseWriter, r *http.Request) {
 
 func AboutHandler(w http.ResponseWriter, r *http.Request) {
 	templateData := map[string]interface{}{
-		"ActivePage":       "about",
-		"Scheme":           templates.ColorScheme(),
-		"maintainer_email": "test@example.com",
+		"ActivePage": "about",
+		"Scheme":     templates.ColorScheme(),
+		"Rules":      templates.Rules(),
 	}
 	templates.RenderTemplate(w, "about.tmpl", templateData)
 }

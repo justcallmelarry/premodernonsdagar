@@ -114,3 +114,16 @@ func renderTemplateToFile(tmpl string, data interface{}, outputPath string) erro
 
 	return nil
 }
+
+func Rules() []string {
+	return []string{
+		"We play on even weeks (week number 2, 4, 6, etc)",
+		"We play best of 3 matches against four different opponents",
+		"Once those four matches are done, you may still play additional matches against people who have not yet played all their four matches, they will count for your opponent, but not for you. You do, however, get to play more magic!",
+		"Use the same deck (including sideboard) for all matches",
+		"Untimed rounds, but no \"slow play\", please",
+		"We play Premodern*",
+		"All proxies and gold border cards are allowed",
+		"Optional, but encouraged, to send a decklist to the organizers",
+	}
+}

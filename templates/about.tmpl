@@ -4,14 +4,10 @@
 {{ define "content" }}
   <div>
     <h3 class="mb-4 text-2xl font-bold text-gray-900 dark:text-white">Rules</h3>
-    <ul class="mb-4 list-inside list-disc space-y-2 text-gray-700 dark:text-gray-300">
-      <li>We play on even weeks (week number 2, 4, 6, etc)</li>
-      <li>We play best of 3 matches against four <strong>different</strong> opponents</li>
-      <li>Use the same deck (including sideboard) for all matches</li>
-      <li>Untimed rounds, but no "slow play", please</li>
-      <li>We play Premodern*</li>
-      <li>All proxies and gold border cards are allowed</li>
-      <li>Optional, but encouraged, to send a decklist to the organizers</li>
+    <ul class="mb-4 ml-0 list-inside list-disc space-y-2 pl-0 text-gray-700 dark:text-gray-300">
+      {{ range $rule := .Rules }}
+        <li>{{ $rule }}</li>
+      {{ end }}
     </ul>
 
     <p class="mt-2 mb-4 text-sm text-gray-500 dark:text-gray-400">
