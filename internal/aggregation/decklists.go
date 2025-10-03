@@ -55,6 +55,7 @@ func processDecklistFile(cm *cardmatcher.CardMatcher, filePath string) (*Decklis
 	decklist.EventName = eventData.Name
 	for playerName, playerInfo := range eventData.PlayerInfo {
 		if playerInfo.Decklist == baseName {
+			decklist.DeckName = playerInfo.Deck
 			decklist.PlayerName = playerName
 			break
 		}
