@@ -42,3 +42,4 @@ static/source/*.jpg
 pages/
 scripts/*.json
 !files/db.json
+static/images/scryfall/

@@ -3,9 +3,12 @@ package handlers
 import (
 	"encoding/json"
 	"fmt"
+	"io"
 	"log"
 	"net/http"
+	"net/url"
 	"os"
+	"strings"
 	"time"
 
 	"premodernonsdagar/internal/aggregation"
@@ -214,4 +217,62 @@ func DecklistHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	templates.RenderTemplate(w, "decklist.tmpl", templateData)
+}
+
+func ImagesHandler(w http.ResponseWriter, r *http.Request) {
+	scryfallURL := r.URL.Query().Get("url")
+	if scryfallURL == "" {
+		http.Error(w, "Missing 'url' query parameter", http.StatusBadRequest)
+		return
+	}
+	parsedURL, err := url.Parse(scryfallURL)
+	if err != nil {
+		http.Error(w, "Invalid Scryfall URL", http.StatusBadRequest)
+		return
+	}
+
+	parsedURL.RawQuery = ""
+	parsedURL.Fragment = ""
+	pathParts := strings.Split(strings.Trim(parsedURL.Path, "/"), "/")
+	if len(pathParts) == 0 {
+		http.Error(w, "Invalid Scryfall URL", http.StatusBadRequest)
+		return
+	}
+	filename := pathParts[len(pathParts)-1]
+
+	// Ensure the directory exists
+	if _, err := os.Stat("static/images/scryfall"); os.IsNotExist(err) {
+		err = os.MkdirAll("static/images/scryfall", 0755)
+		if err != nil {
+			http.Error(w, "Failed to create image directory", http.StatusInternalServerError)
+			return
+		}
+	}
+
+	imagePath := "static/images/scryfall/" + filename
+
+	if _, err := os.Stat(imagePath); os.IsNotExist(err) {
+		resp, err := http.Get(scryfallURL)
+		if err != nil {
+			http.Error(w, "Failed to fetch image from Scryfall", http.StatusInternalServerError)
+			return
+		}
+		defer resp.Body.Close()
+
+		// Save the image to the local file system
+		out, err := os.Create(imagePath)
+		if err != nil {
+			http.Error(w, "Failed to save image", http.StatusInternalServerError)
+			return
+		}
+		defer out.Close()
+
+		_, err = io.Copy(out, resp.Body)
+		if err != nil {
+			http.Error(w, "Failed to save image", http.StatusInternalServerError)
+			return
+		}
+	}
+
+	http.Redirect(w, r, "/"+imagePath, http.StatusFound)
 }
