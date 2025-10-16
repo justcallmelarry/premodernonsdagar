@@ -75,9 +75,9 @@ func processDecklistFile(cm *cardmatcher.CardMatcher, filePath string) (*Decklis
 
 		// Handle comments
 		if strings.HasPrefix(line, "//") {
-			// Check if this is the sideboard marker
-			comment := strings.ToLower(strings.TrimSpace(line[2:]))
-			if comment == "sideboard" {
+			// Check if the word "sideboard" is included in the comment
+			comment := strings.ToLower(strings.TrimSpace(line))
+			if strings.Contains(comment, "sideboard") {
 				inSideboard = true
 			}
 			continue
