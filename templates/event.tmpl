@@ -4,9 +4,7 @@
 {{ define "content" }}
   {{ $eventName := .Event.Name }}
   <div>
-    <h3 class="mb-4 text-2xl font-bold text-gray-900 dark:text-white">
-      {{ $eventName }}
-    </h3>
+    <h3 class="mb-4 text-2xl font-bold text-gray-900 dark:text-white">{{ $eventName }} ({{ .Event.Attendance }} players)</h3>
     <hr class="mb-4 border-gray-200 dark:border-gray-700" />
     <h3 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">Results</h3>
     <div class="mb-8 overflow-x-auto rounded">

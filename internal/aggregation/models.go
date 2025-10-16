@@ -17,10 +17,11 @@ type PlayerResult struct {
 }
 
 type Event struct {
-	Name    string  `json:"name"`
-	Date    string  `json:"date"`
-	Rounds  int     `json:"rounds"`
-	Matches []Match `json:"matches"`
+	Name       string  `json:"name"`
+	Date       string  `json:"date"`
+	Rounds     int     `json:"rounds"`
+	Matches    []Match `json:"matches"`
+	Attendance int     `json:"attendance"`
 	// Results       map[string]string `json:"results"`
 	Results []PlayerResult `json:"results"`
 }

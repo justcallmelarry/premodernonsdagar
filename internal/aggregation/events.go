@@ -81,7 +81,7 @@ func generateEventsList() error {
 
 		// Create an event list item with name and date (same value for both)
 		event := EventListItem{
-			Name: eventData.Name,
+			Name: eventData.Name + " (" + fmt.Sprintf("%d players", attendance) + ")",
 			Date: eventData.Date,
 			URL:  "/events/" + eventData.Date,
 		}
@@ -156,11 +156,12 @@ func generateEventsList() error {
 		}
 
 		outputEvent := Event{
-			Name:    eventData.Name,
-			Date:    eventData.Date,
-			Rounds:  eventData.Rounds,
-			Matches: eventData.Matches,
-			Results: results,
+			Name:       eventData.Name,
+			Date:       eventData.Date,
+			Attendance: attendance,
+			Rounds:     eventData.Rounds,
+			Matches:    eventData.Matches,
+			Results:    results,
 		}
 
 		// Save the updated event data back to its file
