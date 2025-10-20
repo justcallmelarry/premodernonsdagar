@@ -17,13 +17,12 @@ type PlayerResult struct {
 }
 
 type Event struct {
-	Name       string  `json:"name"`
-	Date       string  `json:"date"`
-	Rounds     int     `json:"rounds"`
-	Matches    []Match `json:"matches"`
-	Attendance int     `json:"attendance"`
-	// Results       map[string]string `json:"results"`
-	Results []PlayerResult `json:"results"`
+	Name       string         `json:"name"`
+	Date       string         `json:"date"`
+	Rounds     int            `json:"rounds"`
+	Matches    []Match        `json:"matches"`
+	Attendance int            `json:"attendance"`
+	Results    []PlayerResult `json:"results"`
 }
 
 type PlayerEventInfo struct {
@@ -94,9 +93,9 @@ type EventListItem struct {
 	URL  string `json:"url"`
 }
 
-type MatchupRecord struct {
-	Opponent string `json:"opponent"`
-	Count    int    `json:"count"`
+type StatsContainer struct {
+	Key   string `json:"key"`
+	Value int    `json:"value"`
 }
 
 type PlayerEventData struct {
@@ -110,21 +109,22 @@ type HistoryEntry struct {
 }
 
 type Player struct {
-	Name               string          `json:"name"`
-	UndefeatedEvents   int             `json:"undefeated_events"`
-	UnfinishedEvents   int             `json:"unfinished_events"`
-	AttendedEvents     int             `json:"attended_events"`
-	EloRating          int             `json:"elo_rating"`
-	GlickoRating       GlickoRating    `json:"glicko_rating"`
-	DrawCounter        int             `json:"draw_counter"`
-	GameWinRate        float64         `json:"game_win_rate"`
-	MatchWinRate       float64         `json:"match_win_rate"`
-	WonAgainst         []MatchupRecord `json:"won_against"`
-	ExtraMatchesPlayed int             `json:"extra_matches_played"`
-	LostAgainst        []MatchupRecord `json:"lost_against"`
-	EloHistory         []HistoryEntry  `json:"elo_history"`
-	GlickoHistory      []HistoryEntry  `json:"glicko_history"`
-	WinRateHistory     []HistoryEntry  `json:"win_rate_history"`
+	Name               string           `json:"name"`
+	UndefeatedEvents   int              `json:"undefeated_events"`
+	UnfinishedEvents   int              `json:"unfinished_events"`
+	AttendedEvents     int              `json:"attended_events"`
+	EloRating          int              `json:"elo_rating"`
+	GlickoRating       GlickoRating     `json:"glicko_rating"`
+	DrawCounter        int              `json:"draw_counter"`
+	GameWinRate        float64          `json:"game_win_rate"`
+	MatchWinRate       float64          `json:"match_win_rate"`
+	WonAgainst         []StatsContainer `json:"won_against"`
+	ExtraMatchesPlayed int              `json:"extra_matches_played"`
+	LostAgainst        []StatsContainer `json:"lost_against"`
+	EloHistory         []HistoryEntry   `json:"elo_history"`
+	GlickoHistory      []HistoryEntry   `json:"glicko_history"`
+	WinRateHistory     []HistoryEntry   `json:"win_rate_history"`
+	MatchesWithDecks   []StatsContainer `json:"matches_with_deck"`
 }
 
 type GlickoRating struct {

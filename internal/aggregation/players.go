@@ -22,19 +22,19 @@ func (o *GlickoOpponent) Sigma() float64 { return o.sigma }
 func (o *GlickoOpponent) SJ() float64    { return o.score }
 
 // sortMatchupsByValue sorts a map[string]int by value in descending order
-func sortMatchupsByValue(matchups map[string]int) []MatchupRecord {
+func sortMatchupsByValue(matchups map[string]int) []StatsContainer {
 	// Convert map to slice of MatchupRecord
-	records := make([]MatchupRecord, 0, len(matchups))
+	records := make([]StatsContainer, 0, len(matchups))
 	for opponent, count := range matchups {
-		records = append(records, MatchupRecord{
-			Opponent: opponent,
-			Count:    count,
+		records = append(records, StatsContainer{
+			Key:   opponent,
+			Value: count,
 		})
 	}
 
 	// Sort by count in descending order
 	sort.Slice(records, func(i, j int) bool {
-		return records[i].Count > records[j].Count
+		return records[i].Value > records[j].Value
 	})
 
 	return records
@@ -125,6 +125,8 @@ func aggregatePlayerStats() error {
 
 	sort.Strings(eventFiles)
 
+	decks := make(map[string]map[string]int)
+
 	// Process each event
 	for _, eventPath := range eventFiles {
 		eventData, err := readEventFile(eventPath)
@@ -202,6 +204,15 @@ func aggregatePlayerStats() error {
 			players[match.Player2].EloRating = p2OutcomeElo.Rating
 
 			// Glicko-2: needs to be done after processing all matches
+		}
+
+		for _, result := range eventData.Results {
+			if result.Deck != "" {
+				if _, exists := decks[result.Name]; !exists {
+					decks[result.Name] = make(map[string]int)
+				}
+				decks[result.Name][result.Deck] += eventPlayerData[result.Name].TotalMatchesPlayed
+			}
 		}
 
 		for name := range eventPlayerData {
@@ -336,6 +347,20 @@ func aggregatePlayerStats() error {
 			GlickoHistory:      stats.GlickoHistory,
 			WinRateHistory:     stats.WinRateHistory,
 		}
+
+		for deck, count := range decks[name] {
+			player.MatchesWithDecks = append(player.MatchesWithDecks, StatsContainer{
+				Key:   deck,
+				Value: count,
+			})
+		}
+
+		sort.Slice(player.MatchesWithDecks, func(i, j int) bool {
+			if player.MatchesWithDecks[i].Value == player.MatchesWithDecks[j].Value {
+				return player.MatchesWithDecks[i].Key < player.MatchesWithDecks[j].Key
+			}
+			return player.MatchesWithDecks[i].Value > player.MatchesWithDecks[j].Value
+		})
 
 		playerJSON, err := json.MarshalIndent(player, "", "  ")
 		if err != nil {

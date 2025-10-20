@@ -44,7 +44,7 @@
   <hr class="my-4 border-gray-200 dark:border-gray-700" />
   <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
     <div>
-      <div class="rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
+      <div class="mb-4 rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
         <div class="p-6">
           <table class="min-w-full">
             <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
@@ -90,6 +90,31 @@
           </table>
         </div>
       </div>
+      <div class="mb-4 rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
+        <div class="p-6">
+          <h4 class="mb-4 text-lg font-semibold text-gray-900 dark:text-white">Matches Played With Decks</h4>
+          {{ if eq (len .Player.MatchesWithDecks) 0 }}
+            <p class="text-gray-500 dark:text-gray-400">No matches played yet.</p>
+          {{ else }}
+            <div class="max-h-32 overflow-y-auto">
+              <table class="min-w-full">
+                <tbody>
+                  {{ range .Player.MatchesWithDecks }}
+                    <tr>
+                      <td class="text-gray-500 dark:text-gray-400">
+                        {{ .Key }}
+                      </td>
+                      <td class="pr-4 text-right text-gray-500 dark:text-gray-400">
+                        {{ .Value }}
+                      </td>
+                    </tr>
+                  {{ end }}
+                </tbody>
+              </table>
+            </div>
+          {{ end }}
+        </div>
+      </div>
     </div>
     <div>
       <div class="mb-4 rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
@@ -104,10 +129,10 @@
                   {{ range .Player.WonAgainst }}
                     <tr>
                       <td class="text-gray-500 dark:text-gray-400">
-                        {{ .Opponent }}
+                        {{ .Key }}
                       </td>
                       <td class="pr-4 text-right text-gray-500 dark:text-gray-400">
-                        {{ .Count }}
+                        {{ .Value }}
                       </td>
                     </tr>
                   {{ end }}
@@ -129,10 +154,10 @@
                   {{ range .Player.LostAgainst }}
                     <tr>
                       <td class="text-gray-500 dark:text-gray-400">
-                        {{ .Opponent }}
+                        {{ .Key }}
                       </td>
                       <td class="pr-4 text-right text-gray-500 dark:text-gray-400">
-                        {{ .Count }}
+                        {{ .Value }}
                       </td>
                     </tr>
                   {{ end }}
