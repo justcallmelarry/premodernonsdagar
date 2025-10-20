@@ -355,12 +355,9 @@ func aggregatePlayerStats() error {
 			})
 		}
 
-		sort.Slice(player.MatchesWithDecks, func(i, j int) bool {
-			if player.MatchesWithDecks[i].Value == player.MatchesWithDecks[j].Value {
-				return player.MatchesWithDecks[i].Key < player.MatchesWithDecks[j].Key
-			}
-			return player.MatchesWithDecks[i].Value > player.MatchesWithDecks[j].Value
-		})
+		player.MatchesWithDecks = sortStatsContainerSlice(player.MatchesWithDecks)
+		player.WonAgainst = sortStatsContainerSlice(player.WonAgainst)
+		player.LostAgainst = sortStatsContainerSlice(player.LostAgainst)
 
 		playerJSON, err := json.MarshalIndent(player, "", "  ")
 		if err != nil {
@@ -456,4 +453,14 @@ func ParseMatchResult(match Match) MatchResult {
 			Score:  match.Result,
 		}
 	}
+}
+
+func sortStatsContainerSlice(slice []StatsContainer) []StatsContainer {
+	sort.Slice(slice, func(i, j int) bool {
+		if slice[i].Value == slice[j].Value {
+			return slice[i].Key < slice[j].Key
+		}
+		return slice[i].Value > slice[j].Value
+	})
+	return slice
 }
