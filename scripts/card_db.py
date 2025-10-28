@@ -74,7 +74,7 @@ def main() -> None:
 
         db_card = {
             "name": name,
-            "image_url": card.get("image_uris", {}).get("normal", ""),
+            "image_url": card.get("image_uris", {}).get("border_crop", ""),
             "legality": legality,
             "card_type": card_type,
         }
