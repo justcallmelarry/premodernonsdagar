@@ -2,12 +2,12 @@
 package aggregation
 
 func AggregateStats() error {
-	err := aggregatePlayerStats()
+	err := generateEventsList()
 	if err != nil {
 		return err
 	}
 
-	err = generateEventsList()
+	err = aggregatePlayerStats()
 	if err != nil {
 		return err
 	}
