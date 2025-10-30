@@ -10,7 +10,7 @@
             {{ .Title }}
           </h3>
         </div>
-        <div class="overflow-x-auto">
+        <div class="max-h-92 overflow-x-auto overflow-y-auto">
           <table class="min-w-full bg-white dark:bg-gray-800">
             <thead class="bg-gray-50 dark:bg-gray-700">
               <tr>
@@ -22,6 +22,7 @@
               {{ $suffix := .Suffix }}
               {{ $type := .Type }}
               {{ range $index, $entry := .Entries }}
+                {{ if ge $index $.ShowCount }}{{ break }}{{ end }}
                 <tr class="{{ $.Scheme.TableRowHover }} cursor-pointer" onclick="window.location='{{ $entry.URL }}'">
                   <td class="px-6 py-2 whitespace-nowrap text-gray-900 dark:text-white">
                     {{ add $index 1 }}.

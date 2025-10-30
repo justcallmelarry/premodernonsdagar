@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"net/url"
 	"os"
+	"strconv"
 	"strings"
 	"time"
 
@@ -184,10 +185,18 @@ func LeaderboardsHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	showCount := 8
+	if countParam := r.URL.Query().Get("show"); countParam != "" {
+		if count, err := strconv.Atoi(countParam); err == nil && count > 0 {
+			showCount = count
+		}
+	}
+
 	templateData := map[string]interface{}{
 		"ActivePage":   "leaderboards",
 		"Scheme":       templates.ColorScheme(),
 		"Leaderboards": leaderboardsData,
+		"ShowCount":    showCount,
 	}
 	templates.RenderTemplate(w, "leaderboards.tmpl", templateData)
 }

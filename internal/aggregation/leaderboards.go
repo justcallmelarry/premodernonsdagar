@@ -42,44 +42,44 @@ func generateLeaderboards() error {
 	leaderboards := []LeaderboardContainer{
 		{
 			Title:   "Elo Rating",
-			Entries: topN(players, func(p Player) float64 { return float64(p.EloRating) }, 8),
+			Entries: topN(players, func(p Player) float64 { return float64(p.EloRating) }, 32),
 			Type:    "int",
 		},
 		{
 			Title:   "Glicko2 Rating",
-			Entries: topN(players, func(p Player) float64 { return p.GlickoRating.Mu }, 8),
+			Entries: topN(players, func(p Player) float64 { return p.GlickoRating.Mu }, 32),
 			Type:    "float",
 		},
 		{
 			Title:   "Match Win Percentage",
-			Entries: topN(players, func(p Player) float64 { return p.MatchWinRate }, 8),
+			Entries: topN(players, func(p Player) float64 { return p.MatchWinRate }, 32),
 			Type:    "float",
 			Suffix:  "%",
 		},
 		{
 			Title:   "Game Win Percentage",
-			Entries: topN(players, func(p Player) float64 { return p.GameWinRate }, 8),
+			Entries: topN(players, func(p Player) float64 { return p.GameWinRate }, 32),
 			Type:    "float",
 			Suffix:  "%",
 		},
 		{
 			Title:   "Played Events",
-			Entries: topN(players, func(p Player) float64 { return float64(p.AttendedEvents) }, 8),
+			Entries: topN(players, func(p Player) float64 { return float64(p.AttendedEvents) }, 32),
 			Type:    "int",
 		},
 		{
 			Title:   "Undefeated Events",
-			Entries: topN(players, func(p Player) float64 { return float64(p.UndefeatedEvents) }, 8),
+			Entries: topN(players, func(p Player) float64 { return float64(p.UndefeatedEvents) }, 32),
 			Type:    "int",
 		},
 		{
 			Title:   "Extra Matches Played",
-			Entries: topN(players, func(p Player) float64 { return float64(p.ExtraMatchesPlayed) }, 8),
+			Entries: topN(players, func(p Player) float64 { return float64(p.ExtraMatchesPlayed) }, 32),
 			Type:    "int",
 		},
 		{
 			Title:   "Unfinished Events",
-			Entries: topN(players, func(p Player) float64 { return float64(p.UnfinishedEvents) }, 8),
+			Entries: topN(players, func(p Player) float64 { return float64(p.UnfinishedEvents) }, 32),
 			Type:    "int",
 		},
 	}
