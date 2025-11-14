@@ -1,5 +1,14 @@
+# /// script
+# requires-python = ">=3.12"
+# dependencies = [
+#     "typer",
+# ]
+# ///
 import json
 from pathlib import Path
+
+import rich
+import typer
 
 LEGAL_SETS = [
     "4ed",
@@ -33,8 +42,40 @@ LEGAL_SETS = [
     "scg",
 ]
 
+app = typer.Typer()
 
-def main() -> None:
+
+@app.command()
+def event(date: str, matches: int, players: list[str]) -> None:
+    event_data = {
+        "name": f"Onsdagstävling {date}",
+        "date": date,
+        "rounds": 4,
+        "player_info": {},
+        "matches": [],
+    }
+    for player in players:
+        event_data["player_info"][player] = {
+            "deck": "",
+            "decklist": "",
+        }
+
+    for match in range(1, matches + 1):
+        event_data["matches"].append(
+            {
+                "player_1": "",
+                "player_2": "",
+                "result": "",
+            }
+        )
+
+    event_path = Path(__file__).parent.parent / "input" / "events" / f"{date}.json"
+
+    with open(event_path, "w") as f:
+        json.dump(event_data, f, indent=4, ensure_ascii=False)
+
+
+def db() -> None:
     """
     Generate a card database (db.json) from the provided scryfall default cards file.
     """
@@ -66,20 +107,17 @@ def main() -> None:
         if set_code not in LEGAL_SETS:
             continue
 
-        if name in ("Plains", "Island", "Swamp", "Mountain", "Forest"):
-            continue
-
-        price_trend = card.get("prices", {}).get("eur", None)
-        if price_trend is not None:
-            try:
-                price_trend = float(price_trend)
-            except ValueError:
-                price_trend = None
+        card_type = "other"
+        if "Land" in card.get("type_line", ""):
+            card_type = "land"
+        elif "Creature" in card.get("type_line", ""):
+            card_type = "creature"
 
         db_card = {
             "name": name,
-            "image_url": card.get("image_uris", {}).get("normal", ""),
-            "price_trend": price_trend,
+            "image_url": card.get("image_uris", {}).get("border_crop", ""),
+            "legality": legality,
+            "card_type": card_type,
         }
 
         if border == "white":
@@ -99,14 +137,16 @@ def main() -> None:
         cards_db.append(db_card)
         unique_cards.add(name)
 
-    with open(current_dir / "db.json", "w") as f:
+    with open(current_dir.parent / "files" / "db.json", "w") as f:
         json.dump(sorted(cards_db, key=lambda x: x["name"]), f, indent=2)
 
     card_count = len(cards_db)
-    print(f"Card database updated with {card_count} cards.")
-    if card_count != 5403:
-        print("Warning: The expected card count is 5403. Please verify the database.")
+    rich.print(f"Card database updated with {card_count} cards.")
+    if card_count != 5408:
+        rich.print(
+            "Warning: The expected card count is 5408. Please verify the database."
+        )
 
 
 if __name__ == "__main__":
-    main()
+    app()
