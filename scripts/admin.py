@@ -1,9 +1,3 @@
-# /// script
-# requires-python = ">=3.12"
-# dependencies = [
-#     "typer",
-# ]
-# ///
 import json
 from pathlib import Path
 
@@ -75,12 +69,40 @@ def event(date: str, matches: int, players: list[str]) -> None:
         json.dump(event_data, f, indent=4, ensure_ascii=False)
 
 
-def db() -> None:
+@app.command()
+def rename(old_name: str, new_name: str) -> None:
+    """
+    Rename a player in all event files from old_name to new_name.
+    """
+    events_dir = Path(__file__).parent.parent / "input" / "events"
+    event_files = events_dir.glob("*.json")
+
+    for event_file in event_files:
+        with open(event_file, "r") as f:
+            event_data = json.load(f)
+
+        if old_name in event_data["player_info"]:
+            event_data["player_info"][new_name] = event_data["player_info"].pop(old_name)
+
+            for match in event_data["matches"]:
+                if match["player_1"] == old_name:
+                    match["player_1"] = new_name
+                if match["player_2"] == old_name:
+                    match["player_2"] = new_name
+
+            with open(event_file, "w") as f:
+                json.dump(event_data, f, indent=4, ensure_ascii=False)
+
+            rich.print(f"Renamed {old_name} to {new_name} in event file {event_file.name}")
+
+
+@app.command()
+def db(filename: Path) -> None:
     """
     Generate a card database (db.json) from the provided scryfall default cards file.
     """
     current_dir = Path(__file__).parent
-    with open(current_dir / "default-cards.json", "r") as f:
+    with open(filename, "r") as f:
         cards = json.load(f)
 
     cards_db = []
@@ -143,9 +165,7 @@ def db() -> None:
     card_count = len(cards_db)
     rich.print(f"Card database updated with {card_count} cards.")
     if card_count != 5408:
-        rich.print(
-            "Warning: The expected card count is 5408. Please verify the database."
-        )
+        rich.print("Warning: The expected card count is 5408. Please verify the database.")
 
 
 if __name__ == "__main__":
