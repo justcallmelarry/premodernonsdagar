@@ -1,3 +1,4 @@
+// Package handlers sets up HTTP routes for the web server.
 package handlers
 
 import (
@@ -30,6 +31,7 @@ func SetupRoutes() *http.ServeMux {
 	mux.HandleFunc("GET /players", PlayersHandler)
 	mux.HandleFunc("GET /players/{id}", PlayerDetailHandler)
 	mux.HandleFunc("GET /leaderboards", LeaderboardsHandler)
+	mux.HandleFunc("GET /leaderboards/{season}", LeaderboardsDetailHandler)
 	mux.HandleFunc("GET /decklists/{id}", DecklistHandler)
 	mux.HandleFunc("GET /images", ImagesHandler)
 

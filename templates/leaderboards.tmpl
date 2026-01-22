@@ -2,6 +2,16 @@
 
 {{ define "title" }}Leaderboards{{ end }}
 {{ define "content" }}
+  <div class="mb-8 flex items-center justify-between">
+    <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Season {{ .Season }}</h2>
+    {{ if gt (len .Seasons) 1 }}
+      <select onchange="window.location.href=this.value" class="px-4 py-2 rounded bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors">
+        {{ range .Seasons }}
+          <option value="{{ .URL }}" {{ if eq .Season $.Season }}selected{{ end }}>Season {{ .Season }}</option>
+        {{ end }}
+      </select>
+    {{ end }}
+  </div>
   <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
     {{ range .Leaderboards }}
       <div class="rounded-lg border border-gray-200 bg-white pb-4 shadow dark:border-gray-700 dark:bg-gray-800">

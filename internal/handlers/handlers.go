@@ -172,13 +172,13 @@ func PlayerDetailHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func LeaderboardsHandler(w http.ResponseWriter, r *http.Request) {
-	fileContent, err := os.ReadFile("files/lists/leaderboards.json")
+	fileContent, err := os.ReadFile("files/lists/leaderboards/current.json")
 	if err != nil {
 		http.Error(w, "Error reading leaderboards file", http.StatusInternalServerError)
 		return
 	}
 
-	var leaderboardsData []aggregation.LeaderboardContainer
+	var leaderboardsData aggregation.LeaderbardsInformation
 	err = json.Unmarshal(fileContent, &leaderboardsData)
 	if err != nil {
 		http.Error(w, "Error loading leaderboards data", http.StatusInternalServerError)
@@ -195,8 +195,45 @@ func LeaderboardsHandler(w http.ResponseWriter, r *http.Request) {
 	templateData := map[string]interface{}{
 		"ActivePage":   "leaderboards",
 		"Scheme":       templates.ColorScheme(),
-		"Leaderboards": leaderboardsData,
+		"Leaderboards": leaderboardsData.Leaderboards,
 		"ShowCount":    showCount,
+		"Season":       leaderboardsData.Season,
+		"Seasons":      leaderboardsData.AllSeasons,
+	}
+	templates.RenderTemplate(w, "leaderboards.tmpl", templateData)
+}
+
+func LeaderboardsDetailHandler(w http.ResponseWriter, r *http.Request) {
+	// Extract season from URL path
+	season := r.URL.Path[len("/leaderboards/"):]
+
+	fileContent, err := os.ReadFile("files/lists/leaderboards/" + season + ".json")
+	if err != nil {
+		http.Error(w, "Error reading leaderboards file", http.StatusInternalServerError)
+		return
+	}
+
+	var leaderboardsData aggregation.LeaderbardsInformation
+	err = json.Unmarshal(fileContent, &leaderboardsData)
+	if err != nil {
+		http.Error(w, "Error loading leaderboards data", http.StatusInternalServerError)
+		return
+	}
+
+	showCount := 8
+	if countParam := r.URL.Query().Get("show"); countParam != "" {
+		if count, err := strconv.Atoi(countParam); err == nil && count > 0 {
+			showCount = count
+		}
+	}
+
+	templateData := map[string]interface{}{
+		"ActivePage":   "leaderboards",
+		"Scheme":       templates.ColorScheme(),
+		"Leaderboards": leaderboardsData.Leaderboards,
+		"ShowCount":    showCount,
+		"Season":       leaderboardsData.Season,
+		"Seasons":      leaderboardsData.AllSeasons,
 	}
 	templates.RenderTemplate(w, "leaderboards.tmpl", templateData)
 }

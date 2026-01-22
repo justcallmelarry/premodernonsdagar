@@ -19,6 +19,7 @@ type PlayerResult struct {
 type Event struct {
 	Name       string         `json:"name"`
 	Date       string         `json:"date"`
+	Season     string         `json:"season"`
 	Rounds     int            `json:"rounds"`
 	Matches    []Match        `json:"matches"`
 	Attendance int            `json:"attendance"`
@@ -88,9 +89,10 @@ type EventListStats struct {
 }
 
 type EventListItem struct {
-	Name string `json:"name"`
-	Date string `json:"date"`
-	URL  string `json:"url"`
+	Name   string `json:"name"`
+	Date   string `json:"date"`
+	Season string `json:"season"`
+	URL    string `json:"url"`
 }
 
 type StatsContainer struct {
@@ -131,6 +133,17 @@ type GlickoRating struct {
 	Mu    float64 `json:"mu"`    // Rating
 	Phi   float64 `json:"phi"`   // Rating Deviation
 	Sigma float64 `json:"sigma"` // Volatility
+}
+
+type LeaderboardSeasonEntry struct {
+	Season string `json:"season"`
+	URL    string `json:"url"`
+}
+
+type LeaderbardsInformation struct {
+	Season       string                   `json:"season"`
+	AllSeasons   []LeaderboardSeasonEntry `json:"all_seasons"`
+	Leaderboards []LeaderboardContainer   `json:"leaderboards"`
 }
 
 type LeaderboardContainer struct {

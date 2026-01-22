@@ -35,6 +35,27 @@ func generateEventsList() error {
 
 	attendances := []int{}
 
+	// First pass: collect all event dates to determine first event
+	eventDates := []string{}
+	for _, eventFile := range eventFiles {
+		data, err := os.ReadFile(eventFile)
+		if err != nil {
+			return fmt.Errorf("failed to read event file %s: %w", eventFile, err)
+		}
+		var eventData InputEvent
+		if err := json.Unmarshal(data, &eventData); err != nil {
+			return fmt.Errorf("failed to parse event file %s: %w", eventFile, err)
+		}
+		eventDates = append(eventDates, eventData.Date)
+	}
+
+	// Sort to find first event date
+	sort.Strings(eventDates)
+	var firstEventDate string
+	if len(eventDates) > 0 {
+		firstEventDate = eventDates[0]
+	}
+
 	// Collect existing event JSON files
 	existingEventFiles := make(map[string]bool)
 	err = filepath.WalkDir("files/events", func(path string, d fs.DirEntry, err error) error {
@@ -79,11 +100,18 @@ func generateEventsList() error {
 
 		attendances = append(attendances, attendance)
 
+		// Get season for this event
+		season, err := GetSeason(eventData.Date, firstEventDate)
+		if err != nil {
+			return fmt.Errorf("failed to get season for event %s: %w", eventData.Date, err)
+		}
+
 		// Create an event list item with name and date (same value for both)
 		event := EventListItem{
-			Name: eventData.Name + " (" + fmt.Sprintf("%d players", attendance) + ")",
-			Date: eventData.Date,
-			URL:  "/events/" + eventData.Date,
+			Name:   eventData.Name + " (" + fmt.Sprintf("%d players", attendance) + ")",
+			Date:   eventData.Date,
+			Season: season,
+			URL:    "/events/" + eventData.Date,
 		}
 
 		eventsOutputData.Events = append(eventsOutputData.Events, event)
@@ -158,6 +186,7 @@ func generateEventsList() error {
 		outputEvent := Event{
 			Name:       eventData.Name,
 			Date:       eventData.Date,
+			Season:     season,
 			Attendance: attendance,
 			Rounds:     eventData.Rounds,
 			Matches:    eventData.Matches,
