@@ -62,6 +62,7 @@ func RenderAllTemplates() error {
 		"NextEventWeekNumber": 42,
 		"Scheme":              ColorScheme(),
 		"Player":              aggregation.Player{},
+		"Seasons":             []aggregation.LeaderboardSeasonEntry{},
 	}
 
 	htmlOutputDir := "pages/html"

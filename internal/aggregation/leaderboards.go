@@ -78,7 +78,7 @@ func generateLeaderboards() error {
 		}
 	}
 
-	displaySeasons := []LeaderboardSeasonEntry{}
+	displaySeasons := make([]LeaderboardSeasonEntry, 0)
 	for _, season := range seasons {
 		url := "/leaderboards/" + season
 		if season == currentSeason {
