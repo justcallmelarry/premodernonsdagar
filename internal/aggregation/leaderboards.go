@@ -377,23 +377,22 @@ func calculateSeasonStats(allPlayers []Player, eventsInSeason []Event) []Player 
 						totalMatches++
 
 						if result.Draw {
-							// Draws count as 0.5 wins for win rate
-							// For games: 1-1
 							totalGames += 2
 							totalWins += 1
-						} else if result.Winner == stats.Name {
-							totalMatchWins++
-							// Parse game score
-							var winnerGames, loserGames int
-							fmt.Sscanf(result.Score, "%d-%d", &winnerGames, &loserGames)
-							totalGames += winnerGames + loserGames
-							totalWins += winnerGames
 						} else {
-							// Loss
-							var winnerGames, loserGames int
-							fmt.Sscanf(result.Score, "%d-%d", &winnerGames, &loserGames)
-							totalGames += winnerGames + loserGames
-							totalWins += loserGames
+							var player1Games, player2Games int
+							fmt.Sscanf(result.Score, "%d-%d", &player1Games, &player2Games)
+							totalGames += player1Games + player2Games
+
+							if match.Player1 == stats.Name {
+								totalWins += player1Games
+							} else {
+								totalWins += player2Games
+							}
+
+							if result.Winner == stats.Name {
+								totalMatchWins++
+							}
 						}
 					}
 				}
