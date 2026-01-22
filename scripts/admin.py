@@ -1,4 +1,5 @@
 import json
+import subprocess
 from pathlib import Path
 
 import rich
@@ -166,6 +167,38 @@ def db(filename: Path) -> None:
     rich.print(f"Card database updated with {card_count} cards.")
     if card_count != 5408:
         rich.print("Warning: The expected card count is 5408. Please verify the database.")
+
+
+@app.command()
+def decklist(date: str, player: str) -> None:
+    """
+    Update the decklist ID for a player in a specific event file.
+    """
+    player_slug = player.lower().replace(" ", "-")
+    decklist_path = Path(__file__).parent.parent / "input" / "decklists" / f"{date}-{player_slug}.txt"
+    if decklist_path.exists():
+        rich.print(f"Decklist file {decklist_path} already exists.")
+        return
+
+    clipboard_data = subprocess.run(["pbpaste"], capture_output=True, text=True).stdout
+
+    with open(decklist_path, "w") as f:
+        f.write(clipboard_data)
+
+    event_path = Path(__file__).parent.parent / "input" / "events" / f"{date}.json"
+
+    with open(event_path, "r") as f:
+        event_data = json.load(f)
+
+    if player in event_data["player_info"]:
+        event_data["player_info"][player]["decklist"] = f"{date}-{player_slug}"
+
+        with open(event_path, "w") as f:
+            json.dump(event_data, f, indent=4, ensure_ascii=False)
+
+        rich.print(f"Updated decklist for {player} in event file {event_path.name}")
+    else:
+        rich.print(f"Player {player} not found in event file {event_path.name}")
 
 
 if __name__ == "__main__":
