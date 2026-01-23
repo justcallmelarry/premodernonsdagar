@@ -4,6 +4,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"slices"
 
 	"premodernonsdagar/internal/aggregation"
 	"premodernonsdagar/internal/config"
@@ -21,11 +22,8 @@ func main() {
 
 	buildFlag := false
 	if len(os.Args) > 1 {
-		for _, arg := range os.Args[1:] {
-			if arg == "--build" {
-				buildFlag = true
-				break
-			}
+		if slices.Contains(os.Args[1:], "--build") {
+			buildFlag = true
 		}
 	}
 	if config.DevelopmentEnvironment || buildFlag {
