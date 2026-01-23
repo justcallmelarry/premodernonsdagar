@@ -13,11 +13,6 @@ import (
 )
 
 func main() {
-	if err := aggregation.AggregateStats(); err != nil {
-		log.Fatalf("Error aggregating player stats: %v", err)
-	}
-	log.Println("Stats aggregated successfully.")
-
 	config := config.GetConfig()
 
 	buildFlag := false
@@ -26,7 +21,13 @@ func main() {
 			buildFlag = true
 		}
 	}
+
 	if config.DevelopmentEnvironment || buildFlag {
+		if err := aggregation.AggregateStats(); err != nil {
+			log.Fatalf("Error aggregating player stats: %v", err)
+		}
+		log.Println("Stats aggregated successfully.")
+
 		err := templates.RenderAllTemplates()
 		if err != nil {
 			log.Fatalf("Error rendering templates: %v", err)
