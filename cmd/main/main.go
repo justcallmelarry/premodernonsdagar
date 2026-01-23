@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"net/http"
+	"os"
 
 	"premodernonsdagar/internal/aggregation"
 	"premodernonsdagar/internal/config"
@@ -17,12 +18,26 @@ func main() {
 	log.Println("Stats aggregated successfully.")
 
 	config := config.GetConfig()
-	if config.DevelopmentEnvironment {
+
+	buildFlag := false
+	if len(os.Args) > 1 {
+		for _, arg := range os.Args[1:] {
+			if arg == "--build" {
+				buildFlag = true
+				break
+			}
+		}
+	}
+	if config.DevelopmentEnvironment || buildFlag {
 		err := templates.RenderAllTemplates()
 		if err != nil {
 			log.Fatalf("Error rendering templates: %v", err)
 		}
 		log.Println("All templates rendered successfully.")
+	}
+
+	if buildFlag {
+		return
 	}
 
 	// Start the web server
