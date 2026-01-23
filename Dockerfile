@@ -6,10 +6,11 @@ COPY go.mod ./
 COPY cmd /app/cmd
 COPY internal /app/internal
 COPY pkg /app/pkg
-COPY files /app/files
-COPY input /app/input/
 
 RUN GOOS=linux GOARCH=arm64 CGO_ENABLED=0 go build -o /app/main cmd/main/main.go
+
+COPY files /app/files
+COPY input /app/input/
 RUN /app/main --build
 
 
