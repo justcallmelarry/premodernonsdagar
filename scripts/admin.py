@@ -1,7 +1,9 @@
 import json
 import subprocess
+from datetime import datetime
 from pathlib import Path
 
+import httpx
 import rich
 import typer
 
@@ -38,6 +40,33 @@ LEGAL_SETS = [
 ]
 
 app = typer.Typer()
+
+
+def _get_todays_bulk_file() -> dict:
+    current_dir = Path(__file__).parent
+    today = datetime.now().strftime("%Y-%m-%d")
+    todays_file = current_dir / f"default_cards_{today}.json"
+
+    if not todays_file.exists():
+        url = "https://api.scryfall.com/bulk-data"
+        response = httpx.get(url)
+        data = response.json()
+
+        bulk_url = ""
+        for o in data["data"]:
+            if o["type"] == "default_cards":
+                bulk_url = o["download_uri"]
+                break
+
+        if not bulk_url:
+            raise ValueError("Could not find default_cards bulk data URL.")
+
+        response = httpx.get(bulk_url)
+        with open(todays_file, "w") as f:
+            f.write(response.text)
+
+    with open(todays_file, "r") as f:
+        return json.load(f)
 
 
 @app.command()
@@ -98,13 +127,11 @@ def rename(old_name: str, new_name: str) -> None:
 
 
 @app.command()
-def db(filename: Path) -> None:
+def db() -> None:
     """
     Generate a card database (db.json) from the provided scryfall default cards file.
     """
-    current_dir = Path(__file__).parent
-    with open(filename, "r") as f:
-        cards = json.load(f)
+    cards = _get_todays_bulk_file()
 
     cards_db = []
     unique_cards = set()
@@ -160,7 +187,7 @@ def db(filename: Path) -> None:
         cards_db.append(db_card)
         unique_cards.add(name)
 
-    with open(current_dir.parent / "files" / "db.json", "w") as f:
+    with open(Path(__file__).parent.parent / "files" / "db.json", "w") as f:
         json.dump(sorted(cards_db, key=lambda x: x["name"]), f, indent=2)
 
     card_count = len(cards_db)
