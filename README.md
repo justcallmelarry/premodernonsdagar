@@ -18,6 +18,7 @@ To run the project locally, follow these steps:
 
 3. Run the service using Go:
    ```bash
+   go run cmd/main/main.go --build
    go run cmd/main/main.go
    ```
 
