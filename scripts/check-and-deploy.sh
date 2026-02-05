@@ -30,7 +30,7 @@ HASH_FILE="scripts/.etags.hash"
 
 # make sure we are up to date
 git pull
-uv run scripts/admin.py download
+/home/lauri/.cargo/bin/uv run scripts/admin.py download
 
 # Parse command line arguments
 VERBOSE=0
