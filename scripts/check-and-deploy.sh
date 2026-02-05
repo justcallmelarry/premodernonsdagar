@@ -13,6 +13,8 @@ ETAGS_FILE="scripts/etags.json"
 # Path to store the hash
 HASH_FILE="scripts/.etags.hash"
 
+# make sure we are up to date
+git pull
 uv run scripts/admin.py download
 
 # Parse command line arguments
