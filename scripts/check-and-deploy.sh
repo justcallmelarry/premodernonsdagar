@@ -29,8 +29,8 @@ ETAGS_FILE="scripts/etags.json"
 HASH_FILE="scripts/.etags.hash"
 
 # make sure we are up to date
-git pull
-/home/lauri/.cargo/bin/uv run scripts/admin.py download
+git pull >/dev/null 2>&1
+/home/lauri/.cargo/bin/uv run scripts/admin.py download >/dev/null 2>&1
 
 # Parse command line arguments
 VERBOSE=0
@@ -72,7 +72,7 @@ fi
 [ $VERBOSE -eq 1 ] && echo "Running docker-compose up -d --build..."
 
 # Run docker-compose
-if /usr/local/bin/docker-compose up -d --build; then
+if /usr/local/bin/docker-compose up -d --build >/dev/null 2>&1; then
     [ $VERBOSE -eq 1 ] && echo "Docker Compose started successfully"
     # Store the new hash
     echo "$CURRENT_HASH" > "$HASH_FILE"
