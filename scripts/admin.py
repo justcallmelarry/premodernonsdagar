@@ -237,7 +237,7 @@ def db() -> None:
 
 
 @app.command()
-def decklist(date: str, player: str) -> None:
+def decklist(date: str, player: str, deck: str = "") -> None:
     """
     Update the decklist ID for a player in a specific event file.
     """
@@ -259,6 +259,8 @@ def decklist(date: str, player: str) -> None:
 
     if player in event_data["player_info"]:
         event_data["player_info"][player]["decklist"] = f"{date}-{player_slug}"
+        if deck:
+            event_data["player_info"][player]["deck"] = deck
 
         with open(event_path, "w") as f:
             json.dump(event_data, f, indent=4, ensure_ascii=False)
