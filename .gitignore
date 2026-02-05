@@ -43,3 +43,4 @@ pages/
 scripts/*.json
 !files/db.json
 static/images/scryfall/
+config.toml
