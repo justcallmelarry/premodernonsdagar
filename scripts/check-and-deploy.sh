@@ -13,6 +13,8 @@ ETAGS_FILE="scripts/etags.json"
 # Path to store the hash
 HASH_FILE="scripts/.etags.hash"
 
+uv run scripts/admin.py download
+
 # Parse command line arguments
 VERBOSE=0
 if [ "$1" = "-v" ] || [ "$1" = "--verbose" ]; then
