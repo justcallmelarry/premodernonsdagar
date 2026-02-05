@@ -8,6 +8,21 @@ PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
 # Change to project root to ensure docker-compose works correctly
 cd "$PROJECT_ROOT" || exit 1
 
+# Function to calculate checksum with fallback options
+calculate_checksum() {
+    local file="$1"
+    if command -v shasum >/dev/null 2>&1; then
+        shasum -a 256 "$file" | cut -d' ' -f1
+    elif command -v sha256sum >/dev/null 2>&1; then
+        sha256sum "$file" | cut -d' ' -f1
+    elif command -v openssl >/dev/null 2>&1; then
+        openssl sha256 "$file" | awk '{print $2}'
+    else
+        echo "Error: No checksum command available (tried shasum, sha256sum, openssl)" >&2
+        return 1
+    fi
+}
+
 # Path to the etags.json file
 ETAGS_FILE="scripts/etags.json"
 # Path to store the hash
@@ -30,7 +45,10 @@ if [ ! -f "$ETAGS_FILE" ]; then
 fi
 
 # Calculate current hash of etags.json
-CURRENT_HASH=$(shasum -a 256 "$ETAGS_FILE" | cut -d ' ' -f 1)
+CURRENT_HASH=$(calculate_checksum "$ETAGS_FILE")
+if [ $? -ne 0 ]; then
+    exit 1
+fi
 
 # Read stored hash if it exists
 if [ -f "$HASH_FILE" ]; then
