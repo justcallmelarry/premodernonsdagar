@@ -47,10 +47,10 @@ if [ "$CURRENT_HASH" = "$STORED_HASH" ]; then
 fi
 
 [ $VERBOSE -eq 1 ] && echo "Changes detected in $ETAGS_FILE"
-[ $VERBOSE -eq 1 ] && echo "Running docker-compose up -d..."
+[ $VERBOSE -eq 1 ] && echo "Running docker-compose up -d --build..."
 
 # Run docker-compose
-if docker-compose up -d; then
+if docker-compose up -d --build; then
     [ $VERBOSE -eq 1 ] && echo "Docker Compose started successfully"
     # Store the new hash
     echo "$CURRENT_HASH" > "$HASH_FILE"
