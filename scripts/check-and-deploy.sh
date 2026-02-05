@@ -72,7 +72,7 @@ fi
 [ $VERBOSE -eq 1 ] && echo "Running docker-compose up -d --build..."
 
 # Run docker-compose
-if docker-compose up -d --build; then
+if /usr/local/bin/docker-compose up -d --build; then
     [ $VERBOSE -eq 1 ] && echo "Docker Compose started successfully"
     # Store the new hash
     echo "$CURRENT_HASH" > "$HASH_FILE"
