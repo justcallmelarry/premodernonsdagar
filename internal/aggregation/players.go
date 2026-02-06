@@ -21,23 +21,72 @@ func (o *GlickoOpponent) RD() float64    { return o.rd }
 func (o *GlickoOpponent) Sigma() float64 { return o.sigma }
 func (o *GlickoOpponent) SJ() float64    { return o.score }
 
-// sortMatchupsByValue sorts a map[string]int by value in descending order
-func sortMatchupsByValue(matchups map[string]int) []StatsContainer {
-	// Convert map to slice of MatchupRecord
-	records := make([]StatsContainer, 0, len(matchups))
-	for opponent, count := range matchups {
-		records = append(records, StatsContainer{
-			Key:   opponent,
-			Value: count,
+
+// createOpponentMatchups combines wins and losses into matchup records with win-loss format
+func createOpponentMatchups(wonAgainst, lostAgainst map[string]int) []StatsContainer {
+	allOpponents := make(map[string]bool)
+	for opponent := range wonAgainst {
+		allOpponents[opponent] = true
+	}
+	for opponent := range lostAgainst {
+		allOpponents[opponent] = true
+	}
+
+	matchups := make([]StatsContainer, 0, len(allOpponents))
+	for opponent := range allOpponents {
+		wins := wonAgainst[opponent]
+		losses := lostAgainst[opponent]
+		total := wins + losses
+
+		matchups = append(matchups, StatsContainer{
+			Name:   opponent,
+			Wins:   wins,
+			Losses: losses,
+			Total:  total,
 		})
 	}
 
-	// Sort by count in descending order
-	sort.Slice(records, func(i, j int) bool {
-		return records[i].Value > records[j].Value
+	// Sort by total matches played (descending), then by opponent name (ascending)
+	sort.Slice(matchups, func(i, j int) bool {
+		if matchups[i].Total == matchups[j].Total {
+			return matchups[i].Name < matchups[j].Name
+		}
+		return matchups[i].Total > matchups[j].Total
 	})
 
-	return records
+	return matchups
+}
+
+// DeckStats tracks wins and losses for a specific deck
+type DeckStats struct {
+	Wins   int
+	Losses int
+}
+
+// createDeckMatchups converts deck stats into sorted matchup records
+func createDeckMatchups(deckStats map[string]*DeckStats) []StatsContainer {
+	matchups := make([]StatsContainer, 0, len(deckStats))
+
+	for deck, stats := range deckStats {
+		total := stats.Wins + stats.Losses
+
+		matchups = append(matchups, StatsContainer{
+			Name:   deck,
+			Wins:   stats.Wins,
+			Losses: stats.Losses,
+			Total:  total,
+		})
+	}
+
+	// Sort by total matches played (descending), then by deck name (ascending)
+	sort.Slice(matchups, func(i, j int) bool {
+		if matchups[i].Total == matchups[j].Total {
+			return matchups[i].Name < matchups[j].Name
+		}
+		return matchups[i].Total > matchups[j].Total
+	})
+
+	return matchups
 }
 
 func aggregatePlayerStats() error {
@@ -125,7 +174,7 @@ func aggregatePlayerStats() error {
 
 	sort.Strings(eventFiles)
 
-	decks := make(map[string]map[string]int)
+	decks := make(map[string]map[string]*DeckStats)
 
 	// Process each event
 	for _, eventPath := range eventFiles {
@@ -209,9 +258,13 @@ func aggregatePlayerStats() error {
 		for _, result := range eventData.Results {
 			if result.Deck != "" {
 				if _, exists := decks[result.Name]; !exists {
-					decks[result.Name] = make(map[string]int)
+					decks[result.Name] = make(map[string]*DeckStats)
 				}
-				decks[result.Name][result.Deck] += eventPlayerData[result.Name].TotalMatchesPlayed
+				if _, exists := decks[result.Name][result.Deck]; !exists {
+					decks[result.Name][result.Deck] = &DeckStats{}
+				}
+				decks[result.Name][result.Deck].Wins += eventPlayerData[result.Name].TotalWins
+				decks[result.Name][result.Deck].Losses += eventPlayerData[result.Name].TotalMatchesPlayed - eventPlayerData[result.Name].TotalWins
 			}
 		}
 
@@ -341,23 +394,14 @@ func aggregatePlayerStats() error {
 			GameWinRate:        math.Round(gameWinRate*100) / 100,
 			MatchWinRate:       math.Round(matchWinRate*100) / 100,
 			ExtraMatchesPlayed: stats.ExtraMatchesPlayed,
-			WonAgainst:         sortMatchupsByValue(stats.WonAgainst),
-			LostAgainst:        sortMatchupsByValue(stats.LostAgainst),
+			OpponentMatchups:   createOpponentMatchups(stats.WonAgainst, stats.LostAgainst),
 			EloHistory:         stats.EloHistory,
 			GlickoHistory:      stats.GlickoHistory,
 			WinRateHistory:     stats.WinRateHistory,
 		}
 
-		for deck, count := range decks[name] {
-			player.MatchesWithDecks = append(player.MatchesWithDecks, StatsContainer{
-				Key:   deck,
-				Value: count,
-			})
-		}
-
-		player.MatchesWithDecks = sortStatsContainerSlice(player.MatchesWithDecks)
-		player.WonAgainst = sortStatsContainerSlice(player.WonAgainst)
-		player.LostAgainst = sortStatsContainerSlice(player.LostAgainst)
+		// Create deck matchups with win/loss data
+		player.MatchesWithDecks = createDeckMatchups(decks[name])
 
 		playerJSON, err := json.MarshalIndent(player, "", "  ")
 		if err != nil {
@@ -455,12 +499,3 @@ func ParseMatchResult(match Match) MatchResult {
 	}
 }
 
-func sortStatsContainerSlice(slice []StatsContainer) []StatsContainer {
-	sort.Slice(slice, func(i, j int) bool {
-		if slice[i].Value == slice[j].Value {
-			return slice[i].Key < slice[j].Key
-		}
-		return slice[i].Value > slice[j].Value
-	})
-	return slice
-}

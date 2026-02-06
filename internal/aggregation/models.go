@@ -96,8 +96,12 @@ type EventListItem struct {
 }
 
 type StatsContainer struct {
-	Key   string `json:"key"`
-	Value int    `json:"value"`
+	Key    string `json:"key"`
+	Value  int    `json:"value"`
+	Name   string `json:"name"`
+	Wins   int    `json:"wins"`
+	Losses int    `json:"losses"`
+	Total  int    `json:"total"`
 }
 
 type PlayerEventData struct {
@@ -120,9 +124,8 @@ type Player struct {
 	DrawCounter        int              `json:"draw_counter"`
 	GameWinRate        float64          `json:"game_win_rate"`
 	MatchWinRate       float64          `json:"match_win_rate"`
-	WonAgainst         []StatsContainer `json:"won_against"`
+	OpponentMatchups   []StatsContainer `json:"opponent_matchups"`
 	ExtraMatchesPlayed int              `json:"extra_matches_played"`
-	LostAgainst        []StatsContainer `json:"lost_against"`
 	EloHistory         []HistoryEntry   `json:"elo_history"`
 	GlickoHistory      []HistoryEntry   `json:"glicko_history"`
 	WinRateHistory     []HistoryEntry   `json:"win_rate_history"`
