@@ -27,6 +27,8 @@ calculate_checksum() {
 ETAGS_FILE="scripts/etags.json"
 # Path to store the hash
 HASH_FILE="scripts/.etags.hash"
+# Path to store the git reference
+GIT_REF_FILE="scripts/.git.ref"
 
 # make sure we are up to date
 git pull >/dev/null 2>&1
@@ -50,6 +52,9 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
+# Get current git reference
+CURRENT_GIT_REF=$(git rev-parse HEAD)
+
 # Read stored hash if it exists
 if [ -f "$HASH_FILE" ]; then
     STORED_HASH=$(cat "$HASH_FILE")
@@ -57,18 +62,42 @@ else
     STORED_HASH=""
 fi
 
+# Read stored git reference if it exists
+if [ -f "$GIT_REF_FILE" ]; then
+    STORED_GIT_REF=$(cat "$GIT_REF_FILE")
+else
+    STORED_GIT_REF=""
+fi
+
 if [ $VERBOSE -eq 1 ]; then
     echo "Current hash: $CURRENT_HASH"
     echo "Stored hash:  $STORED_HASH"
+    echo "Current git ref: $CURRENT_GIT_REF"
+# Run docker-compose
+if /usr/local/bin/docker-compose up -d --build >/dev/null 2>&1; then
+    [ $VERBOSE -eq 1 ] && echo "Docker Compose started successfully"
+    # Store the new hash and git reference
+    echo "$CURRENT_HASH" > "$HASH_FILE"
+    echo "$CURRENT_GIT_REF" > "$GIT_REF_FILE"
+    [ $VERBOSE -eq 1 ] && echo "New hash and git reference stored"
+    exit 0
+else
+    echo "Error: docker-compose command failed"
+    exit 1
+fi
+if [ "$CURRENT_GIT_REF" != "$STORED_GIT_REF" ]; then
+    GIT_REF_CHANGED=1
 fi
 
-# Compare hashes
-if [ "$CURRENT_HASH" = "$STORED_HASH" ]; then
-    [ $VERBOSE -eq 1 ] && echo "No changes detected in $ETAGS_FILE"
+if [ $ETAGS_CHANGED -eq 0 ] && [ $GIT_REF_CHANGED -eq 0 ]; then
+    [ $VERBOSE -eq 1 ] && echo "No changes detected in $ETAGS_FILE or git reference"
     exit 0
 fi
 
-[ $VERBOSE -eq 1 ] && echo "Changes detected in $ETAGS_FILE"
+if [ $VERBOSE -eq 1 ]; then
+    [ $ETAGS_CHANGED -eq 1 ] && echo "Changes detected in $ETAGS_FILE"
+    [ $GIT_REF_CHANGED -eq 1 ] && echo "Changes detected in git reference"
+fi
 [ $VERBOSE -eq 1 ] && echo "Running docker-compose up -d --build..."
 
 # Run docker-compose
