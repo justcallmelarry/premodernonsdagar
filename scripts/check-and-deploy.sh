@@ -73,18 +73,17 @@ if [ $VERBOSE -eq 1 ]; then
     echo "Current hash: $CURRENT_HASH"
     echo "Stored hash:  $STORED_HASH"
     echo "Current git ref: $CURRENT_GIT_REF"
-# Run docker-compose
-if /usr/local/bin/docker-compose up -d --build >/dev/null 2>&1; then
-    [ $VERBOSE -eq 1 ] && echo "Docker Compose started successfully"
-    # Store the new hash and git reference
-    echo "$CURRENT_HASH" > "$HASH_FILE"
-    echo "$CURRENT_GIT_REF" > "$GIT_REF_FILE"
-    [ $VERBOSE -eq 1 ] && echo "New hash and git reference stored"
-    exit 0
-else
-    echo "Error: docker-compose command failed"
-    exit 1
+    echo "Stored git ref:  $STORED_GIT_REF"
 fi
+
+# Compare hashes and git references
+ETAGS_CHANGED=0
+GIT_REF_CHANGED=0
+
+if [ "$CURRENT_HASH" != "$STORED_HASH" ]; then
+    ETAGS_CHANGED=1
+fi
+
 if [ "$CURRENT_GIT_REF" != "$STORED_GIT_REF" ]; then
     GIT_REF_CHANGED=1
 fi
@@ -98,14 +97,16 @@ if [ $VERBOSE -eq 1 ]; then
     [ $ETAGS_CHANGED -eq 1 ] && echo "Changes detected in $ETAGS_FILE"
     [ $GIT_REF_CHANGED -eq 1 ] && echo "Changes detected in git reference"
 fi
+
 [ $VERBOSE -eq 1 ] && echo "Running docker-compose up -d --build..."
 
 # Run docker-compose
 if /usr/local/bin/docker-compose up -d --build >/dev/null 2>&1; then
     [ $VERBOSE -eq 1 ] && echo "Docker Compose started successfully"
-    # Store the new hash
+    # Store the new hash and git reference
     echo "$CURRENT_HASH" > "$HASH_FILE"
-    [ $VERBOSE -eq 1 ] && echo "New hash stored"
+    echo "$CURRENT_GIT_REF" > "$GIT_REF_FILE"
+    [ $VERBOSE -eq 1 ] && echo "New hash and git reference stored"
     exit 0
 else
     echo "Error: docker-compose command failed"
