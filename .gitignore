@@ -44,3 +44,6 @@ scripts/*.json
 !files/db.json
 static/images/scryfall/
 config.toml
+scripts/.etags.hash
+scripts/.git.ref
+compose.yml
