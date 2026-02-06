@@ -32,7 +32,7 @@ GIT_REF_FILE="scripts/.git.ref"
 
 # make sure we are up to date
 git pull >/dev/null 2>&1
-/home/lauri/.cargo/bin/uv run scripts/admin.py download >/dev/null 2>&1
+/home/lauri/.cargo/bin/uv run --frozen -q scripts/admin.py download >/dev/null 2>&1
 
 # Parse command line arguments
 VERBOSE=0
