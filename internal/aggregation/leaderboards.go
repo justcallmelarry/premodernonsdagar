@@ -295,25 +295,37 @@ func calculateSeasonStats(allPlayers []Player, eventsInSeason []Event) []Player 
 			result := ParseMatchResult(match)
 
 			// Count extra matches
+			isExtraMatchFor := make(map[string]bool)
 			if len(match.ExtraMatch) > 0 {
 				for _, player := range match.ExtraMatch {
 					extraMatches[player]++
+					isExtraMatchFor[player] = true
 				}
 			}
 
 			// Parse the score to get games won/lost
 			// Result format is like "2-1-0" meaning player1 won 2-1
 			if result.Draw {
-				draws[match.Player1]++
-				draws[match.Player2]++
+				// Only count for undefeated check if not an extra match for the player
+				if !isExtraMatchFor[match.Player1] {
+					draws[match.Player1]++
+				}
+				if !isExtraMatchFor[match.Player2] {
+					draws[match.Player2]++
+				}
 				// For draws, assume 1-1 game score
 				gamesWon[match.Player1]++
 				gamesLost[match.Player1]++
 				gamesWon[match.Player2]++
 				gamesLost[match.Player2]++
 			} else {
-				wins[result.Winner]++
-				losses[result.Loser]++
+				// Only count for undefeated check if not an extra match for the player
+				if !isExtraMatchFor[result.Winner] {
+					wins[result.Winner]++
+				}
+				if !isExtraMatchFor[result.Loser] {
+					losses[result.Loser]++
+				}
 
 				// Parse game score from result string
 				// Result.Score is like "2-1" or "2-0"

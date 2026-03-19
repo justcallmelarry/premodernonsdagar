@@ -198,8 +198,17 @@ func aggregatePlayerStats() error {
 					TotalWins:          0,
 				}
 			}
-			eventPlayerData[match.Player1].TotalMatchesPlayed++
-			eventPlayerData[match.Player2].TotalMatchesPlayed++
+
+			// Only count non-extra matches for undefeated check
+			isExtraForP1 := slices.Contains(match.ExtraMatch, match.Player1)
+			isExtraForP2 := slices.Contains(match.ExtraMatch, match.Player2)
+
+			if !isExtraForP1 {
+				eventPlayerData[match.Player1].TotalMatchesPlayed++
+			}
+			if !isExtraForP2 {
+				eventPlayerData[match.Player2].TotalMatchesPlayed++
+			}
 
 			result := ParseMatchResult(match)
 
@@ -207,7 +216,12 @@ func aggregatePlayerStats() error {
 				players[match.Player1].MatchesDrawn++
 				players[match.Player2].MatchesDrawn++
 			} else {
-				eventPlayerData[result.Winner].TotalWins++
+				if !isExtraForP1 && result.Winner == match.Player1 {
+					eventPlayerData[result.Winner].TotalWins++
+				}
+				if !isExtraForP2 && result.Winner == match.Player2 {
+					eventPlayerData[result.Winner].TotalWins++
+				}
 				players[result.Winner].MatchesWon++
 				players[result.Loser].MatchesLost++
 
