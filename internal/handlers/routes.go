@@ -30,7 +30,13 @@ func SetupRoutes(cfg config.Config) *http.ServeMux {
 	mux.HandleFunc("GET /events", EventsHandler)
 	mux.HandleFunc("GET /events/{id}", EventDetailHandler)
 
-	// Development-only routes for event administration
+	mux.HandleFunc("GET /players", PlayersHandler)
+	mux.HandleFunc("GET /players/{id}", PlayerDetailHandler)
+	mux.HandleFunc("GET /leaderboards", LeaderboardsHandler)
+	mux.HandleFunc("GET /leaderboards/{season}", LeaderboardsDetailHandler)
+	mux.HandleFunc("GET /decklists/{id}", DecklistHandler)
+	mux.HandleFunc("GET /images", ImagesHandler)
+
 	if cfg.DevelopmentEnvironment {
 		mux.HandleFunc("GET /admin/events", AdminEventsListHandler)
 		mux.HandleFunc("GET /admin/events/new", EventEntryHandler)
@@ -38,12 +44,6 @@ func SetupRoutes(cfg config.Config) *http.ServeMux {
 		mux.HandleFunc("GET /admin/events/edit/{date}", EventEditHandler)
 		mux.HandleFunc("POST /admin/events/edit/{date}", EventEditPostHandler)
 	}
-	mux.HandleFunc("GET /players", PlayersHandler)
-	mux.HandleFunc("GET /players/{id}", PlayerDetailHandler)
-	mux.HandleFunc("GET /leaderboards", LeaderboardsHandler)
-	mux.HandleFunc("GET /leaderboards/{season}", LeaderboardsDetailHandler)
-	mux.HandleFunc("GET /decklists/{id}", DecklistHandler)
-	mux.HandleFunc("GET /images", ImagesHandler)
 
 	mux.HandleFunc("GET /_/health", func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusOK)
