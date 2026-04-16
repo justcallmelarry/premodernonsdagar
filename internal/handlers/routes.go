@@ -3,9 +3,10 @@ package handlers
 
 import (
 	"net/http"
+	"premodernonsdagar/internal/config"
 )
 
-func SetupRoutes() *http.ServeMux {
+func SetupRoutes(cfg config.Config) *http.ServeMux {
 	mux := http.NewServeMux()
 
 	mux.Handle("GET /static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
@@ -28,6 +29,15 @@ func SetupRoutes() *http.ServeMux {
 	mux.HandleFunc("GET /about", AboutHandler)
 	mux.HandleFunc("GET /events", EventsHandler)
 	mux.HandleFunc("GET /events/{id}", EventDetailHandler)
+
+	// Development-only routes for event administration
+	if cfg.DevelopmentEnvironment {
+		mux.HandleFunc("GET /admin/events", AdminEventsListHandler)
+		mux.HandleFunc("GET /admin/events/new", EventEntryHandler)
+		mux.HandleFunc("POST /admin/events/new", EventEntryPostHandler)
+		mux.HandleFunc("GET /admin/events/edit/{date}", EventEditHandler)
+		mux.HandleFunc("POST /admin/events/edit/{date}", EventEditPostHandler)
+	}
 	mux.HandleFunc("GET /players", PlayersHandler)
 	mux.HandleFunc("GET /players/{id}", PlayerDetailHandler)
 	mux.HandleFunc("GET /leaderboards", LeaderboardsHandler)

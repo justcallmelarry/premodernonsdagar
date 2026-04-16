@@ -1,0 +1,949 @@
+{{ template "base" . }}
+
+{{ define "title" }}{{ if .IsEdit }}Edit Event{{ else }}New Event Entry{{ end }}{{ end }}
+
+{{ define "content" }}
+<div class="py-8">
+  <h1 class="mb-8 text-3xl font-bold">{{ if .IsEdit }}Edit Tournament Event{{ else }}Create New Tournament Event{{ end }}</h1>
+
+  <form id="event-form" method="POST" action="{{ if .IsEdit }}/admin/events/edit/{{ .ExistingEvent.Date }}{{ else }}/admin/events/new{{ end }}" class="space-y-8">
+    <!-- Event Details -->
+    <div class="rounded-lg bg-white p-6 shadow dark:bg-gray-800">
+      <h2 class="mb-4 text-xl font-semibold">Event Information</h2>
+      <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+        <div>
+          <label for="event_name" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Event Name</label>
+          <input type="text"
+                 id="event_name"
+                 name="event_name"
+                 required
+                 {{ if .IsEdit }}value="{{ .ExistingEvent.Name }}"{{ end }}
+                 class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-{{ .Scheme.Primary }} focus:ring-{{ .Scheme.Primary }} dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100"
+                 placeholder="Onsdagstävling 2026-04-15">
+        </div>
+        <div>
+          <label for="event_date" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Event Date</label>
+          <input type="date"
+                 id="event_date"
+                 name="event_date"
+                 required
+                 {{ if .IsEdit }}value="{{ .ExistingEvent.Date }}"{{ end }}
+                 class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-{{ .Scheme.Primary }} focus:ring-{{ .Scheme.Primary }} dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100">
+        </div>
+      </div>
+    </div>
+
+    <!-- Match Results Grid -->
+    <div class="rounded-lg bg-white p-6 shadow dark:bg-gray-800">
+      <h2 class="mb-4 text-xl font-semibold">Match Results Grid</h2>
+      <p class="mb-4 text-sm text-gray-600 dark:text-gray-400">
+        Add players by typing in the "+ Add player" field. Use arrow keys to navigate autocomplete suggestions.
+        Enter match results as "2-0", "1-2", etc. Click ★ to mark extra matches for the row player.
+        Results automatically sync between opposite cells.
+      </p>
+
+      <div id="grid-container" class="overflow-x-auto bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-600">
+        <table id="results-grid" class="min-w-full table-auto border-collapse">
+          <thead>
+            <tr id="grid-header">
+              <th class="border border-gray-300 bg-gray-50 p-2 text-left font-medium dark:bg-gray-700 dark:border-gray-600 min-w-[120px]">Player</th>
+            </tr>
+          </thead>
+          <tbody id="grid-body">
+            <tr id="add-player-row">
+              <td class="border-2 border-dashed border-gray-400 bg-gray-50 p-2 dark:bg-gray-700 dark:border-gray-500">
+                <div class="relative">
+                  <input type="text"
+                         id="new-player-input"
+                         placeholder="+ Add player"
+                         class="w-full border-none bg-transparent text-sm focus:outline-none focus:ring-0"
+                         autocomplete="off"
+                         role="combobox"
+                         aria-expanded="false"
+                         aria-haspopup="listbox"
+                         aria-label="Add new player to tournament">
+                  <div id="autocomplete-dropdown" class="absolute top-full left-0 right-0 bg-white border border-gray-300 rounded-md shadow-lg hidden z-10 dark:bg-gray-800 dark:border-gray-600">
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="flex justify-between items-center">
+      <a href="/admin/events"
+         class="inline-flex items-center rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-{{ .Scheme.Primary }} focus:ring-offset-2 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700">
+        <span class="material-symbols-outlined mr-2 text-sm">arrow_back</span>
+        Back to Events List
+      </a>
+
+      <button type="submit"
+              class="rounded-lg bg-{{ .Scheme.Primary }} px-6 py-3 text-white font-medium hover:bg-{{ .Scheme.PrimaryDeep }} focus:outline-none focus:ring-2 focus:ring-{{ .Scheme.Primary }} focus:ring-opacity-50 disabled:opacity-50"
+              id="submit-btn"
+              disabled>
+        {{ if .IsEdit }}Update Event{{ else }}Create Event{{ end }}
+      </button>
+    </div>
+  </form>
+</div>
+{{ end }}
+
+{{ define "post-script" }}
+<style>
+/* Hover highlighting styles */
+.row-highlight {
+  background-color: rgba(34, 197, 94, 0.1) !important; /* green-500 with 10% opacity */
+}
+.dark .row-highlight {
+  background-color: rgba(74, 222, 128, 0.1) !important; /* green-400 with 10% opacity */
+}
+.col-highlight {
+  background-color: rgba(34, 197, 94, 0.1) !important; /* green-500 with 10% opacity */
+}
+.dark .col-highlight {
+  background-color: rgba(74, 222, 128, 0.1) !important; /* green-400 with 10% opacity */
+}
+.row-col-highlight {
+  background-color: rgba(168, 85, 247, 0.15) !important; /* purple-500 with 15% opacity */
+}
+.dark .row-col-highlight {
+  background-color: rgba(196, 181, 253, 0.15) !important; /* purple-300 with 15% opacity */
+}
+</style>
+<script>
+// Player management
+let players = [];
+let availablePlayerNames = [{{ range .PlayerNames }}"{{ . }}",{{ end }}];
+let playerDecks = {}; // Store deck information for each player
+let existingMatchResults = {}; // Store existing match results when editing
+
+{{ if .IsEdit }}
+// Pre-populate data for editing
+const existingEvent = {{ .ExistingEvent | json }};
+{{ end }}
+
+// Initialize form
+document.addEventListener('DOMContentLoaded', function() {
+  setupEventForm();
+  {{ if .IsEdit }}
+  loadExistingEventData();
+  {{ end }}
+});
+
+function setupEventForm() {
+  {{ if not .IsEdit }}
+  // Set default date to today (only for new events)
+  const today = new Date().toISOString().split('T')[0];
+  document.getElementById('event_date').value = today;
+  updateEventName();
+  {{ end }}
+
+  // Setup event listeners
+  document.getElementById('event_date').addEventListener('change', updateEventName);
+  document.getElementById('new-player-input').addEventListener('input', handlePlayerInput);
+  document.getElementById('new-player-input').addEventListener('keydown', handlePlayerKeydown);
+
+  // Click outside to close autocomplete
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('#new-player-input') && !e.target.closest('#autocomplete-dropdown')) {
+      hideAutocomplete();
+    }
+  });
+
+  // Setup hover highlighting for the initial empty grid
+  setupGridHoverHighlighting();
+}
+
+{{ if .IsEdit }}
+function loadExistingEventData() {
+  // Load existing players from matches
+  const existingPlayers = new Set();
+  existingEvent.matches.forEach(match => {
+    existingPlayers.add(match.player_1);
+    existingPlayers.add(match.player_2);
+  });
+
+  // Add players to the grid
+  existingPlayers.forEach(playerName => {
+    players.push(playerName);
+  });
+
+  // Load deck information
+  if (existingEvent.player_info) {
+    Object.keys(existingEvent.player_info).forEach(playerName => {
+      const playerInfo = existingEvent.player_info[playerName];
+      if (playerInfo.deck) {
+        playerDecks[playerName] = playerInfo.deck;
+      }
+    });
+  }
+
+  // Store existing match results
+  existingEvent.matches.forEach(match => {
+    const key = `${match.player_1}_${match.player_2}`;
+    existingMatchResults[key] = {
+      result: match.result,
+      extraMatch: match.extra_match || []
+    };
+  });
+
+  // Rebuild the grid with existing data
+  rebuildGrid();
+
+  // Populate match results
+  populateExistingResults();
+
+  // Update submit button state
+  updateSubmitButton();
+}
+
+function populateExistingResults() {
+  // Fill in match results from stored data
+  Object.keys(existingMatchResults).forEach(key => {
+    const [player1, player2] = key.split('_');
+    const matchData = existingMatchResults[key];
+
+    const resultInput = document.querySelector(`input[name="result_${player1}_${player2}"]`);
+    if (resultInput) {
+      resultInput.value = matchData.result;
+
+      // Update the opposite cell with reversed score
+      updateOppositeCell(player1, player2, matchData.result);
+
+      // Set up extra match markers for player1
+      if (matchData.extraMatch.includes(player1)) {
+        const starBtn = resultInput.parentElement?.querySelector('button[title*="' + player1 + '"]');
+        if (starBtn) {
+          starBtn.classList.remove('text-gray-400');
+          starBtn.classList.add('text-yellow-500');
+          starBtn.setAttribute('data-extra', 'true');
+        }
+      }
+
+      // Set up extra match markers for player2 in the opposite cell
+      if (matchData.extraMatch.includes(player2)) {
+        const oppositeInput = document.querySelector(`input[name="result_${player2}_${player1}"]`);
+        if (oppositeInput) {
+          const oppositeStarBtn = oppositeInput.parentElement?.querySelector('button[title*="' + player2 + '"]');
+          if (oppositeStarBtn) {
+            oppositeStarBtn.classList.remove('text-gray-400');
+            oppositeStarBtn.classList.add('text-yellow-500');
+            oppositeStarBtn.setAttribute('data-extra', 'true');
+          }
+        }
+      }
+    }
+  });
+
+  // Update records after populating results
+  updateAllRecords();
+}
+{{ end }}
+
+function updateEventName() {
+  const dateInput = document.getElementById('event_date');
+  const nameInput = document.getElementById('event_name');
+
+  if (dateInput.value && (!nameInput.value || nameInput.value.startsWith('Onsdagstävling'))) {
+    nameInput.value = `Onsdagstävling ${dateInput.value}`;
+  }
+}
+
+// Autocomplete functionality
+function handlePlayerInput(e) {
+  const input = e.target.value.toLowerCase();
+  const dropdown = document.getElementById('autocomplete-dropdown');
+
+  if (input.length === 0) {
+    hideAutocomplete();
+    return;
+  }
+
+  // Filter existing players
+  const matches = availablePlayerNames.filter(name =>
+    name.toLowerCase().includes(input) &&
+    !players.includes(name)
+  );
+
+  // Build dropdown content with accessibility
+  let dropdownHTML = '';
+
+  // Add existing player matches
+  matches.forEach(name => {
+    dropdownHTML += `
+      <div class="autocomplete-item p-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer"
+           role="option"
+           tabindex="-1"
+           onclick="selectPlayer('${name}')">
+        <strong>${name}</strong> <span class="text-gray-500 text-xs">(existing player)</span>
+      </div>
+    `;
+  });
+
+  // Add "new player" option
+  const originalValue = e.target.value;
+  if (originalValue.trim() && !players.includes(originalValue.trim())) {
+    dropdownHTML += `
+      <div class="autocomplete-item p-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer border-t border-gray-200 dark:border-gray-600"
+           role="option"
+           tabindex="-1"
+           onclick="selectPlayer('${originalValue.trim()}')">
+        Add <strong>"${originalValue.trim()}"</strong> as new player
+      </div>
+    `;
+  }
+
+  if (dropdownHTML) {
+    dropdown.innerHTML = dropdownHTML;
+    dropdown.classList.remove('hidden');
+    dropdown.setAttribute('role', 'listbox');
+    document.getElementById('new-player-input').setAttribute('aria-expanded', 'true');
+  } else {
+    hideAutocomplete();
+  }
+}
+
+function selectPlayer(playerName) {
+  if (playerName && playerName.trim() && !players.includes(playerName.trim())) {
+    addPlayerToGrid(playerName.trim());
+    document.getElementById('new-player-input').value = '';
+    hideAutocomplete();
+  }
+}
+
+function addPlayerToGrid(playerName) {
+  players.push(playerName);
+  rebuildGrid();
+  updateSubmitButton();
+}
+
+function updateSubmitButton() {
+  const submitBtn = document.getElementById('submit-btn');
+  submitBtn.disabled = players.length < 2;
+}
+
+function handlePlayerKeydown(e) {
+  const dropdown = document.getElementById('autocomplete-dropdown');
+  const items = dropdown.querySelectorAll('.autocomplete-item');
+  let activeIndex = Array.from(items).findIndex(item => item.classList.contains('active'));
+
+  switch(e.key) {
+    case 'ArrowDown':
+      e.preventDefault();
+      if (activeIndex < items.length - 1) {
+        if (activeIndex >= 0) items[activeIndex].classList.remove('active');
+        items[activeIndex + 1].classList.add('active');
+        document.getElementById('new-player-input').setAttribute('aria-expanded', 'true');
+      }
+      break;
+
+    case 'ArrowUp':
+      e.preventDefault();
+      if (activeIndex > 0) {
+        items[activeIndex].classList.remove('active');
+        items[activeIndex - 1].classList.add('active');
+      }
+      break;
+
+    case 'Enter':
+      e.preventDefault();
+      const activeItem = dropdown.querySelector('.autocomplete-item.active');
+      if (activeItem) {
+        activeItem.click();
+      } else {
+        const input = e.target.value.trim();
+        if (input) selectPlayer(input);
+      }
+      break;
+
+    case 'Escape':
+      hideAutocomplete();
+      document.getElementById('new-player-input').setAttribute('aria-expanded', 'false');
+      break;
+  }
+}
+
+function hideAutocomplete() {
+  document.getElementById('autocomplete-dropdown').classList.add('hidden');
+  document.getElementById('new-player-input').setAttribute('aria-expanded', 'false');
+}
+
+function rebuildGrid() {
+  const header = document.getElementById('grid-header');
+  const body = document.getElementById('grid-body');
+
+  // Clear existing content except add-player row
+  header.innerHTML = '<th class="border border-gray-300 !bg-gray-50 p-2 text-left font-medium dark:!bg-gray-700 dark:border-gray-600 min-w-[120px] sticky left-0 z-10">Player</th>';
+
+  // Add column headers for each player
+  players.forEach(player => {
+    const th = document.createElement('th');
+    th.className = 'border border-gray-300 bg-gray-50 p-1 text-center font-medium text-xs dark:bg-gray-700 dark:border-gray-600 min-w-[80px]';
+    th.textContent = player;
+    header.appendChild(th);
+  });
+
+  // Add record column header
+  const recordHeader = document.createElement('th');
+  recordHeader.className = 'border border-gray-300 !bg-gray-50 p-2 text-center font-medium dark:!bg-gray-700 dark:border-gray-600 min-w-[60px] sticky right-0 z-10';
+  recordHeader.textContent = 'Record';
+  header.appendChild(recordHeader);
+
+  // Save the current input value from add-player row before clearing
+  const currentAddPlayerInput = document.getElementById('new-player-input');
+  const currentInputValue = currentAddPlayerInput ? currentAddPlayerInput.value : '';
+
+  // Clear body and rebuild rows
+  body.innerHTML = '';
+
+  // Add rows for each player
+  players.forEach((player1, i) => {
+    const row = document.createElement('tr');
+
+    // Row header with deck icon
+    const rowHeader = document.createElement('td');
+    rowHeader.className = 'border border-gray-300 !bg-gray-50 p-2 font-medium dark:!bg-gray-700 dark:border-gray-600 sticky left-0 z-10';
+
+    const headerContent = document.createElement('div');
+    headerContent.className = 'flex items-center justify-between';
+
+    const playerName = document.createElement('span');
+    playerName.textContent = player1;
+    headerContent.appendChild(playerName);
+
+    const deckContainer = document.createElement('div');
+    deckContainer.className = 'flex items-center ml-2';
+
+    const deckIcon = document.createElement('button');
+    deckIcon.type = 'button';
+    deckIcon.className = 'material-symbols-outlined text-xs size-icon text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 transition-colors';
+    deckIcon.innerHTML = 'edit';
+    deckIcon.title = `Set deck for ${player1}`;
+    deckIcon.setAttribute('data-player', player1);
+    deckIcon.onclick = (e) => openDeckPopover(e, player1);
+
+    deckContainer.appendChild(deckIcon);
+    headerContent.appendChild(deckContainer);
+    rowHeader.appendChild(headerContent);
+    row.appendChild(rowHeader);
+
+    // Result cells
+    players.forEach((player2, j) => {
+      const cell = document.createElement('td');
+      cell.className = 'border border-gray-300 p-1 dark:border-gray-600';
+
+      if (i === j) {
+        // Diagonal - no match against self (same styling as player names)
+        cell.className += ' bg-gray-50 dark:bg-gray-700 text-gray-700 dark:text-gray-300';
+        cell.style.textAlign = 'center';
+        cell.style.fontWeight = '600';
+        cell.style.fontSize = '14px';
+        cell.innerHTML = '<div class="flex items-center justify-center h-8">-</div>';
+      } else {
+        // Create input and star for match result
+        const container = document.createElement('div');
+        container.className = 'relative flex items-center justify-center h-8';
+
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.name = `result_${player1}_${player2}`;
+        input.className = 'w-full text-center text-xs border-none bg-transparent focus:bg-white dark:focus:bg-gray-800 focus:ring-1 focus:ring-blue-500';
+        input.placeholder = '0-0';
+        input.pattern = '^[0-2]-[0-2]$';
+        input.title = 'Enter result as X-Y (e.g., 2-0, 1-2, 1-1)';
+        input.setAttribute('aria-label', `Match result for ${player1} vs ${player2}`);
+        input.setAttribute('role', 'textbox');
+
+        // Auto-fill opposite cell when this one changes
+        input.addEventListener('input', function() {
+          updateOppositeCell(player1, player2, this.value);
+          updateAllRecords();
+        });
+
+        // Clear opposite cell when this one is cleared and loses focus
+        input.addEventListener('blur', function() {
+          if (this.value.trim() === '') {
+            clearOppositeCell(player1, player2);
+            updateAllRecords();
+          }
+        });
+
+        // Star toggle button (enhanced styling)
+        const starBtn = document.createElement('button');
+        starBtn.type = 'button';
+        starBtn.className = 'absolute top-0.5 right-0.5 w-3 h-3 text-xs text-gray-400 hover:text-yellow-500 focus:outline-none transition-colors duration-150';
+        starBtn.innerHTML = '★';
+        starBtn.title = 'Mark as extra match for ' + player1;
+        starBtn.onclick = () => toggleExtraMatch(starBtn, player1, player2);
+
+        container.appendChild(input);
+        container.appendChild(starBtn);
+        cell.appendChild(container);
+      }
+
+      row.appendChild(cell);
+    });
+
+    // Add record cell
+    const recordCell = document.createElement('td');
+    recordCell.className = 'border border-gray-300 !bg-gray-50 p-2 text-center font-medium text-sm dark:!bg-gray-700 dark:border-gray-600 sticky right-0 z-10';
+    recordCell.setAttribute('data-record-for', player1);
+    recordCell.innerHTML = '<span class="text-gray-500">0-0</span>';
+    row.appendChild(recordCell);
+
+    body.appendChild(row);
+  });
+
+  // Recreate the add-player row at the bottom
+  createAddPlayerRow();
+
+  // Restore the input value if there was one
+  if (currentInputValue) {
+    const newPlayerInput = document.getElementById('new-player-input');
+    if (newPlayerInput) {
+      newPlayerInput.value = currentInputValue;
+    }
+  }
+
+  // Update deck icon appearances to reflect stored deck information
+  players.forEach(playerName => {
+    updateDeckIconAppearance(playerName);
+  });
+
+  // Update all win/loss records
+  updateAllRecords();
+
+  // Setup hover highlighting
+  setupGridHoverHighlighting();
+}
+
+function createAddPlayerRow() {
+  const body = document.getElementById('grid-body');
+  const neededCells = players.length + 1;
+
+  // Create the add-player row
+  const addPlayerRow = document.createElement('tr');
+  addPlayerRow.id = 'add-player-row';
+
+  // First cell with the add player input
+  const firstCell = document.createElement('td');
+  firstCell.className = 'border-2 border-dashed border-gray-300 !bg-gray-50 p-2 dark:!bg-gray-700 dark:border-gray-600 sticky left-0 z-10';
+  firstCell.innerHTML = `
+    <div class="relative">
+      <input type="text"
+             id="new-player-input"
+             placeholder="+ Add player"
+             class="w-full border-none bg-transparent text-sm focus:outline-none focus:ring-0"
+             autocomplete="off"
+             role="combobox"
+             aria-expanded="false"
+             aria-haspopup="listbox"
+             aria-label="Add new player to tournament">
+      <div id="autocomplete-dropdown" class="absolute top-full left-0 right-0 bg-white border border-gray-300 rounded-md shadow-lg hidden z-10 dark:bg-gray-800 dark:border-gray-600">
+      </div>
+    </div>
+  `;
+  addPlayerRow.appendChild(firstCell);
+
+  // Add empty cells for each player column (no inputs needed)
+  for (let i = 1; i < neededCells; i++) {
+    const cell = document.createElement('td');
+    cell.className = 'border border-gray-300 p-1 bg-gray-100 dark:bg-gray-600 dark:border-gray-600';
+    addPlayerRow.appendChild(cell);
+  }
+
+  // Add empty record cell for add-player row
+  const recordCell = document.createElement('td');
+  recordCell.className = 'border border-gray-300 p-1 !bg-gray-50 dark:!bg-gray-700 dark:border-gray-600 sticky right-0 z-10';
+  addPlayerRow.appendChild(recordCell);
+
+  // Append to body
+  body.appendChild(addPlayerRow);
+
+  // Re-attach event listeners to the new input
+  const newPlayerInput = document.getElementById('new-player-input');
+  newPlayerInput.addEventListener('input', handlePlayerInput);
+  newPlayerInput.addEventListener('keydown', handlePlayerKeydown);
+}
+
+function updateOppositeCell(player1, player2, result) {
+  if (!result.match(/^[0-2]-[0-2]$/)) {
+    return; // Invalid format
+  }
+
+  // Find the opposite cell input
+  const oppositeInput = document.querySelector(`input[name="result_${player2}_${player1}"]`);
+  if (oppositeInput) {
+    // Reverse the score
+    const [score1, score2] = result.split('-');
+    const reversedResult = `${score2}-${score1}`;
+    oppositeInput.value = reversedResult;
+  }
+}
+
+function clearOppositeCell(player1, player2) {
+  const oppositeInput = document.querySelector(`input[name="result_${player2}_${player1}"]`);
+  if (oppositeInput) {
+    oppositeInput.value = '';
+  }
+}
+
+function toggleExtraMatch(starBtn, player1, player2) {
+  const isActive = starBtn.classList.contains('text-yellow-500');
+
+  if (isActive) {
+    // Deactivate
+    starBtn.classList.remove('text-yellow-500');
+    starBtn.classList.add('text-gray-400');
+    starBtn.removeAttribute('data-extra');
+  } else {
+    // Activate
+    starBtn.classList.remove('text-gray-400');
+    starBtn.classList.add('text-yellow-500');
+    starBtn.setAttribute('data-extra', 'true');
+  }
+}
+
+// Deck management functions
+function openDeckPopover(event, playerName) {
+  event.stopPropagation();
+
+  // Close any existing popover
+  closeDeckPopover();
+
+  const deckIcon = event.target;
+  const rect = deckIcon.getBoundingClientRect();
+
+  // Create popover
+  const popover = document.createElement('div');
+  popover.id = 'deck-popover';
+  popover.className = 'fixed z-50 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg shadow-lg p-3 w-64';
+  popover.style.left = `${rect.left}px`;
+  popover.style.top = `${rect.bottom + 5}px`;
+
+  // Adjust position if too close to edge
+  const viewportWidth = window.innerWidth;
+  if (rect.left + 256 > viewportWidth) {
+    popover.style.left = `${viewportWidth - 256 - 10}px`;
+  }
+
+  const currentDeck = playerDecks[playerName] || '';
+
+  popover.innerHTML = `
+    <div class="mb-2">
+      <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+        Deck for ${playerName}
+      </label>
+    </div>
+    <div class="space-y-2">
+      <input
+        type="text"
+        id="deck-input-${playerName}"
+        value="${currentDeck}"
+        placeholder="Enter deck name (optional)"
+        class="w-full text-sm border border-gray-300 dark:border-gray-600 rounded px-2 py-1 bg-white dark:bg-gray-700 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+      >
+      <div class="flex justify-end space-x-2">
+        <button
+          type="button"
+          onclick="closeDeckPopover()"
+          class="px-3 py-1 text-xs text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200"
+        >
+          Cancel
+        </button>
+        <button
+          type="button"
+          onclick="saveDeck('${playerName}')"
+          class="px-3 py-1 text-xs bg-blue-600 text-white rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
+          Save
+        </button>
+      </div>
+    </div>
+  `;
+
+  document.body.appendChild(popover);
+
+  // Focus the input
+  const input = document.getElementById(`deck-input-${playerName}`);
+  input.focus();
+  input.select();
+
+  // Handle enter key
+  input.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      saveDeck(playerName);
+    } else if (e.key === 'Escape') {
+      e.preventDefault();
+      closeDeckPopover();
+    }
+  });
+}
+
+function saveDeck(playerName) {
+  const input = document.getElementById(`deck-input-${playerName}`);
+  const deckName = input.value.trim();
+
+  // Update deck storage
+  if (deckName) {
+    playerDecks[playerName] = deckName;
+  } else {
+    delete playerDecks[playerName];
+  }
+
+  // Update icon appearance to show if deck is set
+  updateDeckIconAppearance(playerName);
+
+  closeDeckPopover();
+}
+
+function closeDeckPopover() {
+  const existingPopover = document.getElementById('deck-popover');
+  if (existingPopover) {
+    existingPopover.remove();
+  }
+}
+
+function updateDeckIconAppearance(playerName) {
+  const deckIcon = document.querySelector(`button[data-player="${playerName}"]`);
+  const checkmark = document.querySelector(`span[data-checkmark-for="${playerName}"]`);
+
+  if (deckIcon) {
+    if (playerDecks[playerName]) {
+      // Deck is set - show checkmark and update icon
+      deckIcon.classList.remove('text-gray-500');
+      deckIcon.classList.add('text-blue-600');
+      deckIcon.title = `${playerName}: ${playerDecks[playerName]} (click to edit)`;
+
+      if (checkmark) {
+        checkmark.classList.remove('hidden');
+      }
+    } else {
+      // No deck - hide checkmark and reset icon
+      deckIcon.classList.remove('text-blue-600');
+      deckIcon.classList.add('text-gray-500');
+      deckIcon.title = `Set deck for ${playerName}`;
+
+      if (checkmark) {
+        checkmark.classList.add('hidden');
+      }
+    }
+  }
+}
+
+// Close popover when clicking outside
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('#deck-popover') && !e.target.closest('button[data-player]')) {
+    closeDeckPopover();
+  }
+});
+
+// Win/Loss record calculation functions
+function calculatePlayerRecord(playerName) {
+  let wins = 0;
+  let losses = 0;
+
+  players.forEach(opponent => {
+    if (opponent !== playerName) {
+      const resultInput = document.querySelector(`input[name="result_${playerName}_${opponent}"]`);
+      if (resultInput && resultInput.value.trim()) {
+        // Check if this match is marked as extra for this player
+        const starBtn = resultInput.parentElement?.querySelector('button[title*="' + playerName + '"]');
+        const isExtraMatch = starBtn && starBtn.getAttribute('data-extra') === 'true';
+
+        // Skip this match if it's marked as extra for this player
+        if (isExtraMatch) {
+          return;
+        }
+
+        const result = resultInput.value.trim();
+        if (result.match(/^[0-2]-[0-2]$/)) {
+          const [playerScore, opponentScore] = result.split('-').map(Number);
+          if (playerScore > opponentScore) {
+            wins++;
+          } else if (playerScore < opponentScore) {
+            losses++;
+          }
+          // Ties (playerScore === opponentScore) don't count as wins or losses
+        }
+      }
+    }
+  });
+
+  return { wins, losses };
+}
+
+function updateAllRecords() {
+  players.forEach(playerName => {
+    const record = calculatePlayerRecord(playerName);
+    const recordCell = document.querySelector(`td[data-record-for="${playerName}"]`);
+
+    if (recordCell) {
+      const totalMatches = record.wins + record.losses;
+      if (totalMatches === 0) {
+        recordCell.innerHTML = '<span class="text-gray-500">0-0</span>';
+      } else {
+        const recordText = `${record.wins}-${record.losses}`;
+        recordCell.innerHTML = `<span class="text-gray-900 dark:text-gray-100">${recordText}</span>`;
+      }
+    }
+  });
+}
+
+// Form submission handler
+document.getElementById('event-form').addEventListener('submit', function(e) {
+  const submitBtn = document.getElementById('submit-btn');
+
+  try {
+    // Validate minimum players
+    if (players.length < 2) {
+      e.preventDefault();
+      alert('Please add at least 2 players before submitting.');
+      return;
+    }
+
+    // Show loading state
+    submitBtn.disabled = true;
+    submitBtn.textContent = {{ if .IsEdit }}'Updating Event...'{{ else }}'Creating Event...'{{ end }};
+
+    // Remove existing hidden inputs
+    const existingInputs = this.querySelectorAll('input[name^="matches["], input[name^="player_deck_"]');
+    existingInputs.forEach(input => input.remove());
+
+    // Collect all matches with extra flags
+    let matchIndex = 0;
+
+  players.forEach(player1 => {
+    players.forEach(player2 => {
+      if (player1 !== player2) {
+        const resultInput = document.querySelector(`input[name="result_${player1}_${player2}"]`);
+        const starBtn = resultInput?.parentElement.querySelector('button[title*="' + player1 + '"]');
+
+        if (resultInput && resultInput.value.trim()) {
+          // Create hidden inputs for this match
+          const player1Input = document.createElement('input');
+          player1Input.type = 'hidden';
+          player1Input.name = `matches[${matchIndex}][player_1]`;
+          player1Input.value = player1;
+          this.appendChild(player1Input);
+
+          const player2Input = document.createElement('input');
+          player2Input.type = 'hidden';
+          player2Input.name = `matches[${matchIndex}][player_2]`;
+          player2Input.value = player2;
+          this.appendChild(player2Input);
+
+          const resultHidden = document.createElement('input');
+          resultHidden.type = 'hidden';
+          resultHidden.name = `matches[${matchIndex}][result]`;
+          resultHidden.value = resultInput.value.trim();
+          this.appendChild(resultHidden);
+
+          // Build extra_match array for this match
+          let extraPlayers = [];
+
+          // Check if this match is marked as extra for player1 (row player)
+          if (starBtn && starBtn.getAttribute('data-extra') === 'true') {
+            extraPlayers.push(player1);
+          }
+
+          // Check if this match is marked as extra for player2 (check the opposite star)
+          const oppositeStarBtn = document.querySelector(`input[name="result_${player2}_${player1}"]`)?.parentElement?.querySelector('button[title*="' + player2 + '"]');
+          if (oppositeStarBtn && oppositeStarBtn.getAttribute('data-extra') === 'true') {
+            extraPlayers.push(player2);
+          }
+
+          // Add extra_match field if any players marked it as extra
+          if (extraPlayers.length > 0) {
+            const extraInput = document.createElement('input');
+            extraInput.type = 'hidden';
+            extraInput.name = `matches[${matchIndex}][extra_match]`;
+            extraInput.value = extraPlayers.join(',');
+            this.appendChild(extraInput);
+          }
+
+          matchIndex++;
+        }
+      }
+    });
+  });
+
+    // Add deck information for each player
+    players.forEach(playerName => {
+      if (playerDecks[playerName]) {
+        const deckInput = document.createElement('input');
+        deckInput.type = 'hidden';
+        deckInput.name = `player_deck_${playerName}`;
+        deckInput.value = playerDecks[playerName];
+        this.appendChild(deckInput);
+      }
+    });
+
+  } catch (error) {
+    console.error('Form submission error:', error);
+    alert({{ if .IsEdit }}'Error updating event. Please try again.'{{ else }}'Error creating event. Please try again.'{{ end }});
+    submitBtn.disabled = false;
+    submitBtn.textContent = {{ if .IsEdit }}'Update Event'{{ else }}'Create Event'{{ end }};
+    e.preventDefault();
+  }
+});
+
+// Grid hover highlighting functions
+function setupGridHoverHighlighting() {
+  const table = document.getElementById('results-grid');
+  if (!table) return;
+
+  // Add hover listeners to all cells
+  table.addEventListener('mouseover', handleCellHover);
+  table.addEventListener('mouseout', clearHighlights);
+}
+
+function handleCellHover(e) {
+  const cell = e.target.closest('td, th');
+  if (!cell) return;
+
+  const table = document.getElementById('results-grid');
+  const rows = table.querySelectorAll('tr');
+
+  // Find cell position
+  const currentRow = cell.closest('tr');
+  const rowIndex = Array.from(rows).indexOf(currentRow);
+  const cellIndex = Array.from(currentRow.children).indexOf(cell);
+
+  // Clear previous highlights
+  clearHighlights();
+
+  // Highlight current row
+  currentRow.querySelectorAll('td, th').forEach(c => {
+    c.classList.add('row-highlight');
+  });
+
+  // Highlight current column
+  rows.forEach((row, rIndex) => {
+    const colCell = row.children[cellIndex];
+    if (colCell) {
+      if (rIndex === rowIndex) {
+        // Intersection cell gets special highlighting
+        colCell.classList.remove('row-highlight');
+        colCell.classList.add('row-col-highlight');
+      } else {
+        colCell.classList.add('col-highlight');
+      }
+    }
+  });
+}
+
+function clearHighlights() {
+  const table = document.getElementById('results-grid');
+  if (!table) return;
+
+  table.querySelectorAll('.row-highlight, .col-highlight, .row-col-highlight').forEach(cell => {
+    cell.classList.remove('row-highlight', 'col-highlight', 'row-col-highlight');
+  });
+}
+</script>
+{{ end }}

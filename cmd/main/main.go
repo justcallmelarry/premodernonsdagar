@@ -40,7 +40,7 @@ func main() {
 	}
 
 	// Start the web server
-	mux := handlers.SetupRoutes()
+	mux := handlers.SetupRoutes(config)
 
 	// Start the server
 	serverAddr := ":8080"

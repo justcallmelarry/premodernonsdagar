@@ -271,7 +271,7 @@ def decklist(date: str, player: str, deck: str = "") -> None:
 
 
 @app.command()
-def download() -> None:
+def download(force: bool = False) -> None:
     """
     Download files from S3 bucket, only downloading files with changed ETags.
     """
@@ -309,7 +309,7 @@ def download() -> None:
             current_etags[relative_path] = etag
 
             stored_etag = stored_etags.get(relative_path)
-            if stored_etag != etag:
+            if stored_etag != etag or force:
                 files_to_download.append((key, etag))
 
     if not files_to_download:

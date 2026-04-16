@@ -47,3 +47,6 @@ config.toml
 scripts/.etags.hash
 scripts/.git.ref
 compose.yml
+.claude/
+.superpowers/
+docs/
