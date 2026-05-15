@@ -107,6 +107,8 @@ type StatsContainer struct {
 type PlayerEventData struct {
 	TotalMatchesPlayed int
 	TotalWins          int
+	ExtraMatchesPlayed int
+	ExtraMatchesWon    int
 }
 
 type HistoryEntry struct {

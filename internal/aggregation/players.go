@@ -21,7 +21,6 @@ func (o *GlickoOpponent) RD() float64    { return o.rd }
 func (o *GlickoOpponent) Sigma() float64 { return o.sigma }
 func (o *GlickoOpponent) SJ() float64    { return o.score }
 
-
 // createOpponentMatchups combines wins and losses into matchup records with win-loss format
 func createOpponentMatchups(wonAgainst, lostAgainst map[string]int) []StatsContainer {
 	allOpponents := make(map[string]bool)
@@ -222,6 +221,18 @@ func aggregatePlayerStats() error {
 				if !isExtraForP2 && result.Winner == match.Player2 {
 					eventPlayerData[result.Winner].TotalWins++
 				}
+				if isExtraForP1 {
+					eventPlayerData[match.Player1].ExtraMatchesPlayed++
+					if result.Winner == match.Player1 {
+						eventPlayerData[match.Player1].ExtraMatchesWon++
+					}
+				}
+				if isExtraForP2 {
+					eventPlayerData[match.Player2].ExtraMatchesPlayed++
+					if result.Winner == match.Player2 {
+						eventPlayerData[match.Player2].ExtraMatchesWon++
+					}
+				}
 				players[result.Winner].MatchesWon++
 				players[result.Loser].MatchesLost++
 
@@ -277,8 +288,8 @@ func aggregatePlayerStats() error {
 				if _, exists := decks[result.Name][result.Deck]; !exists {
 					decks[result.Name][result.Deck] = &DeckStats{}
 				}
-				decks[result.Name][result.Deck].Wins += eventPlayerData[result.Name].TotalWins
-				decks[result.Name][result.Deck].Losses += eventPlayerData[result.Name].TotalMatchesPlayed - eventPlayerData[result.Name].TotalWins
+				decks[result.Name][result.Deck].Wins += eventPlayerData[result.Name].TotalWins + eventPlayerData[result.Name].ExtraMatchesWon
+				decks[result.Name][result.Deck].Losses += eventPlayerData[result.Name].TotalMatchesPlayed - eventPlayerData[result.Name].TotalWins + eventPlayerData[result.Name].ExtraMatchesPlayed - eventPlayerData[result.Name].ExtraMatchesWon
 			}
 		}
 
@@ -512,4 +523,3 @@ func ParseMatchResult(match Match) MatchResult {
 		}
 	}
 }
-
