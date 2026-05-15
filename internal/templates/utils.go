@@ -15,7 +15,7 @@ var TemplateFuncs = map[string]interface{}{
 	"slice":    Slice,
 	"add":      func(a, b int) int { return a + b },
 	"contains": func(slice []string, item string) bool { return slices.Contains(slice, item) },
-	"json":     func(v interface{}) template.JS {
+	"json": func(v interface{}) template.JS {
 		jsonBytes, _ := json.Marshal(v)
 		return template.JS(jsonBytes)
 	},
